@@ -1,0 +1,46 @@
+body{
+	font-family: Verdana, Tahoma, "sans-serif";
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #C8C8FF;
+}
+.left{
+	float:left;
+	margin-top: 10%;
+	margin-left: 100px;
+	width: 350px;
+	overflow: hidden;
+}
+
+.info{
+	padding-top: 10%;
+
+}
+
+.login{
+	text-align: center;
+	overflow: hidden;
+	padding: 10px;
+	border: 3px solid black;
+	border-radius: 15px;
+	width: 250px;
+}
+.signup{
+	overflow: hidden;
+	margin-top: 50px;
+
+}
+input[type="text"]{
+	float: right;
+}
+
+input[type ="submit"]{
+	width: 80px;
+	margin-top: 20px;
+	font-size: 20px;
+}
+button[type = "submit"]{
+	width: 300px;
+	font-size: 30px;
+}
