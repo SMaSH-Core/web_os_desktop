@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset='utf-8' />
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"
+                type="text/javascript"></script>
+        <script src="/users/GUEST/pageslide.js"
+                type="text/javascript"></script>
+        <script src="/users/GUEST/main.js"
+                type="text/javascript"></script>
+        <link href=/users/<%= UserID %>/main.css rel="stylesheet"
+                type="text/css">
+            
+             <% include ../GUEST/mainjs %>
+             <% include ../GUEST/pageslide %>
+        
+        <script>
+            var app = angular.module("app", ["pageslide-directive"]);
+
+            angular.element(document).ready(function () {
+                if (console.assert)
+                    console.assert(document.querySelectorAll('body > .ng-pageslide').length == 9, 'Made all of them')
+            });
+        </script>
+    </head>
+
+    <body ng-app="app" ng-controller = "Ctrl">
+
+         <h1>/users/<%= UserID %>/main.css</h1>
+        <!-- MAIN CONTENT -->
+        <div id = "information"> 
+                <button id="wid_but" pageslide="top" ps-speed="0.5" href="#demo-top">widget</button>
+                <%= UserName %> 
+                <form action = "/logout" method = "post">
+                <button type = "submit"> logout </button>
+                </form>
+        </div>
+
+        <div id="main" style="padding:20px">
+            <div id="section1">
+                <p>Pivot</p>
+
+                
+            </div>
+
+            <div id = "dock">
+                <button id = "apps" ng-click = "slide()">Apps</button>
+                <p class = "panel" ng-show="slideapps">
+                <a href = "http://www.naver.com" target = "_blank">
+                    <img src = "http://www.naver.com/favicon.ico?1" />
+                </a>
+                <a href = "http://www.daum.net" target = "_blank">
+                    <img src = "http://i1.daumcdn.net/icon/opengraph/daum1.png" />
+                </a>
+                <a href = "https://github.com/" target = "_blank">
+                    <img src = "https://assets-cdn.github.com/images/modules/open_graph/github-mark.png" />
+                </a>
+                <a href = "https://www.facebook.com/" target = "_blank">
+                    <img src = "https://static.xx.fbcdn.net/rsrc.php/yl/r/H3nktOa7ZMg.ico" />
+                </a>
+                </p>
+            </div>
+
+            <div id="widget">
+
+                <div style="padding:20px" id="demo-top">
+                    <button class="wid_set">-</button>
+                    <button class="wid_set">+</button>
+                    <h2>Widget</h2>
+                    <form method="get" action="http://www.google.com/search" target="_blank">
+                        <input type="text" name="q" size=15>
+                        <button type = "submit" >search</button>
+                    </form>
+
+                    <a id="close" >Close</a>
+                </div>
+
+            </div>
+                                
+            
+         </div>
+
+
+    </body>
+</html>

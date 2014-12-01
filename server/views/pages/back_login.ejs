@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		<meta charset="utf-8" />
+		<link href="/pages/login.css" rel="stylesheet"
+                type="text/css">
+	</head>
+	<body>
+		<div class = "left">
+			<h1>PIVOT</h1>
+		
+			<p>Welcome to pivot. <br />
+				This space provide web OS service.
+			</p>
+			<p>Advantage</p>
+			<ul>
+				<li>Convinent</li>
+				<li>Accessibility</li>
+			</ul>
+		</div>
+		<div class = "info">
+			<% 
+			if(UserID == 'DEFAULT') 
+			{ %>
+				<h2>Sign in</h2>
+				<div class = "login">
+					<form action = "login" method = "post">
+						<label for="NAME">ID :</label>
+						<input type = "text" size = "20" name = "NAME" /> <br />
+						<label for="pwd">Password :</label>
+						<input type = "password" size = "20" name = "pwd" /> <br />
+						<input type = "submit" value ="Login" />
+					</form>
+	
+			<% }
+			else 
+			{ %>
+				<h2>login</h2>
+				<h2><%= UserID %></h2>
+			<% } %>
+				</div>
+				<div class = "signup">
+				<h2>If you don't have a account, please sign up</h2>
+
+					<a href="signup"><button>Sign up</button></a>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
