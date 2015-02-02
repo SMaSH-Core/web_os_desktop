@@ -15,5 +15,4 @@ welcome to pivot.gift!
 
 #### Client
 * Language : `Angular.js`, `HTML`, `CSS`
->>>>>>> FETCH_HEAD
 
