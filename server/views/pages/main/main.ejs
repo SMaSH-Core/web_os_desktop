@@ -77,7 +77,7 @@
                   for(var i = 0; i < widgetmemo.widget.length; i++){ %>
                     <div ng-draggable class="widget w_memo" style="position: relative; z-index: 0; left: <%- widgetmemo.widget[i].left %>; top:  <%- widgetmemo.widget[i].top %>;" >
                         <div class="memo_end">
-                            <img ng-show="show_del" class="end"src="pages/images/wid_del.png"/>
+                            <img ng-show="show_del" class="end"src="/pages/images/wid_del.png"/>
                         </div>
                         <textarea rows="8" cols="25"><%- widgetmemo.widget[i].memo %></textarea>
                     </div>
@@ -101,7 +101,7 @@
                         </ul>
                     </div>
                     <div class = "subdock" id = "centerdock">
-                        <button id = "apps" ng-click = "slide()"><img src="pages/images/apps.png" /></button>
+                        <button id = "apps" ng-click = "slide()"><img src="/pages/images/apps.png" /></button>
                     </div>
                     <div class = "subdock" id = "rightdock" droppable drop = "handleDrop()">
                         <ul id="rightdocklist">
@@ -120,13 +120,13 @@
                     <div id = "modifyurl">
                         <input id = "slurl" type = "text" name = "url" ng-show = "slideurl" size = "25" placeholder = "http://"/>
                         <button id = "addurl" ng-click = "addurl()" >
-                            <img src = "pages/images/addurl.png" class = "addurll"/>
+                            <img src = "/pages/images/addurl.png" class = "addurll"/>
                         </button>
                         
                         <!--<button id = "addurl2" type = "submit" ng-show = "slideurl" class = "addurll" ><img src = "/users/GUEST/noun_21727.png"/></button>-->
                     </div>
                     <div id = "trash" droppable>
-                        <img src = "pages/images/trash.png" />
+                        <img src = "/pages/images/trash.png" />
                     </div>
                     <ul id = "panelul" droppable>
                     <% 

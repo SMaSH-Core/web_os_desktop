@@ -10,6 +10,27 @@ module.exports = function (app, passport,module){
     	res.render('pages/login/login');
     });
 
+	app.get('/meee',function (req, res){
+        var temp = [];
+
+        for(var i = 0; i<3; i++)
+        {
+            var newwidget = {
+                "memo": 'hieefefee'
+            }
+            temp.push(newwidget);
+        }
+
+        console.log(temp);
+
+
+        res.render('MEMO/memo',{
+        UserID : 'yaho',
+        UserName : 'nice',
+        widget : temp});
+    
+	});
+
     app.get('/signup',function (req, res)
     {
     	res.render('pages/signup/signup');
