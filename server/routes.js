@@ -40,6 +40,17 @@ module.exports = function (app, passport,module){
     	res.render('pages/signup/signup');
     });
 
+    app.get('/mobile_main', function (req, res){
+        var wid = "{\"widget\":[]}";
+        var sessionApp = req.user.app.link;
+
+        res.render('pages/main/mobile_main',{
+        UserID : req.user.email,
+        UserName : req.user.name,
+        userapp : sessionApp,
+        widget : wid});
+    });
+
     app.get('/main',module.isLoggedIn,function (req, res){
     	var wid = "{\"widget\":[]}";
         var sessionApp = req.user.app.link;
