@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp" ng-controller="AppController">
+	<head>
+		<meta charset="utf-8" />
+		<link rel='stylesheet' type='text/css' href='/pages/mobile/demo/demo.css' />
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>
+		<script src="http://code.angularjs.org/1.2.0rc1/angular-route.min.js"></script>
+		<script src="http://code.angularjs.org/1.2.0rc1/angular-touch.min.js"></script>
+		<script src="/pages/mobile/demo/demo.js"></script>
+	</head>
+
+	<body>
+
+		<div id="menuleft" ng-class="{hide:!showmenu,slide:showmenu}">
+			<h1>Demo</h1>
+			<ul>
+				<li><a href ="/meee" ng-click="toggleMenu()">Link 1</a></li>
+				<li><a ng-click="toggleMenu()">Link 2</a></li>
+				<li><a ng-click="toggleMenu()">Link 3</a></li>
+			</ul>
+		</div>
+
+		<div id="all" ng-class="{hide:showmenu,slide:!showmenu}">
+			<div class="overlay" ng-class="{show:showmenu}" ng-swipe-left="showmenu=false"></div>
+			<div id="header">
+				<button ng-click="toggleMenu()"></button>
+				<h1>Demo</h1>
+			</div>
+
+			<div id="wrapper">
+				<>
+			</div>
+		</div>
+
+		
+	</body>
+</html>

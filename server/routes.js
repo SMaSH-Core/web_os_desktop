@@ -10,6 +10,10 @@ module.exports = function (app, passport,module){
     	res.render('pages/login/login');
     });
 
+     app.get('/mobile',function (req, res){
+        res.render('pages/mobile/demo/demo');
+    });
+
 	app.get('/meee',function (req, res){
         var temp = [];
 
@@ -24,7 +28,7 @@ module.exports = function (app, passport,module){
         console.log(temp);
 
 
-        res.render('MEMO/memo',{
+        res.render('pages/mobile/MEMO/memo',{
         UserID : 'yaho',
         UserName : 'nice',
         widget : temp});
