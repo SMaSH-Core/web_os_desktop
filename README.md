@@ -11,10 +11,10 @@ welcome to pivot.gift!
 
 ## 개발환경
 #### Server
-* Language : `Node.js`, `ejs`
+* `Node.js`, `ejs`
 
 #### Client
-* Language : `Angular.js`, `HTML`, `CSS`
+* `Angular.js`, `HTML`, `CSS`
 * 
 
 #서버쪽 브랜치 -skeletonCode
