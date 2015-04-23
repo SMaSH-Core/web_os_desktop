@@ -8,7 +8,16 @@ module.exports = function (app, passport,module){
     	res.render('login');
     });
 
-
+    app.get('/a', function(req,res){
+       // res.render('template/d_main_cloud_list',{fileList: req.body})
+        console.log('====temp====get');
+        console.log(req.body);
+    });
+    app.post('/template/d_main_cloud_list.ejs', function(req,res){
+        //res.render('template/d_main_cloud_list',{fileList: req.body.fileList})
+        console.log('====temp====post');
+        console.log(req.body.fileList);
+    });
     app.get('/login',function (req, res){
     	res.render('login');
     });

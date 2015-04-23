@@ -92,8 +92,7 @@
                         }else{
                              var h2dropauth = document.getElementById('dropauth');
                              h2dropauth.style.color = 'black';   
-                             fileList = readDropFileList(fileList);
-                             console.log(fileList);
+                             readDropFileList();
                         }
                 });
             }
@@ -179,7 +178,11 @@
                             fileList.push(file);
                         }  
                         console.log(fileList);
-                        new EJS({url: 'template/d_main_cloud_list.ejs'}).update('dropbox', fileList);
+                        new Ajax.Request("http://localhost:9080/a",{
+                            method: "get",
+                            parameters: fileList
+                        });
+                        //new EJS({url: '/template/d_main_cloud_list.ejs'}).update('dropbox', {hi:'hello'});
                 });              
             }
 

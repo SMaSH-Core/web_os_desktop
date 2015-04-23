@@ -1,6 +1,6 @@
 <div class="header">
 <div class="alias">
-    <h2><%= title %></h2>
+    <h2>dropbox</h2>
 </div>
 <div class="button">
     <button>upload</button>
@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-    <%  for (var i = fileList.length - 1; i >= 0; i--) { %>
+    <%  for (var i = len(fileList) - 1; i >= 0; i--) { %>
         <tr>
             <td class="class"><%= fileList[i].type %></td>
             <td class="name"><a href=""><%= fileList[i].name %></a></td>
