@@ -21,7 +21,7 @@ module.exports = function (app, passport,module){
     app.get('/main',module.isLoggedIn,function (req, res){
     	var wid = "{\"widget\":[]}";
         var sessionApp = req.user.app.link;
-        currentpath = './public/users/'+req.user.email;
+        currentpath = './cloud/users/'+req.user.email;
         var info = dirTree(currentpath);
         console.log(info);
         

@@ -94,7 +94,7 @@ module.exports = function(passport){
 	                    if(err)
 	                        return done(err);
 
-	                    var dirpath ='./public/users/'+req.param('email');
+	                    var dirpath ='./cloud/users/'+req.param('email');
 	                    fs.mkdir(dirpath, 0777, function(err) {
 						  if(err)
 						  {
