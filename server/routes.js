@@ -8,7 +8,7 @@ module.exports = function (app, passport,module){
     	res.render('login');
     });
 
-    app.get('/a', function(req,res){
+    app.get('/template/d_main_cloud_list.ejs', function(req,res){
        // res.render('template/d_main_cloud_list',{fileList: req.body})
         console.log('====temp====get');
         console.log(req.body);
@@ -16,7 +16,12 @@ module.exports = function (app, passport,module){
     app.post('/template/d_main_cloud_list.ejs', function(req,res){
         //res.render('template/d_main_cloud_list',{fileList: req.body.fileList})
         console.log('====temp====post');
-        console.log(req.body.fileList);
+        console.log(req.body);
+    });
+    app.post('/a', function(req,res){
+        console.log('=====a=====');
+        console.log(req.params['fileList']);
+        res.render('template/d_main_cloud_list',{fileList: req.body});
     });
     app.get('/login',function (req, res){
     	res.render('login');

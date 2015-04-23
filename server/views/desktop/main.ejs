@@ -178,11 +178,15 @@
                             fileList.push(file);
                         }  
                         console.log(fileList);
-                        new Ajax.Request("http://localhost:9080/a",{
-                            method: "get",
-                            parameters: fileList
+                        var myjax = new Ajax.Updater(
+                            { success: 'dropbox' },
+                            "http://localhost:9080/a",
+                            {
+                            method: "post",
+                            parameters: {fileList: 'hihi'},
+                            evalScripts: true
                         });
-                        //new EJS({url: '/template/d_main_cloud_list.ejs'}).update('dropbox', {hi:'hello'});
+                       // new EJS({url: '/template/d_main_cloud_list.ejs', method: 'POST'}).update('dropbox', fileList);
                 });              
             }
 
