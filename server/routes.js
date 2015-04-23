@@ -24,6 +24,18 @@ module.exports = function (app, passport,module){
         currentpath = './cloud/users/'+req.user.email;
         var info = dirTree(currentpath);
         console.log(info);
+        console.log('================');
+        console.log(res.locals);
+
+        if(res.locals.is_tablet){
+            console.log("it is tablet");
+        }
+        else if(res.locals.is_desktop){
+            console.log("it is desktop");
+        }
+        else{
+            console.log("it is mobile ")
+        }
         
 
     	res.render('desktop/main',{

@@ -21,6 +21,8 @@
                 popup_Btn.onclick = go_popup;
                 var Btn_ajax = document.getElementById("Btn_ajax");
                 Btn_ajax.onclick = saveApp;
+                var h2dropauth = document.getElementById('dropauth');
+                h2dropauth.onclick = authDropbox;
             }
 
             function checkAuth() {
@@ -62,14 +64,17 @@
                 }
                 if(client.isAuthenticated())
                 {
-                    alert('truehi');
+
+                    var h2dropauth = document.getElementById('dropauth');
+                    h2dropauth.style.color = 'black';
+                  
+          
                 }
                 else
                 {
-                    alert('nonoe');
+                    var h2dropauth = document.getElementById('dropauth');
+                    h2dropauth.style.color = 'red';
                 }
-
-
             }
 
             function authDropbox(){
@@ -84,6 +89,11 @@
                     datastoreManager.openDefaultDatastore(function (error,datastore) {
                         if (error) {
                             alert('Error opening default datastore: ' + error);
+                        }else{
+                             var h2dropauth = document.getElementById('dropauth');
+                             h2dropauth.style.color = 'black';   
+                             fileList = readDropFileList(fileList);
+                             console.log(fileList);
                         }
                 });
             }
@@ -153,32 +163,24 @@
 
 
             /////////
-            function readDropFileList() {
-                client.readdir('/', function (error,reply) {
-                    if (error) {
-                        alert('Error: ' + error);
-                    } else {
-                        console.log('===========readdir============')
-                        console.log(reply);   
-
-                    }
-                });
-
+            function readDropFileList() {                
                 client.stat('/',{readDir :true},function(error,reply,stat,result)
                 {
-                    if (error) {
-                        alert('Error: ' + error);
-                    } else {
-                        console.log('====read stat===')
-                        console.log(reply);
-                        console.log('=====fourth stat====')
-                        console.log('stat is '+stat)
-                        console.log(stat);
-                        console.log('stat3 is '+stat[3])  
-                        console.log('===result==='); 
-                    }
-
-                });
+                      var fileList =[];
+                      for(var i = 0; i<stat.length; i++){
+                         var file = {
+                                name: stat[i].name,
+                                size: stat[i].size,
+                                date: stat[i].modifiedAt,
+                                path: stat[i].path,
+                                type: stat[i].mimeType
+                            };
+                          
+                            fileList.push(file);
+                        }  
+                        console.log(fileList);
+                        new EJS({url: 'template/d_main_cloud_list.ejs'}).update('dropbox', fileList);
+                });              
             }
 
             function writeToDrop() {

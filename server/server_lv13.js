@@ -11,7 +11,8 @@ var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 var session = require('express-session');
 var morgan = require('morgan');
-
+//device
+var device = require('express-device');
 
 
 
@@ -40,6 +41,11 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
+//device 
+app.use(device.capture());
+device.enableDeviceHelpers(app);
+device.enableViewRouting(app);
+
 
 //app.use(module.showSession);
 

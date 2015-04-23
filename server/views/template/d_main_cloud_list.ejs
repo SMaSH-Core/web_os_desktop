@@ -1,0 +1,33 @@
+<div class="header">
+<div class="alias">
+    <h2><%= title %></h2>
+</div>
+<div class="button">
+    <button>upload</button>
+    <button>newFolder</button>
+    <button>delete</button>
+    <button>share</button>
+</div>
+</div>
+<div class="section">
+<table class="table_list" cellspacing="0">          
+    <thead>
+        <tr>
+            <th width="10%">타입</th>
+            <th width="50%">이름</th>
+            <th width="20%">크기</th>
+            <th width="20%">날짜</th>
+        </tr>
+    </thead>
+    <tbody>
+    <%  for (var i = fileList.length - 1; i >= 0; i--) { %>
+        <tr>
+            <td class="class"><%= fileList[i].type %></td>
+            <td class="name"><a href=""><%= fileList[i].name %></a></td>
+            <td class="size"><%= fileList[i].size %></td>
+            <td class="date"><%= fileList[i].date %></td>
+        </tr>
+    <%  }; %>
+    </tbody>
+</table>
+</div>
