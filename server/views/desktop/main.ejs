@@ -3,15 +3,8 @@
 
     <head>
         <meta charset='utf-8' />
-
-        <link href="/pages/main/css/main.css" rel="stylesheet"   
-                type="text/css">
-        <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js" type="text/javascript"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js" type="text/javascript"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
-        <script src="/pages/main/js/main.js"
-                type="text/javascript"></script>
-
+        <% include ../template/c_lib_head.ejs %>
+        <% include ../template/d_main_head.ejs %>
     </head>
 
     <body ng-app="app" ng-controller = "Ctrl">
@@ -34,7 +27,7 @@
             </div>
 	<div id="info">
             <form action = "/logout" method="post">
-                <p class="logout"><%= UserName %></p> <button ng-click="save()" class="logout" type = "submit"><img id = "logout" src = "pages/images/logout.png" /></button>
+                <p class="logout"><%= UserName %></p> <button ng-click="save()" class="logout" type = "submit"><img id = "logout" src = "/images/logout.png" /></button>
             </form>
             <div class="clock" >
                 <span my-current-time="format"></span>
@@ -77,7 +70,7 @@
                   for(var i = 0; i < widgetmemo.widget.length; i++){ %>
                     <div ng-draggable class="widget w_memo" style="position: relative; z-index: 0; left: <%- widgetmemo.widget[i].left %>; top:  <%- widgetmemo.widget[i].top %>;" >
                         <div class="memo_end">
-                            <img ng-show="show_del" class="end"src="pages/images/wid_del.png"/>
+                            <img ng-show="show_del" class="end"src="/images/wid_del.png"/>
                         </div>
                         <textarea rows="8" cols="25"><%- widgetmemo.widget[i].memo %></textarea>
                     </div>
@@ -101,7 +94,7 @@
                         </ul>
                     </div>
                     <div class = "subdock" id = "centerdock">
-                        <button id = "apps" ng-click = "slide()"><img src="pages/images/apps.png" /></button>
+                        <button id = "apps" ng-click = "slide()"><img src="/images/apps.png" /></button>
                     </div>
                     <div class = "subdock" id = "rightdock" droppable drop = "handleDrop()">
                         <ul id="rightdocklist">
@@ -120,13 +113,13 @@
                     <div id = "modifyurl">
                         <input id = "slurl" type = "text" name = "url" ng-show = "slideurl" size = "25" placeholder = "http://"/>
                         <button id = "addurl" ng-click = "addurl()" >
-                            <img src = "pages/images/addurl.png" class = "addurll"/>
+                            <img src = "/images/addurl.png" class = "addurll"/>
                         </button>
                         
                         <!--<button id = "addurl2" type = "submit" ng-show = "slideurl" class = "addurll" ><img src = "/users/GUEST/noun_21727.png"/></button>-->
                     </div>
                     <div id = "trash" droppable>
-                        <img src = "pages/images/trash.png" />
+                        <img src = "/images/trash.png" />
                     </div>
                     <ul id = "panelul" droppable>
                     <% 

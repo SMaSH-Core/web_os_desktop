@@ -2,24 +2,24 @@ module.exports = function (app, passport,module){
 
 	//Request Method GET
 	app.get('/', function (req, res) {
-    	res.render('pages/login/login');
+    	res.render('/login');
     });
 
 
     app.get('/login',function (req, res){
-    	res.render('pages/login/login');
+    	res.render('/login');
     });
 
     app.get('/signup',function (req, res)
     {
-    	res.render('pages/signup/signup');
+    	res.render('signup');
     });
 
     app.get('/main',module.isLoggedIn,function (req, res){
     	var wid = "{\"widget\":[]}";
         var sessionApp = req.user.app.link;
 
-    	res.render('pages/main/main',{
+    	res.render('desktop/main',{
     	UserID : req.user.email,
     	UserName : req.user.name,
     	userapp : sessionApp,

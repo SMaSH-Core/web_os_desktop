@@ -26,8 +26,7 @@ var module = require('./module.js');
 //passport 
 var passport = require('passport');
 
-
-app.use(express.static(__dirname+'/views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded());
@@ -38,6 +37,7 @@ app.use(session({
   saveUninitialized: false,		
   resave : false			
 }));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 
