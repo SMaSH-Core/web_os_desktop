@@ -3,7 +3,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var db = require('./db.js'); //
-
+var fs = require('fs');
 
 module.exports = function(passport){
 
@@ -63,6 +63,7 @@ module.exports = function(passport){
 	        passReqToCallback : true
 	    }
 	    ,function (req,email, pwd, done) {
+	    		console.log('-================================');
 	    	     console.log(req.body);
 	        db.userModel.findOne({'email':email},
 	        function (err,userinfo){ //findOne 쿼리에 부합하는 데이터중 하나만 리턴하는 함수
@@ -92,7 +93,16 @@ module.exports = function(passport){
 	                userRec.save(function (err,silence){
 	                    if(err)
 	                        return done(err);
-	                var user = { 'name':userRec.name,
+
+	                    var dirpath ='./public/users/'+req.param('email');
+	                    fs.mkdir(dirpath, 0777, function(err) {
+						  if(err)
+						  {
+						  	console.log('mkdir Err'); 
+						  	return done(err);
+						  }
+						});
+	               		var user = { 'name':userRec.name,
 	                             'email': userRec.email,
 	                             'app' : DefaultLink
 	                            };

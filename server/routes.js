@@ -1,13 +1,16 @@
+var fs = require('fs');
+var path = require('path');
+
 module.exports = function (app, passport,module){
 
 	//Request Method GET
 	app.get('/', function (req, res) {
-    	res.render('/login');
+    	res.render('login');
     });
 
 
     app.get('/login',function (req, res){
-    	res.render('/login');
+    	res.render('login');
     });
 
     app.get('/signup',function (req, res)
@@ -18,12 +21,18 @@ module.exports = function (app, passport,module){
     app.get('/main',module.isLoggedIn,function (req, res){
     	var wid = "{\"widget\":[]}";
         var sessionApp = req.user.app.link;
+        currentpath = './public/users/'+req.user.email;
+        var info = dirTree(currentpath);
+        console.log(info);
+        
 
     	res.render('desktop/main',{
-    	UserID : req.user.email,
-    	UserName : req.user.name,
-    	userapp : sessionApp,
-    	widget : wid});
+        	UserID : req.user.email,
+        	UserName : req.user.name,
+        	userapp : sessionApp,
+        	widget : wid,
+            local_folder : info 
+        });
     });
   
   
@@ -76,7 +85,7 @@ module.exports = function (app, passport,module){
 
 
     app.get('*', function (req, res) {
-    		res.render('pages/login/login');
+    		res.render('login');
     });
 
 
@@ -90,3 +99,25 @@ module.exports = function (app, passport,module){
         res.send(req.user);
     });
 }
+
+
+    function dirTree(filename) {
+        var stats = fs.lstatSync(filename),
+            info = {
+                path: filename,
+                name: path.basename(filename)
+            };
+
+        if (stats.isDirectory()) {
+            info.type = "folder";
+            info.children = fs.readdirSync(filename).map(function(child) {
+                return dirTree(filename + '/' + child);
+            });
+        } else {
+            // Assuming it's a file. In real life it could be a symlink or
+            // something else!
+            info.type = "file";
+        }
+
+        return info;
+    }
