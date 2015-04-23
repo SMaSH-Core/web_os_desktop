@@ -236,12 +236,15 @@
             </div>
 	<div id="info">
             <form action = "/logout" method="post">
-                <p class="logout"><%= UserName %></p> <button ng-click="save()" class="logout" type = "submit"><img id = "logout" src = "/images/logout.png" /></button>
+                <!-- 로그아웃 버튼 옆의 유저 이름 글씨 생
+                <p class="logout"><%= UserName %></p>--> <button ng-click="save()" class="logout" type = "submit"><img id = "logout" src = "/images/logout.png" /></button>
             </form>
+            <!-- 상단 바의 시계 생략
             <div class="clock" >
                 <span my-current-time="format"></span>
                 <div>{{propiedadPrueba}}</div>
             </div>
+        -->
 	</div>
         </div>
         <div id="main">
@@ -286,13 +289,23 @@
                         <textarea rows="8" cols="25"><%- widgetmemo.widget[i].memo %></textarea>
                     </div>
                 <%   }  %>
-
-
+                
+                <!-- 바탕화면의 가운데 시계와 인사말 -->
+                <div class="center">
+                    <div class="clock" >
+                        <span my-current-time="format"></span>
+                        <div>{{propiedadPrueba}}</div>
+                    </div>
+                    <div class="greeting">
+                        Hello, <%= UserName %>!
+                    </div>
+                </div>
 
             </div>
 
             <div id = "dock" ng-controller = "DragDropCtrl">
                 <div id = "ddock">
+                    <!-- 독바의 왼쪽과 가운데 생략
                     <div class = "subdock" id = "leftdock" droppable drop = "handleDrop()">
                         <ul id="leftdocklist">
                     <% 
@@ -306,7 +319,7 @@
                     </div>
                     <div class = "subdock" id = "centerdock">
                         <button id = "apps" ng-click = "slide()"><img src="/images/apps.png" /></button>
-                    </div>
+                    </div>-->
                     <div class = "subdock" id = "rightdock" droppable drop = "handleDrop()">
                         <ul id="rightdocklist">
                     <% 
@@ -319,18 +332,26 @@
                         </ul>
                     </div>
                 </div>
-                <div id = "panel" ng-show="slideapps" >
+                <!-- 패널의 슬라이드 기능 생략
+                <div id = "panel" ng-show="slideapps" >-->
+                <!-- 앱서랍 버튼 클릭하면 패널 나타남 -->
+                <div id = "panel" ng-show="show_panel">
                     
                     <div id = "modifyurl">
                         <input id = "slurl" type = "text" name = "url" ng-show = "slideurl" size = "25" placeholder = "http://"/>
+                        <!-- url 추가 이미지 생략
                         <button id = "addurl" ng-click = "addurl()" >
                             <img src = "/images/addurl.png" class = "addurll"/>
-                        </button>
+                        </button>-->
+                        <!-- url 추가 글씨 -->
+                        <a id="addurl" ng-click="addurl()"> + </a>
                         
                         <!--<button id = "addurl2" type = "submit" ng-show = "slideurl" class = "addurll" ><img src = "/users/GUEST/noun_21727.png"/></button>-->
                     </div>
+                    
                     <div id = "trash" droppable>
-                        <img src = "/images/trash.png" />
+                        <!-- 휴지통 이미지 생략
+                        <img src = "/images/trash.png" />-->
                     </div>
                     <ul id = "panelul" droppable>
                     <% 
@@ -342,7 +363,8 @@
                     <%   }}  %>
                     </ul>
                 </div>
-                
+                <!-- 앱서랍 버튼 생성 -->
+                <div id = "apps" ng-click = "show_panel = !show_panel" id="addwid">Apps</div>
             </div>
                                 
          </div>

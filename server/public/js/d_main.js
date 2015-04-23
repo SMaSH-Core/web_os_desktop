@@ -43,7 +43,10 @@ function Ctrl($scope, $http){
 	*/
 	$scope.slideurl = false;
 
-	$scope.format = 'h:mm:ss a';
+	/* 시계 포맷 생략
+	$scope.format = 'h:mm:ss a';*/
+	/* 시계 포맷 재설정 */
+	$scope.format = 'h:mm';
 	
 	$scope.lists = [{text:'it is example', done:false}];
 

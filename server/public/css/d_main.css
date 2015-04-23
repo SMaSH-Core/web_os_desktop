@@ -17,7 +17,8 @@ body{
 }
 #real{ 
 	height: 100%;
-	background-color: rgba(255,255,255,0.5); 
+	/* 배경화면 색상 생략
+	background-color: rgba(255,255,255,0.5);*/
 }
 
 p{
@@ -25,19 +26,25 @@ p{
 	text-align: center;
 	margin-top: 10%;
 }
-
+/* 버튼 배경색상 생략
 button{
 	background-color: rgba(255,255,255,0.73);
-}
+}*/
 
 #dock{
+	/* 독바의 크기와 배경색상 생략
 	width: 100%;
 	height: 60px;
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.8);*/
 	bottom: 0%;
 	left: 0%;
 	position: fixed;
 	vertical-align: middle;
+	/* 독바의 크기 재설정 */
+	width: 25%;
+	height: auto;
+	margin-left: 1%;
+	margin-bottom: 1%;
 }
 #ddock{
 	height: 100%;
@@ -47,24 +54,38 @@ button{
 	height : 100%;
 	float : left; 
 }
+/* 왼쪽과 가운데 독바 관련 속성 생략
 #leftdock, #rightdock{
 	width: 43%;
 }
-#leftdock{ padding-right: 2%;}
-#rightdock{ padding-left: 2%;}
+#leftdock{ padding-right: 2%;}*/
+#rightdock{ 
+	padding-left: 2%;
+	/* 오른쪽 독바 관련 속성 추가 */
+	width: 43%;
+}
+#rightdock img{
+	padding-left: 5px;
+}
+/* 왼쪽과 가운데 독바 관련 속성 생략
 #centerdock{
 	width: 10%;
 	text-align: center;
 }
 #rightdock img, #leftdock img{
 	padding-left: 5px;
-}
+}*/
 
 #dock img{
+	/* 오른쪽 독바 이미지(파비콘) 크기 생략
 	width : 50px;
-	height: 50px;
+	height: 50px;*/
 	margin-top: 5px;
 	margin-left: 10px;
+	/* 크기 재설정 */
+	width: 10%;
+	height: 10%;
+
 }
 
 #apps{
@@ -72,36 +93,56 @@ button{
 	height: 100%;
 	min-width: 70px;
 	max-width: 84px;
-	background-color: rgba(255, 255, 255, 0.35);
+	/* 앱서랍 버튼의 배경색상 생략
+	background-color: rgba(255, 255, 255, 0.35);*/
 	border: none;
-	font-size: 13pt;
+	/* 앱서랍 버튼의 폰트 크기 생략
+	font-size: 13pt;*/
+	/* 앱서랍 버튼 속성 추가 */
+	color: white;
+	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: center;
+	display: inline;
+	margin-left: 3%;
+	cursor: pointer;
 }
+/* 앱서랍 버튼 hover속성 생략
 #apps:hover{
 	opacity: 0.7;
-}
+}*/
 #dock #panel a{
 	opacity: 1;
 }
 
 #dock #panel a img{
+	/* 파비콘 크기 생략
 	width: 50px;
-	height: 50px;
+	height: 50px;*/
 	margin-top: 10px;
 	margin-left: 10px;
+	/* 크기 재설정 */
+	width: 30px;
+	height: 30px;
 }
 
 #modifyurl{
-	float :right;
+	/* addurl 버튼(+) 정렬(?) 생략
+	float :right;*/
+	width: 100%;
+	right: 5;
 }
+/* 로그아웃 버튼 옆 사용자 이름 속성 생략
 p.logout{
 	float: left;
 	margin-top: 10px;
-}
+}*/
 
 button.logout{
 	background-color: rgba(0,0,0,0);
 	padding: 0px;
 	border: 0px;
+	/* 버튼 커서 모양 속성 추가 */
+	cursor: pointer;
 }
 #logout{
 	margin-top: 2px;
@@ -112,11 +153,15 @@ button.logout{
 	position: absolute;
 	right: 0px;
 	bottom: 5px;
+	/* 폰트 속성 추가 */
+	color: white;
+	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+/* 현재 이미지 대신 글씨로 대체하였으므로 생략
 #trash img{
 	width: 50px;
 	height : 50px;
-}
+}*/
 
 #panel{
 	text-align: center;
@@ -124,10 +169,15 @@ button.logout{
 	position:relative;
 	min-height: 180px;
 	margin-top: 0px;
+	/* 패널의 모서리 반경(?) 크기 생략 
 	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;*/
+	/* 크기 재설정 및 추가 */
+	border-bottom-left-radius: 5%;
+	border-bottom-right-radius: 5%;
+	border-radius: 3%;
 }
-
+/* 왼쪽 독바 관련 속성 생략
 #leftdocklist li{
 	display: inline;
 }
@@ -138,7 +188,7 @@ button.logout{
 	margin-bottom : 0%;
 	padding-left: 0%;
 	float:right;
-}
+}*/
 #rightdocklist li{
 	display: inline;
 }
@@ -149,6 +199,8 @@ button.logout{
 #panel ul{
 	margin: 0%;
 	padding-left: 0%;
+	/* 리스트의 구분점 생략 */
+	list-style-type: none;
 }
 #panel ul li{
 	display: inline-block;
@@ -158,17 +210,25 @@ button.logout{
 	border-radius: 10px;
 }
 #addurl{
-	background-color: rgba(0,0,0,0);
+	/* url 추가 버튼의 배경색상 생략
+	background-color: rgba(0,0,0,0);*/
 	border: none;
+	/* 속성 추가 */
+	color: gray;
+	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	cursor: pointer;
+	padding: 3%;
+	float: right;
 }
 #dock li a img{ 
 	padding: 0px;
 	border-radius: 10px;
 }
+/* 현재 이미지 대신 글자를 사용하므로 생략
 #addurl img{
 	width: 30px;
 	height : 30px;
-}
+}*/
 
 #addlist{
 	display: none;
@@ -231,7 +291,8 @@ button.logout{
 
 div#topbar{
 	height: 40px;
-	background-color: #232323;
+	/* 탑바의 배경색상 생략
+	background-color: #232323;*/
 	vertical-align: middle;
 	text-align: center;
 }
@@ -239,8 +300,34 @@ div#topbar *{
 	display: inline-block;
 	color: white;
 }
+/* 가운데 시계 및 인사말 div 속성 추가 */
+.center{
+	position: absolute;
+	z-index: 3;
+	top: 50%;
+	left: 50%;
+	width: auto;
+	text-align: center;
+	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-transform: translate(-50%,-50%);
+	-webkit-transform-origin: 50% 50%;
+}
 .clock{
-	margin-top: 10px;
+	/* 시계 속성 생략
+	margin-top: 10px;*/
+	/* 속성 추가 */
+	position: relative;
+	text-align: center;
+	font-size: 160px;
+	font-weight: lighter;
+	color: white;
+}
+/* 인사말 속성 추가 */
+.greeting{
+	text-align: center;
+	font-size: 54px;
+	font-weight: lighter;
+	color: white;
 }
 #info{
 	width: 25%;
@@ -250,9 +337,10 @@ div#topbar *{
 #info form p{
 	font-size: 11pt;
 }
+/* 탑바의 시계 생략
 #topbar .clock{
 	float: right;
-}
+}*/
 #topbar form{
 	margin-left: 20px;
 	float: right;
@@ -292,8 +380,11 @@ ul#addlist{
 	margin: 4px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 40%;
+	/* 크기 생략 
+	width: 40%;*/
 	text-align: center;
+	/* 크기 키움 */
+	width: 50%;
 }
 #gsearch form{
 	display: block;
@@ -323,7 +414,11 @@ ul#addlist{
 #apps img{
 	margin: 0px;
 	margin-top: 2px;
+	/* 크기 생략
 	width: 45px;
-	height: 45px;
+	height: 45px;*/
 	opacity: 0.6;
+	/* 크기 재설정 */
+	width: 30%;
+	height: 30%;
 }
