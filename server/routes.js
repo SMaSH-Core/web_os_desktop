@@ -77,10 +77,12 @@ module.exports = function (app, passport,module){
     app.post('/widget',function (req, res){
     	console.log('post -widget');
     	console.log('parameter is ' +req.body);
+        console.log(req.body);
     });
     app.post('/app',function (req, res){
       	console.log('post -widget');
     	console.log('parameter is ' +req.body);
+        console.log(req.body);
     });
 
 

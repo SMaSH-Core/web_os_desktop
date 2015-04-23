@@ -19,6 +19,8 @@
 
                 var popup_Btn = document.getElementById("CLOUD");
                 popup_Btn.onclick = go_popup;
+                var Btn_ajax = document.getElementById("Btn_ajax");
+                Btn_ajax.onclick = saveApp;
             }
 
             function checkAuth() {
@@ -90,6 +92,13 @@
                 gapi.client.load('drive', 'v2', function() {
                     var file = evt.target.files[0];
                     insertFile(file);
+                });
+            }
+            function saveApp(){
+                alert('ajax');
+                new Ajax.Request("http://localhost:9080/widget",{
+                    method: "post",
+                    parameters: {memo: 'hihi ajax is good'}
                 });
             }
 
@@ -232,6 +241,7 @@
         </div>
         <div id="main">
             <div id = "home" >
+                <button id = "Btn_ajax">Ajax</button>
                 <% include ../template/d_main_cloud %>
                 <!--
                 <div id = "todolists" class="widget">
