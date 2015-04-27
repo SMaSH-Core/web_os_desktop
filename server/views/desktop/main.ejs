@@ -221,12 +221,15 @@
         <!-- MAIN CONTENT -->
         <div id = "topbar">
             <ul id="wid_set">
+                <!--
                 <li class="addwidget" ng-click="show_add = !show_add" id="addwid">add
                     <ul ng-show="show_add" id="addlist">
                         <li class="addmemo">Memo</li>
                     </ul>
                 </li>
                 <li ng-click="show_del =!show_del" id="delwid">delete</li>
+                -->
+                <li class="addmemo">MEMO</li>
             </ul>
             <div id="gsearch">
                 <form method="get" action="http://www.google.com/search" target="_blank">
@@ -236,8 +239,9 @@
             </div>
 	<div id="info">
             <form action = "/logout" method="post">
-                <!-- 로그아웃 버튼 옆의 유저 이름 글씨 생
-                <p class="logout"><%= UserName %></p>--> <button ng-click="save()" class="logout" type = "submit"><img id = "logout" src = "/images/logout.png" /></button>
+                <!-- 로그아웃 버튼 옆의 유저 이름 글씨 생략
+
+                <p class="logout"><%= UserName %></p>--> <button ng-click="save()" class="logout" type = "submit"><img id = "logout" src = "/images/quit.png" /></button>
             </form>
             <!-- 상단 바의 시계 생략
             <div class="clock" >
@@ -251,35 +255,7 @@
             <div id = "home" >
                 <button id = "Btn_ajax">Ajax</button>
                 <% include ../template/d_main_cloud %>
-                <!--
-                <div id = "todolists" class="widget">
-                     <img class="end"src="/users/GUEST/noun_17398.png"/>
-                    <span>{{remain()}} of {{lists.length}} remaining</span>
-                    [ <a href="" ng-click="archive()">archive</a> ]
-                    <ul id = "todolist">
-                        <li ng-repeat = "list in lists">
-                            <input type = "checkbox" ng-model = "list.done">
-                            <span class = "done-{{list.done}}">
-                                {{list.text}};
-                            </span>
-                        </li>
-                    </ul>
-
-                    <form ng-submit = "todo()">
-                        <input type = "text" ng-model = "todotext" size = "30" placeholder = "add new todo list" />
-                        <input class = "btn-primary" type = "submit" value = "add" />
-                    </form>
-                    
-                </div>
-                <div ng-draggable class="widget w_memo">
-                    <div class="delmemo">
-                         <img ng-show="show_del" class="end"src="/users/GUEST/noun_17398.png"/>
-                    </div>
-                    <textarea rows="8" cols="25"></textarea>
-                </div>
-                -->
                 
-
                <% var widgetmemo = JSON.parse(widget);
                   for(var i = 0; i < widgetmemo.widget.length; i++){ %>
                     <div ng-draggable class="widget w_memo" style="position: relative; z-index: 0; left: <%- widgetmemo.widget[i].left %>; top:  <%- widgetmemo.widget[i].top %>;" >
