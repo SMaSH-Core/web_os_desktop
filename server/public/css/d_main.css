@@ -254,6 +254,9 @@ button.logout{
 .end{
 	height: 20px;
 }
+.end:hover{
+	
+}
 .delmemo{
 	float: right;
 	width: 15px;

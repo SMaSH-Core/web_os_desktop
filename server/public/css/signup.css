@@ -27,7 +27,7 @@ body #main{
 	line-height: 1;
 	font-size: 1.25em;
 }
-#main button:hover{
+#main button:hover div img{
 	background-color: rgba(92,216,133,0.8);
 }
 header h1 {
