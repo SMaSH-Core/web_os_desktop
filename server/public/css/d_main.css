@@ -230,20 +230,6 @@ button.logout{
 	height : 30px;
 }*/
 
-#addlist{
-	display: none;
-	color:white;
-	padding: 5px;
-	float: right;
-	clear: both;
-	margin: 0;
-	list-style-type: none;
-	margin-top: 1px;
-}
-#addlist li:hover{
-	background-color: rgba(192, 190, 190, 0.78);
-}
-
 .widget{
 	display: inline-block;
 	margin: 5px;
@@ -265,10 +251,10 @@ button.logout{
 	border: 0;
 	font-size: 13pt;
 	}
-.delmemo{
+.end{
 	height: 20px;
 }
-.end{
+.delmemo{
 	float: right;
 	width: 15px;
 }

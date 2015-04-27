@@ -364,7 +364,7 @@ app.directive('ngDraggable', function($document, $window){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable class="widget w_memo"><div class="delmemo"><img ng-show="show_del" class="end"src="/users/GUEST/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
+        template: '<div ng-draggable class="widget w_memo"><div class="end"><img ng-show="show_del" class="delmemo"src="/users/GUEST/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
     };
 })
 
