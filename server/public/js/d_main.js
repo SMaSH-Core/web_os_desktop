@@ -364,7 +364,7 @@ app.directive('ngDraggable', function($document, $window){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable ng-mouseover="!deletememo"class="widget w_memo"><div class="end"><img ng-show="deletememo" class="delmemo"src="/users/GUEST/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
+        template: '<div ng-draggable ng-mouseover="deletememo=true" class="widget w_memo"><div class="end"><img ng-show="deletememo" class="delmemo"src="/users/GUEST/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
     };
 })
 
@@ -389,7 +389,7 @@ app.directive('addmemo', function($compile){
 app.directive('delmemo', function(){
     var linkFn = function(scope, element, attrs){        
         var delDiv = function(e){           
-        	this.parentNode.remove(this);
+        	this.parentNode.parentNode.remove(this);
         };
         
         element.on('click', delDiv);
