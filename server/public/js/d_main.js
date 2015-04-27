@@ -403,7 +403,7 @@ app.directive('delmemo', function(){
 app.directive('widget', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){     
-        	alert("show!");    
+        	alert(this.childNode.childNode);    
             this.childNode.childNode.css("display","block");
         };
         element.on('mouseover', showdel);
