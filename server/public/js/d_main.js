@@ -6,7 +6,9 @@
 var app = angular.module("app", []);
 
 function Ctrl($scope, $http){
-
+	$('widget').hover(function(){
+            this.children('.delmemo').css("display","none");
+        };
 
 	//the panel that is app bucket is closed first
 	$scope.slideapps = false;
@@ -364,7 +366,7 @@ app.directive('ngDraggable', function($document, $window){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable class="widget w_memo"><div class="end"><img ng-show="deletememo" class="delmemo"src="/users/GUEST/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
+        template: '<div ng-draggable class="widget w_memo"><div class="end"><img class="delmemo"src="/users/GUEST/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
     };
 })
 
@@ -400,4 +402,5 @@ app.directive('delmemo', function(){
         link: linkFn
     };
 });
+
 
