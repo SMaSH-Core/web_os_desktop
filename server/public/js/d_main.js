@@ -403,10 +403,13 @@ app.directive('delmemo', function(){
 app.directive('widget', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){     
-        	alert(this.childNode.childNode);    
-            this.childNode.childNode.css("display","block");
+        	this.childNodes[0].childNodes[0].style.display=block;
         };
+        var notshow=function(e){
+        	this.childNodes[0].childNodes[0].style.display=none;
+        }
         element.on('mouseover', showdel);
+        element.on('mouseleave',notshow);
     };
         
     return {
