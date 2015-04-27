@@ -6,9 +6,6 @@
 var app = angular.module("app", []);
 
 function Ctrl($scope, $http){
-	$('widget').hover(function(){
-            this.children('.delmemo').css("display","none");
-        };
 
 	//the panel that is app bucket is closed first
 	$scope.slideapps = false;
@@ -403,4 +400,17 @@ app.directive('delmemo', function(){
     };
 });
 
+app.directive('widget', function(){
+    var linkFn = function(scope, element, attrs){        
+        var showdel = function(e){         
+            this.childNode.childNode.css("display","block");
+        };
+        element.on('mouseover', showdel);
+    };
+        
+    return {
+        restrict: 'C',
+        link: linkFn
+    };
+});
 

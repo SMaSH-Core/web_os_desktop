@@ -252,31 +252,15 @@ button.logout{
 	font-size: 13pt;
 	}
 .end{
-	height: 20px;
+	height: 22px;
 }
-.end:hover div img{
-	display:inline-block;
-}
+
 .delmemo{
+	display: none;
 	float: right;
 	width: 15px;
 }
-#end_sec{
-	height: 22px;
-}
-#todolists{
-	width: 15%;
-	border: 3px solid orange;
-	border-radius: 10px;
-	background-color: white;
-	padding: 10px;
-}
-#todolist{
-	padding: 0;
-}
-#todolist li{
-	list-style: none;
-}
+
 
 div#topbar{
 	height: 40px;
@@ -351,16 +335,7 @@ div#topbar *{
 #addwid{
 	position: relative;
 }
-ul#addlist{
-	position: absolute;
-	top: 40px;
-	left: 0px;
-	background-color: #232323;
-}
-#addlist li{
-	display: inherit;
-	padding: 10px 7px;
-}
+
 #wid_set li:hover{
 	background-color: rgba(192, 190, 190, 0.78);
 }
