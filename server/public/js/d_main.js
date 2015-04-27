@@ -407,9 +407,9 @@ app.directive('widget', function(){
         };
         var notshow=function(e){
         	this.childNodes[0].childNodes[0].style.display=none;
-        }
+        };
         element.on('mouseover', showdel);
-        element.on('mouseleave',notshow);
+        element.on('mouseout',notshow);
     };
         
     return {
