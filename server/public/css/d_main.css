@@ -240,7 +240,7 @@ button.logout{
 .w_memo{ 
 	display: inline-block;
 	background: yellow;
-	bax-shadow: 5px 5px 5px rgba(100,100,100,0.5);
+	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
 }
 .w_memo:hover{
 	outline-color: rgb(202, 139, 70);
