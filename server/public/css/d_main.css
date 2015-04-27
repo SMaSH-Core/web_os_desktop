@@ -254,8 +254,8 @@ button.logout{
 .end{
 	height: 20px;
 }
-.end:hover{
-	
+.end:hover img{
+	display:inline-block;
 }
 .delmemo{
 	float: right;
