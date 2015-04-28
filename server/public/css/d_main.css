@@ -239,7 +239,7 @@ button.logout{
 }
 .w_memo{ 
 	display: inline-block;
-	background: rgba(86, 152, 200, 0.59);
+	background: rgba(255, 255, 255, 0.18);
 	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
 }
 .w_memo:hover{

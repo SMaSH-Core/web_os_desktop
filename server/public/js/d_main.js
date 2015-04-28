@@ -402,8 +402,11 @@ app.directive('delmemo', function(){
 
 app.directive('widget', function(){
     var linkFn = function(scope, element, attrs){        
-        var showdel = function(e){     
-        	this.childNodes[0].childNodes[0].style.display="block";
+        var showdel = function(e){
+        	setTimeout(function() {
+              this.childNodes[0].childNodes[0].style.display="block";
+            }, 500);   
+        	
         };
         var notshow=function(e){
         	this.childNodes[0].childNodes[0].style.display="none";
