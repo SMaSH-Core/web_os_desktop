@@ -358,7 +358,28 @@ app.directive('ngDraggable', function($document, $window){
 
 });
 
-//----------------------------Widget Memo-------------------------------------
+//----------------------------Widget-------------------------------------
+app.directive('widget', function(){
+    var linkFn = function(scope, element, attrs){        
+        var showdel = function(e){
+        	this.childNodes[0].childNodes[0].style.display="block";
+        };
+
+        var notshow=function(e){
+        	this.childNodes[0].childNodes[0].style.display="none";
+        };
+       
+        element.on('mouseover', showdel);
+        element.on('mouseleave',notshow);
+    };
+        
+    return {
+        restrict: 'C',
+        link: linkFn
+    };
+});
+
+
 
 app.directive('divMemo',function(){
 	return {
@@ -400,18 +421,13 @@ app.directive('delmemo', function(){
     };
 });
 
-app.directive('widget', function(){
+app.directive('calendar', function(){
     var linkFn = function(scope, element, attrs){        
-        var showdel = function(e){
-        	this.childNodes[0].childNodes[0].style.display="block";
+        var popcal = function(e){           
+        	
         };
-
-        var notshow=function(e){
-        	this.childNodes[0].childNodes[0].style.display="none";
-        };
-       
-        element.on('mouseover', showdel);
-        element.on('mouseleave',notshow);
+        
+        element.on('click', popcal);
     };
         
     return {
@@ -419,4 +435,3 @@ app.directive('widget', function(){
         link: linkFn
     };
 });
-

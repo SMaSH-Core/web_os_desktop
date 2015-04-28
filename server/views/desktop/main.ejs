@@ -238,6 +238,7 @@
         <div id = "topbar">
             <ul id="wid_set">
                 <li class="addmemo" >MEMO</li>
+                <li class="calendar">CALENDAR</li>
             </ul>
             <div id="gsearch">
                 <form method="get" action="http://www.google.com/search" target="_blank">
@@ -245,19 +246,21 @@
                     <button type = "submit" >search</button>
                 </form>
             </div>
-	<div id="info">
-            <form action = "/logout" method="post">
+	        <div id="info">
+                <img id="setting" src="/images/setting.png"/>
+
+                <form action = "/logout" method="post">
                 <!-- 로그아웃 버튼 옆의 유저 이름 글씨 생략
 
                 <p class="logout"><%= UserName %></p>--> <button ng-click="save()" class="logout" type = "submit"><img id = "logout" src = "/images/quit.png" /></button>
-            </form>
+                </form>
             <!-- 상단 바의 시계 생략
             <div class="clock" >
                 <span my-current-time="format"></span>
                 <div>{{propiedadPrueba}}</div>
             </div>
         -->
-	</div>
+	        </div>
         </div>
         <div id="main">
             <div id = "home" >
