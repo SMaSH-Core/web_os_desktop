@@ -5,6 +5,21 @@
         <meta charset='utf-8' />
         <% include ../template/c_lib_head.ejs %>
         <% include ../template/d_main_head.ejs %>
+        <style type="text/css">
+        video { 
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+        </style>
     </head>
      <script type="text/javascript">
 
@@ -217,6 +232,7 @@
 
         <!--- -->
     <body ng-app="app" ng-controller = "Ctrl">
+        <% include ../template/desktop/background_video.ejs %>
 	<div id="real">
         <!-- MAIN CONTENT -->
         <div id = "topbar">
