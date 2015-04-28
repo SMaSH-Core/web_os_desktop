@@ -412,7 +412,7 @@ app.directive('widget', function(){
         var timer=function(){
         	setTimeout(function(){this.childNodes[0].childNodes[0].style.display="block";  },1000);
         }
-        element.on('mouseover', showdel);
+        element.on('mouseover', timer);
         element.on('mouseleave',notshow);
     };
         
