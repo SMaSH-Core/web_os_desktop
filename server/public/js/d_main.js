@@ -410,7 +410,8 @@ app.directive('widget', function(){
         	this.childNodes[0].childNodes[0].style.display="none";
         };
         var timer=function(){
-        	setTimeout(showdel,500);
+        	alert("!");
+        	setTimeout(showdel,1000);
         }
         element.on('mouseover', timer);
         element.on('mouseleave',notshow);
