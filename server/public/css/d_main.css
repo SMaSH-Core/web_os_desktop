@@ -314,6 +314,11 @@ div#topbar *{
 #topbar .clock{
 	float: right;
 }*/
+#setting{
+	margin-top: 2px;
+	width: 35px;
+	height: 35px;
+}
 #topbar form{
 	margin-left: 20px;
 	float: right;
