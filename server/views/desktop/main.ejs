@@ -236,12 +236,14 @@
                 </form>
             </div>
 	        <div id="info">
+                <!--
                 <div id = "setting">
                     <input type="file" name="saveFile" id="saveFile" style="width:68px;height:15px;margin:0px;filter:alpha(opacity=0);opacity:0;cursor:pointer;" onchange="document.getElementById('txt').value=this.value;" value="this.value;">
                 </div>
-                <!--
-                <input type = "file" id = "setting" multiple size = "50" ng-click = "setting"/>
-                -->
+            -->
+                
+                <input type = "file" id = "setting" multiple size = "50" ng-change = "setting()"/>
+                
                 <!--<img id="setting" src="/images/setting.png"/>-->
                 
                 <form action = "/logout" method="post">

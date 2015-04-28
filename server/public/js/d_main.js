@@ -9,7 +9,20 @@ function Ctrl($scope, $http){
 
 	//the panel that is app bucket is closed first
 	$scope.slideapps = false;
-	
+	$scope.setting = function(){
+		var x = document.getElementById("setting");
+		var txt = "";
+		if('files' in x){
+			for(var i =0;i<x.files.length;i++){
+				var file = x.files[i];
+				if ('name' in file){
+					document.body.style.background = "url("+file.name+") center center fixed";
+                    document.body.style.backgroundSize = 'cover';
+                    document.body.style.backgroundRepeat = 'no-repeat';
+				}
+			}
+		}
+	}
 	//app bucket toggle
 	$scope.slide = function(){
 		//If the app bucket is already opened, it will be closed.
