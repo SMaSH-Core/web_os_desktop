@@ -111,6 +111,41 @@ module.exports = function (app, passport,module){
     		res.render('login');
     });
 
+     app.get('/mobile',function (req, res){
+        res.render('pages/mobile/demo/demo');
+    });
+
+app.get('/memo',function (req, res){
+        var temp = [];
+
+        for(var i = 0; i<3; i++)
+        {
+            var newwidget = {
+                "memo": 'hieefefee'
+            }
+            temp.push(newwidget);
+        }
+
+        console.log(temp);
+
+        res.render('pages/mobile/MEMO/memo',{
+        UserID : req.user.email,
+        UserName : req.user.name,
+        widget : temp});
+    
+});
+app.get('/mobile_main', function (req, res){
+        var wid = "{\"widget\":[]}";
+        var sessionApp = req.user.app.link;
+
+        res.render('pages/main/mobile_main',{
+        UserID : req.user.email,
+        UserName : req.user.name,
+        userapp : sessionApp,
+        widget : wid});
+    });
+
+
 
     // ETC Request for testing
     app.get('/login_success', module.isLoggedIn, function (req, res){
