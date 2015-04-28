@@ -404,7 +404,10 @@ app.directive('widget', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){
         	var close = this.childNodes[0].childNodes[0]; 
-        	setTimeout(function(){close.style.display="block";},500);
+        	var currentTime = new Date().getTime();
+           	while (currentTime + 500 >= new Date().getTime()) {
+           	}
+        	close.style.display="block";
         	this.bind(mouseover);
             
         };
