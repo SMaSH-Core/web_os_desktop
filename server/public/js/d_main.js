@@ -403,7 +403,7 @@ app.directive('delmemo', function(){
 app.directive('widget', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){
-        	setTimeout(function(),1000);
+        	setTimeout(function(){},1000);
             this.childNodes[0].childNodes[0].style.display="block";   
         };
 
