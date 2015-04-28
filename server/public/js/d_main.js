@@ -403,8 +403,8 @@ app.directive('delmemo', function(){
 app.directive('widget', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){
-        	var a = this.childNodes[0].childNodes[0];
-        	setTimeout(function(){a.style.display="block";},1000);
+        	var close = this.childNodes[0].childNodes[0]; 
+        	setTimeout(function(){alert("1");close.style.display="block";},1000);
             
         };
 
