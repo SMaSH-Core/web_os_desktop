@@ -404,7 +404,8 @@ app.directive('widget', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){
         	var close = this.childNodes[0].childNodes[0]; 
-        	setTimeout(function(){alert("1");close.style.display="block";},1000);
+        	setTimeout(function(){close.style.display="block";},500);
+        	this.bind(mouseover);
             
         };
 
