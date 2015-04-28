@@ -1,0 +1,194 @@
+html{
+    height: 100%;
+}
+
+body{
+    background-size: 100%;
+    background-color: #ededed;
+    background-repeat: no-repeat;
+    -webkit-background-size : cover;
+    -moz-background-size: cover;
+    background-size: cover;
+
+    font-family: Verdana, Tahoma, "sans-serif";
+    margin: 0px;
+    height : 100%;
+}
+
+/*Side bar*/
+#sidebutton,a{
+    outline:0;
+    overflow:visible;
+    cursor:pointer;
+    border:0;
+    background-color:transparent
+}
+ul,li{
+    list-style-type:none;
+    font-size:150%;
+}
+#menuleft{
+    left:-50%;
+    position:fixed;
+    top:0;
+    width:50%;
+    height:100%;
+    z-index:1000;
+    border-right:1px solid #000;
+    background-color:#e9e9e9;
+    display:block
+}
+
+#menuleft.slide{
+    left:0
+}
+
+#menuleft a{
+    display:block;
+    width:98%;
+    padding:10px 0 10px 2%;
+    color:#424242;
+    border-bottom:1px solid #424242
+}
+#all{
+    display:block;
+    width:100%;
+    height:100%;
+}
+
+#all.hide{
+    position:fixed;
+    left:50%;
+    top:0;
+    width:100%
+}
+
+#all.slide{
+    position:relative;
+}
+
+.slide,.hide{
+    transition: all 0.2s ease;
+}   
+.overlay{
+    left:0;
+    top:50px;
+    transition: all 0.2s ease;
+}
+.overlay.show{
+    position:fixed;
+    left:50%;
+    right:0;
+    bottom:0;
+    background-color:rgba(0, 0, 0, 0.8);
+    z-index:9999
+}
+
+/*Top bar*/
+#real{ 
+    height: 100%;
+    background-color: rgba(255,255,255,0.5); 
+}
+#sidebutton{
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 2%;
+    height: 2%;
+}
+div#topbar{
+    height: 20%;
+    background-color: #232323;
+    vertical-align: middle;
+    text-align: center;
+}
+
+div#topbar *{
+    display: inline-block;
+    color: white;
+}
+#gsearch{
+    display: inline;
+    margin: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    text-align: center;
+}
+#gsearch form{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+#gsearch input{
+    font-size: 14pt;
+    text-align: center;
+    border-radius: 20px;
+    margin: 4px;
+    border: 0px;
+    width: 35%;
+    color: #454545;
+}
+#gsearch input:focus{
+    width: 60%;
+    outline: medium none;
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: ease;
+}
+#gsearch button{
+    display: none;
+}
+#topbar form{
+    margin-left: 20px;
+    float: right;
+}
+#info{
+    width: 10%;
+    font-size: 11pt;
+    float: right;
+}
+#info form p{
+    font-size: 11pt;
+}
+
+p.logout{
+    float: left;
+    margin-top: 10px;
+}
+
+button.logout{
+    background-color: rgba(0,0,0,0);
+    padding: 0px;
+    border: 0px;
+}
+#logout{
+    margin-top: 2px;
+    width: 35px;
+    height: 35px;
+}
+
+/*memo*/
+.accordion__container {
+    font-size: 150%;
+    padding: 2%;  
+}
+.accordion__tab {
+    font-size: 150%;
+    background: #aaa;
+    border-bottom: 1px solid white;
+}
+.accordion__tab-title {
+    font-size: 150%;
+    background: #888;
+    padding: 2%;
+    cursor: pointer;
+}
+.accordion__tab-content {
+    font-size: 150%;
+    background: #999;
+    padding: 5%;
+    white-space:normal;
+    word-break:break-all;
+}
