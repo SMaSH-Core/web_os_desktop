@@ -403,16 +403,15 @@ app.directive('delmemo', function(){
 app.directive('widget', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){
+        	setTimeout(function(),1000);
             this.childNodes[0].childNodes[0].style.display="block";   
         };
 
         var notshow=function(e){
         	this.childNodes[0].childNodes[0].style.display="none";
         };
-        var timer=function(){
-        	setTimeout(function(){alert(this);this.childNodes[0].childNodes[0].style.display="block";  },1000);
-        }
-        element.on('mouseover', timer);
+       
+        element.on('mouseover', showdel);
         element.on('mouseleave',notshow);
     };
         
