@@ -197,20 +197,16 @@ button.logout{
 }
 #appbutton{
 	border: none;
-	position: absolute;
+	position: fixed;
 	bottom:10%;
-	width: 20%;
-	left: auto;
-	right: auto;
-	/* 앱서랍 버튼의 폰트 크기 생략
-	font-size: 13pt;*/
-	/* 앱서랍 버튼 속성 추가 */
-	font-size: 400%;
-	color: white;
-	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	text-align: center;
+	width: 10%;
+	left: 45%;
+
 	display: inline;
 	cursor: pointer;
+}
+#appbutton img{
+	width: 100%;
 }
 .addurl{
 	width: 20%;
