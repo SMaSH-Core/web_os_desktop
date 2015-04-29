@@ -59,8 +59,8 @@ app.directive('adddd',function($compile){
 app.directive('in',function(){
 	var addurl = function(scope,element,attrs){
 		var prevent = function(e){
-			//e.stopPropagation();
-    		e.preventDefault();
+			e.stopPropagation();
+    		//e.preventDefault();
 		};
 		element.on('click',prevent);
 	};
