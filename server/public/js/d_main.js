@@ -147,8 +147,8 @@ app.directive('file',function(){
 		scope: {
 			file: '='
 		},
-		link: function(scope,el,attrs){
-			el.bind('change',function(event){
+		link: function(scope,element,attrs){
+			element.bind('change',function(event){
 				var files = event.target.files;
 				var file = files[0];
 				document.body.style.background = "url(../images/"+file.name+") center center fixed";
