@@ -27,10 +27,6 @@ module.exports = function (app, passport,module){
     	res.render('signup');
     });
 
-     app.get('/mobile',function (req, res){
-        res.render('pages/mobile/demo/demo');
-    });
-
 app.get('/memo',function (req, res){
         var temp = [];
 
@@ -44,7 +40,7 @@ app.get('/memo',function (req, res){
 
         console.log(temp);
 
-        res.render('pages/mobile/MEMO/memo',{
+        res.render('/mobile/memo',{
         UserID : req.user.email,
         UserName : req.user.name,
         widget : temp});
@@ -54,14 +50,14 @@ app.get('/mobile_main', function (req, res){
         var wid = "{\"widget\":[]}";
         var sessionApp = req.user.app.link;
 
-        res.render('pages/main/mobile_main',{
+        res.render('mobile/mobile_main',{
         UserID : req.user.email,
         UserName : req.user.name,
         userapp : sessionApp,
         widget : wid});
     });
 
-    
+
     app.get('/main',module.isLoggedIn,function (req, res){
     	var wid = "{\"widget\":[]}";
         var sessionApp = req.user.app.link;
