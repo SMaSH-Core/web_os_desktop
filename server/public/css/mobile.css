@@ -198,10 +198,9 @@ button.logout{
 #appbutton{
 	border: none;
 	position: fixed;
-	bottom:5%;
-	width: 15%;
-	left: auto;
-	right: auto;
+	bottom:10%;
+	width: 16%;
+	left: 42%;
 
 	display: inline;
 	cursor: pointer;
