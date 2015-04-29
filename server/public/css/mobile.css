@@ -122,8 +122,8 @@ ul,li{
 #sidebutton{
 	height: 100%;
 	float: left;
-	margin-left: 5px;
-	width: 5%;
+	margin: 5px;
+
 }
 div#topbar{
 	height: 100px;
