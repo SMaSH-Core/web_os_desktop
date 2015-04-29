@@ -195,58 +195,20 @@ button.logout{
 	width: 35px;
 	height: 35px;
 }
-#apps{
+#appbutton{
 	width: 100%;
 	height: 100%;
 	border: none;
 	/* 앱서랍 버튼의 폰트 크기 생략
 	font-size: 13pt;*/
 	/* 앱서랍 버튼 속성 추가 */
+	font-size: 100%;
 	color: white;
 	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-align: center;
 	display: inline;
 	cursor: pointer;
 }
-/*
-#userapp{
-	width: 100%;
-	height: 100%;
-	list-style-type: none;
-	display: inline;
-	
-}
-#userapp li{
-	float: left;
-}
-.tosave{
-	width: 10%;
-	margin-left: 10%;
-}*/
-
-
-
-/*
-#addurl{
-	position:absolute;
-	left:10%;
-	bottom: 10px;
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
-	height: 150px;
-	background: gray;
-}
-#addurl #urlbtn{
-	position: absolute;
-	top: 5%;
-	right: 5%;
-	height: 90%;
-}
-#addurl #urlbtn img{
-	height: inherit;
-}
-*/
 .addurl{
 	width: 20%;
 	margin-left: 4%;
