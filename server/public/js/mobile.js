@@ -58,7 +58,7 @@ app.directive('adddd',function($compile){
 });
 
 app.directive('in',function(){
-	var addurl = function(scope,element,attrs){
+	var urlinput = function(scope,element,attrs){
 		var prevent = function(e){
 			e.stopPropagation();
     		//e.preventDefault();
@@ -68,7 +68,22 @@ app.directive('in',function(){
 	};
 	return{
 		restrict : 'C',
-		link: addurl
+		link: urlinput
+	}
+});
+
+app.directive('tosave',function(){
+	var app = function(scope,element,attrs){
+		var prevent = function(e){
+			e.stopPropagation();
+    		//e.preventDefault();
+		};
+		element.on('click',prevent);
+		element.on('touchend',prevent);
+	};
+	return{
+		restrict : 'C',
+		link: app
 	}
 });
 
