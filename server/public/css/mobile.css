@@ -181,7 +181,6 @@ div#topbar *{
 	float: right;
 }
 #info{
-	width: 10%;
 	font-size: 11pt;
 	float: right;
 }
@@ -197,7 +196,8 @@ button.logout{
 }
 #logout{
 	margin-top: 10%;
-	width: 100%;
+	width: 35%;
+	float: right;
 }
 
 #appbutton{
