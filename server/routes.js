@@ -40,7 +40,7 @@ app.get('/memo',function (req, res){
 
         console.log(temp);
 
-        res.render('/mobile/memo',{
+        res.render('mobile/memo',{
         UserID : req.user.email,
         UserName : req.user.name,
         widget : temp});
