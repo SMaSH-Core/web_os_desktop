@@ -40,9 +40,13 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                    <div id="apps" ng-click="app_section=!app_section">App</div>
+                </div>    
+            </div>
+
+            <div class="overlay" ng-show="app_section">
                 <div id = "apps">
-                    
+                
                     <% 
                         for(var i = 0; i < userapp.length; i++){ 
                              if(userapp[i].position=="center"){%>
