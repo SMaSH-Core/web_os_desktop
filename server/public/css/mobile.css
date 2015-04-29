@@ -38,6 +38,7 @@ body{
     border:0;
     background-color:transparent
 }
+
 ul,li{
     list-style-type:none;
     font-size: 150%;
@@ -145,7 +146,7 @@ div#topbar *{
 	margin: 4px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 40%;
+	width: 60%;
 	text-align: center;
 }
 #gsearch form{
@@ -155,15 +156,16 @@ div#topbar *{
 	margin: 0 auto;
 }
 #gsearch input{
-	height: 70%;
+	height: 100%;
 	font-size: 14pt;
 	text-align: center;
 	border-radius: 20px;
 	margin: 4px;
 	border: 0px;
-	width: 50%;
+	width: 70%;
 	color: #454545;
 }
+
 #gsearch input:focus{
 	width: 100%;
 	outline: medium none;
