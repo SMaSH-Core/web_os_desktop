@@ -199,7 +199,9 @@ button.logout{
 	border: none;
 	position: absolute;
 	bottom:10%;
+	width: 20%;
 	left: auto;
+	right: auto;
 	/* 앱서랍 버튼의 폰트 크기 생략
 	font-size: 13pt;*/
 	/* 앱서랍 버튼 속성 추가 */
