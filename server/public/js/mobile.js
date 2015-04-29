@@ -56,4 +56,19 @@ app.directive('adddd',function($compile){
 	}
 });
 
+app.directive('in',function(){
+	var addurl = function(scope,element,attrs){
+		var prevent = function(e){
+			e.stopPropagation();
+    		// stop default action of link
+    		e.preventDefault();
+		};
+		element.on('click',prevent);
+	};
+	return{
+		restrict : 'C',
+		link: addurl
+	}
+});
+
 

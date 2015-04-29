@@ -216,7 +216,7 @@ button.logout{
 .addurll{
 	width: 100%
 }
-#in{
+.in{
 	position: absolute;
 	width: 80%;
 	height:10%;
@@ -225,12 +225,12 @@ button.logout{
 	left: 10%;
 	text-align: center;
 }
-#in button{
+.in button{
 	height:100px;
 	text-align: center;
 	color:#454545;
 }
-#in input{
+.in input{
 	transition-delay: 0s;
 	transition-duration: 1s;
 	transition-property: all;

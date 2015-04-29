@@ -42,7 +42,7 @@
                     </div>
                     
                 </div> 
-                <div  ><img id="appbutton" ng-click="app_section=!app_section" src="/images/apps.png"></div>   
+                <div id="appbutton"  ><img ng-click="app_section=!app_section" src="/images/apps.png"></div>   
             </div>
 
             <div class="overlay2" ng-show="app_section">
@@ -59,7 +59,7 @@
                         <img src = "/images/addurl.png" class = "addurll"/>
                     </button>
 
-                    <div id = "in" ng-hide = "hideurl">
+                    <div class = "in"  ng-hide = "hideurl">
                         <input id = "slurl" size = "50"  type = "text" name = "url" ng-show = "inputurl" size = "25" placeholder = "url 입력후 엔터키를 눌러주세요."/>
                         <button class = "adddd" ng-click = "urlbtn()">
                     <!--            <img src = "/pages/images/addurl.png" class = "addurll" />
