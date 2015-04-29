@@ -5,7 +5,15 @@ module.exports = function (app, passport,module){
 
 	//Request Method GET
 	app.get('/', function (req, res) {
-    	res.render('login');
+    	//res.render('login'); 원상복귀 하려면 주석을 지우시오
+         var wid = "{\"widget\":[]}";
+        var sessionApp = [];
+
+        res.render('mobile/mobile_main',{
+        UserID : 'hyejin@a.a',
+        UserName : 'hyejin',
+        userapp : sessionApp,
+        widget : wid});
     });
 
     app.get('/a', function(req,res){
