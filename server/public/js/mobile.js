@@ -13,7 +13,9 @@ app.controller("AppController", function($scope){
 app.directive('addurll',function($compile){
 	var addurl = function(scope,element,attrs){
 		var showw = function(e){
-			
+			e.stopPropagation();
+    		// stop default action of link
+    		e.preventDefault();
 			scope.hideurl = false;
 			scope.$apply();
 		};
