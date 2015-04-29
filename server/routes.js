@@ -71,20 +71,24 @@ app.get('/mobile_main', function (req, res){
             console.log("it is tablet");
         }
         else if(res.locals.is_desktop){
-            console.log("it is desktop");
+            res.render('desktop/main',{
+                UserID : req.user.email,
+                UserName : req.user.name,
+                userapp : sessionApp,
+                widget : wid,
+                local_folder : info 
+            });
         }
         else{
-            console.log("it is mobile ")
+            console.log("it is mobile ");
+            res.render('mobile/mobile_main',{
+            UserID : req.user.email,
+            UserName : req.user.name,
+            userapp : sessionApp,
+            widget : wid});
         }
         
 
-    	res.render('desktop/main',{
-        	UserID : req.user.email,
-        	UserName : req.user.name,
-        	userapp : sessionApp,
-        	widget : wid,
-            local_folder : info 
-        });
     });
   
   
