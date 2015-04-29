@@ -151,10 +151,9 @@ app.directive('file',function(){
 			el.bind('change',function(event){
 				var files = event.target.files;
 				var file = files[0];
-				alert(file.name);
-				document.body.style.background = "url(../images/"+file.name+") center center fixed";
-                document.body.style.backgroundSize = 'cover';
-                document.body.style.backgroundRepeat = 'no-repeat';
+				scope.body.style.background = "url(../images/"+file.name+") center center fixed";
+                scope.body.style.backgroundSize = 'cover';
+                scope.body.style.backgroundRepeat = 'no-repeat';
 			});
 		}
 	};
