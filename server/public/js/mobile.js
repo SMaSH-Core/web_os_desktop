@@ -20,7 +20,7 @@ app.directive('addurll',function($compile){
 			scope.$apply();
 		};
 		element.on('click',showw);
-		element.on('touch',showw);
+		element.on('touchend',showw);
 	};
 	return{
 		restrict : 'C',
