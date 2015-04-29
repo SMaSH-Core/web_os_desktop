@@ -25,6 +25,8 @@ body{
   background-size: cover;
   transition: 1s opacity;
 }
+
+
 /*Side bar*/
 #sidebutton,a{
     outline:0;
@@ -82,7 +84,6 @@ ul,li{
 }   
 .overlay{
     left:0;
-    top:50px;
     transition: all 0.2s ease;
 }
 .overlay.show{
