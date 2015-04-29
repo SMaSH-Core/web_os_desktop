@@ -195,9 +195,10 @@ button.logout{
 	width: 35px;
 	height: 35px;
 }
+
 #appbutton{
 	border: none;
-	position: fixed;
+	position: absolute;
 	bottom:10%;
 	width: 16%;
 	left: 42%;
@@ -205,9 +206,11 @@ button.logout{
 	display: inline;
 	cursor: pointer;
 }
+
 #appbutton img{
 	width: 100%;
 }
+
 .addurl{
 	width: 20%;
 	margin-left: 4%;

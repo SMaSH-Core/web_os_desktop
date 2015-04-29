@@ -14,12 +14,10 @@ app.directive('addurll',function($compile){
 	var addurl = function(scope,element,attrs){
 		var showw = function(e){
 			e.stopPropagation();
-    		// stop default action of link
     		e.preventDefault();
 			scope.hideurl = false;
 			scope.$apply();
 		};
-		element.on('click',showw);
 		element.on('touchend',showw);
 	};
 	return{
@@ -49,7 +47,7 @@ app.directive('adddd',function($compile){
 				scope.hideurl = true;
 			}
 		}
-		element.on('click',adda);
+		element.on('touchend',adda);
 	};
 	return{
 		restrict : 'C',
@@ -63,7 +61,7 @@ app.directive('in',function(){
 			e.stopPropagation();
     		//e.preventDefault();
 		};
-		element.on('click',prevent);
+		element.on('touchend',prevent);
 	};
 	return{
 		restrict : 'C',
