@@ -59,7 +59,7 @@ function Ctrl($scope, $http){
 	/* 시계 포맷 생략
 	$scope.format = 'h:mm:ss a';*/
 	/* 시계 포맷 재설정 */
-	$scope.format = 'h:mm';
+	$scope.format = 'h:mm:';
 	
 	$scope.lists = [{text:'it is example', done:false}];
 
@@ -84,7 +84,8 @@ function Ctrl($scope, $http){
 		});
 	};
 
-	$scope.save = function(){           
+	$scope.save = function(){      
+			alert();     
         	var memo = [""];
 			var left = [""];
 			var top = [""];
