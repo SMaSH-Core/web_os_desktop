@@ -8,7 +8,6 @@
         <script src="http://code.angularjs.org/1.2.0rc1/angular-touch.min.js"></script>
         <script src="/js/sidebar.js" type="text/javascript"></script>
         <script src="/js/accordian.js" type="text/javascript"></script>
-        <script src="/js/d_main.js" type="text/javascript"></script>
     </head>
     <body ng-app ng-swipe-left="showmenu=false" ng-swipe-right="showmenu=true">
       <!--  <video autoplay loop>
@@ -81,14 +80,20 @@
                                 %>
 
                                 <li class="memo_title" ng-click="memo<%=i%>=!memo<%=i%>"><%- title %></li>
-                                <div class="memo" ng-draggable ng-show="memo<%=i%>">
-                                    <textarea><%-widget[i].memo%></textarea>
-                                </div>  
+                                
                             <%}
                         %>
 
                     </ul>
+                    <%
+                        for(var i = 0; i < widget.length; i++){%>
 
+                            <div class="memo" ng-show="memo<%=i%>">
+                                <textarea><%-widget[i].memo%></textarea>
+                            </div>  
+                            
+                        <%}
+                    %>
                     
                 </div>
             </div>
