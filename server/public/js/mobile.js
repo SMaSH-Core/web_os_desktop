@@ -47,6 +47,8 @@ app.directive('adddd',function($compile){
 				alert("잘못 입력하셨습니다.");
 				scope.hideurl = true;
 			}
+			document.getElementById("slurl").value="";
+			$scope.apply();
 		}
 		//element.on('click',adda);
 		element.on('touchend',adda);
