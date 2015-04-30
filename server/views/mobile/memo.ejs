@@ -37,7 +37,7 @@
 
                         <div id="info">
                             <form action = "/logout" method="post">
-                                <p class="logout"><%= UserName %></p> <button ng-click="save()" class="logout" type = "submit"><img id = "logout" src = "/images/logout.png" /></button>
+                                <p class="logout"><%= UserName %></p> <button ng-click="save()" class="logout" type = "submit"><img id = "logout" src = "/images/quit.png" /></button>
                             </form>
                         </div>
                     </div>
@@ -48,10 +48,10 @@
                     <% 
                         for(var i = 0; i < widget.length; i++){
                             var title="";
-                            if (widget[i].memo.length<=8)
+                            if (widget[i].memo.length<=5)
                                 title=widget[i].memo;
                             else{
-                                for (var j=0; j<8;j++){
+                                for (var j=0; j<5;j++){
                                     title= title + widget[i].memo[j];
                                 }
                                 title = title + "...";
