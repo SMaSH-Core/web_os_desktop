@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="accordion__container" ng-controller="myCtrl">
+                   <!-- <div class="accordion__container" ng-controller="myCtrl">
 
                     <% 
                         for(var i = 0; i < widget.length; i++){
@@ -63,7 +63,27 @@
                                 <div class="accordion__tab-content" ng-show="show_con=isOpenTab('tab <%=i%>')" ng-click="closeTab('tab <%=i%>')"><%- widget[i].memo %></div>
                             </div>
                         <%}
-                    %>
+                    %>-->
+
+                    <ul>
+                        <%
+                            for(var i = 0; i < widget.length; i++){
+                                var title="";
+                                if (widget[i].memo.length<=10)
+                                    title=widget[i].memo;
+                                else{
+                                    for (var j=0; j<10;j++){
+                                        title= title + widget[i].memo[j];
+                                    }
+                                    title = title + "...";
+                                }
+                                %>
+
+                                <li ><textarea value="<%- title %>"></textarea><li>
+                            <%}
+                        %>
+
+                    </ul>
                     </div>
                 </div>
             </div>
