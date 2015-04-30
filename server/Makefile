@@ -1,2 +1,2 @@
 test:
-	npm test *.js
+	npm test

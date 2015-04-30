@@ -26,10 +26,10 @@
     "supervisor": "^0.6.0"
   },
   "devDependencies": {
-    "mocha": "latest"
+    "mocha": "^2.2.4"
   },
   "scripts": {
-    "test": "mocha *.js"
+    "test": "mocha se*.js"
   },
   "author": "",
   "license": "ISC"
