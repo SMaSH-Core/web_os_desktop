@@ -103,7 +103,7 @@ ul,li{
 /*Top bar*/
 #real{ 
     width: 100%;
-    height: 100%;
+    height: 100%; 
 }
 #sidebutton{
     height: 40%;
@@ -132,6 +132,7 @@ div#topbar *{
     text-align: center;
 }
 #gsearch form{
+    height: inherit;
     display: block;
     width: 100%;
     margin: 0 auto;
@@ -143,9 +144,10 @@ div#topbar *{
     border-radius: 20px;
     margin: 4px;
     border: 0px;
-    width: 35%;
+    width: 70%;
     color: #454545;
 }
+
 #gsearch input:focus{
     width: 100%;
     outline: medium none;
@@ -158,7 +160,6 @@ div#topbar *{
     display: none;
 }
 #topbar form{
-    margin-left: 20px;
     float: right;
 }
 #info{
@@ -170,10 +171,6 @@ div#topbar *{
     font-size: 11pt;
 }
 
-p.logout{
-    float: left;
-    margin-top: 10px;
-}
 
 button.logout{
     background-color: rgba(0,0,0,0);
@@ -183,7 +180,7 @@ button.logout{
 #logout{
     margin-top: 10%;
     width: 100%;
-    float:right;
+    float: right;
     max-width: 60px;
 }
 
