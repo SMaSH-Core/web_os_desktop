@@ -42,6 +42,7 @@ ul,li{
     list-style-type:none;
     font-size:150%;
     padding:0;
+    background: none;
     text-align: center;
 }
 #menuleft{
@@ -186,6 +187,7 @@ button.logout{
 }
 
 /*memo*/
+/*
 .accordion__container {
     font-size: 150%;
     padding: 2%;  
@@ -207,4 +209,15 @@ button.logout{
     padding: 5%;
     white-space:normal;
     word-break:break-all;
+}*/
+textarea{
+    border:none;
+    background:none;
+    border-bottom:1px solid white;
+    font-size:150%;
+    padding-left: 5%;
+    height: 100%;
+}
+.memo{
+      border-bottom: 1px white;
 }
