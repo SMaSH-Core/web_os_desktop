@@ -222,6 +222,7 @@ button.logout{
     left:40%;
     height:80%;
     width: 20%;
+    background-color:rgba(0, 0, 0, 0.8);
 }
 .memo textarea {
     background: none;
