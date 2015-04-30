@@ -1,2 +1,2 @@
-server/node_modules/*
-server/mt.js
+node_modules/*
+mt.js
