@@ -570,7 +570,7 @@ app.directive('save',function(){
 
 	return {
         restrict: 'C',
-        link: save
+        link: link
     };
 
 })
