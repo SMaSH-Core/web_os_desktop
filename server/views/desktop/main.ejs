@@ -247,8 +247,25 @@
                 </form>
             </div>
 	        <div id="info">
-                <img id="setting" src="/images/setting.png"/>
-
+                <div id="info">
+                <!--
+                <div id = "setting">
+                    <input type="file" name="saveFile" id="saveFile" style="width:68px;height:15px;margin:0px;filter:alpha(opacity=0);opacity:0;cursor:pointer;" onchange="document.getElementById('txt').value=this.value;" value="this.value;">
+                </div>
+            -->
+               
+                <!--
+                <input type = "file" id = "setting" multiple size = "50" data-file = "param.file"/>
+            -->
+            <!--
+                <input type = "file" id = "setting" multiple size= "50" file-model = "myFile"/>
+                <button ng-click = "uploadFile()"><img id="setting2" src="/images/setting.png"/></button>
+                -->
+                <form id = "setting" action ='/public/images' method ="post" enctype = "multipart/form-data">
+                    <input type = 'file' name ='myfile'  file-model = "myFile"/>
+                    <input type = 'submit' name ='upload' ng-click = "uploadFile()"/>
+                </form>
+                
                 <form action = "/logout" method="post">
                 <!-- 로그아웃 버튼 옆의 유저 이름 글씨 생략
 
@@ -331,7 +348,7 @@
                             <img src = "/images/addurl.png" class = "addurll"/>
                         </button>-->
                         <!-- url 추가 글씨 -->
-                        <a id="addurl" class= "addurll"ng-click="addurl()"> + </a>
+                        <a id="addurl" class= "addurll" ng-keypress ng-click="addurl()"> + </a>
                         
                         <!--<button id = "addurl2" type = "submit" ng-show = "slideurl" class = "addurll" ><img src = "/users/GUEST/noun_21727.png"/></button>-->
                     </div>

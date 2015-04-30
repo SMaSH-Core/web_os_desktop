@@ -8,8 +8,22 @@ var app = angular.module("app", []);
 function Ctrl($scope, $http){
 
 	//the panel that is app bucket is closed first
+	$scope.param = {};
 	$scope.slideapps = false;
-	
+	$scope.setting = function(){
+		var x = document.getElementById("setting");
+		var txt = "";
+		if('files' in x){
+			for(var i =0;i<x.files.length;i++){
+				var file = x.files[i];
+				if ('name' in file){
+					document.body.style.background = "url("+file.name+") center center fixed";
+                    document.body.style.backgroundSize = 'cover';
+                    document.body.style.backgroundRepeat = 'no-repeat';
+				}
+			}
+		}
+	}
 	//app bucket toggle
 	$scope.slide = function(){
 		//If the app bucket is already opened, it will be closed.
@@ -127,6 +141,27 @@ function Ctrl($scope, $http){
 			});
 		};
 }
+
+app.directive('file',function(){
+	return{
+		scope: {
+			file: '='
+		},
+		link: function(scope,element,attrs){
+			element.bind('change',function(event){
+				var files = event.target.files;
+				var file = files[0];
+				document.body.style.background = "url(../images/"+file.name+") center center fixed";
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundRepeat = 'no-repeat';
+			});
+		}
+	};
+});
+
+
+
+
 //-----------------------Dock Draggable-------------------------------
 app.directive('draggable',function(){
 	return function(scope,element){

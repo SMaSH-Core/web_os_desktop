@@ -316,8 +316,9 @@ div#topbar *{
 }*/
 #setting{
 	margin-top: 2px;
-	width: 35px;
+	width: 57px;
 	height: 35px;
+	/*background-image: url("/images/setting.png");*/
 }
 #topbar form{
 	margin-left: 20px;
