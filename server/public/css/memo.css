@@ -220,7 +220,7 @@ button.logout{
     position:fixed;
     top:20%;
     left:40%;
-    height:80%;
+    height:60%;
     width: 20%;
     background-color:rgba(0, 0, 0, 0.8);
 }
@@ -228,5 +228,6 @@ button.logout{
     background: none;
 }
 #memo_end{
-
+    float:right;
+    height: 10%;
 }
