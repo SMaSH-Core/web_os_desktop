@@ -87,8 +87,8 @@
                     </ul>
                     <%
                         for(var i = 0; i < widget.length; i++){%>
-                            <div class="memo_sec">
-                                <div class="memo" ng-show="memo<%=i%>">
+                            <div class="memo_sec"ng-show="memo<%=i%>">
+                                <div class="memo" >
                                     <div id="memo_end">X</div>
                                     <textarea rows="10" cols="20"><%-widget[i].memo%></textarea>
                                 </div>
