@@ -504,7 +504,7 @@ app.directive('calendar', function(){
     };
 });
 
-app.directive(logout,function(){
+app.directive('save',function(){
 	var link=function(scope, element, attrs){
 		
 
