@@ -317,7 +317,6 @@ app.directive('ngDraggable', function($document, $window){
     });
 
     element.on('mousedown', mousedown);
-    element.on('touchend',mousedown);
 
     function mousedown(event) {
 
