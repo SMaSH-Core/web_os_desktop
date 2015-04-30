@@ -231,11 +231,13 @@ button.logout{
     width: 60%;
     background-color:rgba(255, 249, 131, 0.99);
 }
-.memo textarea {
-    background: none;
-    top:10%;
-}
+
 #memo_end{
     float:right;
     height: 10%;
+}
+
+.memo_txt{
+    background: none;
+    top:10%;
 }
