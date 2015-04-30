@@ -16,6 +16,13 @@ var linkSchema = mongoose.Schema({
     widget: []
 });
 
+//유저 설정 저장
+var configSchema = mongoose.Schema({
+	email: String,
+	bgImg: String
+
+});
+
 
 
 //module.exports = mongoose.model('userDataModel',userDataSchema);
@@ -24,4 +31,6 @@ var linkSchema = mongoose.Schema({
 exports.userModel = mongoose.model('userDataModel',userDataSchema);
 
 exports.linkModel = mongoose.model('linkModel',linkSchema);
+
+exports.configSchema = mongoose.model('userconfigModel',configSchema)
 

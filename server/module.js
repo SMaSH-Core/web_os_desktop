@@ -1,4 +1,6 @@
 var db = require('./db.js');
+var fs = require('fs');
+var path = require('path');
 
 exports.isLoggedIn = function (req, res, next)  //로그인했는지 확인하는 함
 {	
@@ -22,14 +24,13 @@ exports.saveApp = function (req, res, next)
 {
 	var user = req.user.email;
     var oa =req.user.oauth;
-    var src = req.param("src");
-    var href = req.param("");
-    var position = req.param("position");
+    var src = req.body.src;
+    var href = req.body.href;
+    var position = req.body.position;
     var temp =[];
-    console.log("appis"+req.param("app"));
         
         
-    for(var i = 1; i<src.length; i ++)
+    for(var i = 0; i<src.length; i ++)
     {   
         var newapp = {
             "fav": src[i],
@@ -41,23 +42,11 @@ exports.saveApp = function (req, res, next)
  
     console.log(temp);
     var string =JSON.stringify(temp);
-    console.log(string);
         
         
-    for(var i = 1; i<3; i ++)
-    {   
-        var newapp = {
-            "fav": 'hi',
-            "url": 'hi',
-            "position": 'hi'
-        }
-        temp.push(newapp);
-    }
-    console.log(temp);
         
-        
-    linkModel.update({'email': user,'oauth': oa} , { 'link': temp }, function(err){
-            console.log(linkModel);
+    db.linkModel.update({'email': user,'oauth': oa} , { 'link': temp }, function(err){
+            console.log('ok?');
   	});
 	
 }
@@ -67,14 +56,19 @@ exports.saveWidget = function (req, res ,next)
 	
         var user = req.user.email;
         var oa =req.user.oauth;
-        console.log("memois"+req.param("memo"));
-        var memo =req.param("memo");
-        var top = req.param("top");
-        var left = req.param("left");
+        //console.log("memois"+req.param("memo"));
+        var memo =req.body.memo;
+        var top = req.body.top;
+        var left = req.body.left;
         var temp = [];
-        
-        var file = JSON.parse(temp);
-        for(var i = 1; i<memo.length; i ++)
+        console.log('=====');
+        console.log(memo);
+        console.log('=====');
+        console.log(top);
+        console.log('=====');
+        console.log(left);
+        //console.log(req);
+        for(var i = 0; i<memo.length; i ++)
         {   
             var newwidget = {
                 "memo": memo[i],
@@ -83,8 +77,32 @@ exports.saveWidget = function (req, res ,next)
             }
             temp.push(newwidget);
         }
-        linkModel.update({'email': user,'oauth': oa} , { 'widget': temp }, function(err){
-            console.log(linkModel);
+        console.log("temp ----------------");
+        //console.log(temp);
+        db.linkModel.update({'email': user,'oauth': oa} , { 'widget': temp }, function(err){
+            console.log('ok?');
         });
+}
+
+exports.dirTree = function(filename) 
+{
+        var stats = fs.lstatSync(filename),
+            info = {
+                path: filename,
+                name: path.basename(filename)
+            };
+
+        if (stats.isDirectory()) {
+            info.type = "folder";
+            info.children = fs.readdirSync(filename).map(function(child) {
+                return dirTree(filename + '/' + child);
+            });
+        } else {
+            // Assuming it's a file. In real life it could be a symlink or
+            // something else!
+            info.type = "file";
+        }
+
+        return info;
 }
 

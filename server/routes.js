@@ -1,22 +1,13 @@
 var fs = require('fs');
 var path = require('path');
-
 module.exports = function (app, passport,module){
 
 	//Request Method GET
 	app.get('/', function (req, res) {
-    	res.render('login'); //원상복귀 하려면 주석을 지우시오
-       /*  var wid = "{\"widget\":[]}";
-        var sessionApp = [];
-
-        res.render('mobile/mobile_main',{
-        UserID : 'hyejin@a.a',
-        UserName : 'hyejin',
-        userapp : sessionApp,
-        widget : wid});*/
+    	res.render('login');
     });
 
-    app.get('/a', function(req,res){
+    app.get('/template/d_main_cloud_list.ejs', function(req,res){
        // res.render('template/d_main_cloud_list',{fileList: req.body})
         console.log('====temp====get');
         console.log(req.body);
@@ -24,7 +15,12 @@ module.exports = function (app, passport,module){
     app.post('/template/d_main_cloud_list.ejs', function(req,res){
         //res.render('template/d_main_cloud_list',{fileList: req.body.fileList})
         console.log('====temp====post');
-        console.log(req.body.fileList);
+        console.log(req.body);
+    });
+    app.post('/a', function(req,res){
+        console.log('=====a=====');
+        console.log(req.params['fileList']);
+        res.render('template/d_main_cloud_list',{fileList: req.body});
     });
     app.get('/login',function (req, res){
     	res.render('login');
@@ -35,52 +31,28 @@ module.exports = function (app, passport,module){
     	res.render('signup');
     });
 
-app.get('/memo',function (req, res){
-        var temp = [];
-
-        for(var i = 0; i<3; i++)
-        {
-            var newwidget = {
-                "memo": 'hieefefee'
-            }
-            temp.push(newwidget);
-        }
-
-        console.log(temp);
-
-        res.render('mobile/memo',{
-       UserID : req.user.email,
-        UserName : req.user.name,
-        //UserID : 'hyejin@a.a',
-        //UserName : 'hyejin',
-        widget : temp});
-    
-});
-app.get('/mobile_main', function (req, res){
-        var wid = "{\"widget\":[]}";
-        var sessionApp = req.user.app.link;
-
-        res.render('mobile/mobile_main',{
-        UserID : req.user.email,
-        UserName : req.user.name,
-        userapp : sessionApp,
-        widget : wid});
-    });
-
-
     app.get('/main',module.isLoggedIn,function (req, res){
     	var wid = "{\"widget\":[]}";
         var sessionApp = req.user.app.link;
         currentpath = './cloud/users/'+req.user.email;
         var info = dirTree(currentpath);
+        //var info = []
         console.log(info);
         console.log('================');
         console.log(res.locals);
 
-        if(res.locals.is_tablet){
+        if(res.locals.is_tablet&&res.locals.is_mobile){
             console.log("it is tablet");
+            res.render('desktop/main',{
+                UserID : req.user.email,
+                UserName : req.user.name,
+                userapp : sessionApp,
+                widget : wid,
+                local_folder : info 
+            });
         }
         else if(res.locals.is_desktop){
+            console.log("it is desktop");
             res.render('desktop/main',{
                 UserID : req.user.email,
                 UserName : req.user.name,
@@ -92,13 +64,11 @@ app.get('/mobile_main', function (req, res){
         else{
             console.log("it is mobile ");
             res.render('mobile/mobile_main',{
-            UserID : req.user.email,
-            UserName : req.user.name,
-            userapp : sessionApp,
-            widget : wid});
-        }
-        
-
+                UserID : 'hyejin@a.a',
+                UserName : 'hyejin',
+                userapp : sessionApp,
+                widget : wid});
+            }
     });
   
   
@@ -116,6 +86,7 @@ app.get('/mobile_main', function (req, res){
             'https://www.googleapis.com/auth/userinfo.email'
         ]
     }));
+    //내생각에 이부분 불필요함... 수정필요..
     app.get('/auth/google/callback', 
         passport.authenticate('google', {
         successRedirect: '/main',
@@ -140,22 +111,25 @@ app.get('/mobile_main', function (req, res){
     	req.logout();
     	res.redirect('/');	
     });
-    app.post('/widget',function (req, res){
-    	console.log('post -widget');
-    	console.log('parameter is ' +req.body);
+    app.post('/dropFileList',function (req, res){
+        console.log(req.body.fl);
+    });
+
+    app.post('/app',module.saveApp,function (req, res){
+        console.log('/app');
+    });
+    app.post('/widget',module.saveWidget,function (req, res){
+         console.log('/widget'); 
+    });
+     app.post('/google_FileList',function (req, res){
+        res.render('login');
         console.log(req.body);
-    });
-    app.post('/app',function (req, res){
-      	console.log('post -widget');
-    	console.log('parameter is ' +req.body);
-        console.log(req.body);
+
     });
 
-
-    app.get('*', function (req, res) {
-    		res.render('login');
-    });
-
+     app.post('/public/images',function (req, res){
+        console.log(req.body.files.myfile);
+     });
 
     // ETC Request for testing
     app.get('/login_success', module.isLoggedIn, function (req, res){
@@ -166,10 +140,14 @@ app.get('/mobile_main', function (req, res){
         req.user.app.link = [];
         res.send(req.user);
     });
+
+    app.get('*', function (req, res) {
+            res.render('login');
+    });
 }
 
-
-    function dirTree(filename) {
+function dirTree(filename) 
+{
         var stats = fs.lstatSync(filename),
             info = {
                 path: filename,
@@ -188,4 +166,7 @@ app.get('/mobile_main', function (req, res){
         }
 
         return info;
-    }
+}
+
+
+   

@@ -160,12 +160,18 @@ module.exports = function(passport){
 	                    if(err)
 	                        return done(err);
 
-	                    var user = { 
-	                        'name': userRec.name,
-	                        'email': userRec.email, 
-	                        'app': DefaultLink 
-	                    };
-
+	                    var dirpath ='./cloud/users/'+req.param('email');
+	                    fs.mkdir(dirpath, 0777, function(err) {
+						  if(err)
+						  {
+						  	console.log('mkdir Err'); 
+						  	return done(err);
+						  }
+						});
+	               		var user = { 'name':userRec.name,
+	                             'email': userRec.email,
+	                             'app' : DefaultLink
+	                            };
 	                    return done(null,user);
 	                });
 	              
@@ -220,12 +226,19 @@ module.exports = function(passport){
 	                    if(err)
 	                        return done(err);
 
-	                    var user = { 
-	                        'name': userRec.name,
-	                        'email': userRec.email, 
-	                        'app': DefaultLink 
-	                    };
 
+	                    var dirpath ='./cloud/users/'+req.param('email');
+	                    fs.mkdir(dirpath, 0777, function(err) {
+						  if(err)
+						  {
+						  	console.log('mkdir Err'); 
+						  	return done(err);
+						  }
+						});
+	               		var user = { 'name':userRec.name,
+	                             'email': userRec.email,
+	                             'app' : DefaultLink
+	                            };
 	                    return done(null,user);
 	                });
 	              

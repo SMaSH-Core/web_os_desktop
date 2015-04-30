@@ -1,2 +1,7 @@
 server/node_modules/*
 server/mt.js
+server/2*
+server/private-key.pem
+server/public-cert.pem
+server/uploads/*
+

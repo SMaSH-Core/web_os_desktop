@@ -11,9 +11,12 @@ var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 var session = require('express-session');
 var morgan = require('morgan');
+var multer = require('multer');
 //device
 var device = require('express-device');
-
+var https = require('https');
+var http = require('http');
+var fs = require('fs');  //module
 
 
 var mongoose = require('mongoose');  
@@ -26,6 +29,12 @@ var module = require('./module.js');
 
 //passport 
 var passport = require('passport');
+
+//for https
+var options = {
+	key: fs.readFileSync('private-key.pem'),
+	cert: fs.readFileSync('public-cert.pem')
+}
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -41,6 +50,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(multer({dest: './uploads/'}));
 //device 
 app.use(device.capture());
 device.enableDeviceHelpers(app);
@@ -54,7 +64,9 @@ require('./routes.js')(app,passport,module);
 //For Auth Using passport API -function that is process of auth
 	
 
-
-app.listen(PORT);
-console.log(PORT+ ' is opened');
+http.createServer(app).listen(9081);			//new버젼
+https.createServer(options, app).listen(PORT);	//new
+//app.listen(PORT);  기존버		
+console.log('HTTP '+9081+ ' is opened');
+console.log('HTTPs '+PORT+ ' is opened');
 
