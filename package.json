@@ -26,9 +26,11 @@
     "passport-local": "^1.0.0",
     "supervisor": "^0.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+		"mocha": "^2.2.4"
+	},
   "scripts": {
-		"test":
+		"test": "mocha *.js"
   },
   "author": "",
   "license": "ISC"
