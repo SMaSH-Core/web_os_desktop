@@ -5,15 +5,15 @@ module.exports = function (app, passport,module){
 
 	//Request Method GET
 	app.get('/', function (req, res) {
-    	//res.render('login'); 원상복귀 하려면 주석을 지우시오
-         var wid = "{\"widget\":[]}";
+    	res.render('login'); //원상복귀 하려면 주석을 지우시오
+       /*  var wid = "{\"widget\":[]}";
         var sessionApp = [];
 
         res.render('mobile/mobile_main',{
         UserID : 'hyejin@a.a',
         UserName : 'hyejin',
         userapp : sessionApp,
-        widget : wid});
+        widget : wid});*/
     });
 
     app.get('/a', function(req,res){
@@ -49,10 +49,10 @@ app.get('/memo',function (req, res){
         console.log(temp);
 
         res.render('mobile/memo',{
-       // UserID : req.user.email,
-        //UserName : req.user.name,
-        UserID : 'hyejin@a.a',
-        UserName : 'hyejin',
+       UserID : req.user.email,
+        UserName : req.user.name,
+        //UserID : 'hyejin@a.a',
+        //UserName : 'hyejin',
         widget : temp});
     
 });
