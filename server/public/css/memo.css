@@ -224,11 +224,7 @@ button.logout{
     padding:8px;
 }
 .memo{
-    position:fixed;
-    top:20%;
-    left:20%;
-    height:40%;
-    width: 60%;
+
     background-color:rgba(255, 249, 131, 0.99);
     display: inline-block;
 }
