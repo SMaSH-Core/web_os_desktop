@@ -211,6 +211,11 @@ button.logout{
     word-break:break-all;
 }*/
 .memo_sec{
+    position:fixed;
+    top:20%;
+    left:20%;
+    height:60%;
+    width: 60%;
     background-color: white;
 }
 .memo_title{
