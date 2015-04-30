@@ -216,7 +216,16 @@ button.logout{
     width: 100%;
     padding:8px;
 }
-
+.memo{
+    position:fixed;
+    top:20%;
+    left:40%;
+    height:80%;
+    width: 20%;
+}
 .memo textarea {
     background: none;
+}
+#memo_end{
+
 }
