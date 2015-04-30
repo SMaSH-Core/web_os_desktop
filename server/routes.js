@@ -49,8 +49,10 @@ app.get('/memo',function (req, res){
         console.log(temp);
 
         res.render('mobile/memo',{
-        UserID : req.user.email,
-        UserName : req.user.name,
+       // UserID : req.user.email,
+        //UserName : req.user.name,
+        UserID : 'hyejin@a.a',
+        UserName : 'hyejin',
         widget : temp});
     
 });
