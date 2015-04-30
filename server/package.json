@@ -14,6 +14,7 @@
     "express-session": "^1.9.2",
     "html": "^0.0.7",
     "ico": "^0.3.3",
+    "mocha": "^2.2.4",
     "mongolian": "^0.1.18",
     "mongoose": "^3.8.25",
     "morgan": "^1.5.1",
@@ -24,7 +25,9 @@
     "passport-local": "^1.0.0",
     "supervisor": "^0.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "latest"
+  },
   "scripts": {
     "test": "mocha *.js"
   },
