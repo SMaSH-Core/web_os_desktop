@@ -217,7 +217,11 @@ textarea{
     font-size:150%;
     padding-left: 5%;
     height: 100%;
+    text-align: 
 }
-.memo{
-      border-bottom: 1px white;
+.memo_title{
+    border-bottom: 1px white;
+    border-bottom:1px solid white;
+    width: 100%;
 }
+.memo
