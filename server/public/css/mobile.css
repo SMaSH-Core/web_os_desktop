@@ -36,7 +36,7 @@ body{
     overflow:visible;
     cursor:pointer;
     border:0;
-    background-color:transparent
+    background-color:transparent;
     text-decoration:none;
 }
 ul,li{
