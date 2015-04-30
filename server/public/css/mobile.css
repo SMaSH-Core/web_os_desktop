@@ -2,7 +2,7 @@ html{
 	height: 100%;
 }
 body{
-	/*background: url("../images/snow.gif") center center fixed;*/
+	background: url("../images/snow.gif") center center fixed;*/
 	background-size: 100%;
 	background-repeat: no-repeat;
 	-webkit-background-size : cover;
@@ -13,6 +13,7 @@ body{
 	margin: 0px;
 	height : 100%;
 }
+/*
  video { 
   position: fixed;
   right: 0;
@@ -24,7 +25,7 @@ body{
   z-index: -100;
   background-size: cover;
   transition: 1s opacity;
-}
+}*/
 
 #main{
 	height: 100%;
