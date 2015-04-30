@@ -10,14 +10,7 @@ html{
 }
 
 body{
-    background-color: white;
-    /*
-    background-size: 100%;
-    background-repeat: no-repeat;
-    -webkit-background-size : cover;
-    -moz-background-size: cover;
-    background-size: cover;
-*/
+    background-color: rgba(0, 0, 0, 0.5);
     font-family: Verdana, Tahoma, "sans-serif";
     margin: 0px;
     height : 100%;
