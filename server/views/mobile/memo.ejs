@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="myApp" ng-controller="AppController">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link href="/css/memo.css" rel="stylesheet" type="text/css">
          <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
         <script src="http://code.angularjs.org/1.2.0rc1/angular-route.min.js"></script>
@@ -9,6 +10,9 @@
         <script src="/js/accordian.js" type="text/javascript"></script>
     </head>
     <body ng-app ng-swipe-left="showmenu=false" ng-swipe-right="showmenu=true">
+        <video autoplay loop>
+            <source src='/videos/flowers.webm' type='video/webm'>
+        </video>
         
         <div>
             <div id="menuleft" ng-class="{hide:!showmenu,slide:showmenu}">
@@ -19,7 +23,7 @@
             </div>
 
             <div id="all" ng-class="{hide:showmenu,slide:!showmenu}" >
-                <div class="overlay" ng-class="{show:showmenu}"></div>
+                <div class="overlay" ng-class="{show:showmenu}" ng-click="showmenu=!showmenu"></div>
                 <div id = "real">
                     <div id = "topbar">
                         <img ng-click="toggleMenu()" id = "sidebutton" src="/images/button.png"/>
