@@ -247,7 +247,6 @@
                 </form>
             </div>
 	        <div id="info">
-                <div id="info">
                 <!--
                 <div id = "setting">
                     <input type="file" name="saveFile" id="saveFile" style="width:68px;height:15px;margin:0px;filter:alpha(opacity=0);opacity:0;cursor:pointer;" onchange="document.getElementById('txt').value=this.value;" value="this.value;">
@@ -265,7 +264,7 @@
                     <input type = 'file' name ='myfile'  file-model = "myFile"/>
                     <input type = 'submit' name ='upload' ng-click = "uploadFile()"/>
                 </form>
-                
+
                 <form action = "/logout" method="post">
                 <!-- 로그아웃 버튼 옆의 유저 이름 글씨 생략
 
@@ -280,7 +279,7 @@
 	        </div>
         </div>
         <div id="main">
-            <div id = "home" >
+            <div id = "home" droppable >
                 <button id = "Btn_ajax">Ajax</button>
                 <% include ../template/d_main_cloud %>
                 
@@ -339,10 +338,10 @@
                 <!-- 패널의 슬라이드 기능 생략
                 <div id = "panel" ng-show="slideapps" >-->
                 <!-- 앱서랍 버튼 클릭하면 패널 나타남 -->
-                <div id = "panel" ng-show="show_panel">
+                <div id = "panel" class = "dontadd" ng-show="show_panel" ng-click = "dont()">
                     
                     <div id = "modifyurl">
-                        <input id = "slurl" type = "text" name = "url" ng-show = "slideurl" size = "25" placeholder = "http://"/>
+                        <input id = "slurl" type = "text" name = "url" ng-show = "slideurl" size = "25" placeholder = "http://" ng-enter/>
                         <!-- url 추가 이미지 생략
                         <button id = "addurl" ng-click = "addurl()" >
                             <img src = "/images/addurl.png" class = "addurll"/>

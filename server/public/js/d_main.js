@@ -141,7 +141,7 @@ function Ctrl($scope, $http){
 			});
 		};
 }
-
+/*
 app.directive('file',function(){
 	return{
 		scope: {
@@ -158,6 +158,90 @@ app.directive('file',function(){
 		}
 	};
 });
+*/
+
+app.directive('ngEnter', function ($compile) {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                    
+                    if(scope.slideurl == true){
+						var addurl2 = document.getElementById("slurl").value;
+						if(addurl2 != "" && addurl2 != null){
+							if(addurl2.search("http://") == -1){
+								//alert(addurl2);
+								addurl2 = "http://" + addurl2;
+							}
+							//alert(addurl2);
+							var imgurl = 'http://www.google.com/s2/favicons?domain='+addurl2;
+							angular.element(document.getElementById('panelul')).append($compile("<li><a  href ='"+addurl2+"' target = '_blank' id = "+imgurl+" ><img src = "+imgurl+" id = "+imgurl+" class = 'tosave' draggable/></a></li>")(scope));
+							scope.slideurl = false;
+						}else{
+							alert("잘못 입력함");
+							scope.slideurl = false;
+						}
+					}
+					//scope.urlbtn = true;
+					//scope.slideurl = false;
+					else{
+						scope.slideurl = true;
+					}
+					document.getElementById("slurl").value = "";
+					//scope.urlbtn = true;
+					//scope.$apply();
+                });
+ 			
+                event.preventDefault();
+            }
+        });
+    };
+});
+//----------------- file upload ------------------------------
+app.directive('fileModel', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
+            
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+}]);
+app.service('fileUpload', ['$http', function ($http) {
+    this.uploadFileToUrl = function(file, uploadUrl){
+        var fd = new FormData();
+        fd.append('file', file);
+        $http.post(uploadUrl, fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined},
+            data: {'name':file.name}
+        })
+        .success(function(){
+        })
+        .error(function(){
+        });
+    }
+}]);
+app.controller('Ctrl', ['$scope', 'fileUpload', function($scope, fileUpload){
+    
+    $scope.uploadFile = function(){
+        var file = $scope.myFile;
+        console.log('file is ' + JSON.stringify(file));
+        var uploadUrl = "public/images";
+        fileUpload.uploadFileToUrl(file, uploadUrl);
+        document.body.style.background = "url(../images/"+file.name+") center center fixed";
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundRepeat = 'no-repeat';
+    };
+    
+}]);
 
 
 
@@ -230,7 +314,9 @@ app.directive('droppable',function(){
 					this.classList.remove('over');
 					var item = document.getElementById(e.dataTransfer.getData('Text'));
 					//alert(e.dataTransfer.getData('Text'));
-
+					if(this.id == "home"){
+						item.parentNode.removeChild(item);
+					}
 					if(this.id == "trash"){
 
 						item.parentNode.removeChild(item);
@@ -246,13 +332,13 @@ app.directive('droppable',function(){
 							//alert(item.parentNode.id);
 							list.parentNode.removeChild(list);
 
-						}
+						}/*
 						else{
 							var li = document.createElement("li");
 							li.appendChild(item);
 							this.appendChild(li);
 							//this.appendChild(item);
-						}
+						}*/
 					}
 
 					return false;
@@ -288,8 +374,10 @@ app.directive('addurll',function($compile){
 			//scope.slideurl = false;
 			else{
 				scope.slideurl = true;
+
 			}
 			//scope.urlbtn = true;
+			document.getElementById("slurl").value = "";
 			scope.$apply();
 			
 		};

@@ -294,6 +294,7 @@ div#topbar *{
 	font-size: 160px;
 	font-weight: lighter;
 	color: white;
+	z-index: 1;
 }
 /* 인사말 속성 추가 */
 .greeting{
@@ -321,8 +322,8 @@ div#topbar *{
 	/*background-image: url("/images/setting.png");*/
 }
 #topbar form{
-	margin-left: 20px;
-	float: right;
+	margin-left: 75px;
+	/*float: right;*/
 }
 #wid_set{
 	margin: 0px;
