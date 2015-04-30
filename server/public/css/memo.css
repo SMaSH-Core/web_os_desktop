@@ -244,7 +244,9 @@ button.logout{
     top: 10%;
     border: 0;
     width: 96%;
+    height: 80%;
     padding:2%;
     font-size: 150%;
     background:none;
+    height:90%;
 }
