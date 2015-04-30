@@ -47,7 +47,7 @@
             </div>
 
             <div class="overlay2" ng-show="app_section">
-                <div id = "apps" ng-click="app_section=!app_section">
+                <div id = "apps" ng-click="{app_section=!app_section !hideurl}">
                 
                     <% 
                         for(var i = 0; i < userapp.length; i++){ 
@@ -63,7 +63,7 @@
                     
                 </div>
             </div>
-            <div class = "in"  ng-hide = "hideurl" ng-show="app_section">
+            <div class = "in"  ng-hide = "hideurl">
                 <input id = "slurl" size = "50"  type = "text" name = "url" ng-show = "inputurl" size = "25" placeholder = "url 입력후 엔터키를 눌러주세요."/>
                 <button class = "adddd" ng-click = "urlbtn()"> 
             <!--            <img src = "/pages/images/addurl.png" class = "addurll" />
