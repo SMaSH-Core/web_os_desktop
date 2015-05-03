@@ -8,4 +8,5 @@ env:
     - "FTP_PASSWORD=sdh1212"
 after_success:
     - "cd .."
-    - "curl --ftp-create-dirs -T ./web_os_desktop -u $FTP_USER:$FTP_PASSWORD ftp://pivot.gift/home/sdh/"
+    - "ls -al"
+    - "curl --ftp-create-dirs -T ./web_os_desktop -u $FTP_USER:$FTP_PASSWORD ftp://pivot.gift/"
