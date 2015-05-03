@@ -8,5 +8,5 @@ env:
     - "FTP_PASSWORD=sdh1212"
 after_success:
     - "cd .."
-    - "ls -al"
-    - "curl --ftp-create-dirs -T ./web_os_desktop -u $FTP_USER:$FTP_PASSWORD ftp://pivot.gift/"
+    - "wput ./web_os_desktop ftp://sdh:sdh1212@pivot.gift"
+    - "ssh://sdh:sdh1212@pivot.gift:9080; cd web_os_desktop; node server_lv13.js;"
