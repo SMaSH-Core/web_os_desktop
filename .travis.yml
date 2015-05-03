@@ -2,3 +2,10 @@
 language: node_js
 node_js:
   - "0.10"
+env:
+  global:
+    - "FTP_USER=sdh"
+    - "FTP_PASSWORD=sdh1212"
+after_success:
+	- "ls"
+    - "curl --ftp-create-dirs -T ./* -u $FTP_USER:$FTP_PASSWORD ftp://pivot.gift/home/sdh/"
