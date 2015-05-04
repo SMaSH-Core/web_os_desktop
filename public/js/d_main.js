@@ -522,7 +522,7 @@ app.directive('save',function(){
 				top.push(memoDiv[i].getStyle("top"));
 			}
 			
-			new Ajax.Request("http://localhost:9081/widget",{
+			new Ajax.Request("/widget",{
                     method: "post",
                     parameters: {'memo': memo, 'left': left, 'top': top}
                 });
@@ -548,7 +548,7 @@ app.directive('save',function(){
 		    		position.push("center");
 		    }
 		   
-		    new Ajax.Request("https://localhost:9080/app",{
+		    new Ajax.Request("/app",{
 
                     method: "post",
                     parameters: { 'href': href , 'src': src, 'position': position}

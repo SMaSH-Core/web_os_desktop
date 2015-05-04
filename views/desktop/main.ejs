@@ -193,11 +193,11 @@
                             fileList.push(file);
                         }  
                         console.log(fileList);
-                        new Ajax.Request("http://localhost:9080/a",{
+/*                        new Ajax.Request("http://localhost:9080/a",{
                             method: "get",
                             parameters: fileList
-                        });
-                        //new EJS({url: '/template/d_main_cloud_list.ejs'}).update('dropbox', {hi:'hello'});
+                        }); */
+                        new EJS({url: '/template/d_main_cloud_list.ejs'}).update('dropbox', {fl:fileList});
                 });              
             }
 
@@ -283,13 +283,13 @@
                 <button id = "Btn_ajax">Ajax</button>
                 <% include ../template/d_main_cloud %>
                 
-               <% var widgetmemo = JSON.parse(widget);
-                  for(var i = 0; i < widgetmemo.widget.length; i++){ %>
-                    <div ng-draggable class="widget w_memo" style="position: relative; z-index: 0; left: <%- widgetmemo.widget[i].left %>; top:  <%- widgetmemo.widget[i].top %>;" >
+               <% 
+                  for(var i = 0; i < widget.length; i++){ %>
+                    <div ng-draggable class="widget w_memo" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" >
                         <div class="memo_end">
                             <img ng-show="show_del" class="end"src="/images/wid_del.png"/>
                         </div>
-                        <textarea rows="8" cols="25"><%- widgetmemo.widget[i].memo %></textarea>
+                        <textarea rows="8" cols="25"><%- widget[i].memo %></textarea>
                     </div>
                 <%   }  %>
                 

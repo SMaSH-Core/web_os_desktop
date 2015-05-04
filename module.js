@@ -39,7 +39,7 @@ exports.saveApp = function (req, res, next)
         }
         temp.push(newapp);
     }
- 
+    console.log('whatis this??=====================');
     console.log(temp);
     var string =JSON.stringify(temp);
         
@@ -61,12 +61,6 @@ exports.saveWidget = function (req, res ,next)
         var top = req.body.top;
         var left = req.body.left;
         var temp = [];
-        console.log('=====');
-        console.log(memo);
-        console.log('=====');
-        console.log(top);
-        console.log('=====');
-        console.log(left);
         //console.log(req);
         for(var i = 0; i<memo.length; i ++)
         {   
