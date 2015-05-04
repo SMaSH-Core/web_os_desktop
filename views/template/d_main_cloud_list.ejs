@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-    <%  for (var i = len(fileList) - 1; i >= 0; i--) { %>
+    <%  for (var i = 0; i < fileList.length - 1 ; i--) { %>
         <tr>
             <td class="class"><%= fileList[i].type %></td>
             <td class="name"><a href=""><%= fileList[i].name %></a></td>

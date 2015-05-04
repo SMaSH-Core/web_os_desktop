@@ -12,16 +12,15 @@ module.exports = function (app, passport,module){
         console.log('====temp====get');
         console.log(req.body);
     });
+
+
     app.post('/template/d_main_cloud_list.ejs', function(req,res){
-        //res.render('template/d_main_cloud_list',{fileList: req.body.fileList})
+        res.render('template/d_main_cloud_list',{fileList: req.body.fl})
         console.log('====temp====post');
         console.log(req.body);
+        console.log(req);
     });
-    app.post('/a', function(req,res){
-        console.log('=====a=====');
-        console.log(req.params['fileList']);
-        res.render('template/d_main_cloud_list',{fileList: req.body});
-    });
+   
     app.get('/login',function (req, res){
     	res.render('login');
     });
@@ -32,14 +31,11 @@ module.exports = function (app, passport,module){
     });
 
     app.get('/main',module.isLoggedIn,function (req, res){
-    	var wid = "{\"widget\":[]}";
+    	var wid = req.user.app.widget;
         var sessionApp = req.user.app.link;
         currentpath = './cloud/users/'+req.user.email;
         var info = dirTree(currentpath);
-        //var info = []
-        console.log(info);
-        console.log('================');
-        console.log(res.locals);
+        
 
         if(res.locals.is_tablet&&res.locals.is_mobile){
             console.log("it is tablet");
@@ -116,6 +112,7 @@ module.exports = function (app, passport,module){
     });
 
     app.post('/app',module.saveApp,function (req, res){
+        console.log('=========app===========');
         console.log('/app');
     });
     app.post('/widget',module.saveWidget,function (req, res){
