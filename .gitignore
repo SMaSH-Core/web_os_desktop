@@ -1,6 +1,7 @@
 node_modules/*
 mt.js
 2*
+npm-debug.log
 private-key.pem
 public-cert.pem
 uploads/*
