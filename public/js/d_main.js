@@ -4,7 +4,7 @@
  *
 */
 var app = angular.module("app", []);
-
+ 
 function Ctrl($scope, $http){
 
 	//the panel that is app bucket is closed first
