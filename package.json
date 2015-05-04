@@ -30,7 +30,8 @@
 		"mocha": "^2.2.4"
 	},
   "scripts": {
-		"test": "mocha *.js"
+		"test": "mocha *.js",
+    "start": "node server*.js"
   },
   "author": "",
   "license": "ISC"
