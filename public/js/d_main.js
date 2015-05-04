@@ -59,7 +59,7 @@ function Ctrl($scope, $http){
 	/* 시계 포맷 생략
 	$scope.format = 'h:mm:ss a';*/
 	/* 시계 포맷 재설정 */
-	$scope.format = 'h:mm';
+	$scope.format = 'h:mm:';
 	
 	$scope.lists = [{text:'it is example', done:false}];
 
@@ -84,53 +84,7 @@ function Ctrl($scope, $http){
 		});
 	};
 
-	$scope.save = function(){  
-			alert("hi");   
-			console.log('hi');      
-        	var memo = [];
-			var left = [];
-			var top = [];
-			var memoOBJ = document.getElementsByTagName("textarea");
-			var memoDiv = $$(".w_memo");
-			for(var i = 0; i <memoOBJ.length; i ++)
-			{
-				memo.push(memoOBJ[i].value);
-				left.push(memoDiv[i].getStyle("left"));
-				top.push(memoDiv[i].getStyle("top"));
-			}
-		  	new Ajax.Request("https://localhost:9080/widget",{
-                    method: "post",
-                    parameters: {'memo': memo, 'left': left, 'top': top}
-            });
 
-
-		    var panelOBJ = $$("li a");
-		    var href=[];
-		    var src=[];
-		    var position=[];
-		    var img = $$('.tosave');
-		  
-		  	for(var i =0; i <img.length; i++)
-		  	{
-		  		src.push(img[i].src);
-		  	}
-		    for(var i = 0; i < panelOBJ.length; i++)
-		    {
-		    	href.push(panelOBJ[i].href);
-		    	if(panelOBJ[i].parentNode.parentNode.parentNode.id=="leftdock")
-		    		position.push("left");
-		    	else if(panelOBJ[i].parentNode.parentNode.parentNode.id=="rightdock")
-		    		position.push("right");
-		    	else
-		    		position.push("center");
-		    }
-		
-			new Ajax.Request("https://localhost:9080/app",{
-
-                method: "post",
-                parameters: { 'href': href , 'src': src, 'position': position}
-            });
-		};
 }
 /*
 app.directive('file',function(){
@@ -549,7 +503,6 @@ app.directive('calendar', function(){
         link: linkFn
     };
 });
-
 
 app.directive('save',function(){
 	var link=function(scope, element, attrs){
