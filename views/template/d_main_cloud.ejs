@@ -3,154 +3,155 @@
 <div id="popup" class="Pstyle">
     <div class="b-close">X</div>
     <div class="content">
-        <div class="nav">
-            <ul>
-                <a href="#dropbox"><li id = 'dropauth'>Dropbox</li></a>
-                <a href="#googleDrive"><li>Google Drive</li></a>
-                <a href="#local"><li>Local</li></a>
-            </ul>
-        </div>
-
-        <div class="cloud_content" id="dropbox">
-            <div class="header">
-                <div class="alias">
-                    <h2 id>Dropbox</h2>
+        <div class="tabs">
+            <input type="radio" id="local_tab" name="tabs" checked />
+            <input type="radio" id="dropbox_tab" name="tabs" />
+            <input type="radio" id="googleDrive_tab" name="tabs" />
+            <div class="labels">
+                <label id="local_label" for="local_tab">Local</label>
+                <label id="dropbox_label" for="dropbox_tab">Dropbox</label>
+                <label id="googleDrive_label" for="googleDrive_tab">Google Drive</label>
+            </div>  <!-- labels end -->
+            <div id="tab_contents">
+                <div class="cloud_content" id="local">
+                    <div class="header">
+                        <div class="alias">
+                            <h2>Local</h2>
+                        </div>
+                        <div class="button">
+                            <button>upload</button>
+                            <button>newFolder</button>
+                            <button>delete</button>
+                            <button>share</button>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <table class="table_list" cellspacing="0">          
+                            <thead>
+                                <tr>
+                                    <th width="10%">타입</th>
+                                    <th width="50%">이름</th>
+                                    <th width="20%">크기</th>
+                                    <th width="20%">날짜</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="type">directory</td>
+                                    <td class="name"><a href="">This is directory1 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</a></td>
+                                    <td class="size">1000 MB</td>
+                                    <td class="date">2015.04.23</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">directory</td>
+                                    <td class="name"><a href="">This is directory2 what is your name?</a></td>
+                                    <td class="size">1478 bytes</td>
+                                    <td class="date">2 days ago</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">file</td>
+                                    <td class="name"><a href="">This is Local</a></td>
+                                    <td class="size">1.5 GB</td>
+                                    <td class="date">recently</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
                 </div>
-                <div class="button">
-                    <button>upload</button>
-                    <button>newFolder</button>
-                    <button>delete</button>
-                    <button>share</button>
+                <div class="cloud_content" id="dropbox">
+                    <div class="header">
+                        <div class="alias">
+                            <h2 id>Dropbox</h2>
+                        </div>
+                        <div class="button">
+                            <button>upload</button>
+                            <button>newFolder</button>
+                            <button>delete</button>
+                            <button>share</button>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <table class="table_list" cellspacing="0">          
+                            <thead>
+                                <tr>
+                                    <th width="10%">타입</th>
+                                    <th width="50%">이름</th>
+                                    <th width="20%">크기</th>
+                                    <th width="20%">날짜</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="type">directory</td>
+                                    <td class="name"><a href="">This is directory1 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</a></td>
+                                    <td class="size">1000 MB</td>
+                                    <td class="date">2015.04.23</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">directory</td>
+                                    <td class="name"><a href="">This is directory2 what is your name?</a></td>
+                                    <td class="size">1478 bytes</td>
+                                    <td class="date">2 days ago</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">file</td>
+                                    <td class="name"><a href="">This is Dropbox</a></td>
+                                    <td class="size">1.5 GB</td>
+                                    <td class="date">recently</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
                 </div>
-            </div>
-            <div class="section">
-                <table class="table_list" cellspacing="0">          
-                    <thead>
-                        <tr>
-                            <th width="10%">타입</th>
-                            <th width="50%">이름</th>
-                            <th width="20%">크기</th>
-                            <th width="20%">날짜</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="type">directory</td>
-                            <td class="name"><a href="">This is directory1 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</a></td>
-                            <td class="size">1000 MB</td>
-                            <td class="date">2015.04.23</td>
-                        </tr>
-                        <tr>
-                            <td class="type">directory</td>
-                            <td class="name"><a href="">This is directory2 what is your name?</a></td>
-                            <td class="size">1478 bytes</td>
-                            <td class="date">2 days ago</td>
-                        </tr>
-                        <tr>
-                            <td class="type">file</td>
-                            <td class="name"><a href="">This is file1 please my refrigeration it's hunny fun</a></td>
-                            <td class="size">1.5 GB</td>
-                            <td class="date">recently</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> 
-        </div>    
-
-        <div class="cloud_content" id="googleDrive">
-            <div class="header">
-                <div class="alias">
-                    <h2>Google Drive</h2>
-                </div>
-                <div class="button">
-                    <button>upload</button>
-                    <button>newFolder</button>
-                    <button>delete</button>
-                    <button>share</button>
-                </div>
-            </div>
-            <div class="section">
-                <table class="table_list" cellspacing="0">          
-                    <thead>
-                        <tr>
-                            <th width="10%">타입</th>
-                            <th width="50%">이름</th>
-                            <th width="20%">크기</th>
-                            <th width="20%">날짜</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="type">directory</td>
-                            <td class="name"><a href="">This is directory1 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</a></td>
-                            <td class="size">1000 MB</td>
-                            <td class="date">2015.04.23</td>
-                        </tr>
-                        <tr>
-                            <td class="type">directory</td>
-                            <td class="name"><a href="">This is directory2 what is your name?</a></td>
-                            <td class="size">1478 bytes</td>
-                            <td class="date">2 days ago</td>
-                        </tr>
-                        <tr>
-                            <td class="type">file</td>
-                            <td class="name"><a href="">This is file1 please my refrigeration it's hunny fun</a></td>
-                            <td class="size">1.5 GB</td>
-                            <td class="date">recently</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> 
-        </div>    
-
-        <div class="cloud_content" id="local">
-            <div class="header">
-                <div class="alias">
-                    <h2>Local</h2>
-                </div>
-                <div class="button">
-                    <button>upload</button>
-                    <button>newFolder</button>
-                    <button>delete</button>
-                    <button>share</button>
-                </div>
-            </div>
-            <div class="section">
-                <table class="table_list" cellspacing="0">          
-                    <thead>
-                        <tr>
-                            <th width="10%">타입</th>
-                            <th width="50%">이름</th>
-                            <th width="20%">크기</th>
-                            <th width="20%">날짜</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="type">directory</td>
-                            <td class="name"><a href="">This is directory1 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</a></td>
-                            <td class="size">1000 MB</td>
-                            <td class="date">2015.04.23</td>
-                        </tr>
-                        <tr>
-                            <td class="type">directory</td>
-                            <td class="name"><a href="">This is directory2 what is your name?</a></td>
-                            <td class="size">1478 bytes</td>
-                            <td class="date">2 days ago</td>
-                        </tr>
-                        <tr>
-                            <td class="type">file</td>
-                            <td class="name"><a href="">This is file1 please my refrigeration it's hunny fun</a></td>
-                            <td class="size">1.5 GB</td>
-                            <td class="date">recently</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> 
-        </div>    
-
-    </div>
-</div>
+                <div class="cloud_content" id="googleDrive">
+                    <div class="header">
+                        <div class="alias">
+                            <h2>Google Drive</h2>
+                        </div>
+                        <div class="button">
+                            <button>upload</button>
+                            <button>newFolder</button>
+                            <button>delete</button>
+                            <button>share</button>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <table class="table_list" cellspacing="0">          
+                            <thead>
+                                <tr>
+                                    <th width="10%">타입</th>
+                                    <th width="50%">이름</th>
+                                    <th width="20%">크기</th>
+                                    <th width="20%">날짜</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="type">directory</td>
+                                    <td class="name"><a href="">This is directory1 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</a></td>
+                                    <td class="size">1000 MB</td>
+                                    <td class="date">2015.04.23</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">directory</td>
+                                    <td class="name"><a href="">This is directory2 what is your name?</a></td>
+                                    <td class="size">1478 bytes</td>
+                                    <td class="date">2 days ago</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">file</td>
+                                    <td class="name"><a href="">This is Google Drive</a></td>
+                                    <td class="size">1.5 GB</td>
+                                    <td class="date">recently</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                    
+                </div>  <!-- cloud content end -->
+            </div>  <!-- tab_contents end -->
+        </div>  <!-- tabs end -->
+    </div>  <!-- content end -->
+</div>  <!-- popup end -->
 
 <button id = 'DROPBOX'>DROPBOX</button>
 <button id = 'Btn_read'>Btn_read</button>
