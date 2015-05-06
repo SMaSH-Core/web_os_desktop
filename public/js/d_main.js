@@ -549,25 +549,7 @@ app.directive('save',function(){
 
 });
 //----------------------------Widget calendar-------------------------------------
-app.directive('widgetC', function(){
-    var linkFn = function(scope, element, attrs){        
-        var showdel = function(e){
-        	this.childNodes[0].childNodes[0].style.display="block";
-        };
 
-        var notshow=function(e){
-        	this.childNodes[0].childNodes[0].style.display="none";
-        };
-       
-        element.on('mouseover', showdel);
-        element.on('mouseleave',notshow);
-    };
-        
-    return {
-        restrict: 'C',
-        //link: linkFn
-    };
-});
 
 app.controller('MainSchedulerCtrl', function($scope) {
   $scope.events = [];

@@ -294,7 +294,7 @@
                 <%   }  %>
 
                 <!--달력-->
-                <div ng-controller="MainSchedulerCtrl" ng-draggable class="widget_c" ng-show="show_calendar" ng-mouseover="showdel=true">
+                <div ng-controller="MainSchedulerCtrl" ng-draggable class="widget_c" ng-show="show_calendar" ng-mouseover="showdel=!showdel">
                     <div class="end" id="calendar">
                             <img ng-show="show_del" class="end"src="/images/wid_del.png"/>
                     </div>
