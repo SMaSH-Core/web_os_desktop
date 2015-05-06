@@ -253,7 +253,6 @@ button.logout{
 	}
 .end{
 	height: 22px;
-	width:100%;
 }
 
 .delmemo{
@@ -266,6 +265,9 @@ button.logout{
 	background-color: white;
 }
 
+.widget_c .end{
+	width:800px;
+}
 
 div#topbar{
 	height: 40px;
