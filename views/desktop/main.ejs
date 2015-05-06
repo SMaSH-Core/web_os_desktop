@@ -36,8 +36,31 @@
                 popup_Btn.onclick = go_popup;
                 var Btn_ajax = document.getElementById("Btn_ajax");
                 Btn_ajax.onclick = saveApp;
-                var h2dropauth = document.getElementById('dropauth');
-                h2dropauth.onclick = authDropbox;
+
+                var Labeldropbox = document.getElementById('dropbox_label');
+                Labeldropbox.onclick = authDropbox;
+                var Labelgoogle = document.getElementById('googleDrive_label');
+                //h2dropauth.onclick = authDropbox;
+
+                var dropFileList = $$('.drop_file_list');
+                for(var i = 0;  i<dropFileList.length; i++){
+                    dropFileList[i].onclick = readDropFile;
+                }
+               
+            }
+            function readDropFile(){
+                var filename = this.children[1].children[0].innerHTML;
+                var type = this.children[0].innerHTML;
+                console.log('filename : \t'+filename);
+                console.log('type \t'+type);
+
+                
+                client.readFile(filename,function(err,string){
+                    if(err)
+                    console.log(err);
+                    else
+                    console.log(string);
+                })
             }
 
             function checkAuth() {
@@ -77,22 +100,15 @@
                           handleAuthResult);
                   };
                 }
+                var Labeldropbox = document.getElementById('dropbox_label');
                 if(client.isAuthenticated())
-                {
-
-                    var h2dropauth = document.getElementById('dropauth');
-                    h2dropauth.style.color = 'black';
-                  
-          
-                }
+                Labeldropbox.style.color = 'black';
                 else
-                {
-                    var h2dropauth = document.getElementById('dropauth');
-                    h2dropauth.style.color = 'red';
-                }
+                Labeldropbox.style.color = 'red';
             }
 
             function authDropbox(){
+                
                 client.authenticate(function (error){
                     if(error){
                         alert('Authentication error'+error);
@@ -104,10 +120,10 @@
                     datastoreManager.openDefaultDatastore(function (error,datastore) {
                         if (error) {
                             alert('Error opening default datastore: ' + error);
-                        }else{
-                             var h2dropauth = document.getElementById('dropauth');
-                             h2dropauth.style.color = 'black';   
-                             readDropFileList();
+                        }else{        
+                            var Labeldropbox = document.getElementById('dropbox_label');
+                            Labeldropbox.style.color = 'black';   
+                            readDropFileList();
                         }
                 });
             }
@@ -197,7 +213,7 @@
                             method: "get",
                             parameters: fileList
                         }); */
-                        new EJS({url: '/template/d_main_cloud_list.ejs'}).update('dropbox', {fl:fileList});
+                       // new EJS({url: '/template/d_main_cloud_list.ejs'}).update('dropbox', {fl:fileList});
                 });              
             }
 
