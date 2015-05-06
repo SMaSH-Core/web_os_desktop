@@ -7,7 +7,7 @@ module.exports = function (app, passport,module){
     	res.render('login');
     });
     app.get('/cal', function (req, res) {
-        res.render('/index');
+        res.render('index');
     });
 
     app.get('/template/d_main_cloud_list.ejs', function(req,res){
