@@ -427,7 +427,7 @@ app.directive('ngDraggable', function($document, $window){
 });
 
 //----------------------------Widget Memo-------------------------------------
-app.directive('widget_m', function(){
+app.directive('widgetM', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){
         	this.childNodes[0].childNodes[0].style.display="block";
@@ -549,7 +549,7 @@ app.directive('save',function(){
 
 });
 //----------------------------Widget calendar-------------------------------------
-app.directive('widget_c', function(){
+app.directive('widgetC', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){
         	this.childNodes[0].childNodes[0].style.display="block";
