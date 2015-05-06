@@ -13,12 +13,34 @@ module.exports = function (app, passport,module){
         console.log(req.body);
     });
 
-
+    var fl = [
+        {
+        name: "stat[i].name",
+        size: "stat[i].size",
+        date: "stat[i].modifiedAt",
+        path: "stat[i].path",
+        type: "stat[i].mimeType"
+    },
+    {
+        name: "stat[i].name",
+        size: "stat[i].size",
+        date: "stat[i].modifiedAt",
+        path: "stat[i].path",
+        type: "stat[i].mimeType"
+    },
+    {
+        name: "stat[i].name",
+        size: "stat[i].size",
+        date: "stat[i].modifiedAt",
+        path: "stat[i].path",
+        type: "stat[i].mimeType"
+    },
+    ];
     app.post('/template/d_main_cloud_list.ejs', function(req,res){
-        res.render('template/d_main_cloud_list',{fileList: req.body.fl})
+        res.render('template/d_main_cloud_list',{fileList: fl});
         console.log('====temp====post');
         console.log(req.body);
-        console.log(req);
+        //console.log(req);
     });
    
     app.get('/login',function (req, res){

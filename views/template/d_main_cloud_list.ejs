@@ -20,14 +20,16 @@
         </tr>
     </thead>
     <tbody>
-    <%  for (var i = 0; i < fileList.length - 1 ; i--) { %>
+    <%  
+    if (fileList.length != undefined ){
+        for (var i = 0; i < fileList.length - 1 ; i++) { %>
         <tr>
             <td class="class"><%= fileList[i].type %></td>
             <td class="name"><a href=""><%= fileList[i].name %></a></td>
             <td class="size"><%= fileList[i].size %></td>
             <td class="date"><%= fileList[i].date %></td>
         </tr>
-    <%  }; %>
+    <%  }}; %>
     </tbody>
 </table>
 </div>
