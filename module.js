@@ -1,6 +1,7 @@
 var db = require('./db.js');
 var fs = require('fs');
 var path = require('path');
+var module = require('./module');
 
 exports.isLoggedIn = function (req, res, next)  //로그인했는지 확인하는 함
 {	
@@ -89,7 +90,7 @@ exports.dirTree = function(filename)
         if (stats.isDirectory()) {
             info.type = "folder";
             info.children = fs.readdirSync(filename).map(function(child) {
-                return dirTree(filename + '/' + child);
+                return module.dirTree(filename + '/' + child);
             });
         } else {
             // Assuming it's a file. In real life it could be a symlink or

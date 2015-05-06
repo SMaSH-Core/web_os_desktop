@@ -4,5 +4,6 @@ mt.js
 npm-debug.log
 private-key.pem
 public-cert.pem
+cloud/users/*
 uploads/*
 

@@ -56,7 +56,8 @@ module.exports = function (app, passport,module){
     	var wid = req.user.app.widget;
         var sessionApp = req.user.app.link;
         currentpath = './cloud/users/'+req.user.email;
-        var info = dirTree(currentpath);
+        console.log(currentpath);
+        var info = module.dirTree(currentpath);
         
 
         if(res.locals.is_tablet&&res.locals.is_mobile){
@@ -165,27 +166,4 @@ module.exports = function (app, passport,module){
     });
 }
 
-function dirTree(filename) 
-{
-        var stats = fs.lstatSync(filename),
-            info = {
-                path: filename,
-                name: path.basename(filename)
-            };
 
-        if (stats.isDirectory()) {
-            info.type = "folder";
-            info.children = fs.readdirSync(filename).map(function(child) {
-                return dirTree(filename + '/' + child);
-            });
-        } else {
-            // Assuming it's a file. In real life it could be a symlink or
-            // something else!
-            info.type = "file";
-        }
-
-        return info;
-}
-
-
-   

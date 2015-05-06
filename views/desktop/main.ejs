@@ -42,9 +42,9 @@
                 var Labelgoogle = document.getElementById('googleDrive_label');
                 //h2dropauth.onclick = authDropbox;
 
-                var dropFileList = $$('.drop_file_list');
-                for(var i = 0;  i<dropFileList.length; i++){
-                    dropFileList[i].onclick = readDropFile;
+                var localFileList = $$('.local_file_list');
+                for(var i = 0;  i<localFileList.length; i++){
+                    localFileList[i].onclick = readLocalFile;
                 }
                
             }
@@ -54,13 +54,14 @@
                 console.log('filename : \t'+filename);
                 console.log('type \t'+type);
 
-                
-                client.readFile(filename,function(err,string){
-                    if(err)
-                    console.log(err);
-                    else
-                    console.log(string);
-                })
+                if(type =="text/plain"){
+                    client.readFile(filename,function(err,string){
+                        if(err)
+                        console.log(err);
+                        else
+                        console.log(string);
+                    })
+                }
             }
 
             function checkAuth() {
@@ -108,24 +109,28 @@
             }
 
             function authDropbox(){
-                
-                client.authenticate(function (error){
-                    if(error){
-                        alert('Authentication error'+error);
-                    }
-                    else
-                        alert('hi drop auth');
-                    });
-                var datastoreManager = client.getDatastoreManager();
-                    datastoreManager.openDefaultDatastore(function (error,datastore) {
-                        if (error) {
-                            alert('Error opening default datastore: ' + error);
-                        }else{        
-                            var Labeldropbox = document.getElementById('dropbox_label');
-                            Labeldropbox.style.color = 'black';   
-                            readDropFileList();
+
+                if(!client.isAuthenticated()){
+                    client.authenticate(function (error){
+                        if(error){
+                            alert('Authentication error'+error);
                         }
-                });
+                        else
+                            alert('hi drop auth');
+                        });
+                    var datastoreManager = client.getDatastoreManager();
+                        datastoreManager.openDefaultDatastore(function (error,datastore) {
+                            if (error) {
+                                alert('Error opening default datastore: ' + error);
+                            }else{        
+                                var Labeldropbox = document.getElementById('dropbox_label');
+                                Labeldropbox.style.color = 'black';   
+                                readDropFileList();
+                            }
+                    });
+                }else{
+                    console.log("이미 인증도있ㅇㅁ");
+                }
             }
             /////////
             function uploadFile(evt) {
@@ -205,8 +210,36 @@
                                 path: stat[i].path,
                                 type: stat[i].mimeType
                             };
+                            var dropFile = document.getElementById('dropFile');
+                            var tr = document.createElement("tr");
+                            var td_type = document.createElement("td"); 
+                            var td_name = document.createElement("td");
+                            var td_size = document.createElement("td");
+                            var td_date = document.createElement("td");   
+                            
+                            var a = document.createElement('a');
+                            a.innerHTML=file.name;
+                            //var name = document.createTextNode(file.name);
+                            a.href = "#"+file.name;
+                            //a.appendChild(name);
                           
+                            td_name.appendChild(a);
+                            td_name.className = 'name';
+                            td_size.innerHTML = file.size;
+                            td_date.innerHTML = file.date;
+                            td_type.innerHTML = file.type;
+
+                            tr.appendChild(td_type);
+                            tr.appendChild(td_name);
+                            tr.appendChild(td_size);
+                            tr.appendChild(td_date);
+                            tr.className= 'drop_file_list';
+                            dropFile.appendChild(tr);
                             fileList.push(file);
+                            var dropFileList = $$('.drop_file_list');
+                            for(var i = 0;  i<dropFileList.length; i++){
+                                dropFileList[i].onclick = readDropFile;
+                            }
                         }  
                         console.log(fileList);
 /*                        new Ajax.Request("http://localhost:9080/a",{
@@ -297,6 +330,10 @@
         <div id="main">
             <div id = "home" droppable >
                 <button id = "Btn_ajax">Ajax</button>
+                <p><%-JSON.stringify(local_folder) %></p>
+                 <p><%-local_folder.name%>efe</p>
+                 <p><%-local_folder.path%>efe</p>
+                 <p><%-local_folder.length%>nono</p>
                 <% include ../template/d_main_cloud %>
                 
                <% 
