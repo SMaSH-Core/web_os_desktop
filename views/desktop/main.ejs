@@ -294,11 +294,11 @@
                 <%   }  %>
 
                 <!--달력-->
-                <div>
+                <div ng-controller="MainSchedulerCtrl">
                     <div class="memo_end">
                             <img ng-show="show_del" class="end"src="/images/wid_del.png"/>
                     </div>
-                    <div data="events" dhx-scheduler style="height:600px; width:800px;" ng-controller="MainSchedulerCtrl" ng-show="show_calendar" ng-draggable>
+                    <div data="events" dhx-scheduler style="height:600px; width:800px;"  ng-show="show_calendar" ng-draggable>
                             <div class="dhx_cal_prev_button"></div>
                             <div class="dhx_cal_next_button">&nbsp;</div>
                             <div class="dhx_cal_today_button"></div>
