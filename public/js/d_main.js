@@ -562,4 +562,11 @@ app.directive('save',function(){
         link: link
     };
 
-})
+});
+
+app.controller('MainSchedulerCtrl', function($scope) {
+  $scope.events = [];
+
+  $scope.scheduler = { date : new Date() };
+
+});
