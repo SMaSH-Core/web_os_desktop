@@ -266,6 +266,9 @@ button.logout{
 }
 
 .widget_c .end{
+	width:800px;
+}
+.widget_c .end img{
 	display: none;
 	float: right;
 	width: 15px;
