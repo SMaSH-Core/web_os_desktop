@@ -261,6 +261,10 @@ button.logout{
 	width: 15px;
 }
 
+#calendar{
+	background-color: white;
+}
+
 
 div#topbar{
 	height: 40px;

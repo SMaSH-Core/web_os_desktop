@@ -489,21 +489,6 @@ app.directive('delmemo', function(){
     };
 });
 
-app.directive('calendar', function(){
-    var linkFn = function(scope, element, attrs){        
-        var popcal = function(e){           
-        	
-        };
-        
-        element.on('click', popcal);
-    };
-        
-    return {
-        restrict: 'C',
-        link: linkFn
-    };
-});
-
 app.directive('save',function(){
 	var link=function(scope, element, attrs){
 		
