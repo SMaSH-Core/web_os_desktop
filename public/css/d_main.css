@@ -266,7 +266,9 @@ button.logout{
 }
 
 .widget_c .end{
-	width:800px;
+	display: none;
+	float: right;
+	width: 15px;
 }
 
 div#topbar{
