@@ -569,7 +569,7 @@ app.controller('MainSchedulerCtrl', function($scope) {
   $scope.events = [];
 
   $scope.scheduler = { date : new Date() };
-  alert("1");
+  console.log(events);
 
 });
 
