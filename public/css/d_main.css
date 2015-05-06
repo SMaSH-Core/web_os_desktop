@@ -256,7 +256,8 @@ button.logout{
 }
 
 .delmemo{
-		float: right;
+	display: none;
+	float: right;
 	width: 15px;
 }
 
@@ -268,7 +269,7 @@ button.logout{
 	width:800px;
 }
 .widget_c .end img{
-	display: none;
+	
 	float: right;
 	width: 15px;
 }
