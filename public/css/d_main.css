@@ -266,8 +266,8 @@ button.logout{
 }
 .widget_c{
 	position: absolute;
-	top:20%;
-	left:20%;
+	top:10%;
+	left:25%;
 }
 .widget_c .end{
 	width:800px;
