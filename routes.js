@@ -6,6 +6,9 @@ module.exports = function (app, passport,module){
 	app.get('/', function (req, res) {
     	res.render('login');
     });
+    app.get('/cal', function (req, res) {
+        res.render('/index');
+    });
 
     app.get('/template/d_main_cloud_list.ejs', function(req,res){
        // res.render('template/d_main_cloud_list',{fileList: req.body})
