@@ -563,10 +563,12 @@ app.directive('save',function(){
     };
 
 });
+//----------------------------Widget calendar-------------------------------------
 
 app.controller('MainSchedulerCtrl', function($scope) {
   $scope.events = [];
 
   $scope.scheduler = { date : new Date() };
+  alert("1");
 
 });

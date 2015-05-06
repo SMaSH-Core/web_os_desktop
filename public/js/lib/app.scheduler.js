@@ -8,6 +8,7 @@ app.directive('dhxScheduler', function() {
     
 
     link:function ($scope, $element, $attrs, $controller){
+      alert("app.scheduler");
       //default state of the scheduler
       if (!$scope.scheduler)
         $scope.scheduler = {};
