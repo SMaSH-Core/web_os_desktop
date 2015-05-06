@@ -256,8 +256,7 @@ button.logout{
 }
 
 .delmemo{
-	display: none;
-	float: right;
+		float: right;
 	width: 15px;
 }
 
