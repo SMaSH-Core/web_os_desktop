@@ -238,7 +238,7 @@
         <div id = "topbar">
             <ul id="wid_set">
                 <li class="addmemo" >MEMO</li>
-                <li class="calendar">CALENDAR</li>
+                <li ng-class="show_calendar=ture" class="calendar">CALENDAR</li>
             </ul>
             <div id="gsearch">
                 <form method="get" action="http://www.google.com/search" target="_blank">
@@ -282,7 +282,7 @@
             <div id = "home" droppable >
                 <button id = "Btn_ajax">Ajax</button>
                 <% include ../template/d_main_cloud %>
-                
+                <!-- 메모 -->
                <% var widgetmemo = JSON.parse(widget);
                   for(var i = 0; i < widgetmemo.widget.length; i++){ %>
                     <div ng-draggable class="widget w_memo" style="position: relative; z-index: 0; left: <%- widgetmemo.widget[i].left %>; top:  <%- widgetmemo.widget[i].top %>;" >
@@ -292,6 +292,24 @@
                         <textarea rows="8" cols="25"><%- widgetmemo.widget[i].memo %></textarea>
                     </div>
                 <%   }  %>
+
+                <!--달력-->
+                <div ng-draggable ng-controller="MainSchedulerCtrl" ng-show="show_calendar">
+                    <div data="events" dhx-scheduler style="height:600px; width:800px;">
+                    <div class="dhx_cal_prev_button"></div>
+                    <div class="dhx_cal_next_button">&nbsp;</div>
+                    <div class="dhx_cal_today_button"></div>
+                    <div class="dhx_cal_date"></div>
+                    <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+                    <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+                    <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>    
+
+                    <div dhx-template="event_bar_text">
+                        {{event.text | uppercase}}
+                    </div>
+                </div>
+
+                </div>
                 
                 <!-- 바탕화면의 가운데 시계와 인사말 -->
                 <div class="center">
