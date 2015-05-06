@@ -294,8 +294,8 @@
                 <%   }  %>
 
                 <!--달력-->
-                <div ng-controller="MainSchedulerCtrl" ng-show="show_calendar" ng-draggable>
-                    <div data="events" dhx-scheduler style="height:600px; width:800px;">
+                
+                <div data="events" dhx-scheduler style="height:600px; width:800px;" ng-controller="MainSchedulerCtrl" ng-show="show_calendar" ng-draggable>
                         <div class="dhx_cal_prev_button"></div>
                         <div class="dhx_cal_next_button">&nbsp;</div>
                         <div class="dhx_cal_today_button"></div>
@@ -307,9 +307,9 @@
                         <div dhx-template="event_bar_text">
                             {{event.text | uppercase}}
                         </div>
-                    </div>
-
                 </div>
+
+                
                 
                 <!-- 바탕화면의 가운데 시계와 인사말 -->
                 <div class="center">
