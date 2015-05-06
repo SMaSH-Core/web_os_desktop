@@ -118,7 +118,7 @@ module.exports = function(passport){
 	passport.use(new FacebookStrategy({
 	        clientID: '346561208848675',
 	        clientSecret: 'a73a7db8230a05283c136d2197d33398',
-	        callbackURL: "http://localhost:9080/auth/facebook/callback"
+	        callbackURL: "/auth/facebook/callback"
 	    },
 	    function(accessToken, refreshToken, profile, done) {
 	        var id = profile.id;
@@ -160,7 +160,7 @@ module.exports = function(passport){
 	                    if(err)
 	                        return done(err);
 
-	                    var dirpath ='./cloud/users/'+req.param('email');
+	                    var dirpath ='./cloud/users/'+id;
 	                    fs.mkdir(dirpath, 0777, function(err) {
 						  if(err)
 						  {
@@ -181,11 +181,12 @@ module.exports = function(passport){
 	));
 // passport for Google OAuth
 	passport.use(new GoogleStrategy({
-	    clientID: '1041088561606-ltu5japjbrk5si9lotcosq66nc2gav4k.apps.googleusercontent.com',
-	    clientSecret: '4JKsfKCC-zFqqTsDQbj6Sh_l',
-	    callbackURL: 'http://localhost:9080/auth/google/callback'
+	    clientID: '642713611296-3g6cpseokmpu6sld8q0mhaa54sp0bl03.apps.googleusercontent.com',
+	    clientSecret: 'zAg9hzMjbBQQoQs6sj9Bycbd',
+	    callbackURL: '/auth/google/callback'
 	  },
 	    function(accessToken, refreshToken, profile, done) {
+	    	console.log(profile);
 	        var id = profile.emails[0].value;
 	        var name = profile.displayName;
 	        
@@ -227,7 +228,7 @@ module.exports = function(passport){
 	                        return done(err);
 
 
-	                    var dirpath ='./cloud/users/'+req.param('email');
+	                    var dirpath ='./cloud/users/'+id;
 	                    fs.mkdir(dirpath, 0777, function(err) {
 						  if(err)
 						  {
