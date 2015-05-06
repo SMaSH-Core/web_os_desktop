@@ -552,10 +552,6 @@ app.directive('save',function(){
 app.directive('widgetC', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){
-        	
-        	alert(this);
-        	alert(this.childNodes[0]);
-        	alert(this.childNodes[0].childNodes[0]);
         	this.childNodes[0].childNodes[0].style.display="block";
         };
 
@@ -569,7 +565,7 @@ app.directive('widgetC', function(){
         
     return {
         restrict: 'C',
-        link: linkFn
+        //link: linkFn
     };
 });
 
