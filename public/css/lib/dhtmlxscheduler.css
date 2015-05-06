@@ -16,14 +16,10 @@ to use it in non-GPL project. Please contact sales@dhtmlx.com for details
 	z-index:10000;
 	margin:5px;
 	margin-bottom:10px;
-	-webkit-transition:all 
-.5s ease;
-	-moz-transition:all 
-.5s ease;
-	-o-transition:all 
-.5s ease;
-	transition:all 
-.5s ease;
+	-webkit-transition:all .5s ease;
+	-moz-transition:all .5s ease;
+	-o-transition:all .5s ease;
+	transition:all .5s ease;
 }
 .dhtmlx-info.hidden{
 	height:0;
@@ -84,8 +80,7 @@ div.dhx_modal_cover{
 	background-color:#000;
 	cursor:default;
 	filter:alpha(opacity = 20);
-	opacity:
-.2;
+	opacity:.2;
 	position:fixed;
 	z-index:19999;
 	left:0;
@@ -172,73 +167,34 @@ div.dhx_modal_cover{
 .dhx_scale_hour{height:41px;width:50px;border-bottom:1px dotted #8894A3;background-color:#C2D5FC;text-align:center;line-height:40px;color:#586A7E;overflow:hidden;}
 .dhx_month_head{background-color:#EBEFF4;color:#2F3A48;height:18px;padding-right:5px;padding-top:3px;text-align:right;border-right:1px dotted #586A7E;}
 .dhx_month_body{border-right:1px dotted #586A7E;border-bottom:1px dotted #586A7E;background-color:#FFF;}
-.dhx_now 
-.dhx_month_body{background-color:#E2EDFF;}
-.dhx_after 
-.dhx_month_body,
-.dhx_before 
-.dhx_month_body{background-color:#ECECEC;}
-.dhx_after 
-.dhx_month_head,
-.dhx_before 
+.dhx_now .dhx_month_body{background-color:#E2EDFF;}
+.dhx_after .dhx_month_body,
+.dhx_before .dhx_month_body{background-color:#ECECEC;}
+.dhx_after .dhx_month_head,.dhx_before 
 .dhx_month_head{background-color:#E2E3E6;color:#94A6BB;}
-.dhx_now 
-.dhx_month_head{background-color:#D1DEF4;font-weight:bold;}
+.dhx_now .dhx_month_head{background-color:#D1DEF4;font-weight:bold;}
 .dhx_cal_drag{position:absolute;z-index:9999;background-color:#FFE763;border:1px solid #B7A543;opacity:.5;filter:alpha(opacity=50);}
 .dhx_loading{position:absolute;width:128px;height:15px;background-image:url(../../images/lib/loading.gif);z-index:9999;}
-.dhx_multi_day_icon,
-.dhx_multi_day{background-color:#E1E6FF;background-repeat:no-repeat;border-right:1px dotted #8894A3;}
+.dhx_multi_day_icon, .dhx_multi_day{background-color:#E1E6FF;background-repeat:no-repeat;border-right:1px dotted #8894A3;}
 .dhx_multi_day{position:absolute;border-top:1px dotted #8894A3;}
-.dhx_multi_day_icon,
-.dhx_multi_day_icon_small{background-position:center center;background-color:#E1E6FF;background-repeat:no-repeat;border-bottom:1px dotted #8894A3;border-right:1px dotted #8894A3;}
+.dhx_multi_day_icon,.dhx_multi_day_icon_small{background-position:center center;background-color:#E1E6FF;background-repeat:no-repeat;border-bottom:1px dotted #8894A3;border-right:1px dotted #8894A3;}
 .dhx_multi_day_icon{background-image:url(../../images/lib/clock_big.gif);}
 .dhx_multi_day_icon_small{background-image:url(../../images/lib/clock_small.gif);}
-.dhtmlxLayoutPolyContainer_dhx_skyblue 
-.dhx_cal_container{background-color:#d0e5ff;}
-.dhx_scale_hour_border,
-.dhx_month_body_border,
-.dhx_scale_bar_border,
-.dhx_month_head_border{border-left:1px dotted #8894A3;}
-.dhx_cal_navline 
-.dhx_cal_export{width:18px;height:18px;margin:2px;cursor:pointer;top:0;}
-.dhx_cal_navline 
-.dhx_cal_export
-.pdf{left:2px;background-image:url('../../images/lib/export_pdf.png');}
-.dhx_cal_navline 
-.dhx_cal_export
-.ical{left:24px;background-image:url('../../images/lib/export_ical.png');}
-.dhx_cal_event 
-.dhx_header,
-.dhx_cal_event 
-.dhx_title,
-.dhx_cal_event 
-.dhx_body,
-.dhx_cal_event 
-.dhx_footer{background-color:#FFE763;border:1px solid #B7A543;color:#887A2E;overflow:hidden;width:100%;font-family:Tahoma;font-size:8pt;}
-.dhx_move_denied 
-.dhx_cal_event 
-.dhx_header,
-.dhx_move_denied 
-.dhx_cal_event 
-.dhx_title{cursor:default;}
-.dhx_cal_event 
+.dhtmlxLayoutPolyContainer_dhx_skyblue .dhx_cal_container{background-color:#d0e5ff;}
+.dhx_scale_hour_border,.dhx_month_body_border,.dhx_scale_bar_border,.dhx_month_head_border{border-left:1px dotted #8894A3;}
+.dhx_cal_navline .dhx_cal_export{width:18px;height:18px;margin:2px;cursor:pointer;top:0;}
+.dhx_cal_navline .dhx_cal_export .pdf{left:2px;background-image:url('../../images/lib/export_pdf.png');}
+.dhx_cal_navline .dhx_cal_export .ical{left:24px;background-image:url('../../images/lib/export_ical.png');}
+.dhx_cal_event .dhx_header, .dhx_cal_event .dhx_title,.dhx_cal_event .dhx_body,.dhx_cal_event .dhx_footer{background-color:#FFE763;border:1px solid #B7A543;color:#887A2E;overflow:hidden;width:100%;font-family:Tahoma;font-size:8pt;}
+.dhx_move_denied .dhx_cal_event .dhx_header,.dhx_move_denied .dhx_cal_event .dhx_title{cursor:default;}.dhx_cal_event 
 .dhx_header{height:1px;margin-left:1px;border-width:1px 1px 0 1px;cursor:pointer;}
-.dhx_cal_event 
-.dhx_title{height:12px;border-width:0 1px 1px 1px;border-bottom-style:dotted;font-size:7pt;font-weight:bold;text-align:center;background-position:right;background-repeat:no-repeat;cursor:pointer;}
-.dhx_cal_event 
-.dhx_body,
-.dhx_cal_event
-.dhx_cal_select_menu 
+.dhx_cal_event .dhx_title{height:12px;border-width:0 1px 1px 1px;border-bottom-style:dotted;font-size:7pt;font-weight:bold;text-align:center;background-position:right;background-repeat:no-repeat;cursor:pointer;}
+.dhx_cal_event .dhx_body,.dhx_cal_event .dhx_cal_select_menu 
 .dhx_body{border-width:0 1px 1px 1px;padding:5px;}
-.dhx_resize_denied,
-.dhx_resize_denied 
+.dhx_resize_denied,.dhx_resize_denied 
 .dhx_event_resize{cursor:default!important;}
-.dhx_cal_event 
-.dhx_event_resize{cursor:s-resize;}
-.dhx_cal_event 
-.dhx_footer,
-.dhx_cal_event 
-.dhx_select_menu_footer{height:1px;margin-left:2px;border-width:0 1px 1px 1px;position:relative;}
+.dhx_cal_event .dhx_event_resize{cursor:s-resize;}
+.dhx_cal_event .dhx_footer,.dhx_cal_event .dhx_select_menu_footer{height:1px;margin-left:2px;border-width:0 1px 1px 1px;position:relative;}
 .dhx_cal_event_line{background-color:#FFE763;border:1px solid #B7A543;border-radius:3px;font-family:Tahoma;font-size:8pt;height:13px;padding-left:10px;color:#887A2E;cursor:pointer;overflow:hidden;}
 .dhx_cal_event_clear{font-family:Tahoma;font-size:8pt;height:13px;padding-left:2px;color:#887A2E;white-space:nowrap;overflow:hidden;cursor:pointer;}
 .dhx_in_move{background-color:#FFFF80;}div
@@ -254,18 +210,13 @@ div.dhx_modal_cover{
 .dhx_month_link{position:absolute;box-sizing:border-box;-moz-box-sizing:border-box;text-align:right;cursor:pointer;padding-right:10px;}
 .dhx_month_link a{color:blue;}
 .dhx_month_link a:hover{text-decoration:underline;}
-.dhx_global_tip{font-family:Tahoma,Helvetica;text-align:center;font-size:20px;position:fixed;top:60px;right:20px;background-color:rgba(255,255,255,0
-	.7);color:#000;z-index:10000;padding:20px 30px;width:190px;}
-.dhx_global_tip div{font-size:30px;}@media(-moz-touch-enabled){
-	.dhx_cal_container{user-select:none;-moz-user-select:none;}}
-.dhx_unselectable,
-.dhx_unselectable div{-webkit-user-select:none;-moz-user-select:none;-moz-user-select:-moz-none;}
+.dhx_global_tip{font-family:Tahoma,Helvetica;text-align:center;font-size:20px;position:fixed;top:60px;right:20px;background-color:rgba(255,255,255,0.7);color:#000;z-index:10000;padding:20px 30px;width:190px;}
+.dhx_global_tip div{font-size:30px;}@media(-moz-touch-enabled){.dhx_cal_container{user-select:none;-moz-user-select:none;}}
+.dhx_unselectable, .dhx_unselectable div{-webkit-user-select:none;-moz-user-select:none;-moz-user-select:-moz-none;}
 .dhx_cal_light{-webkit-tap-highlight-color:transparent;background-color:#FFE763;border-radius:5px;font-family:Tahoma;font-size:8pt;border:1px solid #B7A64B;color:#887A2E;position:absolute;z-index:10001;width:580px;height:300px;box-shadow:5px 5px 5px #888;}
 .dhx_cal_light_wide{width:650px;}
-.dhx_mark{position:relative;top:3px;background-image:url('
-	../../images/lib/controls.gif');background-position:0 -43px;padding-left:10px;}
-.dhx_ie6 
-.dhx_mark{background-position:6px -41px;}
+.dhx_mark{position:relative;top:3px;background-image:url('../../images/lib/controls.gif');background-position:0 -43px;padding-left:10px;}
+.dhx_ie6 .dhx_mark{background-position:6px -41px;}
 .dhx_cal_light select{font-family:Tahoma;font-size:8pt;color:#887A2E;padding:2px;margin:0;}
 .dhx_cal_ltitle{padding:2px 0 2px 5px;overflow:hidden;white-space:nowrap;}
 .dhx_cal_ltitle span{white-space:nowrap;}
