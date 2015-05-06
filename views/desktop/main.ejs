@@ -285,7 +285,7 @@
                 <!-- 메모 -->
                <% var widgetmemo = JSON.parse(widget);
                   for(var i = 0; i < widgetmemo.widget.length; i++){ %>
-                    <div ng-draggable class="widget w_memo" style="position: relative; z-index: 0; left: <%- widgetmemo.widget[i].left %>; top:  <%- widgetmemo.widget[i].top %>;" >
+                    <div ng-draggable class="widget_m w_memo" style="position: relative; z-index: 0; left: <%- widgetmemo.widget[i].left %>; top:  <%- widgetmemo.widget[i].top %>;" >
                         <div class="end">
                             <img ng-show="show_del" class="end"src="/images/wid_del.png"/>
                         </div>
@@ -294,7 +294,7 @@
                 <%   }  %>
 
                 <!--달력-->
-                <div ng-controller="MainSchedulerCtrl" ng-draggable class="widget">
+                <div ng-controller="MainSchedulerCtrl" ng-draggable class="widget_c">
                     <div class="end" id="calendar">
                             <img ng-show="show_del" class="end"src="/images/wid_del.png"/>
                     </div>

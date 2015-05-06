@@ -229,14 +229,14 @@ button.logout{
 	width: 30px;
 	height : 30px;
 }*/
-/*
-.widget{
+
+.widget_m{
 	display: inline-block;
 	margin: 5px;
 	padding: 5px;
 	border: 1px rgba(192, 190, 190, 0.78);
 	background-color: rgba(192, 190, 190, 0.78);
-}*/
+}
 .w_memo{ 
 	display: inline-block;
 	background: rgba(255, 255, 255, 0.18);

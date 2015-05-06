@@ -426,8 +426,8 @@ app.directive('ngDraggable', function($document, $window){
 
 });
 
-//----------------------------Widget-------------------------------------
-app.directive('widget', function(){
+//----------------------------Widget Memo-------------------------------------
+app.directive('widget_m', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){
         	this.childNodes[0].childNodes[0].style.display="block";
@@ -452,7 +452,7 @@ app.directive('widget', function(){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable class="widget w_memo"><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
+        template: '<div ng-draggable class="widget_m w_memo"><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
     };
 })
 
@@ -549,6 +549,25 @@ app.directive('save',function(){
 
 });
 //----------------------------Widget calendar-------------------------------------
+app.directive('widget_c', function(){
+    var linkFn = function(scope, element, attrs){        
+        var showdel = function(e){
+        	this.childNodes[0].childNodes[0].style.display="block";
+        };
+
+        var notshow=function(e){
+        	this.childNodes[0].childNodes[0].style.display="none";
+        };
+       
+        element.on('mouseover', showdel);
+        element.on('mouseleave',notshow);
+    };
+        
+    return {
+        restrict: 'C',
+        link: linkFn
+    };
+});
 
 app.controller('MainSchedulerCtrl', function($scope) {
   $scope.events = [];
