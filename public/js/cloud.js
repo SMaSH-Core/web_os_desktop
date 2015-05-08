@@ -178,6 +178,7 @@ function cloud_popup() {
         modal: false,
         scrollbar: true,
         transition: 'slideDown',
-        transitionClose: 'slideDown'
+        transitionClose: 'slideDown',
+        closeClass: 'finderClose'
     });
 };
