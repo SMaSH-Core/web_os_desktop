@@ -284,6 +284,7 @@
             <div id = "home" droppable >
                 <button id = "Btn_ajax">Ajax</button>
                 <% include ../template/d_main_cloud %>
+
                 <!-- 메모 -->
                <% var widgetmemo = JSON.parse(widget);
                   for(var i = 0; i < widgetmemo.widget.length; i++){ %>
@@ -295,7 +296,49 @@
                     </div>
                 <%   }  %>
 
-                <!--달력-->
+                <!-- 투두리스트 -->
+                <div ng-app="TaskManager" style="margin-top:150px;">
+                    <div class="container">
+                        <div class="content" ng-controller="taskController">
+                            <h1>To Do List</h1>
+                            <div ng-draggable ng-show="todo">
+                                <form>
+                                    <div class="inputContainer">
+                                        <input type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
+                                        <label for="description">Description</label>
+                                    </div>
+                                    <div class="inputContainer half last"> <i class="fa fa-caret-down selectArrow"></i>
+                                        <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
+                                            <option class="disabled" value="">Choose a category</option>
+                                        </select>
+                                        <label for="category">Category</label>
+                                    </div>
+                                    <div class="inputContainer half last right">
+                                      <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
+                                      <label for="dueDate">Due Date</label>
+                                    </div>
+                                    <button ng-click="addNew()">ADD</button>
+                                </form>
+                            </div>
+                            <div class="row">
+                                  <button class="taskAdd" ng-click="todo=true"><i class="fa fa-plus icon"></i>Add task</button>
+                                  <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+                            </div>
+                            <ul  class="taskList">
+                                <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem">
+                                  <input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
+                                  <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span> <span class="category-{{taskItem.category}}">{{taskItem.category}}</span> <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong> 
+                                </li>
+                            </ul>
+                            <!-- taskList --> 
+                        </div>
+                        <!-- content --> 
+                    </div>
+                      <!-- container --> 
+                </div>
+                
+
+                <!-- 달력 -->
                 <div ng-controller="MainSchedulerCtrl" ng-draggable class="widget_c" ng-show="show_calendar" >
                     <div class="end" id="calendar">
                           <!--  <img  class="end"src="/images/wid_del.png"/>-->
@@ -397,5 +440,13 @@
          </div>
 
     </div>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-46156385-1', 'cssscript.com');
+        ga('send', 'pageview');
+    </script>
     </body>
 </html>
