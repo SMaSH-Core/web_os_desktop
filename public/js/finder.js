@@ -1,10 +1,11 @@
-window.onload =function (){
+/*window.onload =function (){
     var max = false;
     var size_Btn = document.getElementById("sizeCtrl");
     size_Btn.onclick = function() {
         max = sizeControler(max);
     };
 }
+*/
 function sizeControler(max) {
     console.log(max+", go to max");
     var pop = document.getElementById("popup");

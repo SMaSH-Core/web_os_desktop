@@ -2,18 +2,24 @@ var client = new Dropbox.Client({key: 'n6fec5ssr1ahnex'});
 //google
 var CLIENT_ID = '642713611296-3g6cpseokmpu6sld8q0mhaa54sp0bl03.apps.googleusercontent.com';
 var SCOPES = 'https://www.googleapis.com/auth/drive';
-
+/*
 window.onload =function (){
     window.setTimeout(checkAuth, 1);
-
+// cloud part
     var popup_Btn = document.getElementById("CLOUD");
     popup_Btn.onclick = cloud_popup;
     var Btn_ajax = document.getElementById("Btn_ajax");
     Btn_ajax.onclick = saveApp;
     var h2dropauth = document.getElementById('dropauth');
     h2dropauth.onclick = authDropbox;
+// finder part
+    var max = false;
+    var size_Btn = document.getElementById("sizeCtrl");
+    size_Btn.onclick = function() {
+        max = sizeControler(max);
+    };
 }
-
+*/
 function checkAuth() {  
     var CLOUD = document.getElementById("CLOUD");
     CLOUD.onclick = cloud_popup;
@@ -66,6 +72,7 @@ function handleAuthResult(authResult) {
 }
 
 function authDropbox(){
+    alert("auth dropbox");
     client.authenticate(function (error){
         if(error){
             alert('Authentication error'+error);
