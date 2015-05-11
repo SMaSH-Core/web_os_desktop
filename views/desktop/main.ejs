@@ -302,7 +302,7 @@
                         <div class="content" ng-controller="taskController">
                             <h1>To Do List</h1>
                             <div class="row">
-                                  <button class="taskAdd" ng-click="todo=!todo">Add task</button>
+                                  <button class="taskAdd" ng-click="todo=true">Add task</button>
                                   <button class="taskDelete" ng-click="deleteTask()">Delete Tasks</button>
                             </div>
                             <ul  class="taskList">
@@ -315,7 +315,7 @@
                         </div>
                     </div>
                 </div>
-                <div ng-draggable ng-show="todo">
+                <div ng-show="todo">
                     <form id="todoform">
                         <div class="inputContainer">
                             <input type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
