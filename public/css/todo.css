@@ -168,14 +168,14 @@ button {
 
 .taskAdd {
   background: #444;
-  padding-left: 15px;
+  padding:0;
 }
 
 .taskAdd:hover { background: #303030; }
 
 .taskDelete {
   background: #e74c3c;
-  padding-left: 30px;
+  padding:0;
 }
 
 .taskDelete:hover { background: #c0392b; }
