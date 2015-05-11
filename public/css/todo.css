@@ -71,7 +71,8 @@
 
 .inputContainer.half.last.right { border-left: 1px solid #efefef; }
 
-.todoinput,
+.inputContainer input[type="date"],
+.inputContainer input[type="text"],
 select {
   height: 100%;
   width: 100%;
@@ -94,7 +95,8 @@ select {
 
 input[type="date"] { cursor: pointer; }
 
-.todoinput:focus,
+input[type="date"]:focus,
+.inputContainer input[type="text"]:focus,
 select:focus {
   outline: none;
   background: #ecf0f1;

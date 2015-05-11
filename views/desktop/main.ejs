@@ -319,7 +319,7 @@
                     <div ng-show="show_todolist">
                         <form id="todoform">
                             <div class="inputContainer">
-                                <input class="todo_input" type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
+                                <input type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
                                 <label for="description">Description</label>
                             </div>
                             <div class="inputContainer half last"> <i class="fa fa-caret-down selectArrow"></i>
@@ -329,7 +329,7 @@
                                 <label for="category">Category</label>
                             </div>
                             <div class="inputContainer half last right">
-                              <input class="todo_input" type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
+                              <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
                               <label for="dueDate">Due Date</label>
                             </div>
                             <button ng-click="addNew();todo=false" id="addtodo">ADD</button>
