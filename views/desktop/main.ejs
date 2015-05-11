@@ -317,10 +317,11 @@
                                       <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
                                       <label for="dueDate">Due Date</label>
                                     </div>
-                                    <button ng-click="addNew()">ADD</button>
+                                    <button ng-click="{addNew(),todo=false}" id="addtodo">ADD</button>
+                                    <button ng-click="todo=false" id="deletetodo">CANCLE</button>
                                 </form>
                             </div>
-                            <div class="row">
+                            <div class="row" ng-draggable>
                                   <button class="taskAdd" ng-click="todo=true"><i class="fa fa-plus icon"></i>Add task</button>
                                   <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
                             </div>

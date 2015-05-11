@@ -3,6 +3,13 @@
   position: relative;
   top:10px;
 }
+
+#addtodo{
+  background-color: black ;
+}
+#addtodo{
+  background-color: red;
+}
 .container {
   width: 600px;
   margin: 0 auto;
@@ -22,7 +29,7 @@
 }
 
 .half {
-  width: 50%;
+  width: 48%;
   float: left;
 }
 
@@ -88,9 +95,9 @@
 
 .content input[type="date"] { cursor: pointer; }
 
-.content input[type="date"]:focus,
-.content input[type="text"]:focus,
-.content select:focus {
+input[type="date"]:focus,
+input[type="text"]:focus,
+select:focus {
   outline: none;
   background: #ecf0f1;
 }
