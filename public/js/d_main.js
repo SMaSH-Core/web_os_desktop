@@ -560,7 +560,7 @@ app.controller('MainSchedulerCtrl', function($scope) {
   ];
 
   $scope.scheduler = { date : new Date() };
-  console.log($scope.events);
+  //console.log($scope.events);
 
 
 });
