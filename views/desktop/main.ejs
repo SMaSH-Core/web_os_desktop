@@ -316,7 +316,7 @@
                             </div>
                         </div>
                     </div>
-                    <div ng-show="show_todolist">
+                    <div ng-show="show_todolist" style="width:70%;margin-left:15%">
                         <form id="todoform">
                             <div class="inputContainer">
                                 <input type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
@@ -332,7 +332,7 @@
                               <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
                               <label for="dueDate">Due Date</label>
                             </div>
-                            <button ng-click="addNew();todo=false" id="addtodo">ADD</button>
+                            <button ng-click="addNew();show_todolist=false" id="addtodo">ADD</button>
                             <button ng-click="show_todolist=false" id="deletetodo">CANCLE</button>
                         </form>
                     </div>
