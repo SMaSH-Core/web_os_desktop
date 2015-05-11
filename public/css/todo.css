@@ -1,22 +1,3 @@
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* app */
-
-html { font-size: 100%; }
-
-body {
-  background: #b1f6cb;
-  background-image: url(http://i1367.photobucket.com/albums/r792/acochran89/congruent_pentagon_zps6e6b49bf.png);
-  font-family: 'Open Sans', sans-serif;
-}
-
-/* super basic grid structure */
 
 .container {
   width: 600px;
