@@ -301,7 +301,21 @@
                     <div class="container">
                         <div class="content" ng-controller="taskController">
                             <h1>To Do List</h1>
-                            <div ng-draggable ng-show="todo">
+                            <div class="row" ng-draggable>
+                                  <button class="taskAdd" ng-click="todo=true"><i class="fa fa-plus icon"></i>Add task</button>
+                                  <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+                            </div>
+                            <ul  class="taskList">
+                                <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem">
+                                  <input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
+                                  <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span> <span class="category-{{taskItem.category}}">{{taskItem.category}}</span> <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong> 
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div ng-draggable ng-show="todo">
                                 <form id="todoform">
                                     <div class="inputContainer">
                                         <input type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
@@ -317,26 +331,10 @@
                                       <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
                                       <label for="dueDate">Due Date</label>
                                     </div>
-                                    <button ng-click="{addNew();todo=false}" id="addtodo">ADD</button>
+                                    <button ng-click="addNew();todo=false" id="addtodo">ADD</button>
                                     <button ng-click="todo=false" id="deletetodo">CANCLE</button>
                                 </form>
                             </div>
-                            <div class="row" ng-draggable>
-                                  <button class="taskAdd" ng-click="todo=true"><i class="fa fa-plus icon"></i>Add task</button>
-                                  <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
-                            </div>
-                            <ul  class="taskList">
-                                <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem">
-                                  <input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
-                                  <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span> <span class="category-{{taskItem.category}}">{{taskItem.category}}</span> <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong> 
-                                </li>
-                            </ul>
-                            <!-- taskList --> 
-                        </div>
-                        <!-- content --> 
-                    </div>
-                      <!-- container --> 
-                </div>
                 
 
                 <!-- 달력 -->
