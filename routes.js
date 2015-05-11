@@ -71,7 +71,19 @@ module.exports = function (app, passport,module){
             }
     });
   
-  
+    app.get('/mmain',function (req, res) {
+        var wid = "{\"widget\":[]}";
+        var sessionApp = req.user.app.link;
+        currentpath = './cloud/users/'+req.user.email;
+        var info = dirTree(currentpath);
+
+        res.render('mobile/mobile_main',{
+                UserID : 'hyejin@a.a',
+                UserName : 'hyejin',
+                userapp : sessionApp,
+                widget : wid});
+        
+    });
     // page for Facebook OAuth
     app.get('/auth/facebook', passport.authenticate('facebook'));
     app.get('/auth/facebook/callback',
