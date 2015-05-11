@@ -171,14 +171,14 @@ select:focus {
   padding-left: 15px;
 }
 
-/*.taskAdd:hover { background: #303030; }*/
+.taskAdd:hover { background: #303030; }
 
 .taskDelete {
   background: #e74c3c;
   padding-left: 30px;
 }
 
-/*.taskDelete:hover { background: #c0392b; }*/
+.taskDelete:hover { background: #c0392b; }
 
 /* task styles */
 
