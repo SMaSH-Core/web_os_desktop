@@ -6,13 +6,18 @@ var db = require('./db.js'); //
 var fs = require('fs');
 
 module.exports = function(passport){
-
+/*
 	var defaultapp =  [{fav: "http://www.google.com/s2/favicons?domain=http://apps.pixlr.com/editor/", url: "http://apps.pixlr.com/editor/", position: "center"},
 	                  {fav: "http://www.google.com/s2/favicons?domain=https://docs.google.com/", url: "https://docs.google.com/", position: "center"},
                       {fav: "https://static.xx.fbcdn.net/rsrc.php/yl/r/H3nktOa7ZMg.ico", url: "https://www.facebook.com/", position: "center"},
                       {fav: "http://i1.daumcdn.net/icon/opengraph/daum1.png", url: "http://www.daum.net", position: "center"},
                       {fav: "http://www.naver.com/favicon.ico?1", url: "http://www.naver.com", position: "center"}]
-	
+*/
+	var defaultapp =  [{fav: "http://www.google.com/s2/favicons?domain=http://apps.pixlr.com/editor/", url: "http://apps.pixlr.com/editor/", position: "center"},
+	                  {fav: "http://www.google.com/s2/favicons?domain=https://docs.google.com/", url: "https://hootsuite.com/", position: "center"},
+                      {fav: "https://static.xx.fbcdn.net/rsrc.php/yl/r/H3nktOa7ZMg.ico", url: "https://workflowy.com/", position: "center"},
+                      {fav: "http://i1.daumcdn.net/icon/opengraph/daum1.png", url: "https://www.pulse.me/", position: "center"},
+                      {fav: "http://www.naver.com/favicon.ico?1", url: "https://www.screenr.com/", position: "center"}]	
 	passport.serializeUser(function(user, done) {
 		console.log('serialize');
     	done(null, user);

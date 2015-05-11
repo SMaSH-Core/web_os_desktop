@@ -1,58 +1,41 @@
+a{
+	color: black;
+	text-decoration: none;
+}
+
 .Pstyle {
-	opacity: 0;
-	display: none;
-	position: relative;
-	border: 5px solid #000;
-	padding: 2%;
-	background-color: #fff;
 	height: 60%;
 	width: 60%;
+	background-color: #fff;
+	border: 2px solid #000;
+	opacity: 0;
+	display: none;
+	margin-left: auto;
+	margin-right: auto; 
 }
 
-.Pstyle div {
-	/*display: block;*/
-	position: absolute;
+.Pstyle .popTop {
+	width: 100%;
+	display: inline-block;
+	background-color: #787878;
 }
 
-.finderClose {
-	position: absolute;
-	right: 5px;
-	top: 5px;
-	padding: 5px;
+.Pstyle .popTop div {
+	position: relative;
+	float: right;
+	padding: 1%;
+	color: #fff;
 	display: inline-block;
 	cursor: pointer;
 }
 
-.content {
-	height: 100%;
-	width: 90%;
-	left: 0;
-	top: 0;
-}
-/*
-.nav {
-	width: 20%;
-	height: 100%;
-	border-right: 1px solid #c3c3c3;
+.Pstyle .content {
+	position: relative;
+	height: 90%;
+	width: 100%;
 }
 
-.nav ul {
-	list-style-type: none;
-	padding: 10%;
-	margin: 0;
-}
-
-.nav ul li {
-	padding: 5%;
-	line-height: 200%;
-}
-
-.nav ul li:hover {
-	background: #e6ffe6;
-}
-*/
 .tabs {
-	position: absolute;
 	width: 100%;
 	height: 100%;
 }
@@ -62,24 +45,24 @@
 }
 
 .tabs .labels {
-	position: absolute;
-	left: 0;
+	float: left;
 	width: 20%;
-	height: 96%;
-	padding: 3%;
+	height: 100%;
+	padding: 0;/*3%;*/
 	margin: 0;
 	/*border-right: 1px solid #c3c3c3;*/
-	background-color: #c3c3c3;
+	background-color: #fafabe;
+
 }
 
 .tabs .labels label {
-	position: relative;
-	float: top;
+	/*float: top;*/
 	width: 100%;
-	height: 20%;
-	padding: 5%;
-	line-height: 200%;
+	padding: 15% 0;
 	cursor: pointer;
+	text-align: center;
+	display: inline-block;
+	float: left;
 }
 
 input#local_tab:checked ~ .labels label[for="local_tab"],
@@ -89,80 +72,48 @@ input#googleDrive_tab:checked ~ .labels label[for="googleDrive_tab"] {
 	color: #000;
 }
 
-input#local_tab:checked ~ #tab_contents #local,
-input#dropbox_tab:checked ~ #tab_contents #dropbox,
-input#googleDrive_tab:checked ~ #tab_contents #googleDrive {
+input#local_tab:checked ~ .tab_contents #local,
+input#dropbox_tab:checked ~ .tab_contents #dropbox,
+input#googleDrive_tab:checked ~ .tab_contents #googleDrive {
 	display: block;
 }
 
-#tab_contents {
-	position: absolute;
-	left: 26%;
+.tab_contents {
+	float: right;
 	height: 100%;
-	width: 80%;
+	width: 76%;
+	padding: 2%;
 }
 
 .cloud_content {
-	position: absolute;
 	height: 100%;
 	width: 100%;
 	overflow: auto;
 	display: none;
 }
-/*
-.content .header {
-	display: none;
-}
 
-.content .section{
-	display: none;
-}
-
-.content div:target .header { 
-	display: block; 
-}
-
-.content div:target .section {
-	display: block;
-}
-*/
-a{
-	color: black;
-	text-decoration: none;
-}
-
-.cloud_content .header {
+.cloud_content .alias {
 	width: 100%;
-	height: 20%;
-	padding: 2%;
+	padding: 1.5% 0 3% 0;
 	border-bottom: 1px solid #c3c3c3;
 }
 
-.header .alias {
-	height: 70%;
-}
-.header .button {
-	right: 5%;
-	top: 70%;
-}
-
-.cloud_content .section {
+.cloud_content .table {
 	width: 100%;
-	top: 24%;
 	overflow: auto;
 }
 
 table {
-	width: 95%;
+	width: 100%;
 }
 
 .table_list {
-	margin: 3%;
+	padding: 2%;
 	table-layout: fixed;
 }
 
 .table_list thead tr th {
-	line-height: 300%;
+	line-height: 200%;
 	border-bottom: 2px solid #c3c3c3;
 	color: gray;
 	font-weight: bold;
@@ -170,7 +121,7 @@ table {
 }
 
 .table_list tbody tr td {
-	line-height: 350%;
+	line-height: 300%;
 	border-bottom: 1px solid #c3c3c3;
 	padding-left: 1%;
 	padding-right: 1%;
