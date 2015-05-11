@@ -71,9 +71,9 @@
 
 .inputContainer.half.last.right { border-left: 1px solid #efefef; }
 
-.inputContainer input[type="date"],
-.inputContainer input[type="text"],
-.inputContainer select {
+.content input[type="date"],
+.content input[type="text"],
+.content select {
   height: 100%;
   width: 100%;
   padding: 0 20px;
@@ -93,7 +93,7 @@
   transition: background 0.3s;
 }
 
-.inputContainer  input[type="date"] { cursor: pointer; }
+.content input[type="date"] { cursor: pointer; }
 
 input[type="date"]:focus,
 input[type="text"]:focus,
@@ -118,21 +118,21 @@ select:focus {
  font-weight: normal;
  transition: all 0.3s;
 }
-.inputContainer input:-moz-placeholder {
+.content input:-moz-placeholder {
  color: lightgrey;
  font-weight: normal;
  transition: all 0.3s;
 }
-.inputContainer input:focus::-webkit-input-placeholder {
+.content input:focus::-webkit-input-placeholder {
  color: #95a5a6;
  font-weight: bold;
 }
-.inputContainer input:focus::-moz-input-placeholder {
+.content  input:focus::-moz-input-placeholder {
  color: #95a5a6;
  font-weight: bold;
 }
 
-.inputContainer  label {
+.content label {
   padding: 5px 20px;
   font-size: 11px;
   font-weight: 600;
@@ -142,7 +142,7 @@ select:focus {
   position: absolute;
 }
 
-.inputContainer  button {
+.content button {
   font-family: 'Open Sans', sans-serif;
   background: transparent;
   border-radius: 2px;
