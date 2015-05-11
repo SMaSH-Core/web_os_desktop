@@ -71,9 +71,9 @@
 
 .inputContainer.half.last.right { border-left: 1px solid #efefef; }
 
-.content input[type="date"],
-.content input[type="text"],
-.content select {
+.inputContainer input[type="date"],
+.inputContainer input[type="text"],
+.inputContainer select {
   height: 100%;
   width: 100%;
   padding: 0 20px;
@@ -93,7 +93,7 @@
   transition: background 0.3s;
 }
 
-.content input[type="date"] { cursor: pointer; }
+.inputContainer  input[type="date"] { cursor: pointer; }
 
 input[type="date"]:focus,
 input[type="text"]:focus,
@@ -118,21 +118,21 @@ select:focus {
  font-weight: normal;
  transition: all 0.3s;
 }
-.content input:-moz-placeholder {
+.inputContainer input:-moz-placeholder {
  color: lightgrey;
  font-weight: normal;
  transition: all 0.3s;
 }
-.content input:focus::-webkit-input-placeholder {
+.inputContainer input:focus::-webkit-input-placeholder {
  color: #95a5a6;
  font-weight: bold;
 }
-.content  input:focus::-moz-input-placeholder {
+.inputContainer input:focus::-moz-input-placeholder {
  color: #95a5a6;
  font-weight: bold;
 }
 
-.content label {
+.inputContainer  label {
   padding: 5px 20px;
   font-size: 11px;
   font-weight: 600;
@@ -142,7 +142,7 @@ select:focus {
   position: absolute;
 }
 
-.content button {
+.inputContainer  button {
   font-family: 'Open Sans', sans-serif;
   background: transparent;
   border-radius: 2px;
@@ -171,14 +171,14 @@ select:focus {
   padding-left: 15px;
 }
 
-.taskAdd:hover { background: #303030; }
+/*.taskAdd:hover { background: #303030; }*/
 
 .taskDelete {
   background: #e74c3c;
   padding-left: 30px;
 }
 
-.taskDelete:hover { background: #c0392b; }
+/*.taskDelete:hover { background: #c0392b; }*/
 
 /* task styles */
 
