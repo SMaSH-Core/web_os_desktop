@@ -26,7 +26,7 @@
 
 /* logo */
 
-h1 {
+.content h1 {
   font-family: 'Rokkitt', sans-serif;
   color: #666;
   text-align: center;
@@ -60,9 +60,9 @@ h1 {
 
 .inputContainer.half.last.right { border-left: 1px solid #efefef; }
 
-input[type="date"],
-input[type="text"],
-select {
+.content input[type="date"],
+.content input[type="text"],
+.content select {
   height: 100%;
   width: 100%;
   padding: 0 20px;
@@ -82,11 +82,11 @@ select {
   transition: background 0.3s;
 }
 
-input[type="date"] { cursor: pointer; }
+.content input[type="date"] { cursor: pointer; }
 
-input[type="date"]:focus,
-input[type="text"]:focus,
-select:focus {
+.content input[type="date"]:focus,
+.content input[type="text"]:focus,
+.content select:focus {
   outline: none;
   background: #ecf0f1;
 }
@@ -107,21 +107,21 @@ select:focus {
  font-weight: normal;
  transition: all 0.3s;
 }
-input:-moz-placeholder {
+.content input:-moz-placeholder {
  color: lightgrey;
  font-weight: normal;
  transition: all 0.3s;
 }
- input:focus::-webkit-input-placeholder {
+.content input:focus::-webkit-input-placeholder {
  color: #95a5a6;
  font-weight: bold;
 }
- input:focus::-moz-input-placeholder {
+.content  input:focus::-moz-input-placeholder {
  color: #95a5a6;
  font-weight: bold;
 }
 
-label {
+.content label {
   padding: 5px 20px;
   font-size: 11px;
   font-weight: 600;
@@ -131,7 +131,7 @@ label {
   position: absolute;
 }
 
-button {
+.content button {
   font-family: 'Open Sans', sans-serif;
   background: transparent;
   border-radius: 2px;
@@ -235,7 +235,7 @@ button {
 
 .category-Other { background: #d35400; }
 
-footer {
+.content footer {
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -243,7 +243,7 @@ footer {
   color: #777;
 }
 
-footer a { color: #f39c12; }
+.content footer a { color: #f39c12; }
 
 /* custom checkboxes */
 
