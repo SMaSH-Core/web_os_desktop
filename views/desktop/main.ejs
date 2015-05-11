@@ -297,11 +297,11 @@
                 <%   }  %>
 
                 <!-- 투두리스트 -->
-                <div ng-show="show_todo">
+                <div  ng-draggable ng-show="show_todo">
                     <div class="container">
                         <div class="content" ng-controller="taskController">
                             <h1>To Do List</h1>
-                            <div class="row" ng-draggable>
+                            <div class="row">
                                   <button class="taskAdd" ng-click="todo=true"><i class="fa fa-plus icon"></i>Add task</button>
                                   <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
                             </div>
@@ -316,25 +316,25 @@
                     </div>
                 </div>
                 <div ng-draggable ng-show="todo">
-                                <form id="todoform">
-                                    <div class="inputContainer">
-                                        <input type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
-                                        <label for="description">Description</label>
-                                    </div>
-                                    <div class="inputContainer half last"> <i class="fa fa-caret-down selectArrow"></i>
-                                        <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
-                                            <option class="disabled" value="">Choose a category</option>
-                                        </select>
-                                        <label for="category">Category</label>
-                                    </div>
-                                    <div class="inputContainer half last right">
-                                      <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
-                                      <label for="dueDate">Due Date</label>
-                                    </div>
-                                    <button ng-click="addNew();todo=false" id="addtodo">ADD</button>
-                                    <button ng-click="todo=false" id="deletetodo">CANCLE</button>
-                                </form>
-                            </div>
+                    <form id="todoform">
+                        <div class="inputContainer">
+                            <input type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
+                            <label for="description">Description</label>
+                        </div>
+                        <div class="inputContainer half last"> <i class="fa fa-caret-down selectArrow"></i>
+                            <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
+                                <option class="disabled" value="">Choose a category</option>
+                            </select>
+                            <label for="category">Category</label>
+                        </div>
+                        <div class="inputContainer half last right">
+                          <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
+                          <label for="dueDate">Due Date</label>
+                        </div>
+                        <button ng-click="addNew();todo=false" id="addtodo">ADD</button>
+                        <button ng-click="todo=false" id="deletetodo">CANCLE</button>
+                    </form>
+                </div>
                 
 
                 <!-- 달력 -->
