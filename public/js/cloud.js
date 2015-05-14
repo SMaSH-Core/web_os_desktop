@@ -281,8 +281,12 @@ function appendChildList(classname,id,file){
   
     td_name.appendChild(a);
     td_name.className = 'name';
+    td_size.className = 'size';
+    td_type.className = 'type';
+    td_date.className = 'date';
     td_size.innerHTML = file.size;
     td_date.innerHTML = file.date;
+
     td_type.innerHTML = file.type;
     td_path.innerHTML = file.path;
     td_path.style.display='none';

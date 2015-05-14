@@ -1,110 +1,110 @@
 
-<div id="popup" class="Pstyle">
-<div class="popTop">
-    <div class="finderClose">X</div>
-    <!--
-    <div id="sizeCtrl">ㅁ</div>
-    <div id="minimize">_</div>
--->
-</div>      
-<div class="content">
-    <div class="tabs">
-        <input type="radio" id="local_tab" name="tabs" checked />
-        <input type="radio" id="dropbox_tab" name="tabs" />
-        <input type="radio" id="googleDrive_tab" name="tabs" />
-        <div class="labels">
-            <label id="local_label" for="local_tab">Local</label>
-            <label id="dropbox_label" for="dropbox_tab">Dropbox</label>
-            <label id="googleDrive_label" for="googleDrive_tab">Google Drive</label>
-        </div>  <!-- labels end -->
-        <div class="tab_contents">
-            <div class="cloud_content" id="local">
-                <div class="alias">
-                    <span>Local</span>
-                </div>
-                <div class="table">
-                    <table class="table_list" cellspacing="0">          
-                        <thead>
-                            <tr>
-                                <th width="10%">타입</th>
-                                <th width="50%">이름</th>
-                                <th width="20%">크기</th>
-                                <th width="20%">날짜</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="type">directory</td>
-                                <td class="name"><a href="">This is directory1 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</a></td>
-                                <td class="size">1000 MB</td>
-                                <td class="date">2015.04.23</td>
-                            </tr>
-                            <tr>
-                                <td class="type">directory</td>
-                                <td class="name"><a href="">This is directory2 what is your name?</a></td>
-                                <td class="size">1478 bytes</td>
-                                <td class="date">2 days ago</td>
-                            </tr>
-                            <tr>
-                                <td class="type">file</td>
-                                <td class="name"><a href="">This is Local</a></td>
-                                <td class="size">1.5 GB</td>
-                                <td class="date">recently</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> 
-            </div>
-            <div class="cloud_content" id="dropbox">
-                <div class="alias">
-                    <span>Dropbox</span>
-                    <ul id = "path_list">
-                        <li class = 'current_droppath'><a href = '#DROPBOX/'>DROPBOX</a></li>
-                    </ul>
-
-                </div>
-                <div class="table">
-                    <table class="table_list" cellspacing="0">          
-                        <thead>
-                            <tr>
-                                <th width="10%">타입</th>
-                                <th width="50%">이름</th>
-                                <th width="20%">크기</th>
-                                <th width="20%">날짜</th>
-                            </tr>
-                        </thead>
-                        <tbody id ="drop_File">
-                            <tr class ="drop_file_list">
-                                    <td class="type">image</td>
-                                    <td class="name"><a href="">pivot.png</a></td>
+<div id="popup" class="Pstyle" ng-draggable>
+    <div class="popTop">
+        <div class="finderClose">X</div>
+        <!--
+        <div id="sizeCtrl">ㅁ</div>
+        <div id="minimize">_</div>
+    -->
+    </div>      
+    <div class="content" >
+        <div class="tabs">
+            <input type="radio" id="local_tab" name="tabs" checked />
+            <input type="radio" id="dropbox_tab" name="tabs" />
+            <input type="radio" id="googleDrive_tab" name="tabs" />
+            <div class="labels">
+                <label id="local_label" for="local_tab">Local</label>
+                <label id="dropbox_label" for="dropbox_tab">Dropbox</label>
+                <label id="googleDrive_label" for="googleDrive_tab">Google Drive</label>
+            </div>  <!-- labels end -->
+            <div class="tab_contents">
+                <div class="cloud_content" id="local">
+                    <div class="alias">
+                        <span>Local</span>
+                    </div>
+                    <div class="table">
+                        <table class="table_list" cellspacing="0">          
+                            <thead>
+                                <tr>
+                                    <th width="20%">타입</th>
+                                    <th width="40%">이름</th>
+                                    <th width="20%">크기</th>
+                                    <th width="20%">날짜</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="type">directory</td>
+                                    <td class="name"><a href="">This is directory1 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</a></td>
                                     <td class="size">1000 MB</td>
                                     <td class="date">2015.04.23</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> 
-            </div>
-            <div class="cloud_content" id="googleDrive">
-                <div class="alias">
-                    <span>Google Drive</span>
+                                </tr>
+                                <tr>
+                                    <td class="type">directory</td>
+                                    <td class="name"><a href="">This is directory2 what is your name?</a></td>
+                                    <td class="size">1478 bytes</td>
+                                    <td class="date">2 days ago</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">file</td>
+                                    <td class="name"><a href="">This is Local</a></td>
+                                    <td class="size">1.5 GB</td>
+                                    <td class="date">recently</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
                 </div>
-                <div class="table">
-                    <table class="table_list" cellspacing="0">          
-                        <thead>
-                            <tr>
-                                <th width="10%">타입</th>
-                                <th width="50%">이름</th>
-                                <th width="20%">크기</th>
-                                <th width="20%">날짜</th>
-                            </tr>
-                        </thead>
-                        <tbody id = "google_File">
-                        </tbody>
-                    </table>
-                </div>                    
-            </div>  <!-- cloud content end -->
-        </div>  <!-- tab_contents end -->
-    </div>  <!-- tabs end -->
-</div>  <!-- content end -->
+                <div class="cloud_content" id="dropbox">
+                    <div class="alias">
+                        <span>Dropbox</span>
+                        <ul id = "path_list">
+                            <li class = 'current_droppath'><a href = '#DROPBOX/'>DROPBOX</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="table">
+                        <table class="table_list" cellspacing="0">          
+                            <thead>
+                                <tr>
+                                    <th width="20%">타입</th>
+                                    <th width="40%">이름</th>
+                                    <th width="20%">크기</th>
+                                    <th width="20%">날짜</th>
+                                </tr>
+                            </thead>
+                            <tbody id ="drop_File">
+                                <tr class ="drop_file_list">
+                                        <td class="type">image</td>
+                                        <td class="name"><a href="">pivot.png</a></td>
+                                        <td class="size">1000 MB</td>
+                                        <td class="date">2015.04.23</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="cloud_content" id="googleDrive">
+                    <div class="alias">
+                        <span>Google Drive</span>
+                    </div>
+                    <div class="table">
+                        <table class="table_list" cellspacing="0">          
+                            <thead>
+                                <tr>
+                                    <th width="20%">타입</th>
+                                    <th width="40%">이름</th>
+                                    <th width="20%">크기</th>
+                                    <th width="20%">날짜</th>
+                                </tr>
+                            </thead>
+                            <tbody id = "google_File">
+                            </tbody>
+                        </table>
+                    </div>                    
+                </div>  <!-- cloud content end -->
+            </div>  <!-- tab_contents end -->
+        </div>  <!-- tabs end -->
+    </div>  <!-- content end -->
 </div>  <!-- popup end -->
 

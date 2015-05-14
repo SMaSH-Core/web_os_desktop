@@ -1,6 +1,21 @@
-#todolist{
-  position: absolute;
-  top:10px;
+#todo_li{
+  position: fixed;
+  width: 40%;
+  top :-10%;
+  left: 30%;
+  box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
+}
+
+#todo_fo{
+  position:fixed; 
+  top: -200px; 
+  left:30%;
+  width:38%;
+  margin-left:15% ;
+  margin : 10px; 
+  background-color:white
+  box-shadow: 5px 5px 5px 5px rgba(100,100,100,0.5);
+
 }
 #todoform{
   background-color: white;
@@ -15,12 +30,16 @@
   background-color: red;
 }
 .container {
-  width: 600px;
+
+  /*width: 600px;*/
+  width: 100%;
   margin: 0 auto;
   background: #ffffff;
   padding: 20px 0;
   -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  /*box-shadow: 0 0 2px rgba(0,0,0,0.2);*/
+  box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
+
 }
 
 .row {
