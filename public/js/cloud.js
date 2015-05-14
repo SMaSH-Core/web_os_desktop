@@ -49,12 +49,16 @@ function retrieveGoogleFiles(callback) {
     })
     request.execute(function(resp){
         for(var i = 0; i <resp.items.length; i ++){
+            var splitType = resp.items[i].mimeType.split('/');
+            var type = splitType[1];
+            type = type.split('.');
+            type = type[type.length-1];
             var file = {
                     name: resp.items[i].title,
                     size: resp.items[i].fileSize,
                     date: resp.items[i].modifiedDate,
                     path: resp.items[i].id,
-                    type: resp.items[i].mimeType
+                    type: type
                 };
                 appendChildList('google_file_List','google_File',file);
         }
