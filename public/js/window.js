@@ -4,10 +4,8 @@ window.onload =function (){
 // cloud part
     var popup_Btn = document.getElementById("CLOUD");
     popup_Btn.onclick = cloud_popup;
-    var Btn_ajax = document.getElementById("Btn_ajax");
-    Btn_ajax.onclick = saveApp;
-    var h2dropauth = document.getElementById('dropauth');
-    h2dropauth.onclick = authDropbox;
+  //  var h2dropauth = document.getElementById('dropauth');
+    //h2dropauth.onclick = authDropbox;
 // iframe part
     var max = false;
     var size_Btns = document.getElementsByClassName("sizeCtrl");
@@ -27,7 +25,7 @@ window.onload =function (){
     var iframe_Btns = document.getElementsByClassName("true");
     for(var i=0; i<iframe_Btns.length; i++){
         iframe_Btns[i].onclick = function() {
-            
+            console.log(this);
             var div1 = document.createElement("div");
             div1.id = "iframePopup" + count;
             div1.className = "Pstyle";
