@@ -297,7 +297,6 @@ div#topbar *{
 	width: auto;
 	text-align: center;
 	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
 }
 .clock{
 	/* 시계 속성 생략
@@ -308,7 +307,6 @@ div#topbar *{
 	font-size: 160px;
 	font-weight: lighter;
 	color: white;
-	z-index: 1;
 }
 /* 인사말 속성 추가 */
 .greeting{
@@ -342,7 +340,7 @@ div#topbar *{
 #wid_set{
 	margin: 0px;
 	padding-left: 0px;
-	width: 30%;
+	width: 25%;
 	float: left;
 }
 #wid_set ul{
@@ -369,7 +367,7 @@ div#topbar *{
 	width: 40%;*/
 	text-align: center;
 	/* 크기 키움 */
-	width: 40%;
+	width: 50%;
 }
 #gsearch form{
 	display: block;
