@@ -15,6 +15,8 @@
                 <li class="addmemo" >MEMO</li>
                 <li ng-click="show_todo=!show_todo">ToDoList</li>
                 <li ng-click="show_calendar=!show_calendar" class="calendar">CALENDAR</li>
+                <li id = "CLOUD" >CLOUD</li>
+
 
             </ul>
             <div id="gsearch">
@@ -63,10 +65,7 @@
                 <!-- 메모 -->
                <% 
                   for(var i = 0; i < widget.length; i++){ %>
-                    <div ng-draggable class="widget_m w_memo" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" >
-                        <div class="end">
-                            <img ng-show="show_del" class="end"src="/images/wid_del.png"/>
-                        </div>
+                    <div ng-draggable class="widget_m w_memo" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div>
                         <textarea rows="8" cols="25"><%- widget[i].memo %></textarea>
                     </div>
                 <%   }  %>

@@ -198,7 +198,6 @@ app.directive('draggable',function(){
 		e1.addEventListener(
 			'dragstart',function(e){
 				e.dataTransfer.effectAllowed = 'move';
-				//alert(this);
 				e.dataTransfer.setData('Text',this.id);
 				this.classList.add('drag');
 				return false;
@@ -253,10 +252,8 @@ app.directive('droppable',function(){
 			e1.addEventListener(
 				'drop',function(e){
 					if(e.stopPropagation) e.stopPropagation();
-					//alert(e.dataTransfer.getData('Text'));
 					this.classList.remove('over');
 					var item = document.getElementById(e.dataTransfer.getData('Text'));
-					//alert(e.dataTransfer.getData('Text'));
 					if(this.id == "home"){
 						item.parentNode.removeChild(item);
 					}
@@ -272,7 +269,6 @@ app.directive('droppable',function(){
 
 							li.appendChild(item);
 							document.getElementById(this.id+"list").appendChild(li);
-							//alert(item.parentNode.id);
 							list.parentNode.removeChild(list);
 
 						}/*
@@ -491,8 +487,7 @@ app.directive('save',function(){
 	var link=function(scope, element, attrs){
 		
 
-		var save = function(e){      
-			alert();     
+		var save = function(e){          
         	var memo = [];
 			var left = [];
 			var top = [];
