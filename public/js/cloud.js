@@ -53,9 +53,14 @@ function retrieveGoogleFiles(callback) {
             var type = splitType[1];
             type = type.split('.');
             type = type[type.length-1];
+            if(resp.items[i].fileSize == undefined)
+                var size = '-';
+            else
+                var size = resp.items[i].fileSize;
+            
             var file = {
                     name: resp.items[i].title,
-                    size: resp.items[i].fileSize,
+                    size: size,
                     date: resp.items[i].modifiedDate,
                     path: resp.items[i].id,
                     type: type
