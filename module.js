@@ -11,7 +11,8 @@ exports.isLoggedIn = function (req, res, next)  //로그인했는지 확인하�
 		return next();
 	}
 	console.log('not logging');
-	res.send('login 하셧나요?');
+	//res.send('login 하셧나요?');
+    res.render('login');
 }
 
 exports.showSession = function (req,res,next)
