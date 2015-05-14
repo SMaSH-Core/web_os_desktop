@@ -536,6 +536,23 @@ app.directive('save',function(){
                     method: "post",
                     parameters: { 'href': href , 'src': src, 'position': position}
                 });
+/*
+		    var taskName = [];
+			var task = [];
+			var top = [];
+			var memoOBJ = document.getElementsByTagName("textarea");
+			var memoDiv = $$(".w_memo");
+			for(var i = 0; i <memoOBJ.length; i ++)
+			{
+				memo.push(memoOBJ[i].value);
+				left.push(memoDiv[i].getStyle("left"));
+				top.push(memoDiv[i].getStyle("top"));
+			}
+			
+			new Ajax.Request("http://localhost:9081/widget",{
+                    method: "post",
+                    parameters: {'memo': memo, 'left': left, 'top': top}
+                });*/
 		};
 		element.on('click',save);
 	}

@@ -31,7 +31,8 @@
 
             window.onload =function (){
                 window.setTimeout(checkAuth, 1);
-
+                var hyuntae = document.getElementById("hyuntae");
+                hyuntae.onclick = a;
                 var popup_Btn = document.getElementById("CLOUD");
                 popup_Btn.onclick = go_popup;
                 var Btn_ajax = document.getElementById("Btn_ajax");
@@ -39,7 +40,9 @@
                 var h2dropauth = document.getElementById('dropauth');
                 h2dropauth.onclick = authDropbox;
             }
-
+            function a {
+                alert(this);
+            }
             function checkAuth() {
                
                 var CLOUD = document.getElementById("CLOUD");
@@ -297,17 +300,17 @@
                 <%   }  %>
 
                 <!-- 투두리스트 -->
-                <div ng-controller="taskController">
+                <div id="todolist"ng-controller="taskController">
                     <div  ng-draggable ng-show="show_todo">
                         <div class="container">
                             <div class="content" >
                                 <h1>To Do List</h1>
                                 <div class="row">
-                                      <button class="taskAdd" ng-click="show_todolist=true">Add</button>
+                                      <button class="t44444454askAdd" ng-click="show_todolist=true">Add</button>
                                       <button class="taskDelete" ng-click="deleteTask()">Delete</button>
                                 </div>
                                 <ul  class="taskList">
-                                    <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem">
+                                    <li class="taskItem" id = "hyuntae" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem">
                                       <input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
                                       <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span> <span class="category-{{taskItem.category}}">{{taskItem.category}}</span> <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong> 
                                     </li>
