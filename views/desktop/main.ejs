@@ -28,7 +28,7 @@
             <div id="info">
 
                 <form action = "/logout" method="post">
-                    <button  class="logout" type = "submit">LOGOUT</button>
+                    <button  class="save logout" type = "submit">LOGOUT</button>
                 </form>
             </div>
         </div>
@@ -175,12 +175,12 @@
                     <% for(var i = 0; i < userapp.length; i++){ 
                         if(userapp[i].def == "false"){%>
                             <li><a class="false" href = "<%- userapp[i].url %>" id = "<%- userapp[i].fav %>" target = "_blank" >
-                                <img src = "<%- userapp[i].fav %>" class ="tosave" draggable/></a>
+                                <img src = "<%- userapp[i].fav %>" id="<%- userapp[i].url %>" class ="tosave" draggable/></a>
                             </li>
                         <% } else{ %>
                             <!-- icon -->
                             <li><div class="true" id="<%- userapp[i].url %>">
-                                <img src="<%-userapp[i].fav %>" id="<%- userapp[i].url %>" draggable/></div>
+                                <img src="<%-userapp[i].fav %>" id="<%- userapp[i].url %>" class="true" draggable/></div>
                             </li>
                         <% } 
                         }  %>

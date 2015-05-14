@@ -119,7 +119,7 @@ app.directive('ngEnter', function ($compile) {
 							}
 							//alert(addurl2);
 							var imgurl = 'http://www.google.com/s2/favicons?domain='+addurl2;
-							angular.element(document.getElementById('panelul')).append($compile("<li><a class='false' href ='"+addurl2+"' target = '_blank' id = "+imgurl+" ><img src = "+imgurl+" id = "+imgurl+" class = 'tosave' draggable/></a></li>")(scope));
+							angular.element(document.getElementById('panelul')).append($compile("<li><a class='false' href ='"+addurl2+"' target = '_blank' id = "+addurl2+" ><img src = "+imgurl+" id = "+addurl2+" class = 'tosave' draggable/></a></li>")(scope));
 							scope.slideurl = false;
 						}else{
 							alert("잘못 입력함");
@@ -303,7 +303,7 @@ app.directive('addurll',function($compile){
 						addurl2 = "http://" + addurl2;
 					}
 					var imgurl = 'http://www.google.com/s2/favicons?domain='+addurl2;
-					angular.element(document.getElementById('panelul')).append($compile("<li><a class='false' href ='"+addurl2+"' target = '_blank' id = "+imgurl+" ><img src = "+imgurl+" id = "+imgurl+" class = 'tosave' draggable/></a></li>")(scope));
+					angular.element(document.getElementById('panelul')).append($compile("<li><a class='false' href ='"+addurl2+"' target = '_blank' id = "+addurl2+" ><img src = "+imgurl+" id = "+addurl2+" class = 'tosave' draggable/></a></li>")(scope));
 					scope.slideurl = false;
 				}else{
 					alert("잘못 입력함");
@@ -488,7 +488,8 @@ app.directive('save',function(){
 	var link=function(scope, element, attrs){
 		
 
-		var save = function(e){          
+		var save = function(e){ 
+			alert('hi');         
         	var memo = [];
 			var left = [];
 			var top = [];
@@ -506,25 +507,29 @@ app.directive('save',function(){
                     parameters: {'memo': memo, 'left': left, 'top': top}
                 });
 
-		    var panelOBJ = $$("li a");
+		    var panelOBJ = $$("li img");
 		    var href=[];
 		    var src=[];
 		    var def=[];
 		    var img = $$('.tosave');
-
+/*
 		  	for(var i =0; i <img.length; i++)
 		  	{
 		  		src.push(img[i].src);
 		  	}
+		  	*/
 		    for(var i = 0; i < panelOBJ.length; i++)
 		    {
-		    	href.push(panelOBJ[i].href);
-		    	if(panelOBJ[i].classList.contains("false"))
-		    		def.push("false");
-		    	else
+		    	src.push(panelOBJ[i].src);
+		    	href.push(panelOBJ[i].id);
+		    	if(panelOBJ[i].classList.contains("true"))
 		    		def.push("true");
+		    	else
+		    		def.push("false");
 		    }
-		   
+		   	alert(href);
+		   	alert(src);
+		   	alert(def);
 		    new Ajax.Request("/app",{
 
                     method: "post",

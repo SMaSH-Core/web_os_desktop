@@ -23,6 +23,8 @@ exports.showSession = function (req,res,next)
 
 exports.saveApp = function (req, res, next)
 {
+
+    console.log('savewidget===================');
     var user = req.user.email;
     var oa =req.user.oauth;
     var src = req.body.src;
@@ -52,7 +54,7 @@ exports.saveApp = function (req, res, next)
 
 exports.saveWidget = function (req, res ,next)
 {
-    
+        console.log('savewidget===================');
         var user = req.user.email;
         var oa =req.user.oauth;
         //console.log("memois"+req.param("memo"));
