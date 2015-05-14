@@ -13,11 +13,12 @@ module.exports = function(passport){
                       {fav: "http://i1.daumcdn.net/icon/opengraph/daum1.png", url: "http://www.daum.net", position: "center"},
                       {fav: "http://www.naver.com/favicon.ico?1", url: "http://www.naver.com", position: "center"}]
 */
-	var defaultapp =  [{fav: "http://www.google.com/s2/favicons?domain=http://apps.pixlr.com/editor/", url: "http://apps.pixlr.com/editor/", position: "center"},
-	                  {fav: "http://www.google.com/s2/favicons?domain=https://docs.google.com/", url: "https://hootsuite.com/", position: "center"},
-                      {fav: "https://static.xx.fbcdn.net/rsrc.php/yl/r/H3nktOa7ZMg.ico", url: "https://workflowy.com/", position: "center"},
-                      {fav: "http://i1.daumcdn.net/icon/opengraph/daum1.png", url: "https://www.pulse.me/", position: "center"},
-                      {fav: "http://www.naver.com/favicon.ico?1", url: "https://www.screenr.com/", position: "center"}]	
+	var defaultapp =  [{fav: "http://www.google.com/s2/favicons?domain=http://apps.pixlr.com/editor/", url: "http://apps.pixlr.com/editor/", def: "true" },
+	                  {fav: "http://www.google.com/s2/favicons?domain=https://hootsuite.com/", url: "https://hootsuite.com/", def: "true" },
+                      {fav: "http://www.google.com/s2/favicons?domain=https://workflowy.com/", url: "https://workflowy.com/", def: "true" },
+                      {fav: "http://i1.daumcdn.net/icon/opengraph/daum1.png", url: "http://www.daum.net/", def: "true" },
+                      {fav: "http://www.google.com/s2/favicons?domain=https://www.pulse.me/", url: "https://www.pulse.me/", def: "true" },
+                      {fav: "http://www.google.com/s2/favicons?domain=https://www.screenr.com/", url: "https://www.screenr.com/", def: "true" }]	
 	passport.serializeUser(function(user, done) {
 		console.log('serialize');
     	done(null, user);

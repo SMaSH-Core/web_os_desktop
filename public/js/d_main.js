@@ -59,7 +59,7 @@ function Ctrl($scope, $http){
 	/* 시계 포맷 생략
 	$scope.format = 'h:mm:ss a';*/
 	/* 시계 포맷 재설정 */
-	$scope.format = 'h:mm:';
+	$scope.format = 'h:mm';
 	
 	$scope.lists = [{text:'it is example', done:false}];
 
@@ -121,7 +121,7 @@ app.directive('ngEnter', function ($compile) {
 							}
 							//alert(addurl2);
 							var imgurl = 'http://www.google.com/s2/favicons?domain='+addurl2;
-							angular.element(document.getElementById('panelul')).append($compile("<li><a  href ='"+addurl2+"' target = '_blank' id = "+imgurl+" ><img src = "+imgurl+" id = "+imgurl+" class = 'tosave' draggable/></a></li>")(scope));
+							angular.element(document.getElementById('panelul')).append($compile("<li><a class='false' href ='"+addurl2+"' target = '_blank' id = "+imgurl+" ><img src = "+imgurl+" id = "+imgurl+" class = 'tosave' draggable/></a></li>")(scope));
 							scope.slideurl = false;
 						}else{
 							alert("잘못 입력함");
@@ -200,7 +200,6 @@ app.directive('draggable',function(){
 		e1.addEventListener(
 			'dragstart',function(e){
 				e.dataTransfer.effectAllowed = 'move';
-				//alert(this);
 				e.dataTransfer.setData('Text',this.id);
 				this.classList.add('drag');
 				return false;
@@ -259,6 +258,7 @@ app.directive('droppable',function(){
 					this.classList.remove('over');
 					var item = document.getElementById(e.dataTransfer.getData('Text'));
 					//alert(e.dataTransfer.getData('Text'));
+
 					if(this.id == "home"){
 						item.parentNode.removeChild(item);
 					}
@@ -308,7 +308,7 @@ app.directive('addurll',function($compile){
 						addurl2 = "http://" + addurl2;
 					}
 					var imgurl = 'http://www.google.com/s2/favicons?domain='+addurl2;
-					angular.element(document.getElementById('panelul')).append($compile("<li><a  href ='"+addurl2+"' target = '_blank' id = "+imgurl+" ><img src = "+imgurl+" id = "+imgurl+" class = 'tosave' draggable/></a></li>")(scope));
+					angular.element(document.getElementById('panelul')).append($compile("<li><a class='false' href ='"+addurl2+"' target = '_blank' id = "+imgurl+" ><img src = "+imgurl+" id = "+imgurl+" class = 'tosave' draggable/></a></li>")(scope));
 					scope.slideurl = false;
 				}else{
 					alert("잘못 입력함");
@@ -346,7 +346,7 @@ app.directive("myCurrentTime", function(dateFilter){
         var format;
         
         scope.$watch(attrs.myCurrentTime, function(value) {
-            format = value;
+            format = 'h:mm';
             updateTime();
         });
         
@@ -530,7 +530,7 @@ app.directive('save',function(){
 		    var panelOBJ = $$("li a");
 		    var href=[];
 		    var src=[];
-		    var position=[];
+		    var def=[];
 		    var img = $$('.tosave');
 
 		  	for(var i =0; i <img.length; i++)
@@ -540,18 +540,16 @@ app.directive('save',function(){
 		    for(var i = 0; i < panelOBJ.length; i++)
 		    {
 		    	href.push(panelOBJ[i].href);
-		    	if(panelOBJ[i].parentNode.parentNode.parentNode.id=="leftdock")
-		    		position.push("left");
-		    	else if(panelOBJ[i].parentNode.parentNode.parentNode.id=="rightdock")
-		    		position.push("right");
+		    	if(panelOBJ[i].classList.contains("false"))
+		    		def.push("false");
 		    	else
-		    		position.push("center");
+		    		def.push("true");
 		    }
 		   
 		    new Ajax.Request("/app",{
 
                     method: "post",
-                    parameters: { 'href': href , 'src': src, 'position': position}
+                    parameters: { 'href': href , 'src': src, 'def': def}
                 });
 		};
 		element.on('click',save);

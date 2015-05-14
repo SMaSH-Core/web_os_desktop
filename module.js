@@ -3,30 +3,30 @@ var fs = require('fs');
 var path = require('path');
 
 exports.isLoggedIn = function (req, res, next)  //로그인했는지 확인하는 함
-{	
-	if(req.isAuthenticated())			
-	{
-		console.log("in logging");
-		//console.log(req.user);
-		return next();
-	}
-	console.log('not logging');
-	res.send('login 하셧나요?');
+{   
+    if(req.isAuthenticated())           
+    {
+        console.log("in logging");
+        //console.log(req.user);
+        return next();
+    }
+    console.log('not logging');
+    res.send('login 하셧나요?');
 }
 
 exports.showSession = function (req,res,next)
 {
-	console.log(req.user);
-	next();
+    console.log(req.user);
+    next();
 }
 
 exports.saveApp = function (req, res, next)
 {
-	var user = req.user.email;
+    var user = req.user.email;
     var oa =req.user.oauth;
     var src = req.body.src;
     var href = req.body.href;
-    var position = req.body.position;
+    var def = req.body.def;
     var temp =[];
         
         
@@ -35,7 +35,7 @@ exports.saveApp = function (req, res, next)
         var newapp = {
             "fav": src[i],
             "url": href[i],
-            "position": position[i]
+            "def": def[i]
         }
         temp.push(newapp);
     }
@@ -47,13 +47,13 @@ exports.saveApp = function (req, res, next)
         
     db.linkModel.update({'email': user,'oauth': oa} , { 'link': temp }, function(err){
             console.log('ok?');
-  	});
-	
+    });
+    
 }
 
 exports.saveWidget = function (req, res ,next)
 {
-	
+    
         var user = req.user.email;
         var oa =req.user.oauth;
         //console.log("memois"+req.param("memo"));

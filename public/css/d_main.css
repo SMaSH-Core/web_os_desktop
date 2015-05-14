@@ -114,7 +114,7 @@ button{
 	opacity: 1;
 }
 
-#dock #panel a img{
+#dock #panel img{
 	/* 파비콘 크기 생략
 	width: 50px;
 	height: 50px;*/
@@ -123,6 +123,7 @@ button{
 	/* 크기 재설정 */
 	width: 30px;
 	height: 30px;
+	cursor: pointer;
 }
 
 #modifyurl{
@@ -168,6 +169,7 @@ button.logout{
 	background-color: rgba(0,0,0,0.6);
 	position:relative;
 	min-height: 180px;
+	min-width: 300px;
 	margin-top: 0px;
 	/* 패널의 모서리 반경(?) 크기 생략 
 	border-bottom-left-radius: 5px;

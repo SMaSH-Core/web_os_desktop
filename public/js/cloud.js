@@ -183,9 +183,9 @@ function retrieveAllFiles(callback) {
 function cloud_popup() {
     $('#popup').bPopup({
         modal: false,
+        closeClass: 'finderClose',
         scrollbar: true,
         transition: 'slideDown',
-        transitionClose: 'slideDown',
-        closeClass: 'finderClose'
+        transitionClose: 'slideDown',        
     });
 };
