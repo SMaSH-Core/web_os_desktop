@@ -48,24 +48,24 @@
 
             <div class="overlay2" ng-show="app_section">
                 <div id = "apps" ng-click="app_section=!app_section;hideurl=true">
-                
+
                     <% 
                         for(var i = 0; i < userapp.length; i++){ 
                              if(userapp[i].position=="center"){%>
                         <a href = "<%-userapp[i].url %>" id = "<%-userapp[i].fav %>" target = "_blank" >
                                     <img src = "<%- userapp[i].fav %>" id = "<%- userapp[i].fav %>" class ="tosave" draggable/></a>
                     <%   }}  %>
-
-                    <button class = "addurl" ng-click = "addurl()" >
+                    
+                    <button class = "addurl" id = "add_btn">
                         <img src = "/images/addurl.png" class = "addurll"/>
                     </button>
-
                     
                 </div>
+                
             </div>
             <div class = "in"  ng-hide = "hideurl">
                 <input id = "slurl" size = "50"  type = "text" name = "url" ng-show = "inputurl" size = "25" placeholder = "url 입력후 엔터키를 눌러주세요."/>
-                <button class = "adddd" ng-click = "urlbtn()"> 
+                <button class = "adddd" > 
             <!--            <img src = "/pages/images/addurl.png" class = "addurll" />
                 -->
                 ADD

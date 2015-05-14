@@ -7,7 +7,7 @@ window.onload =function (){
     var Btn_ajax = document.getElementById("Btn_ajax");
     Btn_ajax.onclick = saveApp;
     var h2dropauth = document.getElementById('dropauth');
-    //h2dropauth.onclick = authDropbox;
+    h2dropauth.onclick = authDropbox;
 // iframe part
     var max = false;
     var size_Btns = document.getElementsByClassName("sizeCtrl");
@@ -80,4 +80,9 @@ window.onload =function (){
             
         }
     }
+// topbar part
+    var Labeldropbox = document.getElementById('dropbox_label');
+    Labeldropbox.onclick = authDropbox;
+    var Labelgoogle = document.getElementById('googleDrive_label');
+    Labelgoogle.onclick = authGoogle;
 }

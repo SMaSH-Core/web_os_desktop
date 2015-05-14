@@ -83,8 +83,6 @@ function Ctrl($scope, $http){
 			}
 		});
 	};
-
-
 }
 /*
 app.directive('file',function(){
@@ -254,10 +252,8 @@ app.directive('droppable',function(){
 			e1.addEventListener(
 				'drop',function(e){
 					if(e.stopPropagation) e.stopPropagation();
-					//alert(e.dataTransfer.getData('Text'));
 					this.classList.remove('over');
 					var item = document.getElementById(e.dataTransfer.getData('Text'));
-					//alert(e.dataTransfer.getData('Text'));
 
 					if(this.id == "home"){
 						item.parentNode.removeChild(item);
@@ -274,7 +270,6 @@ app.directive('droppable',function(){
 
 							li.appendChild(item);
 							document.getElementById(this.id+"list").appendChild(li);
-							//alert(item.parentNode.id);
 							list.parentNode.removeChild(list);
 
 						}/*
@@ -346,7 +341,7 @@ app.directive("myCurrentTime", function(dateFilter){
         var format;
         
         scope.$watch(attrs.myCurrentTime, function(value) {
-            format = 'h:mm';
+            format = 'hh:mm';
             updateTime();
         });
         
@@ -426,8 +421,8 @@ app.directive('ngDraggable', function($document, $window){
 
 });
 
-//----------------------------Widget-------------------------------------
-app.directive('widget', function(){
+//----------------------------Widget Memo-------------------------------------
+app.directive('widgetM', function(){
     var linkFn = function(scope, element, attrs){        
         var showdel = function(e){
         	this.childNodes[0].childNodes[0].style.display="block";
@@ -452,7 +447,7 @@ app.directive('widget', function(){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable class="widget w_memo"><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
+        template: '<div ng-draggable class="widget_m w_memo"><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
     };
 })
 
@@ -489,27 +484,11 @@ app.directive('delmemo', function(){
     };
 });
 
-app.directive('calendar', function(){
-    var linkFn = function(scope, element, attrs){        
-        var popcal = function(e){           
-        	
-        };
-        
-        element.on('click', popcal);
-    };
-        
-    return {
-        restrict: 'C',
-        link: linkFn
-    };
-});
-
 app.directive('save',function(){
 	var link=function(scope, element, attrs){
 		
 
-		var save = function(e){      
-			alert();     
+		var save = function(e){          
         	var memo = [];
 			var left = [];
 			var top = [];
@@ -551,6 +530,23 @@ app.directive('save',function(){
                     method: "post",
                     parameters: { 'href': href , 'src': src, 'def': def}
                 });
+/*
+		    var taskName = [];
+			var task = [];
+			var top = [];
+			var memoOBJ = document.getElementsByTagName("textarea");
+			var memoDiv = $$(".w_memo");
+			for(var i = 0; i <memoOBJ.length; i ++)
+			{
+				memo.push(memoOBJ[i].value);
+				left.push(memoDiv[i].getStyle("left"));
+				top.push(memoDiv[i].getStyle("top"));
+			}
+			
+			new Ajax.Request("http://localhost:9081/widget",{
+                    method: "post",
+                    parameters: {'memo': memo, 'left': left, 'top': top}
+                });*/
 		};
 		element.on('click',save);
 	}
@@ -560,4 +556,148 @@ app.directive('save',function(){
         link: link
     };
 
-})
+});
+//----------------------------Widget calendar-------------------------------------
+
+
+app.controller('MainSchedulerCtrl', function($scope) {
+  $scope.events = [
+  	{ id:1, text:"Task A-12458",
+      start_date: new Date(2015,5,12),
+      end_date: new Date(2015,5,16) },
+    { id:2, text:"Task A-83473",
+      start_date: new Date(2015,5,22),
+      end_date: new Date(2015,5,24) }
+  ];
+
+  $scope.scheduler = { date : new Date() };
+  //console.log($scope.events);
+
+
+});
+
+app.directive('dhxScheduler', function() {
+  return {
+    restrict: 'A',
+    scope: false,
+    transclude: true,
+    template:'<div class="dhx_cal_navline" ng-transclude></div><div class="dhx_cal_header"></div><div class="dhx_cal_data"></div>',
+
+    
+
+    link:function ($scope, $element, $attrs, $controller){
+      //default state of the scheduler
+      if (!$scope.scheduler)
+        $scope.scheduler = {};
+      $scope.scheduler.mode = $scope.scheduler.mode || "month";
+      $scope.scheduler.date = $scope.scheduler.date || new Date();
+
+      //watch data collection, reload on changes
+      $scope.$watch($attrs.data, function(collection){
+        scheduler.clearAll();
+        scheduler.parse(collection, "json");
+      }, true);
+
+      //mode or date
+      $scope.$watch(function(){
+        return $scope.scheduler.mode + $scope.scheduler.date.toString();
+      }, function(nv, ov) {
+        var mode = scheduler.getState();
+        if (nv.date != mode.date || nv.mode != mode.mode)
+          scheduler.setCurrentView($scope.scheduler.date, $scope.scheduler.mode);
+      }, true);
+
+      //size of scheduler
+      $scope.$watch(function() {
+        return $element[0].offsetWidth + "." + $element[0].offsetHeight;
+      }, function() {
+        scheduler.setCurrentView();
+      });
+
+      //styling for dhtmlx scheduler
+      $element.addClass("dhx_cal_container");
+
+      //init scheduler
+      scheduler.init($element[0], $scope.scheduler.mode, $scope.scheduler.date);
+    }
+  }
+});
+
+app.directive('dhxTemplate', ['$filter', function($filter){
+  scheduler.aFilter = $filter;
+
+  return {
+    restrict: 'AE',
+    terminal:true,
+   
+    link:function($scope, $element, $attrs, $controller){
+      $element[0].style.display = 'none';
+
+      var template = $element[0].innerHTML;
+      template = template.replace(/[\r\n]/g,"").replace(/"/g, "\\\"").replace(/\{\{event\.([^\}]+)\}\}/g, function(match, prop){
+        if (prop.indexOf("|") != -1){
+          var parts = prop.split("|");
+          return "\"+scheduler.aFilter('"+(parts[1]).trim()+"')(event."+(parts[0]).trim()+")+\"";
+        }
+        return '"+event.'+prop+'+"';
+      });
+      var templateFunc = Function('sd','ed','event', 'return "'+template+'"');
+      scheduler.templates[$attrs.dhxTemplate] = templateFunc;
+    }
+  };
+}]);
+//----------------------------Widget todo-------------------------------------
+
+app.controller('taskController', function($scope) {
+    $scope.today = new Date();
+    $scope.saved = localStorage.getItem('taskItems');
+    $scope.taskItem = (localStorage.getItem('taskItems')!==null) ? 
+    JSON.parse($scope.saved) : [ {description: "Why not add a task?", date: $scope.today, complete: false}];
+    localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+    
+    $scope.newTask = null;
+    $scope.newTaskDate = null;
+    $scope.categories = [
+        {name: 'Personal'},
+        {name: 'Work'},
+        {name: 'School'},
+        {name: 'Cleaning'},
+        {name: 'Other'}
+    ];
+    $scope.newTaskCategory = $scope.categories;
+    $scope.addNew = function () {
+        if ($scope.newTaskDate == null || $scope.newTaskDate == '') {
+            $scope.taskItem.push({
+                description: $scope.newTask,
+                date: "No deadline",
+                complete: false,
+                category: $scope.newTaskCategory.name
+            }) 
+        } else {
+            $scope.taskItem.push({
+                description: $scope.newTask,
+                date: $scope.newTaskDate,
+                complete: false,
+                category: $scope.newTaskCategory.name
+            })
+        };
+        $scope.newTask = '';
+        $scope.newTaskDate = '';
+        $scope.newTaskCategory = $scope.categories;
+        localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+    };
+    $scope.deleteTask = function () {
+        var completedTask = $scope.taskItem;
+        $scope.taskItem = [];
+        angular.forEach(completedTask, function (taskItem) {
+            if (!taskItem.complete) {
+                $scope.taskItem.push(taskItem);
+            }
+        });
+        localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+    };
+    
+    $scope.save = function () {
+        localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+    }
+});

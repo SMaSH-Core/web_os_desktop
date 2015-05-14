@@ -3,7 +3,7 @@ html{ height: 100%; }
 #home{ height: 100%; }
 
 body{
-	background: url("../images/snow.gif") center center fixed;
+	background: url("../images/background/1.jpeg") center center fixed;
 	background-size: 100%;
 	/* background-color: #ededed; */
 	background-repeat: no-repeat;
@@ -232,7 +232,7 @@ button.logout{
 	height : 30px;
 }*/
 
-.widget{
+.widget_m{
 	display: inline-block;
 	margin: 5px;
 	padding: 5px;
@@ -265,6 +265,22 @@ button.logout{
 	width: 15px;
 }
 
+#calendar{
+	background-color: white;
+}
+.widget_c{
+	position: absolute;
+	top:5px;
+	left:25%;
+}
+.widget_c .end{
+	width:800px;
+}
+.widget_c .end img{
+	
+	float: right;
+	width: 15px;
+}
 
 div#topbar{
 	height: 40px;
@@ -272,22 +288,20 @@ div#topbar{
 	background-color: #232323;*/
 	vertical-align: middle;
 	text-align: center;
+	margin-top: 15px;
 }
 div#topbar *{
 	display: inline-block;
 	color: white;
+	font-size: 12pt;
 }
 /* 가운데 시계 및 인사말 div 속성 추가 */
 .center{
-	position: absolute;
 	z-index: -1;
-	top: 50%;
-	left: 50%;
 	width: auto;
+	margin-top: 10%;
 	text-align: center;
 	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	-webkit-transform: translate(-50%,-50%);
-	-webkit-transform-origin: 50% 50%;
 }
 .clock{
 	/* 시계 속성 생략
@@ -298,7 +312,6 @@ div#topbar *{
 	font-size: 160px;
 	font-weight: lighter;
 	color: white;
-	z-index: 1;
 }
 /* 인사말 속성 추가 */
 .greeting{
@@ -326,8 +339,7 @@ div#topbar *{
 	/*background-image: url("/images/setting.png");*/
 }
 #topbar form{
-	margin-left: 75px;
-	/*float: right;*/
+	float: right;
 }
 #wid_set{
 	margin: 0px;
@@ -369,15 +381,20 @@ div#topbar *{
 #gsearch input{
 	font-size: 14pt;
 	text-align: center;
-	border-radius: 20px;
+	border-radius: 0px;
 	margin: 4px;
 	border: 0px;
-	width: 35%;
-	color: #454545;
+	border-bottom: 1px solid white;
+	background: none;
+	background: url("../images/search.png") left center no-repeat ;
+	background-size: 20px 20px;
+	width: 40%;
+	color: #FFFFFF;
 }
 #gsearch input:focus{
 	width: 60%;
 	outline: medium none;
+	border-bottom: 1px solid white;
 	transition-delay: 0s;
 	transition-duration: 0.4s;
 	transition-property: all;

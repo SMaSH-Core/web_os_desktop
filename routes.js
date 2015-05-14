@@ -6,42 +6,6 @@ module.exports = function (app, passport,module){
 	app.get('/', function (req, res) {
     	res.render('login');
     });
-
-    app.get('/template/d_main_cloud_list.ejs', function(req,res){
-       // res.render('template/d_main_cloud_list',{fileList: req.body})
-        console.log('====temp====get');
-        console.log(req.body);
-    });
-
-    var fl = [
-        {
-        name: "stat[i].name",
-        size: "stat[i].size",
-        date: "stat[i].modifiedAt",
-        path: "stat[i].path",
-        type: "stat[i].mimeType"
-    },
-    {
-        name: "stat[i].name",
-        size: "stat[i].size",
-        date: "stat[i].modifiedAt",
-        path: "stat[i].path",
-        type: "stat[i].mimeType"
-    },
-    {
-        name: "stat[i].name",
-        size: "stat[i].size",
-        date: "stat[i].modifiedAt",
-        path: "stat[i].path",
-        type: "stat[i].mimeType"
-    },
-    ];
-    app.post('/template/d_main_cloud_list.ejs', function(req,res){
-        res.render('template/d_main_cloud_list',{fileList: fl});
-        console.log('====temp====post');
-        console.log(req.body);
-        //console.log(req);
-    });
    
     app.get('/login',function (req, res){
     	res.render('login');
@@ -89,7 +53,19 @@ module.exports = function (app, passport,module){
             }
     });
   
-  
+    app.get('/mmain',function (req, res) {
+        var wid = "{\"widget\":[]}";
+        var sessionApp = req.user.app.link;
+        currentpath = './cloud/users/'+req.user.email;
+        var info = dirTree(currentpath);
+
+        res.render('mobile/mobile_main',{
+                UserID : 'hyejin@a.a',
+                UserName : 'hyejin',
+                userapp : sessionApp,
+                widget : wid});
+        
+    });
     // page for Facebook OAuth
     app.get('/auth/facebook', passport.authenticate('facebook'));
     app.get('/auth/facebook/callback',
@@ -129,27 +105,30 @@ module.exports = function (app, passport,module){
     	req.logout();
     	res.redirect('/');	
     });
-    app.post('/dropFileList',function (req, res){
+    /*app.post('/dropFileList',function (req, res){
         console.log(req.body.fl);
     });
+*/
 
     app.post('/app',module.saveApp,function (req, res){
         console.log('=========app===========');
         console.log('/app');
+        console.log(req.body);
     });
     app.post('/widget',module.saveWidget,function (req, res){
          console.log('/widget'); 
+         console.log(req.body);
     });
      app.post('/google_FileList',function (req, res){
         res.render('login');
         console.log(req.body);
 
     });
-
+     /*
      app.post('/public/images',function (req, res){
         console.log(req.body.files.myfile);
      });
-
+    */
     // ETC Request for testing
     app.get('/login_success', module.isLoggedIn, function (req, res){
         res.send(req.user);

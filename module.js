@@ -39,8 +39,6 @@ exports.saveApp = function (req, res, next)
         }
         temp.push(newapp);
     }
-    console.log('whatis this??=====================');
-    console.log(temp);
     var string =JSON.stringify(temp);
         
         

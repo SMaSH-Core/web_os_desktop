@@ -1,11 +1,3 @@
-/*window.onload =function (){
-    var max = false;
-    var size_Btn = document.getElementById("sizeCtrl");
-    size_Btn.onclick = function() {
-        max = sizeControler(max);
-    };
-}
-*/
 function sizeControler(max, pop) {
     console.log(max+", go to max");
     if(max == false){
