@@ -323,10 +323,10 @@ function NewWindow(mypage, myname, w, h, scroll) {
 function cloud_popup() {
     $('#popup').bPopup({
         modal: false,
+        closeClass: 'finderClose',
         scrollbar: true,
         transition: 'slideDown',
-        transitionClose: 'slideDown',
-        closeClass: 'finderClose'
+        transitionClose: 'slideDown',        
     });
 
     var DropListpath = $$('.current_droppath');

@@ -172,22 +172,27 @@
                         <img src = "/images/trash.png" />-->
                     </div>
                     <ul id = "panelul" droppable>
-                    <% 
-                      for(var i = 0; i < userapp.length; i++){ 
-                            if(userapp[i].position=="center"){%>
-                            <li><a href = "<%- userapp[i].url %>" id = "<%- userapp[i].fav %>" target = "_blank" >
-                                <img src = "<%- userapp[i].fav %>" id = "<%- userapp[i].fav %>" class ="tosave" draggable/></a>
+                    <% for(var i = 0; i < userapp.length; i++){ 
+                        if(userapp[i].def == "false"){%>
+                            <li><a class="false" href = "<%- userapp[i].url %>" id = "<%- userapp[i].fav %>" target = "_blank" >
+                                <img src = "<%- userapp[i].fav %>" class ="tosave" draggable/></a>
                             </li>
-                    <%   }}  %>
+                        <% } else{ %>
+                            <!-- icon -->
+                            <li><div class="true" id="<%- userapp[i].url %>">
+                                <img src="<%-userapp[i].fav %>" id="<%- userapp[i].url %>" draggable/></div>
+                            </li>
+                        <% } 
+                        }  %>
+                        <!--<div id = "iframe" ng-draggable></div>-->
                     </ul>
                 </div>
                 <!-- 앱서랍 버튼 생성 -->
                 <div id = "apps" ng-click = "show_panel = !show_panel" id="addwid">Apps</div>
-            </div>
-                                
+            </div>                 
          </div>
-
     </div>
+
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

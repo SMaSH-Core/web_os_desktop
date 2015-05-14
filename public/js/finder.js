@@ -1,7 +1,5 @@
-
-function sizeControler(max) {
+function sizeControler(max, pop) {
     console.log(max+", go to max");
-    var pop = document.getElementById("popup");
     if(max == false){
         pop.style.left = "0";
         pop.style.top = "0";
