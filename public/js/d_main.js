@@ -706,3 +706,21 @@ app.controller('taskController', function($scope) {
         localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
     }
 });
+
+/*
+app.directive('zi', function(){
+    var linkFn = function(){   
+    	var maxz = $('.zi:last').css("zIndex");     
+        var zIndex = function(e){
+           
+        	maxz++;
+            this.css('z-index',maxz);           
+        };
+        element.on('click', zIndex);
+    };
+        
+    return {
+        restrict: 'C',
+        link: linkFn
+    };
+});*/
