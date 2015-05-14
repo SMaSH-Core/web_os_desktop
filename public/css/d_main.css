@@ -287,6 +287,7 @@ div#topbar{
 	vertical-align: middle;
 	text-align: center;
 	margin-top: 15px;
+	font-size: 12pt;
 }
 div#topbar *{
 	display: inline-block;
