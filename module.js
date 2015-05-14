@@ -72,8 +72,27 @@ exports.saveWidget = function (req, res ,next)
         console.log("temp ----------------");
         //console.log(temp);
         db.linkModel.update({'email': user,'oauth': oa} , { 'widget': temp }, function(err){
-            console.log('ok?');
+            if(err)
+            console.log('Widget save ERR:     '+err);
+            else
+            console.log('save Widget Success');
         });
+}
+
+exports.saveTodo = function (req, res ,next)
+{
+    
+        var user = req.user.email;
+        var oa =req.user.oauth;
+        var temp = req.body.todolist;
+        temp = JSON.parse(req.body.todolist);
+        db.linkModel.update({'email': user,'oauth': oa} , { 'todo': temp }, function(err){
+            if(err)
+            console.log('Todo save ERR:     '+err);
+            else
+            console.log('save Todo Success');
+        });
+        next();
 }
 
 exports.dirTree = function(filename) 

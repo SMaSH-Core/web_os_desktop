@@ -63,26 +63,6 @@ function Ctrl($scope, $http){
 	
 	$scope.lists = [{text:'it is example', done:false}];
 
-	$scope.todo = function(){
-		$scope.lists.push({text:$scope.todotext, done:false});
-		$scope.todotext = '';
-	};
-	$scope.remain = function(){
-		var count = 0;
-		angular.forEach($scope.lists, function(list){
-			count += list.done ? 0: 1;
-		});
-		return count;
-	};
-	$scope.archive = function(){
-		var refresh = $scope.lists;
-		$scope.lists = [];
-		angular.forEach(refresh,function(list){
-			if(!list.done){
-				$scope.lists.push(list);
-			}
-		});
-	};
 }
 /*
 app.directive('file',function(){
@@ -686,6 +666,17 @@ app.controller('taskController', function($scope) {
         $scope.newTaskDate = '';
         $scope.newTaskCategory = $scope.categories;
         localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+        new Ajax.Request('/todo', {
+        	method: "post",
+        	parameters: {'todolist': JSON.stringify($scope.taskItem)},
+  			onSuccess: function(response) {
+    			ht = response;
+    			alert('hi');
+    			alert(ht);
+    			console.log(ht);
+  			}
+		});
+        console.log($scope.taskItem);
     };
     $scope.deleteTask = function () {
         var completedTask = $scope.taskItem;
@@ -700,5 +691,7 @@ app.controller('taskController', function($scope) {
     
     $scope.save = function () {
         localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+      
     }
+
 });

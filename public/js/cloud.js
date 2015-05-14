@@ -30,8 +30,6 @@ function handleAuthResult(authResult) {
     Labeldropbox.style.color = 'red';
 }
 function authGoogle(){
-    console.log(gapi.auth.getToken());
-
     if(gapi.auth.getToken()==null)
     {
         gapi.auth.authorize(

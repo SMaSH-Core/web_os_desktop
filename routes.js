@@ -105,6 +105,12 @@ module.exports = function (app, passport,module){
     	req.logout();
     	res.redirect('/');	
     });
+    app.post('/todo',module.saveTodo,function (req, res){ 
+        console.log(req.body.todolist);
+        var ht = JSON.parse(req.body.todolist);
+        console.log(ht);
+        res.send('hello!?');
+    });
     /*app.post('/dropFileList',function (req, res){
         console.log(req.body.fl);
     });

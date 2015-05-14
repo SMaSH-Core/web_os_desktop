@@ -13,7 +13,8 @@ var userDataSchema = mongoose.Schema({
 var linkSchema = mongoose.Schema({
     email: String,
     link: [],
-    widget: []
+    widget: [],
+    todo: []
 });
 
 //유저 설정 저장
