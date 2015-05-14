@@ -293,15 +293,11 @@ div#topbar *{
 }
 /* 가운데 시계 및 인사말 div 속성 추가 */
 .center{
-	position: absolute;
 	z-index: -1;
-	top: 50%;
-	left: 50%;
 	width: auto;
 	text-align: center;
 	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	-webkit-transform: translate(-50%,-50%);
-	-webkit-transform-origin: 50% 50%;
+
 }
 .clock{
 	/* 시계 속성 생략
