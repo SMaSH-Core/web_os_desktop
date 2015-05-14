@@ -1,14 +1,14 @@
 #todo_li{
   position: fixed;
   width: 40%;
-  top :-10%;
+  top :10%;
   left: 30%;
   box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
 }
 
 #todo_fo{
   position:fixed; 
-  top: -200px; 
+  top: -100px; 
   left:30%;
   width:38%;
   margin-left:15% ;
