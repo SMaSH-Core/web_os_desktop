@@ -270,16 +270,22 @@ button.logout{
 	position: absolute;
 	top:5px;
 	left:25%;
+	background-color: white;
+	width: 800px;
+	height: 622px;
+	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
 }
-.widget_c .end{
-	width:800px;
+#c_end{
+	height: 22px;
+	width: 800px;
+	background-color: white;
 }
-.widget_c .end img{
-	
+#cal_end{
+	margin: 5px;
 	float: right;
-	width: 15px;
+	font-size: 20px;
+	color: rgba(25, 20, 20, 0.30)
 }
-
 div#topbar{
 	height: 40px;
 	/* 탑바의 배경색상 생략
@@ -348,6 +354,7 @@ div#topbar *{
 	padding-left: 0px;
 	width: 25%;
 	float: left;
+	cursor: pointer;
 }
 #wid_set ul{
 	margin: 0px;
@@ -410,4 +417,7 @@ div#topbar *{
 	/* 크기 재설정 */
 	width: 30%;
 	height: 30%;
+}
+.zi{
+	z-index:1;
 }

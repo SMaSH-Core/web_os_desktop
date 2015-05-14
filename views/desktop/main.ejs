@@ -5,7 +5,16 @@
         <% include ../template/c_lib_head.ejs %>
         <% include ../template/d_main_head.ejs %>
     </head>
-
+    <script>
+     $(function() {
+        var maxz = $('.zi:last').css("zIndex");
+        $(".zi").on("click",function(){
+                maxz++;
+              $(this).css('z-index',maxz);           
+            }
+        );
+    });
+    </script>
     <body ng-app="app" ng-controller = "Ctrl">
         <% include ../template/desktop/background_video.ejs %>
     <div id="real">
@@ -65,15 +74,17 @@
                 <!-- 메모 -->
                <% 
                   for(var i = 0; i < widget.length; i++){ %>
-                    <div ng-draggable class="widget_m w_memo" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div>
+                    <div ng-draggable class="widget_m w_memo zi" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div>
                         <textarea rows="8" cols="25"><%- widget[i].memo %></textarea>
                     </div>
                 <%   }  %>
 
                 <!-- 투두리스트 -->
                 <div id="todolist"ng-controller="taskController">
-                    <div id="todo_li" ng-draggable ng-show="show_todo">
+                    <div id="todo_li" ng-draggable ng-show="show_todo" zi>
+                        <span id="todo_end" ng-click="$parent.show_todo=false">X</span>
                         <div class="container">
+
                             <div class="content" >
                                 <h1>To Do List</h1>
                                 <div class="row">
@@ -90,6 +101,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div ng-draggable ng-show="show_todolist" id="todo_fo">
                         <form id="todoform">
                             <div class="inputContainer">
@@ -113,9 +125,9 @@
                 </div>                    
 
                 <!-- 달력 -->
-                <div ng-controller="MainSchedulerCtrl" ng-draggable class="widget_c" ng-show="show_calendar" >
-                    <div class="end" id="calendar">
-                          <!--  <img  class="end"src="/images/wid_del.png"/>-->
+                <div ng-controller="MainSchedulerCtrl" ng-draggable class="widget_c zi" ng-show="show_calendar" >
+                    <div id="c_end">
+                        <span id="cal_end" ng-click="$parent.show_calendar=false">X</span>
                     </div>
                     <div data="events" dhx-scheduler style="height:600px; width:800px;"   >
                             <div class="dhx_cal_prev_button"></div>

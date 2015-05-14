@@ -1,3 +1,9 @@
+#todo_end{
+  float: right;
+  margin: 5px;
+  font-size: 20px;
+  color: rgba(25, 20, 20, 0.30)
+}
 #todo_li{
   position: fixed;
   width: 40%;
@@ -13,7 +19,7 @@
   width:38%;
   margin-left:15% ;
   margin : 10px; 
-  background-color:white
+  background-color:white;
   box-shadow: 5px 5px 5px 5px rgba(100,100,100,0.5);
 
 }

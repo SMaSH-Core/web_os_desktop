@@ -3,6 +3,24 @@ a{
 	text-decoration: none;
 }
 
+
+#path_list li{
+	background-image: url('../images/lib/arrow_right.png');
+    background-repeat: no-repeat;
+    background-position: 0px center; 
+    padding-left: 15px; 
+	display:inline;
+	margin: 2px;
+
+}
+#path_list{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
 .Pstyle {
 	height: 60%;
 	width: 60%;
@@ -10,7 +28,7 @@ a{
 	display: none;
 	margin-left: auto;
 	margin-right: auto; 
-	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
+	box-shadow: 1px 3px 3px 3px rgba(100,100,100,0.5);
 }
 
 .Pstyle .popTop {
