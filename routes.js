@@ -105,12 +105,13 @@ module.exports = function (app, passport,module){
     	req.logout();
     	res.redirect('/');	
     });
-    app.post('/todo',module.saveTodo,function (req, res){ 
-        console.log(req.body.todolist);
-        var ht = JSON.parse(req.body.todolist);
-        console.log(ht);
-        res.send('hello!?');
+    app.post('/savetodo',module.saveTodo,function (req, res){ 
+       res.send();
     });
+    app.post("/retrievetodo",function (req,res){
+        var todolist = req.user.app.todo;
+        res.send(todolist);
+    })
     /*app.post('/dropFileList',function (req, res){
         console.log(req.body.fl);
     });

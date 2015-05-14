@@ -7,6 +7,15 @@ var app = angular.module("app", []);
  
 function Ctrl($scope, $http){
 
+	var todolist;
+	new Ajax.Request('/retrievetodo', {
+        	method: "post",
+  			onSuccess: function(response) {
+    			todolist = response;
+    			alert(todolist);
+    			console.log(todolist);
+  			}
+		});
 	//the panel that is app bucket is closed first
 	$scope.param = {};
 	$scope.slideapps = false;
@@ -666,7 +675,7 @@ app.controller('taskController', function($scope) {
         $scope.newTaskDate = '';
         $scope.newTaskCategory = $scope.categories;
         localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
-        new Ajax.Request('/todo', {
+        new Ajax.Request('/savetodo', {
         	method: "post",
         	parameters: {'todolist': JSON.stringify($scope.taskItem)},
   			onSuccess: function(response) {
