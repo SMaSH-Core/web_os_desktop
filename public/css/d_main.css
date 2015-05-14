@@ -297,7 +297,7 @@ div#topbar *{
 }
 /* 가운데 시계 및 인사말 div 속성 추가 */
 .center{
-	z-index: -1;
+	z-index: -10;
 	width: auto;
 	margin-top: 10%;
 	text-align: center;
@@ -307,6 +307,7 @@ div#topbar *{
 	/* 시계 속성 생략
 	margin-top: 10px;*/
 	/* 속성 추가 */
+	z-index: -10;
 	position: relative;
 	text-align: center;
 	font-size: 160px;
@@ -319,6 +320,7 @@ div#topbar *{
 	font-size: 54px;
 	font-weight: lighter;
 	color: white;
+	z-index: -10;
 }
 #info{
 	width: 25%;
