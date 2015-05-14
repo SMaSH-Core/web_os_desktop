@@ -230,7 +230,7 @@ button.logout{
 	height : 30px;
 }*/
 
-.widget{
+.widget_m{
 	display: inline-block;
 	margin: 5px;
 	padding: 5px;
@@ -263,6 +263,22 @@ button.logout{
 	width: 15px;
 }
 
+#calendar{
+	background-color: white;
+}
+.widget_c{
+	position: absolute;
+	top:5px;
+	left:25%;
+}
+.widget_c .end{
+	width:800px;
+}
+.widget_c .end img{
+	
+	float: right;
+	width: 15px;
+}
 
 div#topbar{
 	height: 40px;

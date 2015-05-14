@@ -6,6 +6,9 @@ module.exports = function (app, passport,module){
 	app.get('/', function (req, res) {
     	res.render('login');
     });
+    app.get('/cal', function (req, res) {
+        res.render('index');
+    });
 
     app.get('/template/d_main_cloud_list.ejs', function(req,res){
        // res.render('template/d_main_cloud_list',{fileList: req.body})
@@ -89,7 +92,19 @@ module.exports = function (app, passport,module){
             }
     });
   
-  
+    app.get('/mmain',function (req, res) {
+        var wid = "{\"widget\":[]}";
+        var sessionApp = req.user.app.link;
+        currentpath = './cloud/users/'+req.user.email;
+        var info = dirTree(currentpath);
+
+        res.render('mobile/mobile_main',{
+                UserID : 'hyejin@a.a',
+                UserName : 'hyejin',
+                userapp : sessionApp,
+                widget : wid});
+        
+    });
     // page for Facebook OAuth
     app.get('/auth/facebook', passport.authenticate('facebook'));
     app.get('/auth/facebook/callback',

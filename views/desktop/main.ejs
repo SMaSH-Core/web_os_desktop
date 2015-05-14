@@ -5,6 +5,7 @@
         <% include ../template/c_lib_head.ejs %>
         <% include ../template/d_main_head.ejs %>
     </head>
+
     <body ng-app="app" ng-controller = "Ctrl">
         <% include ../template/desktop/background_video.ejs %>
     <div id="real">
@@ -12,7 +13,9 @@
         <div id = "topbar">
             <ul id="wid_set">
                 <li class="addmemo" >MEMO</li>
-                <li class="calendar">CALENDAR</li>
+                <li ng-click="show_todo=!show_todo">ToDoList</li>
+                <li ng-click="show_calendar=!show_calendar" class="calendar">CALENDAR</li>
+
             </ul>
             <div id="gsearch">
                 <form method="get" action="http://www.google.com/search" target="_blank">
@@ -56,16 +59,89 @@
             <div id = "home" droppable >
                 <button id = "Btn_ajax">Ajax</button>
                 <% include ../template/d_main_cloud %>
-                
+
+                <!-- 메모 -->
                <% 
                   for(var i = 0; i < widget.length; i++){ %>
-                    <div ng-draggable class="widget w_memo" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" >
-                        <div class="memo_end">
+                    <div ng-draggable class="widget_m w_memo" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" >
+                        <div class="end">
+
+                <!--
+                
+               <% var widgetmemo = JSON.parse(widget);
+                  for(var i = 0; i < widgetmemo.widget.length; i++){ %>
+                    <div ng-draggable class="widget_m w_memo" style="position: relative; z-index: 0; left: <%- widgetmemo.widget[i].left %>; top:  <%- widgetmemo.widget[i].top %>;" >
+                        <div class="end">  -->
+
                             <img ng-show="show_del" class="end"src="/images/wid_del.png"/>
                         </div>
                         <textarea rows="8" cols="25"><%- widget[i].memo %></textarea>
                     </div>
                 <%   }  %>
+
+                <!-- 투두리스트 -->
+                <div id="todolist"ng-controller="taskController">
+                    <div  ng-draggable ng-show="show_todo">
+                        <div class="container">
+                            <div class="content" >
+                                <h1>To Do List</h1>
+                                <div class="row">
+                                      <button class="t44444454askAdd" ng-click="show_todolist=true">Add</button>
+                                      <button class="taskDelete" ng-click="deleteTask()">Delete</button>
+                                </div>
+                                <ul  class="taskList">
+                                    <li class="taskItem" id = "hyuntae" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem">
+                                      <input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
+                                      <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span> <span class="category-{{taskItem.category}}">{{taskItem.category}}</span> <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong> 
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-draggable ng-show="show_todolist" style="width:70%;margin-left:15% ;margin : 10px; background-color:white">
+                        <form id="todoform">
+                            <div class="inputContainer">
+                                <input type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
+                                <label for="description">Description</label>
+                            </div>
+                            <div class="inputContainer half last"> <i class="fa fa-caret-down selectArrow"></i>
+                                <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
+                                    <option class="disabled" value="">Choose a category</option>
+                                </select>
+                                <label for="category">Category</label>
+                            </div>
+                            <div class="inputContainer half last right">
+                              <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
+                              <label for="dueDate">Due Date</label>
+                            </div>
+                            <button ng-click="addNew();show_todolist=false" id="addtodo">ADD</button>
+                            <button ng-click="show_todolist=false" id="deletetodo">CANCLE</button>
+                        </form>
+                    </div>
+                </div>                    
+
+                <!-- 달력 -->
+                <div ng-controller="MainSchedulerCtrl" ng-draggable class="widget_c" ng-show="show_calendar" >
+                    <div class="end" id="calendar">
+                          <!--  <img  class="end"src="/images/wid_del.png"/>-->
+                    </div>
+                    <div data="events" dhx-scheduler style="height:600px; width:800px;"   >
+                            <div class="dhx_cal_prev_button"></div>
+                            <div class="dhx_cal_next_button">&nbsp;</div>
+                            <div class="dhx_cal_today_button"></div>
+                            <div class="dhx_cal_date"></div>
+                            <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+                            <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+                            <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>    
+
+                            <div dhx-template="event_bar_text">
+                                {{event.text | uppercase}}
+                            </div>
+                    </div>
+                </div>
+
+                
                 
                 <!-- 바탕화면의 가운데 시계와 인사말 -->
                 <div class="center">
@@ -147,5 +223,13 @@
          </div>
 
     </div>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-46156385-1', 'cssscript.com');
+        ga('send', 'pageview');
+    </script>
     </body>
 </html>

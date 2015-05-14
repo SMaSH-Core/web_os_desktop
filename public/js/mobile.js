@@ -37,10 +37,10 @@ app.directive('adddd',function($compile){
 				if(value.search("http://") == -1){
 					value = "http://"+value;
 				}
-				//alert(element);
-				//alert(element.parent);
 				var imgurl = 'http://www.google.com/s2/favicons?domain='+value;
+				angular.element(document.getElementById('add_btn')).remove();
 				angular.element(document.getElementById('apps')).append($compile("<a  href ='"+value+"' target = '_blank' id = "+imgurl+" ><img src = "+imgurl+" id = "+imgurl+" class = 'tosave' draggable/></a>")(scope));
+				angular.element(document.getElementById('apps')).append($compile("<button class = 'addurl' id = 'hello'><img src = '/images/addurl.png' class = 'addurll'/></button>")(scope));
 				scope.hideurl = true;
 			}
 			else{
@@ -48,7 +48,7 @@ app.directive('adddd',function($compile){
 				scope.hideurl = true;
 			}
 			document.getElementById("slurl").value="";
-			$scope.apply();
+			scope.$apply();
 		}
 		//element.on('click',adda);
 		element.on('touchend',adda);
