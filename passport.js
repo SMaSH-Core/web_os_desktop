@@ -8,10 +8,10 @@ var fs = require('fs');
 
 module.exports = function(passport){
 
-	var defaultapp =  [{fav: "https://www.google.com/s2/favicons?domain=http://apps.pixlr.com/editor/", url: "http://apps.pixlr.com/editor/", def: "true" },
+	var defaultapp =  [{fav: "https://www.google.com/s2/favicons?domain=http://apps.pixlr.com/editor/", url: "https://apps.pixlr.com/editor/", def: "true" },
 	                  {fav: "https://www.google.com/s2/favicons?domain=https://hootsuite.com/", url: "https://hootsuite.com/", def: "true" },
                       {fav: "https://www.google.com/s2/favicons?domain=https://workflowy.com/", url: "https://workflowy.com/", def: "true" },
-                      {fav: "https://i1.daumcdn.net/icon/opengraph/daum1.png", url: "http://www.daum.net/", def: "true" },
+                      {fav: "https://i1.daumcdn.net/icon/opengraph/daum1.png", url: "https://www.daum.net/", def: "true" },
                       {fav: "https://www.google.com/s2/favicons?domain=https://www.pulse.me/", url: "https://www.pulse.me/", def: "true" },
                       {fav: "https://www.google.com/s2/favicons?domain=https://www.screenr.com/", url: "https://www.screenr.com/", def: "true" }]	
 	passport.serializeUser(function(user, done) {
