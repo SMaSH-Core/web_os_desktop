@@ -98,24 +98,23 @@ function readGoogleFile(){
 }
 
 function authDropbox(){
-    console.log('hi');
-    console.log(client);
+    var dropboxUpload = document.getElementById('dropbox_input');
+    dropboxUpload.onchange = uploadDropboxFile;
     if(!client.isAuthenticated()){
         console.log(client.isAuthenticated());
         client.authenticate(function (error){
             if(error){
-                alert("dropauth error");
                 alert('Authentication error'+ error);
             }
             else{
-                alert('hi drop auth');
                 var datastoreManager = client.getDatastoreManager();
                 datastoreManager.openDefaultDatastore(function (error,datastore) {
                     if (error) {
                         alert('Error opening default datastore: ' + error);
                     }else{        
                         var Labeldropbox = document.getElementById('dropbox_label');
-                        Labeldropbox.style.color = 'black';   
+                        Labeldropbox.style.color = 'black';
+                        dropboxUpload.style.display = "block";   
                         retrieveDropFiles('/');
                     }
                 });
@@ -123,6 +122,27 @@ function authDropbox(){
         });
     }else{
         console.log("이미 인증도있ㅇㅁ");
+    }
+}
+function uploadDropboxFile(){
+    var input = document.getElementById('dropbox_input');
+    var inputvalue = input.files;
+    var name = inputvalue[0].name;
+    console.log(inputvalue);
+    console.log("name is" + inputvalue[0].name);
+
+    var reader = new FileReader();
+    var data = reader.readAsBinaryString(inputvalue[0]);
+    var currentpath = DROP_CURRENT_PATH[DROP_CURRENT_PATH.length-1].path;
+    console.log("-----data is----");
+    console.log(data);
+    console.log("-----path is-----");
+    console.log(currentpath);
+    if(inputvalue[0]){
+        writeToDrop(currentpath+'/'+name,inputvalue[0]);
+    }
+    else{
+        console.log("file 미선택");
     }
 }
 
@@ -255,12 +275,13 @@ function insertFile(fileData, callback) {
 	}
 }
 
-function writeToDrop() {
-    client.writeFile('hello.txt', 'Hello, World!', function (error) {
+function writeToDrop(path,data) {
+    client.writeFile(path, data, function (error) {
         if (error) {
             alert('Error: ' + error);
         } else {
-            alert('File written successfully!');
+            removeChildList('drop_File');
+            retrieveDropFiles(DROP_CURRENT_PATH[DROP_CURRENT_PATH.length-1].path);
         }
     });
 }
