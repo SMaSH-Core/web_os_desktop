@@ -31,11 +31,12 @@ var module = require('./module.js');
 var passport = require('passport');
 
 //for https
-
+/*
 var options = {
 	key: fs.readFileSync('private-key.pem'),
 	cert: fs.readFileSync('public-cert.pem')
 }
+*/
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -66,7 +67,7 @@ require('./routes.js')(app,passport,module);
 	
 
 http.createServer(app).listen(9081);			//new버젼
-https.createServer(options, app).listen(PORT);	//new
+//https.createServer(options, app).listen(PORT);	//new
 //app.listen(PORT);  기존버		
 console.log('HTTP '+9081+ ' is opened');
 console.log('HTTPs '+PORT+ ' is opened');
