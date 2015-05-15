@@ -122,8 +122,8 @@ module.exports = function(passport){
 
 // passport for Facebook OAuth
 	passport.use(new FacebookStrategy({
-	        clientID: '346561208848675',
-	        clientSecret: 'a73a7db8230a05283c136d2197d33398',
+	        clientID: '1645301222372967',
+	        clientSecret: '85a96da31572053d5d48c8b69caed9b0',
 	        callbackURL: "/auth/facebook/callback"
 	    },
 	    function(accessToken, refreshToken, profile, done) {
