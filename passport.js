@@ -1,6 +1,7 @@
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var KakaoStrategy = require('passport-kakao').Strategy;
 
 var db = require('./db.js'); //
 var fs = require('fs');
@@ -185,6 +186,77 @@ module.exports = function(passport){
 	        });
 	    }
 	));
+//passport for Kakao OAuth
+	passport.use(new KakaoStrategy({    
+		clientID : '02c21ac11c4aa6a3815e80a1f13d8d73',
+		callbackURL :'/auth/kakao/callback'
+		},
+		function(accessToken, refreshToken, profile, done){
+			console.log(profile);
+			var id = profile.id;
+	        var name = profile.username;
+
+			db.userModel.findOne({'email':id,'oauth': 'kakao'},
+	        function (err,userinfo){ //findOne 쿼리에 부합하는 데이터중 하나만 리턴하는 함수
+	            if(err)
+	            {
+	                return done(err);            
+	            }
+	            if(userinfo)//중복아이디 있음.
+	            {
+	                db.linkModel.findOne({'email':id},
+	                function(err,appdata)
+	                {
+	                    var user = {
+	                        'name': name,
+	                        'email': id,
+	                        'app': appdata
+	                    };
+	                    return done(null,user);
+	                });
+	            }else 
+	            {   
+	                var DefaultLink = new db.linkModel({
+	                    email: id,
+	                    link: defaultapp
+	                });
+	                DefaultLink.save(function (err, silence){
+	                    if(err)
+	                        return done(err);
+	                });
+	                var userRec = new db.userModel({
+	                    'name' : name,
+	                    'email': id,
+	                    'oauth': 'kakao'
+	                });
+	                userRec.save(function (err,silence){
+	                    if(err)
+	                        return done(err);
+
+
+	                    var dirpath ='./cloud/users/'+id;
+	                    fs.mkdir(dirpath, 0777, function(err) {
+						  if(err)
+						  {
+						  	console.log('mkdir Err'); 
+						  	return done(err);
+						  }
+						});
+	               		var user = { 
+	               			'name':userRec.name,
+                            'email': userRec.email,
+                            'app' : DefaultLink
+	                            };
+	                    return done(null,user);
+	                });
+	              
+	            }
+	        }); 
+		}
+	));
+
+
+		
 // passport for Google OAuth
 	passport.use(new GoogleStrategy({
 	    clientID: '642713611296-3g6cpseokmpu6sld8q0mhaa54sp0bl03.apps.googleusercontent.com',

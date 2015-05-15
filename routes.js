@@ -80,13 +80,18 @@ module.exports = function (app, passport,module){
             'https://www.googleapis.com/auth/userinfo.email'
         ]
     }));
-    //내생각에 이부분 불필요함... 수정필요..
     app.get('/auth/google/callback', 
         passport.authenticate('google', {
         successRedirect: '/main',
         failureRedirect: '/auth/failure'
     }));
-
+    // page for kakao Oauth
+    app.get('/auth/kakao', passport.authenticate('kakao'));
+    app.get('/auth/kakao/callback',
+        passport.authenticate('kakao', {
+        successRedirect: '/main',
+        failureRedirect: '/auth/failure'
+    }));
     //Request Method POST
 
     app.post('/login', 
