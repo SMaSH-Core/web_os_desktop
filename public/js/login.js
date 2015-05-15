@@ -1,4 +1,4 @@
-
+/*
 window.onload = function(){
     $('custom-login-btn').onclick = loginWithKakao;
 // ---------------- KakaoTalk --------------------
@@ -37,3 +37,4 @@ window.onload = function(){
         location.href='http://localhost:9080/main';
     }                               
 };
+*/
