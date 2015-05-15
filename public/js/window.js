@@ -4,8 +4,9 @@ window.onload =function (){
 // cloud part
     var popup_Btn = document.getElementById("CLOUD");
     popup_Btn.onclick = cloud_popup;
-  //  var h2dropauth = document.getElementById('dropauth');
-    //h2dropauth.onclick = authDropbox;
+  
+
+
 // iframe part
     var max = false;
     var size_Btns = document.getElementsByClassName("sizeCtrl");

@@ -192,3 +192,7 @@ table {
 	text-align: center;
 	width: 20%;
 }
+
+.cloud_input {
+	display:none;
+}
