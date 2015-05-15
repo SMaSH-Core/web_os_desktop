@@ -114,10 +114,8 @@ app.directive('ngEnter', function ($compile) {
 						var addurl2 = document.getElementById("slurl").value;
 						if(addurl2 != "" && addurl2 != null){
 							if(addurl2.search("http://") == -1){
-								//alert(addurl2);
 								addurl2 = "http://" + addurl2;
 							}
-							//alert(addurl2);
 							var imgurl = 'http://www.google.com/s2/favicons?domain='+addurl2;
 							angular.element(document.getElementById('panelul')).append($compile("<li><a class='false' href ='"+addurl2+"' target = '_blank' id = "+addurl2+" ><img src = "+imgurl+" id = "+addurl2+" class = 'tosave' draggable/></a></li>")(scope));
 							scope.slideurl = false;
@@ -488,8 +486,7 @@ app.directive('save',function(){
 	var link=function(scope, element, attrs){
 		
 
-		var save = function(e){ 
-			alert('hi');         
+		var save = function(e){      
         	var memo = [];
 			var left = [];
 			var top = [];
@@ -527,9 +524,6 @@ app.directive('save',function(){
 		    	else
 		    		def.push("false");
 		    }
-		   	alert(href);
-		   	alert(src);
-		   	alert(def);
 		    new Ajax.Request("/app",{
 
                     method: "post",
