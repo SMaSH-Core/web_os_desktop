@@ -15,9 +15,12 @@ function checkAuth() {
 
 function handleAuthResult(authResult) {
     var Labelgoogle = document.getElementById("googleDrive_label");
+    var googleUpload = document.getElementById('google_input');
+    googleUpload.onchange = uploadGoogleFile;
     if (authResult && !authResult.error) {
         console.log(gapi.auth.getToken());
         Labelgoogle.style.color ='black'
+        googleUpload.style.display='block'
         retrieveGoogleFiles();
     } else {
       Labelgoogle.style.color = 'red';
@@ -197,14 +200,17 @@ function NewWindow(mypage, myname, w, h, scroll) {
         win.window.focus(); 
     }
 }
-
-
-function uploadFile(evt) {
-    gapi.client.load('drive', 'v2', function() {
-        var file = evt.target.files[0];
-        insertFile(file);
-    });
+function uploadGoogleFile() {
+    var input = document.getElementById('google_input');
+    var inputvalue = input.files;
+    if(inputvalue[0]){
+        insertFile(inputvalue[0]);
+    }
+    else{
+        console.log("file 미선택");
+    }
 }
+
 function insertFile(fileData, callback) {
 	const boundary = '-------314159265358979323846';
 	const delimiter = "\r\n--" + boundary + "\r\n";
@@ -241,10 +247,11 @@ function insertFile(fileData, callback) {
 	      'body': multipartRequestBody});
 	    if (!callback) {
 	        callback = function(file) {
-	        console.log(file)
+	           console.log(file)
 	        };
 	    }
-		request.execute(callback);
+        removeChildList('google_File');
+		request.execute(retrieveGoogleFiles);
 	}
 }
 
