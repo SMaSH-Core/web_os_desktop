@@ -3,7 +3,7 @@
     <head>
         <meta charset='utf-8' />
         <% include ../template/c_lib_head.ejs %>
-        <% include ../template/d_main_head.ejs %>
+        <% include ../template/d_social_main_head.ejs %>
     </head>
     <script>
      $(function() {
@@ -21,12 +21,9 @@
         <!-- MAIN CONTENT -->
         <div id = "topbar">
             <ul id="wid_set">
-                <li class="addmemo" >MEMO</li>
-                <li ng-click="show_todo=!show_todo">ToDoList</li>
-                <li ng-click="show_calendar=!show_calendar" class="calendar">CALENDAR</li>
-                <li id = "CLOUD" >CLOUD</li>
-
-
+                <div id = "indicateFriend">
+                    <p><%= UserName %>(<%= UserID %>)의 PIVOT</p>
+                </div>
             </ul>
             <div id="gsearch">
                 <form method="get" action="http://www.google.com/search" target="_blank">
@@ -39,8 +36,8 @@
             </ul>
             <div id="info">
 
-                <form action = "/logout" method="post">
-                    <button  class="save logout" type = "submit">LOGOUT</button>
+                <form action = "/main" method="get">
+                    <button type = "submit">떠나기</button>
                 </form>
             </div>
         </div>
@@ -54,30 +51,22 @@
                                     <th width="20px">방문</th>
                                 </tr>
                             </thead>
-                            <tbody id= "friend_tbody">
+                            <tbody>
                                  <tr class = "friends">
-                                    <td>현태김(espy0117@gmail.com)</th>
-                                    <td class="messageTo" width="40px">message</th>
-                                    <td><a href ="visit?ID=espy0117@gmail.com">방문</a></th>
+                                    <th width="20px">현태김(espy0117@gmail.com)</th>
+                                    <th class="social_hide">espy0117@gmail.com</th>
+                                    <th class="messageTo" width="40px">message</th>
+                                    <th class="visitTo" width="20px"><a href ="visit?ID=espy0117@gmail.com">방문</a></th>
                                 </tr>
                                  <tr class = "friends">
-                                    <td>김현태(silbu1122@nate.com)</th>
-                                    <td class="messageTo" width="40px">message</th>
-                                    <td><a href ="visit?ID=silbu1122@nate.com">방문</a></th>
+                                    <th width="20px">김현태(silbu1122@nate.com)</th>
+                                    <th class="social_hide">silbu1122@nate.com</th>
+                                    <th class="messageTo" width="40px">message</th>
+                                    <th class="visitTo" width="20px"><a href ="visit?ID=silbu1122@nate.com">방문</a></th>
                                 </tr>
                             </tbody>
                     </table>
-
-               <input id = "input_friend" type = "text"><button id ="btn_searchFriend">검색</button>
-               <div>
-                    <table id = "newFriend">
-                         <tr class = "newfriends">
-                            <td>db@a.a(db@a.a)</th>
-                            <td><a href ="visit?ID=db@a.a">방문</a></th>
-                            <td id="addFriend">친구추가</th>
-                        </tr>
-                    </table>
-               </div>
+               <input type = "text">
             </div>
             <div id = "home" droppable >
                 <% include ../template/d_main_cloud %>

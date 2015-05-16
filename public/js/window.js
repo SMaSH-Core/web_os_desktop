@@ -1,5 +1,9 @@
 window.onload =function (){
     window.setTimeout(checkAuth, 1);
+//social part
+    var Listfriendlist = document.getElementById("friend_list");
+    Listfriendlist.onclick = showFriendList;
+
 
 // cloud part
     var popup_Btn = document.getElementById("CLOUD");

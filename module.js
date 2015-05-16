@@ -78,7 +78,69 @@ exports.saveWidget = function (req, res ,next)
             console.log('ok?');
         });
 }
+exports.retrieveFriend = function (req,res,next)
+{
+    var id = req.query.ID;
+    if(id == undefined)
+    {
+        console.log("id undefined in retrieveFriendFunction");
+        res.redirect("main");
+    }
+    else{
+        db.userModel.findOne({'email':id},
+            function (err,userinfo){
+                if(err)
+                {
+                    console.log('retrieveFriend_ERR : '+err);           
+                }
+                if(userinfo)//중복아이디 있음.
+                {
+                    db.linkModel.findOne({'email':id},
+                    function(err,appdata)
+                    {
+                        console.log(appdata);
+                        res.render('desktop/social_main.ejs',{
+                            UserID : id,
+                            UserName : userinfo.name,
+                            userapp : appdata.link,
+                            widget : []
+                        });
+                    });
+                }else{
+                    console.log("retrieveFriend Err");
+                }
+        });
+    }
+}
 
+exports.searchFriend = function (req,res,next)
+{
+    console.log("searchFriendfunction");
+    var inputfriend = req.query.input;
+    console.log(inputfriend);
+    db.userModel.findOne({'email':inputfriend},
+            function (err,userinfo){
+                if(err)
+                {
+                    console.log('searchFriend_ERR : '+err);           
+                }
+                if(userinfo)//중복아이디 있음.
+                {
+                    var friend = {
+                        email : userinfo.email,
+                        name : userinfo.name
+                    }
+                    res.send(friend);
+                }else{
+                    console.log("searchFriend Err : "+err);
+                    res.send(null);
+                }
+        });
+}
+exports.addFriend = function (req,res,next)
+{
+    
+}
 exports.dirTree = function(filename) 
 {
         var stats = fs.lstatSync(filename),

@@ -143,7 +143,14 @@ module.exports = function (app, passport,module){
         req.user.app.link = [];
         res.send(req.user);
     });
-
+    app.get('/visit',module.retrieveFriend);
+    app.get('/searchfriend',module.searchFriend);
+    
+    app.post('/addfriend',function (req,res){
+        console.log(req.body);
+    });
+    
+   
     app.get('*', function (req, res) {
             res.render('login');
     });

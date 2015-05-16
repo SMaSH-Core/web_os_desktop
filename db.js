@@ -15,6 +15,10 @@ var linkSchema = mongoose.Schema({
     link: [],
     widget: []
 });
+var friendlistSchema = mongoose.Schema({
+	email: String,
+	Friend: []
+});
 
 //유저 설정 저장
 var configSchema = mongoose.Schema({
@@ -32,5 +36,9 @@ exports.userModel = mongoose.model('userDataModel',userDataSchema);
 
 exports.linkModel = mongoose.model('linkModel',linkSchema);
 
-exports.configSchema = mongoose.model('userconfigModel',configSchema)
+
+exports.linkModel = mongoose.model('friendList',friendlistSchema);
+
+
+exports.configSchema = mongoose.model('userconfigModel',configSchema);
 
