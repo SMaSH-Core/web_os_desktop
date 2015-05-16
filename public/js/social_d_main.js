@@ -447,7 +447,7 @@ app.directive('widgetM', function(){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable class="widget_m w_memo"><p>hi</p><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea><button id = "memocomple"></div>'
+        template: '<div ng-draggable class="widget_m w_memo"><p>hi</p><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea><button id = "memocomple" class="leave">LEAVE</button></div>'
     };
 })
 
@@ -459,6 +459,21 @@ app.directive('leaveGuest', function($compile){
             scope.$apply();
         };
         element.on('click', addDiv);
+    };
+        
+    return {
+        restrict: 'C',
+        link: linkFn
+    };
+});
+
+app.directive('leave', function($compile){
+    var linkFn = function(scope, element, attrs){        
+        var clickleave = function(e){
+            alert("바보야~");
+            
+        };
+        element.on('click', clickleave);
     };
         
     return {
