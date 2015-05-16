@@ -1,5 +1,4 @@
 
-
 function showFriendList(){
 	var Divfriend = document.getElementById("friend_div");
 	var messageTo = $$(".messageTo");

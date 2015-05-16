@@ -527,9 +527,6 @@ app.directive('save',function(){
 		    	else
 		    		def.push("false");
 		    }
-		   	alert(href);
-		   	alert(src);
-		   	alert(def);
 		    new Ajax.Request("/app",{
 
                     method: "post",

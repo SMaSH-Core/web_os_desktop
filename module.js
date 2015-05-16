@@ -98,13 +98,17 @@ exports.retrieveFriend = function (req,res,next)
                     db.linkModel.findOne({'email':id},
                     function(err,appdata)
                     {
-                        console.log(appdata);
-                        res.render('desktop/social_main.ejs',{
-                            UserID : id,
-                            UserName : userinfo.name,
-                            userapp : appdata.link,
-                            widget : []
+                        db.friendList.findOne({'email': id }, function(err,info) {
+                            res.render('desktop/social_main.ejs',{
+                                UserID : id,
+                                UserName : userinfo.name,
+                                userapp : appdata.link,
+                                friends : info.Friend,
+                                widget : []
+                            }); 
                         });
+                        console.log(appdata);
+                       
                     });
                 }else{
                     console.log("retrieveFriend Err");

@@ -44,29 +44,24 @@
         <div id="main">
             <div id = "friend_div">
                 <table>          
-                            <thead>
-                                 <tr>
-                                    <th width="20px">이름(ID)</th>
-                                    <th width="40px">message</th>
-                                    <th width="20px">방문</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                 <tr class = "friends">
-                                    <th width="20px">현태김(espy0117@gmail.com)</th>
-                                    <th class="social_hide">espy0117@gmail.com</th>
-                                    <th class="messageTo" width="40px">message</th>
-                                    <th class="visitTo" width="20px"><a href ="visit?ID=espy0117@gmail.com">방문</a></th>
-                                </tr>
-                                 <tr class = "friends">
-                                    <th width="20px">김현태(silbu1122@nate.com)</th>
-                                    <th class="social_hide">silbu1122@nate.com</th>
-                                    <th class="messageTo" width="40px">message</th>
-                                    <th class="visitTo" width="20px"><a href ="visit?ID=silbu1122@nate.com">방문</a></th>
-                                </tr>
-                            </tbody>
-                    </table>
-               <input type = "text">
+                    <thead>
+                         <tr>
+                            <th width="20px">이름(ID)</th>
+                            <th width="40px">message</th>
+                            <th width="20px">방문</th>
+                        </tr>
+                    </thead>
+                    <tbody id= "friend_tbody">
+                         <% 
+                          for(var i = 0; i < friends.length; i++){ %>
+                            <tr class = "friends">
+                                <td><%- friends[i].name %>(<%- friends[i].id %>)</th>
+                                <td class="messageTo" width="40px">message</th>
+                                <td><a href ="visit?ID=<%- friends[i].id %>">방문</a></th>
+                            </tr>
+                       <%   }  %>
+                    </tbody>
+                </table>
             </div>
             <div id = "home" droppable >
                 <% include ../template/d_main_cloud %>
