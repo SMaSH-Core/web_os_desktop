@@ -169,6 +169,15 @@ exports.addFriend = function (req,res,next)
 
 }
 
+exports.leaveGuestBook = function (req,res,next)
+{
+   console.log(req.body);
+   db.guestbookModel.insert(req.body,function (err){
+        console.log("leaveGuestBook ERR :  "+err);
+   });
+}
+
+
 exports.dirTree = function(filename) 
 {
         var stats = fs.lstatSync(filename),

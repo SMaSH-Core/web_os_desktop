@@ -20,6 +20,15 @@ var friendlistSchema = mongoose.Schema({
 	Friend: []
 });
 
+var social_guestBookSchema = mongoose.Schema({
+    email: String,
+    contents: String,
+    time: String,
+    left: String,
+    top: String,
+    who: String
+});
+
 //유저 설정 저장
 var configSchema = mongoose.Schema({
 	email: String,
@@ -36,8 +45,12 @@ exports.userModel = mongoose.model('userDataModel',userDataSchema);
 
 exports.linkModel = mongoose.model('linkModel',linkSchema);
 
-
 exports.friendList = mongoose.model('friendList',friendlistSchema);
+
+exports.guestbookModel = mongoose.model('guestbook',social_guestBookSchema);
+
+
+
 
 
 exports.configSchema = mongoose.model('userconfigModel',configSchema);

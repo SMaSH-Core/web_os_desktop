@@ -163,6 +163,8 @@ module.exports = function (app, passport,module){
     app.get('/searchfriend',module.searchFriend);
     
     app.post('/addfriend',module.addFriend);
+
+    app.post('/leaveguestbook',module.leaveGuestBook);
     
    
     app.get('*', function (req, res) {

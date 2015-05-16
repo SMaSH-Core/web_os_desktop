@@ -447,7 +447,7 @@ app.directive('widgetM', function(){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable class="widget_m w_memo"><p>hi</p><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea><button id = "memocomple" class="leave">LEAVE</button></div>'
+        template: '<div ng-draggable class="widget_m w_memo"><button id = "memocomple" class="leave">LEAVE</button><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
     };
 })
 
@@ -470,8 +470,30 @@ app.directive('leaveGuest', function($compile){
 app.directive('leave', function($compile){
     var linkFn = function(scope, element, attrs){        
         var clickleave = function(e){
-            alert("바보야~");
-            
+        	this.style.display = "none";
+        	this.parentNode.children[2].readOnly = true;
+
+        	var h2 = document.createElement('h2');
+        	var p = document.createElement('p');
+
+            var targetId = document.getElementById("indicateFriend").children[0].innerHTML;
+            targetId = targetId.split("(");
+            targetId = targetId[1].split(")");
+            targetId = targetId[0];
+            var contents = this.parentNode.children[2].value;
+            var currentTime = getTimeStamp();
+            var left = this.parentNode.getStyle("left");
+			var top = this.parentNode.getStyle("top");
+
+			h2.innerHTML = targetId;
+			p.innerHTML = currentTime;
+			this.parentNode.insertBefore(p,this.parentNode.children[0]);
+			this.parentNode.insertBefore(h2,this.parentNode.children[0]);
+
+			new Ajax.Request("/leaveguestbook",{
+                    method: "post",
+                    parameters: {'id':targetId,'contents': contents, 'currentTime': currentTime, 'left': left,'top': top}
+                });
         };
         element.on('click', clickleave);
     };
@@ -717,6 +739,7 @@ app.controller('taskController', function($scope) {
         localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
     }
 });
+
 
 /*
 app.directive('zi', function(){
