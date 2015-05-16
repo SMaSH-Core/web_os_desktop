@@ -144,5 +144,10 @@ function addFriend(){
                 });
 
 	}
+}
 
+/////////leave guestbook //////
+
+function leaveGuestbook(){
+	alert("hi");
 }
