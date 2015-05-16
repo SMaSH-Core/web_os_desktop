@@ -1,5 +1,6 @@
 var fs = require('fs');
 var path = require('path');
+var db = require('./db.js');
 module.exports = function (app, passport,module){
 
 	//Request Method GET
@@ -17,40 +18,55 @@ module.exports = function (app, passport,module){
     });
 
     app.get('/main',module.isLoggedIn,function (req, res){
+        console.log(req.user);
     	var wid = req.user.app.widget;
         var sessionApp = req.user.app.link;
         currentpath = './cloud/users/'+req.user.email;
         var info = dirTree(currentpath);
-        
+        var friends;
+            db.friendList.findOne({'email': req.user.email }, function(err,list){
+               friends = list.Friend;
+               if(err){
+                    console.log("err is : "+ err);
+               }else{
+                  if(res.locals.is_tablet&&res.locals.is_mobile){
+                    console.log("it is tablet");
+                    res.render('desktop/main',{
+                        UserID : req.user.email,
+                        UserName : req.user.name,
+                        userapp : sessionApp,
+                        widget : wid,
+                        friends : req.user.friends,
+                        local_folder : info 
+                    });
+                }
+                else if(res.locals.is_desktop){
+                    console.log("it is desktop");
+                    res.render('desktop/main',{
+                        UserID : req.user.email,
+                        UserName : req.user.name,
+                        userapp : sessionApp,
+                        widget : wid,
+                        friends : friends,
+                        local_folder : info 
+                    });
+                }
+                else{
+                    console.log("it is mobile ");
+                    res.render('mobile/mobile_main',{
+                        UserID : 'hyejin@a.a',
+                        UserName : 'hyejin',
+                        userapp : sessionApp,
+                        widget : wid});
+                    }
+                }
+            });
 
-        if(res.locals.is_tablet&&res.locals.is_mobile){
-            console.log("it is tablet");
-            res.render('desktop/main',{
-                UserID : req.user.email,
-                UserName : req.user.name,
-                userapp : sessionApp,
-                widget : wid,
-                local_folder : info 
-            });
-        }
-        else if(res.locals.is_desktop){
-            console.log("it is desktop");
-            res.render('desktop/main',{
-                UserID : req.user.email,
-                UserName : req.user.name,
-                userapp : sessionApp,
-                widget : wid,
-                local_folder : info 
-            });
-        }
-        else{
-            console.log("it is mobile ");
-            res.render('mobile/mobile_main',{
-                UserID : 'hyejin@a.a',
-                UserName : 'hyejin',
-                userapp : sessionApp,
-                widget : wid});
-            }
+
+
+        
+        console.log(friends);
+      
     });
   
     app.get('/mmain',function (req, res) {
@@ -146,9 +162,7 @@ module.exports = function (app, passport,module){
     app.get('/visit',module.retrieveFriend);
     app.get('/searchfriend',module.searchFriend);
     
-    app.post('/addfriend',function (req,res){
-        console.log(req.body);
-    });
+    app.post('/addfriend',module.addFriend);
     
    
     app.get('*', function (req, res) {

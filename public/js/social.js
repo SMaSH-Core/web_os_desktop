@@ -1,32 +1,4 @@
-/*			<div id = "friend_div">
-                <table>          
-                            <thead>
-                                 <tr>
-                                    <th width="20px">이름(ID)</th>
-                                    <th width="40px">message</th>
-                                    <th width="20px">방문</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                 <tr class = "friends">
-                                    <th width="20px">현태김(espy0117@gmail.com)</th>
-                                    <th class="social_hide">espy0117@gmail.com</th>
-                                    <th class="messageTo" width="40px">message</th>
-                                    <th class="visitTo" width="20px"><a href ="visit?ID=espy0117@gmail.com">방문</a></th>
-                                </tr>
-                                 <tr class = "friends">
-                                    <th width="20px">김현태(silbu1122@nate.com)</th>
-                                    <th class="social_hide">silbu1122@nate.com</th>
-                                    <th class="messageTo" width="40px">message</th>
-                                    <th class="visitTo" width="20px"><a href ="visit?ID=silbu1122@nate.com">방문</a></th>
-                                </tr>
-                            </tbody>
-                    </table>
 
-               <input id = "input_friend" type = "text"><button id ="btn_searchFriend">검색</button>
-               <div id = "newFriend">
-               </div>
-            </div>*/
 
 function showFriendList(){
 	var Divfriend = document.getElementById("friend_div");
@@ -40,16 +12,7 @@ function showFriendList(){
 	BtnsearchFriend.onclick = searchFriend;
 }
 
-function visitToFriend(){
-	alert("visitTo");
-	var id = this.parentNode.children[1].innerHTML;
-	/*
-	new Ajax.Request("/login",{
-                    method: "get",
-                    parameters: {'ID': id}
-                });
-*///이것은 안쓰는 함수.
-}
+
 
 function messageToFriend(){
 	alert("messageTo");
@@ -122,17 +85,29 @@ function addFriend(){
 	var id = href.split("?ID=");
 	var name = idname.split("(");
 	name =name[0];
-
+	var Data = [];
 	console.log(Divnewfriend.children.length);
 	for(var i = 0; i < Divnewfriend.children.length; i++)
 	{
-		var previous = Divnewfriend.children[i].children[0].innerHTML
-		
+
+		var previous = Divnewfriend.children[i].children[0].innerHTML;
+		var eachID =  Divnewfriend.children[i].children[2].children[0].href;
+		eachID = eachID.split("?ID=");
+		var eachName = Divnewfriend.children[i].children[0].innerHTML;
+		eachName = eachName.split("(");
+
+		var friends = {
+			'id': eachID[1],
+			'name':eachName[0]
+		};
+
+		Data.push(friends);
 		if(idname == previous){
 			existFlag++;
-			break;
 		}
 	}
+	
+
 	if(!existFlag){
 	    var tr = document.createElement("tr");
 	    var td_idname = document.createElement("td"); 
@@ -156,10 +131,17 @@ function addFriend(){
 	    tr.appendChild(td_visit);
 	  	Divnewfriend.appendChild(tr);
 
-	  	
+
+	  	var friends = {
+			'id': id[1],
+			'name':name[0]
+		};
+
+	  	Data.push(friends);
+	  	Data = JSON.stringify(Data);
 	  	new Ajax.Request("/addfriend",{
                     method: "post",
-                    parameters: {'id': id[1],'name':name}
+                    parameters: {'data':Data,'other':id[1]}
                 });
 
 	}

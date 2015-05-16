@@ -139,8 +139,32 @@ exports.searchFriend = function (req,res,next)
 }
 exports.addFriend = function (req,res,next)
 {
-    
+    var user = req.user.email;
+    var userData = {
+        name : req.user.name,
+        id : user
+        }
+
+    console.log(req.body.data);
+    var Data = JSON.parse(req.body.data);
+    var other = req.body.other;
+    db.friendList.update({'email': user }, { 'Friend': Data }, function(err){
+            if(err)
+            console.log('addFriend_Er: "value", '+err);
+            else{
+                db.friendList.findOne({'email': other }, function(err,info) {
+                   
+                    info.Friend.push(userData);
+                    db.friendList.update({'email': other }, { 'Friend': info.Friend }, function(err) {
+                        if(err)
+                        console.log("addFriend last update err :    "+err);
+                    });
+                });
+            }
+        });
+
 }
+
 exports.dirTree = function(filename) 
 {
         var stats = fs.lstatSync(filename),

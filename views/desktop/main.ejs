@@ -55,27 +55,21 @@
                                 </tr>
                             </thead>
                             <tbody id= "friend_tbody">
-                                 <tr class = "friends">
-                                    <td>현태김(espy0117@gmail.com)</th>
-                                    <td class="messageTo" width="40px">message</th>
-                                    <td><a href ="visit?ID=espy0117@gmail.com">방문</a></th>
-                                </tr>
-                                 <tr class = "friends">
-                                    <td>김현태(silbu1122@nate.com)</th>
-                                    <td class="messageTo" width="40px">message</th>
-                                    <td><a href ="visit?ID=silbu1122@nate.com">방문</a></th>
-                                </tr>
+                                 <% 
+                                  for(var i = 0; i < friends.length; i++){ %>
+                                    <tr class = "friends">
+                                        <td><%- friends[i].name %>(<%- friends[i].id %>)</th>
+                                        <td class="messageTo" width="40px">message</th>
+                                        <td><a href ="visit?ID=<%- friends[i].id %>">방문</a></th>
+                                    </tr>
+                               <%   }  %>
+                              
                             </tbody>
                     </table>
 
                <input id = "input_friend" type = "text"><button id ="btn_searchFriend">검색</button>
                <div>
                     <table id = "newFriend">
-                         <tr class = "newfriends">
-                            <td>db@a.a(db@a.a)</th>
-                            <td><a href ="visit?ID=db@a.a">방문</a></th>
-                            <td id="addFriend">친구추가</th>
-                        </tr>
                     </table>
                </div>
             </div>

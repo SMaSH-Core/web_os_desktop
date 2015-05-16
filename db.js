@@ -37,7 +37,7 @@ exports.userModel = mongoose.model('userDataModel',userDataSchema);
 exports.linkModel = mongoose.model('linkModel',linkSchema);
 
 
-exports.linkModel = mongoose.model('friendList',friendlistSchema);
+exports.friendList = mongoose.model('friendList',friendlistSchema);
 
 
 exports.configSchema = mongoose.model('userconfigModel',configSchema);

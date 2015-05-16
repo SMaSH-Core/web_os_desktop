@@ -91,6 +91,20 @@ module.exports = function(passport){
 	                    if(err)
 	                        return done(err);
 	                });
+
+	                //social//
+	                var FriendList = new db.friendList({
+	                    email: req.param('email'),
+	                    Friend: []
+	                });
+
+	                FriendList.save(function (err, silence){
+	                    if(err)
+	                        return done(err);
+	                });
+	                //social//
+
+
 	                var userRec = new db.userModel({
 	                    email: req.param('email'),
 	                    password: req.param('pwd'),
@@ -109,10 +123,13 @@ module.exports = function(passport){
 						  	return done(err);
 						  }
 						});
+						//social//
 	               		var user = { 'name':userRec.name,
 	                             'email': userRec.email,
 	                             'app' : DefaultLink
 	                            };
+	                    //social friend add//
+
 	                    return done(null,user);
 	                });
 	              
