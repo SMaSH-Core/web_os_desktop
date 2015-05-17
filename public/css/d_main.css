@@ -305,9 +305,11 @@ div#topbar *{
 }
 /* 가운데 시계 및 인사말 div 속성 추가 */
 .center{
+	position: absolute;
 	z-index: -10;
-	width: auto;
-	margin-top: 10%;
+	width: 30%;
+	left: 35%;
+	top: 25%;
 	text-align: center;
 	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -315,12 +317,11 @@ div#topbar *{
 	/* 시계 속성 생략
 	margin-top: 10px;*/
 	/* 속성 추가 */
-	z-index: -10;
-	position: relative;
 	text-align: center;
 	font-size: 160px;
 	font-weight: lighter;
 	color: white;
+	z-index: -10;
 }
 /* 인사말 속성 추가 */
 .greeting{
@@ -328,6 +329,7 @@ div#topbar *{
 	font-size: 54px;
 	font-weight: lighter;
 	color: white;
+	
 	z-index: -10;
 }
 #info{

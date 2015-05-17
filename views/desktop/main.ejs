@@ -6,11 +6,19 @@
         <% include ../template/d_main_head.ejs %>
     </head>
     <script>
-     $(function() {
+    $(function() {
         var maxz = $('.zi:last').css("zIndex");
         $(".zi").on("click",function(){
                 maxz++;
               $(this).css('z-index',maxz);           
+            }
+        );
+    });
+    $(function() {
+        var mmaxz = $('.mzi:last').css("zIndex");
+        $(".mzi").on("click",function(){
+                mmaxz++;
+              $(this).css('z-index',mmaxz);           
             }
         );
     });
@@ -48,7 +56,7 @@
                 <!-- 메모 -->
                <% 
                   for(var i = 0; i < widget.length; i++){ %>
-                    <div ng-draggable class="widget_m w_memo" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div>
+                    <div ng-draggable class="widget_m w_memo mzi" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;z-index=5000;"  ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div> 
                         <textarea rows="8" cols="25"><%- widget[i].memo %></textarea>
                     </div>
                 <%   }  %>
