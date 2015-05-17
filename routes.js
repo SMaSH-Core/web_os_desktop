@@ -15,6 +15,13 @@ module.exports = function (app, passport,module){
     {
     	res.render('signup');
     });
+    app.get('/memo',function (req, res)
+    {
+        res.render('mobile/memo',{
+            UserID : req.user.email,
+            UserName : req.user.name
+        });
+    });
 
     app.get('/main',module.isLoggedIn,function (req, res){
     	var wid = req.user.app.widget;
