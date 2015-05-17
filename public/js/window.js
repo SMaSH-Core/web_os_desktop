@@ -3,6 +3,8 @@ window.onload =function (){
 //social part
     var Listfriendlist = document.getElementById("friend_list");
     Listfriendlist.onclick = showFriendList;
+    var Listviewbook = document.getElementById("guestbook_list");
+    Listviewbook.onclick = showGuestBook;
 
 
 // cloud part

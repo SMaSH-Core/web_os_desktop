@@ -24,8 +24,8 @@ module.exports = function (app, passport,module){
         currentpath = './cloud/users/'+req.user.email;
         var info = dirTree(currentpath);
         var friends;
-        
-            db.friendList.findOne({'email': req.user.email }, function(err,list){
+            db.guestbookModel.find({email: req.user.email},function(err,guestbook){
+                db.friendList.findOne({'email': req.user.email }, function(err,list){
                friends = list.Friend;
                if(err){
                     console.log("err is : "+ err);
@@ -49,6 +49,7 @@ module.exports = function (app, passport,module){
                         userapp : sessionApp,
                         widget : wid,
                         friends : friends,
+                        guestbook : guestbook,
                         local_folder : info 
                     });
                 }
@@ -62,12 +63,7 @@ module.exports = function (app, passport,module){
                     }
                 }
             });
-
-
-
-        
-        console.log(friends);
-      
+        });      
     });
   
     app.get('/mmain',function (req, res) {

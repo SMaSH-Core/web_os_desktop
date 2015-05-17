@@ -157,6 +157,10 @@ function addFriend(){
 }
 
 /////////leave guestbook //////
+
+function showGuestBook(){
+	alert("hi 이거 누를시, guestBook display를 none/block으로 계속 변경해주세ㅛㅇㅇ");
+}
 function getTimeStamp() {
   var d = new Date();
 

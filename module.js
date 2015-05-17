@@ -99,12 +99,16 @@ exports.retrieveFriend = function (req,res,next)
                     function(err,appdata)
                     {
                         db.friendList.findOne({'email': id }, function(err,info) {
-                            res.render('desktop/social_main.ejs',{
-                                UserID : id,
-                                UserName : userinfo.name,
-                                userapp : appdata.link,
-                                friends : info.Friend,
-                                widget : []
+                                db.guestbookModel.find({email: id , who: req.user.email},function(err,guestbook){
+                                    res.render('desktop/social_main.ejs',{
+                                        UserID : id,
+                                        UserName : userinfo.name,
+                                        userapp : appdata.link,
+                                        friends : info.Friend,
+                                        guestbook :guestbook,
+                                        widget : []
+                                });
+                            
                             }); 
                         });
                         console.log(appdata);
