@@ -2,6 +2,7 @@
   position: absolute;
   width: 40%;
   top :10%;
+  z-index: 6000;
 }
 #todo_end{
   float: right;
