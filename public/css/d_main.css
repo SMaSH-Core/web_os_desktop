@@ -245,7 +245,7 @@ button.logout{
 	position: absolute;
 	background: rgba(255, 255, 255, 0.4);
 	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
-
+	z-index: 5000;
 }
 .w_memo:hover{
 	outline-color: rgb(202, 139, 70);
@@ -306,7 +306,7 @@ div#topbar *{
 /* 가운데 시계 및 인사말 div 속성 추가 */
 .center{
 	position: absolute;
-	z-index: -10;
+	z-index: 10;
 	width: 30%;
 	left: 35%;
 	top: 25%;
@@ -321,7 +321,7 @@ div#topbar *{
 	font-size: 160px;
 	font-weight: lighter;
 	color: white;
-	z-index: -10;
+	z-index: 10;
 }
 /* 인사말 속성 추가 */
 .greeting{
@@ -330,7 +330,7 @@ div#topbar *{
 	font-weight: lighter;
 	color: white;
 
-	z-index: -10;
+	z-index: 10;
 }
 #info{
 	width: 25%;
