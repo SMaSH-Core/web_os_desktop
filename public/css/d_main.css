@@ -245,7 +245,7 @@ button.logout{
 	position: absolute;
 	background: rgba(255, 255, 255, 0.4);
 	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
-	z-index: 5000;
+
 }
 .w_memo:hover{
 	outline-color: rgb(202, 139, 70);
@@ -329,7 +329,7 @@ div#topbar *{
 	font-size: 54px;
 	font-weight: lighter;
 	color: white;
-	
+
 	z-index: -10;
 }
 #info{
