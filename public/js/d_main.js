@@ -375,7 +375,7 @@ app.directive('ngDraggable', function($document, $window){
       cursor: 'pointer',
       top: startY + 'px',
       left: startX + 'px',
-      position: 'relative'
+      position: 'absolute'
       
     });
 
