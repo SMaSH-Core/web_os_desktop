@@ -48,14 +48,14 @@
                 <!-- 메모 -->
                <% 
                   for(var i = 0; i < widget.length; i++){ %>
-                    <div ng-draggable class="widget_m w_memo zi" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div>
+                    <div ng-draggable class="widget_m w_memo" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div>
                         <textarea rows="8" cols="25"><%- widget[i].memo %></textarea>
                     </div>
                 <%   }  %>
 
                 <!-- 투두리스트 -->
-                <div id="todolist"ng-controller="taskController">
-                    <div id="todo_li" ng-draggable ng-show="show_todo" zi>
+                <div id="todolist" ng-controller="taskController" class="zi">
+                    <div id="todo_li" ng-draggable ng-show="show_todo" >
                         <span id="todo_end" ng-click="$parent.show_todo=false">X</span>
                         <div class="container">
 

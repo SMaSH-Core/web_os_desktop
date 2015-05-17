@@ -1,3 +1,8 @@
+#todolist{
+  position: absolute;
+  width: 40%;
+  top :10%;
+}
 #todo_end{
   float: right;
   margin: 5px;
@@ -6,9 +11,7 @@
 }
 #todo_li{
   position: fixed;
-  width: 40%;
-  top :10%;
-  left: 30%;
+  width: 100%;
   box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
 }
 

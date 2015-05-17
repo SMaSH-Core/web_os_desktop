@@ -238,13 +238,14 @@ button.logout{
 	padding: 5px;
 	border: 1px rgba(192, 190, 190, 0.78);
 	background-color: rgba(192, 190, 190, 0.78);
+	
 }
 .w_memo{ 
 	display: inline-block;
 	position: absolute;
 	background: rgba(255, 255, 255, 0.4);
 	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
-	z-index: 0;
+	z-index: 5000;
 }
 .w_memo:hover{
 	outline-color: rgb(202, 139, 70);
@@ -269,6 +270,7 @@ button.logout{
 	background-color: white;
 }
 .widget_c{
+	z-index: 6000;
 	position: absolute;
 	top:5px;
 	left:25%;
@@ -423,6 +425,4 @@ div#topbar *{
 	width: 30%;
 	height: 30%;
 }
-.zi{
-	z-index:1;
-}
+
