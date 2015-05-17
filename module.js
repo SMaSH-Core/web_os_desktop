@@ -120,12 +120,9 @@ exports.retrieveFriend = function (req,res,next)
                                         friends : info.Friend,
                                         guestbook :guestbook,
                                         widget : []
-                                });
-                            
+                                });                   
                             }); 
                         });
-                        console.log(appdata);
-                       
                     });
                 }else{
                     console.log("retrieveFriend Err");
@@ -136,9 +133,7 @@ exports.retrieveFriend = function (req,res,next)
 
 exports.searchFriend = function (req,res,next)
 {
-    console.log("searchFriendfunction");
     var inputfriend = req.query.input;
-    console.log(inputfriend);
     db.userModel.findOne({'email':inputfriend},
             function (err,userinfo){
                 if(err)
@@ -175,7 +170,6 @@ exports.addFriend = function (req,res,next)
         id : user
         }
 
-    console.log(req.body.data);
     var Data = JSON.parse(req.body.data);
     var other = req.body.other;
     db.friendList.update({'email': user }, { 'Friend': Data }, function(err){
@@ -197,7 +191,6 @@ exports.addFriend = function (req,res,next)
 
 exports.leaveGuestBook = function (req,res,next)
 {
-   console.log(req.body);
    var guestbook = req.body;
    guestbook.who = req.user.email;
  

@@ -447,7 +447,7 @@ app.directive('widgetM', function(){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable class="widget_m w_memo"><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
+        template: '<div ng-draggable class="widget_m w_memo"><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25" class ="_memo"></textarea></div>'
     };
 })
 
@@ -488,13 +488,11 @@ app.directive('save',function(){
 	var link=function(scope, element, attrs){
 		
 
-		var save = function(e){ 
-			alert('hi');         
+		var save = function(e){          
         	var memo = [];
 			var left = [];
 			var top = [];
 			var memoOBJ = $$("._memo");
-			alert(memoOBJ);
 	
 			var memoDiv = $$(".w_memo");
 			for(var i = 0; i <memoOBJ.length; i ++)

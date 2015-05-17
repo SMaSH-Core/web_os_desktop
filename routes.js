@@ -124,10 +124,6 @@ module.exports = function (app, passport,module){
     	req.logout();
     	res.redirect('/');	
     });
-    /*app.post('/dropFileList',function (req, res){
-        console.log(req.body.fl);
-    });
-*/
 
     app.post('/app',module.saveApp,function (req, res){
         console.log('=========app===========');
@@ -143,11 +139,6 @@ module.exports = function (app, passport,module){
         console.log(req.body);
 
     });
-     /*
-     app.post('/public/images',function (req, res){
-        console.log(req.body.files.myfile);
-     });
-    */
     // ETC Request for testing
     app.get('/login_success', module.isLoggedIn, function (req, res){
         res.send(req.user);
