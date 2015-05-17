@@ -1,18 +1,3 @@
-
-function showFriendList(){
-	var Divfriend = document.getElementById("friend_div");
-	var messageTo = $$(".messageTo");
-	var visitTo = $$(".visitTo");
-	for(var i = 0; i<messageTo.length; i++)
-		messageTo[i].onclick = messageToFriend;
-
-	Divfriend.style.display = "block";
-	var BtnsearchFriend = document.getElementById("btn_searchFriend");
-	BtnsearchFriend.onclick = searchFriend;
-}
-
-
-
 function messageToFriend(){
 	alert("messageTo");
 }

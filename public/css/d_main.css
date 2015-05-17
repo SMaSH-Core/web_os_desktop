@@ -293,8 +293,9 @@ div#topbar{
 	/* 탑바의 배경색상 생략
 	background-color: #232323;*/
 	vertical-align: middle;
-	text-align: center;
+	margin: 0px 15px;
 	margin-top: 15px;
+
 }
 div#topbar *{
 	display: inline-block;
@@ -329,12 +330,11 @@ div#topbar *{
 	z-index: -10;
 }
 #info{
-	width: 25%;
-	font-size: 11pt;
+	width: auto;
 	float: right;
 }
-#info form p{
-	font-size: 11pt;
+#info form button{
+	height: 41px;
 }
 /* 탑바의 시계 생략
 #topbar .clock{
@@ -433,7 +433,7 @@ div#topbar *{
 #social_set{
 	margin: 0px;
 	padding-left: 0px;
-	width: 30%;
+	width: auto;
 	float: right;
 	cursor: pointer;
 }
@@ -449,6 +449,5 @@ div#topbar *{
 	display: none;
 }
 #friend_div{
-	display: none;
 	width: 500px;
 }

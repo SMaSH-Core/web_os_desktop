@@ -34,19 +34,19 @@
                     <button type = "submit" >search</button>
                 </form>
             </div>
-            <ul id="social_set">
-                <li id = "friend_list" >FriendList</li>
-                <li id = "guestbook_list">MyGuest</li>
-            </ul>
             <div id="info">
 
                 <form action = "/logout" method="post">
                     <button  class="save logout" type = "submit">LOGOUT</button>
                 </form>
             </div>
+            <ul id="social_set">
+                <li id = "friend_list" ng-click="show_friend = !show_friend">FriendList</li>
+                <li id = "guestbook_list" ng-click="show_gbook = !show_gbook">MyGuest</li>
+            </ul>
         </div>
         <div id="main">
-            <div id = "friend_div">
+            <div id = "friend_div" ng-show="show_friend">
                 <table>          
                             <thead>
                                  <tr>
@@ -87,7 +87,7 @@
                
                 <% 
                   for(var i = 0; i < guestbook.length; i++){ %>
-                    <div ng-draggable class="widget_m w_memo zi" style="position: absolute; left: <%- guestbook[i].left %>; top:  <%- guestbook[i].top %>;" >
+                    <div ng-draggable ng-show="show_gbook" class="widget_m w_memo zi" style="position: absolute; left: <%- guestbook[i].left %>; top:  <%- guestbook[i].top %>;" >
                         <h2 id = <%- guestbook[i]._id%>><%-guestbook[i].who%></h2>
                         <p><%-guestbook[i].time%></p>
                         <div class="end"><img class="delmemo"src="/images/wid_del.png"/></div>
@@ -104,8 +104,31 @@
                             <div class="content" >
                                 <h1>To Do List</h1>
                                 <div class="row">
-                                      <button class="taskAdd" ng-click="show_todolist=true">Add</button>
+                                      <button class="taskAdd" ng-click="show_todolist=!show_todolist">Add</button>
                                       <button class="taskDelete" ng-click="deleteTask()">Delete</button>
+                                </div>
+                                <div ng-show="show_todolist" id="todo_fo">
+                                    <form id="todoform">
+                                        <div class="inputContainer">
+                                            <input type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
+                                            <label for="description">Description</label>
+                                        </div>
+                                        <div class="inputContainer half last"> <i class="fa fa-caret-down selectArrow"></i>
+                                            <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
+                                                <option class="disabled" value="">Choose a category</option>
+                                            </select>
+                                            <label for="category">Category</label>
+                                        </div>
+                                        <div class="inputContainer half last right">
+                                          <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
+                                          <label for="dueDate">Due Date</label>
+                                        </div>
+                                        <div class="acButton">
+                                            <button ng-click="addNew();show_todolist=false" id="addtodo">ADD</button>
+                                            <button ng-click="show_todolist=false" id="deletetodo">CANCLE</button>
+                                        </div>
+                                        
+                                    </form>
                                 </div>
                                 <ul  class="taskList">
                                     <li class="taskItem" id = "hyuntae" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem">
@@ -118,26 +141,7 @@
                         </div>
                     </div>
 
-                    <div ng-draggable ng-show="show_todolist" id="todo_fo">
-                        <form id="todoform">
-                            <div class="inputContainer">
-                                <input type="text" id="description" class="taskName" placeholder="?" ng-model="newTask">
-                                <label for="description">Description</label>
-                            </div>
-                            <div class="inputContainer half last"> <i class="fa fa-caret-down selectArrow"></i>
-                                <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
-                                    <option class="disabled" value="">Choose a category</option>
-                                </select>
-                                <label for="category">Category</label>
-                            </div>
-                            <div class="inputContainer half last right">
-                              <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
-                              <label for="dueDate">Due Date</label>
-                            </div>
-                            <button ng-click="addNew();show_todolist=false" id="addtodo">ADD</button>
-                            <button ng-click="show_todolist=false" id="deletetodo">CANCLE</button>
-                        </form>
-                    </div>
+                    
                 </div>                    
 
                 <!-- 달력 -->
