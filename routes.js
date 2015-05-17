@@ -24,6 +24,7 @@ module.exports = function (app, passport,module){
         currentpath = './cloud/users/'+req.user.email;
         var info = dirTree(currentpath);
         var friends;
+        console.log(wid);
             db.guestbookModel.find({email: req.user.email},function(err,guestbook){
                 db.friendList.findOne({'email': req.user.email }, function(err,list){
                friends = list.Friend;

@@ -62,18 +62,31 @@ exports.saveWidget = function (req, res ,next)
         var top = req.body.top;
         var left = req.body.left;
         var temp = [];
-        //console.log(req);
-        for(var i = 0; i<memo.length; i ++)
-        {   
-            var newwidget = {
-                "memo": memo[i],
-                "left": left[i],
-                "top": top[i]
-            }
+        console.log(req.body);
+        console.log("memo type is! "+typeof(memo));
+        console.log("it is true?");
+        console.log(typeof(memo)=== "string");
+        if(typeof(memo)==="string"){
+             var newwidget = {
+                "memo": memo,
+                "left": left,
+                "top": top
+            } 
             temp.push(newwidget);
         }
-        console.log("temp ----------------");
-        //console.log(temp);
+
+        else{
+            for(var i = 0; i<memo.length; i ++)
+            {   
+                var newwidget = {
+                    "memo": memo[i],
+                    "left": left[i],
+                    "top": top[i]
+                }
+                temp.push(newwidget);
+            }
+        }
+        
         db.linkModel.update({'email': user,'oauth': oa} , { 'widget': temp }, function(err){
             console.log('ok?');
         });

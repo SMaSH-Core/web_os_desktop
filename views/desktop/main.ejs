@@ -81,14 +81,14 @@
                <% 
                   for(var i = 0; i < widget.length; i++){ %>
                     <div ng-draggable class="widget_m w_memo zi" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div>
-                        <textarea rows="8" cols="25"><%- widget[i].memo %></textarea>
+                        <textarea rows="8" cols="25" class = "_memo"><%- widget[i].memo %></textarea>
                     </div>
                 <%   }  %>
                
                 <% 
                   for(var i = 0; i < guestbook.length; i++){ %>
                     <div ng-draggable class="widget_m w_memo zi" style="position: absolute; left: <%- guestbook[i].left %>; top:  <%- guestbook[i].top %>;" >
-                        <h2><%-guestbook[i].who%></h2>
+                        <h2 id = <%- guestbook[i]._id%>><%-guestbook[i].who%></h2>
                         <p><%-guestbook[i].time%></p>
                         <div class="end"><img class="delmemo"src="/images/wid_del.png"/></div>
                         <textarea rows="8" cols="25" readonly= "readonly"><%- guestbook[i].contents %></textarea>

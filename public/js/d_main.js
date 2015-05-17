@@ -493,7 +493,9 @@ app.directive('save',function(){
         	var memo = [];
 			var left = [];
 			var top = [];
-			var memoOBJ = document.getElementsByTagName("textarea");
+			var memoOBJ = $$("._memo");
+			alert(memoOBJ);
+	
 			var memoDiv = $$(".w_memo");
 			for(var i = 0; i <memoOBJ.length; i ++)
 			{
