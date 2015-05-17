@@ -19,7 +19,8 @@ module.exports = function (app, passport,module){
     {
         res.render('mobile/memo',{
             UserID : req.user.email,
-            UserName : req.user.name
+            UserName : req.user.name,
+            widget : wid,
         });
     });
 
