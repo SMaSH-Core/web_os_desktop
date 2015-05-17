@@ -47,7 +47,7 @@ exports.linkModel = mongoose.model('linkModel',linkSchema);
 
 exports.friendList = mongoose.model('friendList',friendlistSchema);
 
-exports.guestbookModel = mongoose.model('guestbook',social_guestBookSchema);
+exports.guestbookModel = mongoose.model('guestbookModel',social_guestBookSchema);
 
 
 

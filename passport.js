@@ -207,7 +207,7 @@ module.exports = function(passport){
 	                        return done(err);
 	                });
 	                //social//
-	                 var guestBook = new db.guestbookModel({
+	                var guestBook = new db.guestbookModel({
 	                	email: id,
 					    contents: name+"님! 회원가입을 축하드려요!",
 					    time: d,

@@ -470,13 +470,10 @@ app.directive('leaveGuest', function($compile){
 app.directive('leave', function($compile){
     var linkFn = function(scope, element, attrs){        
         var clickleave = function(e){
+        	var t = this;	//ajax가 되면 this가 윈도우로 변경됨.
         	this.style.display = "none";
         	this.parentNode.children[2].readOnly = true;
-
-        	var h2 = document.createElement('h2');
-        	var p = document.createElement('p');
-
-            var targetId = document.getElementById("indicateFriend").children[0].innerHTML;
+		    var targetId = document.getElementById("indicateFriend").children[0].innerHTML;
             targetId = targetId.split("(");
             targetId = targetId[1].split(")");
             targetId = targetId[0];
@@ -485,14 +482,18 @@ app.directive('leave', function($compile){
             var left = this.parentNode.getStyle("left");
 			var top = this.parentNode.getStyle("top");
 
-			h2.innerHTML = targetId;
-			p.innerHTML = currentTime;
-			this.parentNode.insertBefore(p,this.parentNode.children[0]);
-			this.parentNode.insertBefore(h2,this.parentNode.children[0]);
 
 			new Ajax.Request("/leaveguestbook",{
                     method: "post",
-                    parameters: {'id':targetId,'contents': contents, 'currentTime': currentTime, 'left': left,'top': top}
+                    parameters: {'email': targetId, 'contents': contents, 'time': currentTime, 'left': left,'top': top },
+                    onSuccess : function(response){
+                    	var h2 = document.createElement('h2');
+			        	var p = document.createElement('p');
+						h2.innerHTML = response.responseJSON.who;
+						p.innerHTML = response.responseJSON.time;
+						t.parentNode.insertBefore(p,t.parentNode.children[0]);
+						t.parentNode.insertBefore(h2,t.parentNode.children[0]);
+                    }
                 });
         };
         element.on('click', clickleave);

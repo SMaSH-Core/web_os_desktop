@@ -130,11 +130,20 @@ exports.searchFriend = function (req,res,next)
                 }
                 if(userinfo)//중복아이디 있음.
                 {
-                    var friend = {
-                        email : userinfo.email,
+                    if(userinfo.email == req.user.email){
+                        var friend = {
+                        email : 'unavailable',
                         name : userinfo.name
+                        }
+                        res.send(friend);
                     }
-                    res.send(friend);
+                    else{
+                        var friend = {
+                            email : userinfo.email,
+                            name : userinfo.name
+                        }
+                        res.send(friend);
+                    }
                 }else{
                     console.log("searchFriend Err : "+err);
                     res.send(null);
@@ -172,9 +181,26 @@ exports.addFriend = function (req,res,next)
 exports.leaveGuestBook = function (req,res,next)
 {
    console.log(req.body);
-   db.guestbookModel.insert(req.body,function (err){
-        console.log("leaveGuestBook ERR :  "+err);
-   });
+   var guestbook = req.body;
+   guestbook.who = req.user.email;
+ 
+    var guestBook = new db.guestbookModel({
+                        email: guestbook.email,
+                        contents: guestbook.contents,
+                        time: guestbook.time,
+                        left: guestbook.left,
+                        top: guestbook.top,
+                        who: guestbook.who
+
+                    });
+    guestBook.save(function (err,silence){
+        if(err)
+        console.log("leaveGuestBook in module.js Err : "+err);
+        else
+        res.send(guestbook);
+    });
+   
+
 }
 
 

@@ -47,6 +47,12 @@ function searchNewFriend(newfriend){
 		p.innerHTML = "검색된 결과가 없습니다.";
 		Divnewfriend.appendChild(p);
 	}
+	else if(newfriend.email == 'unavailable'){
+		var  Divnewfriend = document.getElementById("newFriend");	
+		var p = document.createElement("p");
+		p.innerHTML = "입력하신 결과는 본인입니다";
+		Divnewfriend.appendChild(p);
+	}
 	else{	
 		var  Divnewfriend = document.getElementById("newFriend");
 	    var tr = document.createElement("tr");
@@ -63,7 +69,7 @@ function searchNewFriend(newfriend){
 	  
 	    td_visit.appendChild(a);
 
-	    td_id.innerHTML = newfriend.email+"("+newfriend.name+")";
+	    td_id.innerHTML = newfriend.name+"("+newfriend.email+")";
 	    td_add.innerHTML = "친구추가";
 
 	    tr.appendChild(td_id);
@@ -90,6 +96,7 @@ function addFriend(){
 	{
 
 		var previous = Divnewfriend.children[i].children[0].innerHTML;
+		previous = previous.replace(/(^\s*)|(\s*$)/g,"");	//innerHTML에서 추가된 공백제거
 		var eachID =  Divnewfriend.children[i].children[2].children[0].href;
 		eachID = eachID.split("?ID=");
 		var eachName = Divnewfriend.children[i].children[0].innerHTML;
@@ -105,6 +112,7 @@ function addFriend(){
 			existFlag++;
 		}
 	}
+	console.log("existFlag	" +existFlag);
 	
 
 	if(!existFlag){
@@ -130,11 +138,13 @@ function addFriend(){
 	    tr.appendChild(td_visit);
 	  	Divnewfriend.appendChild(tr);
 
-
 	  	var friends = {
 			'id': id[1],
-			'name':name[0]
+			'name':name
 		};
+
+		console.log("id is ="+id[1]);
+		console.log(Data);
 
 	  	Data.push(friends);
 	  	Data = JSON.stringify(Data);
