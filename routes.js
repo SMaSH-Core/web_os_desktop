@@ -134,6 +134,13 @@ module.exports = function (app, passport,module){
          console.log('/widget'); 
          console.log(req.body);
     });
+
+    app.post('/savetodo',module.saveTodo,function (req, res){
+        res.send();
+    });
+
+    app.post("/retrievetodo",module.retrievetodo);
+
      app.post('/google_FileList',function (req, res){
         res.render('login');
         console.log(req.body);

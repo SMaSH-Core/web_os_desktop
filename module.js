@@ -212,6 +212,34 @@ exports.leaveGuestBook = function (req,res,next)
    
 
 }
+///save Todo...
+exports.saveTodo = function (req, res ,next)
+{
+        var user = req.user.email;
+        var oa =req.user.oauth;
+        var temp = req.body.todolist;
+        temp = JSON.parse(req.body.todolist);
+        db.linkModel.update({'email': user,'oauth': oa} , { 'todo': temp }, function(err){
+            if(err)
+            console.log('Todo save ERR:     '+err);
+            else
+            console.log('save Todo Success');
+        });
+        next();
+}
+exports.retrievetodo = function (req,res)
+{
+     db.linkModel.findOne({'email': req.user.email }, function(err,data){
+            if(err)
+            console.log('Todo save ERR:     '+err);
+            else{
+                console.log('save Todo Success');
+                console.log(data.todo);
+                res.send(data.todo);
+            }
+        });
+
+}
 
 
 exports.dirTree = function(filename) 

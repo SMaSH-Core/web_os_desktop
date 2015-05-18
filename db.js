@@ -13,7 +13,8 @@ var userDataSchema = mongoose.Schema({
 var linkSchema = mongoose.Schema({
     email: String,
     link: [],
-    widget: []
+    widget: [],
+    todo: []
 });
 var friendlistSchema = mongoose.Schema({
 	email: String,

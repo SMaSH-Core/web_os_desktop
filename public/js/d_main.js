@@ -673,6 +673,18 @@ app.controller('taskController', function($scope) {
         {name: 'Other'}
     ];
     $scope.newTaskCategory = $scope.categories;
+    new Ajax.Request('/retrievetodo', {
+        	method: "post",
+  			onSuccess: function(response) {
+  				var newfriend = response.responseJSON;
+  				console.log(response);
+  				console.log("얍얍..");
+  				console.log(newfriend);
+    			$scope.taskItem = newfriend;
+    			//$scope.newTask= ht;
+    			localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+  			}
+		});
     $scope.addNew = function () {
         if ($scope.newTaskDate == null || $scope.newTaskDate == '') {
             $scope.taskItem.push({
@@ -693,6 +705,10 @@ app.controller('taskController', function($scope) {
         $scope.newTaskDate = '';
         $scope.newTaskCategory = $scope.categories;
         localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+        new Ajax.Request('/savetodo', {
+        	method: "post",
+        	parameters: {'todolist': JSON.stringify($scope.taskItem)}
+		});
     };
     $scope.deleteTask = function () {
         var completedTask = $scope.taskItem;
