@@ -29,6 +29,7 @@ body{
 
 #main{
 	height: 100%;
+	width: 95%;
 }
 
 /*Side bar*/
@@ -195,7 +196,7 @@ div#topbar *{
 	float: right;
 }
 #info{
-	width: 12%;
+	width: 10%;
 	font-size: 11pt;
 	float: right;
 }
