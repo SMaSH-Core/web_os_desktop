@@ -14,6 +14,7 @@ function Ctrl($scope, $http){
     			todolist = response;
     			alert(todolist);
     			console.log(todolist);
+    			//console.log( widget[2].memo );
   			}
 		});
 	//the panel that is app bucket is closed first
@@ -675,16 +676,25 @@ app.controller('taskController', function($scope) {
         $scope.newTaskDate = '';
         $scope.newTaskCategory = $scope.categories;
         localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+        console.log($scope.taskItem);
         new Ajax.Request('/savetodo', {
         	method: "post",
-        	parameters: {'todolist': JSON.stringify($scope.taskItem)},
+        	parameters: {'todolist': JSON.stringify($scope.taskItem)}
+		});
+		new Ajax.Request('/retrievetodo', {
+        	method: "post",
   			onSuccess: function(response) {
-    			ht = response;
-    			alert('hi');
-    			alert(ht);
-    			console.log(ht);
+  				var newfriend = response.responseJSON;
+  				console.log(response);
+  				console.log("얍얍..");
+  				console.log(newfriend);
+    			$scope.taskItem = newfriend;
+    			//$scope.newTask= ht;
+    			localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
   			}
 		});
+
+
         console.log($scope.taskItem);
     };
     $scope.deleteTask = function () {

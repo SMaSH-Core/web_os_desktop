@@ -10,6 +10,20 @@ window.onload =function (){
     Labelgoogle.onclick = authGoogle;
 
 // finder part
+
+    alert("hi");
+    new Ajax.Request('/retrievetodo', {
+            method: "post",
+            onSuccess: function(response) {
+                var newfriend = response.responseJSON;
+                console.log(response);
+                console.log("얍얍..");
+                console.log(newfriend);
+                $scope.taskItem = newfriend;
+                //$scope.newTask= ht;
+                localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+            }
+        });
 /*
     var max = false;
     var size_Btn = document.getElementById("sizeCtrl");

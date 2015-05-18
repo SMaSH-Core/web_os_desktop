@@ -109,7 +109,7 @@ module.exports = function (app, passport,module){
        res.send();
     });
     app.post("/retrievetodo",function (req,res){
-        var todolist = req.user.app.todo;
+        var todolist = [ { "complete" : false, "date" : "2015-05-18T04:03:38.166Z", "description" : "Why not add a task?" }, { "category" : "School", "complete" : false, "date" : "No deadline", "description" : "efawe" }, { "complete" : false, "date" : "No deadline", "description" : "efe" }, { "complete" : false, "date" : "No deadline", "description" : "wefe" } ];
         res.send(todolist);
     })
     /*app.post('/dropFileList',function (req, res){
