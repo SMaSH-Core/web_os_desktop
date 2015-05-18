@@ -10,19 +10,13 @@ var fs = require('fs');
 require('date-utils');
 
 module.exports = function(passport){
-/*
-	var defaultapp =  [{fav: "http://www.google.com/s2/favicons?domain=http://apps.pixlr.com/editor/", url: "http://apps.pixlr.com/editor/", position: "center"},
-	                  {fav: "http://www.google.com/s2/favicons?domain=https://docs.google.com/", url: "https://docs.google.com/", position: "center"},
-                      {fav: "https://static.xx.fbcdn.net/rsrc.php/yl/r/H3nktOa7ZMg.ico", url: "https://www.facebook.com/", position: "center"},
-                      {fav: "http://i1.daumcdn.net/icon/opengraph/daum1.png", url: "http://www.daum.net", position: "center"},
-                      {fav: "http://www.naver.com/favicon.ico?1", url: "http://www.naver.com", position: "center"}]
-*/
-	var defaultapp =  [{fav: "http://www.google.com/s2/favicons?domain=http://apps.pixlr.com/editor/", url: "http://apps.pixlr.com/editor/", def: "true" },
-	                  {fav: "http://www.google.com/s2/favicons?domain=https://hootsuite.com/", url: "https://hootsuite.com/", def: "true" },
-                      {fav: "http://www.google.com/s2/favicons?domain=https://workflowy.com/", url: "https://workflowy.com/", def: "true" },
-                      {fav: "http://i1.daumcdn.net/icon/opengraph/daum1.png", url: "http://www.daum.net/", def: "true" },
-                      {fav: "http://www.google.com/s2/favicons?domain=https://www.pulse.me/", url: "https://www.pulse.me/", def: "true" },
-                      {fav: "http://www.google.com/s2/favicons?domain=https://www.screenr.com/", url: "https://www.screenr.com/", def: "true" }]	
+
+	var defaultapp =  [{fav: "https://www.google.com/s2/favicons?domain=http://apps.pixlr.com/editor/", url: "https://apps.pixlr.com/editor/", def: "true" },
+	                  {fav: "https://www.google.com/s2/favicons?domain=https://hootsuite.com/", url: "https://hootsuite.com/", def: "true" },
+                      {fav: "https://www.google.com/s2/favicons?domain=https://workflowy.com/", url: "https://workflowy.com/", def: "true" },
+                      {fav: "https://i1.daumcdn.net/icon/opengraph/daum1.png", url: "https://www.daum.net/", def: "true" },
+                      {fav: "https://www.google.com/s2/favicons?domain=https://www.pulse.me/", url: "https://www.pulse.me/", def: "true" },
+                      {fav: "https://www.google.com/s2/favicons?domain=https://www.screenr.com/", url: "https://www.screenr.com/", def: "true" }]	
 	passport.serializeUser(function(user, done) {
 		console.log('serialize');
     	done(null, user);
@@ -158,8 +152,8 @@ module.exports = function(passport){
 
 // passport for Facebook OAuth
 	passport.use(new FacebookStrategy({
-	        clientID: '1645301222372967',
-	        clientSecret: '85a96da31572053d5d48c8b69caed9b0',
+	        clientID: '1568101353439635',
+	        clientSecret: '0a41c329dc60e4fd69a855be68d228fa',
 	        callbackURL: "/auth/facebook/callback"
 	    },
 	    function(accessToken, refreshToken, profile, done) {

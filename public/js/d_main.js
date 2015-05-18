@@ -109,6 +109,7 @@ app.directive('ngEnter', function ($compile) {
             if(event.which === 13) {
                 scope.$apply(function (){
                     scope.$eval(attrs.ngEnter);
+
                     if(attrs.id == "slurl"){
 	                    if(scope.slideurl == true){
 							var addurl2 = document.getElementById("slurl").value;
@@ -493,7 +494,6 @@ app.directive('delmemo', function(){
 app.directive('save',function(){
 	var link=function(scope, element, attrs){
 		
-
 		var save = function(e){          
         	var memo = [];
 			var left = [];
