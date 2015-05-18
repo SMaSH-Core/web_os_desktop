@@ -1,12 +1,5 @@
 window.onload =function (){
     window.setTimeout(checkAuth, 1);
-//social part
-    var Listfriendlist = document.getElementById("friend_list");
-    Listfriendlist.onclick = showFriendList;
-    var Listviewbook = document.getElementById("guestbook_list");
-    Listviewbook.onclick = showGuestBook;
-
-
 // cloud part
     var popup_Btn = document.getElementById("CLOUD");
     popup_Btn.onclick = cloud_popup;
