@@ -221,6 +221,7 @@ div#topbar *{
 }
 #setting_li li{
 	padding: 5px;
+	padding-top: 10px;
 
 }
 #setting_li form{
