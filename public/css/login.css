@@ -11,14 +11,12 @@ body:before{
   position: absolute;
   top: 0; left:0; right:0; bottom:0;
   background: inherit;
-  width: 110%;
   height: 110%;
   z-index:-1;
   filter: blur(6px); 
   -webkit-filter: blur(6px); 
   -moz-filter: blur(6px);
   -o-filter: blur(6px);
-  filter: url(#blur);
 }
 
 a{
@@ -27,13 +25,14 @@ a{
 }
 body #main{
 	padding: 50px 30px;
-	background-color: rgba(255,255,255,0.4);
+	background-color: rgba(255,255,255,0.0);
 	border-radius: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	width: 400px;
 	margin-top: 20px;
 	text-align: center;
+	box-shadow: 1px 1px 8px 8px rgba(1,1,1,0.4);
 }
 #main button {
 	background-color: rgba(92,216,133,1);
@@ -259,7 +258,6 @@ a{
 }
 body #main{
 	padding: 50px 30px;
-	background-color: rgba(255,255,255,0.4);
 	border-radius: 20px;
 	margin-left: auto;
 	margin-right: auto;

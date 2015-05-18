@@ -93,6 +93,7 @@ button{
 	height: 100%;
 	min-width: 70px;
 	max-width: 84px;
+	padding: 10px 15px;
 	/* 앱서랍 버튼의 배경색상 생략
 	background-color: rgba(255, 255, 255, 0.35);*/
 	border: none;
@@ -103,7 +104,6 @@ button{
 	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-align: center;
 	display: inline;
-	margin-left: 3%;
 	cursor: pointer;
 }
 /* 앱서랍 버튼 hover속성 생략
@@ -255,7 +255,7 @@ button.logout{
 	background-color: rgba(0,0,0,0);
 	border: 0;
 	font-size: 13pt;
-	}
+}
 .end{
 	height: 22px;
 }
@@ -295,7 +295,7 @@ div#topbar{
 	/* 탑바의 배경색상 생략
 	background-color: #232323;*/
 	vertical-align: middle;
-	text-align: center;
+	margin: 0px 15px;
 	margin-top: 15px;
 }
 div#topbar *{
@@ -333,12 +333,11 @@ div#topbar *{
 	z-index: 10;
 }
 #info{
-	width: 25%;
-	font-size: 11pt;
+	width: auto;
 	float: right;
 }
-#info form p{
-	font-size: 11pt;
+#info form button{
+	height: 41px;
 }
 /* 탑바의 시계 생략
 #topbar .clock{
@@ -429,16 +428,12 @@ div#topbar *{
 	height: 30%;
 }
 
-.zi{
-	z-index:1;
-}
-
 /*social css */
 
 #social_set{
 	margin: 0px;
 	padding-left: 0px;
-	width: 30%;
+	width: auto;
 	float: right;
 	cursor: pointer;
 }
@@ -454,7 +449,12 @@ div#topbar *{
 	display: none;
 }
 #friend_div{
-	display: none;
+	z-index: 14;
+	display: inline-block;
+	float: right;
 	width: 500px;
 }
-
+#friendList *{ width: 100%; }
+#friendList #nm{ width: 55%; }
+#friendList #msg{ width: 30%; }
+#friendList #inv{ width: 10%; }

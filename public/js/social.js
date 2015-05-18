@@ -1,14 +1,6 @@
 
 function showFriendList(){
-	var Divfriend = document.getElementById("friend_div");
-	var messageTo = $$(".messageTo");
 	var visitTo = $$(".visitTo");
-	for(var i = 0; i<messageTo.length; i++)
-		messageTo[i].onclick = messageToFriend;
-
-	Divfriend.style.display = "block";
-	var BtnsearchFriend = document.getElementById("btn_searchFriend");
-	BtnsearchFriend.onclick = searchFriend;
 }
 
 
@@ -158,9 +150,6 @@ function addFriend(){
 
 /////////leave guestbook //////
 
-function showGuestBook(){
-	alert("hi 이거 누를시, guestBook display를 none/block으로 계속 변경해주세ㅛㅇㅇ");
-}
 function getTimeStamp() {
   var d = new Date();
 
