@@ -5,8 +5,9 @@ app.controller("AppController", function($scope){
 	$scope.inputurl=true;
 	$scope.showmenu=false;
 	$scope.toggleMenu = function(){
-	$scope.showmenu=($scope.showmenu) ? false : true;
+		$scope.showmenu=($scope.showmenu) ? false : true;
 	}
+	$scope.format = 'h:mm';
 
 });
 
@@ -87,6 +88,32 @@ app.directive('tosave',function(){
 		restrict : 'C',
 		link: app
 	}
+});
+
+//--------------------------Current Time--------------------------------
+app.directive("myCurrentTime", function(dateFilter){
+    return function(scope, element, attrs){
+        var format;
+        
+        scope.$watch(attrs.myCurrentTime, function(value) {
+            format = 'hh:mm';
+            updateTime();
+        });
+        
+        function updateTime(){
+            var dt = dateFilter(new Date(), format);
+            element.text(dt);
+        }
+        
+        function updateLater() {
+            setTimeout(function() {
+              updateTime(); // update DOM
+              updateLater(); // schedule another update
+            }, 1000);
+        }
+        
+        updateLater();
+    }
 });
 
 

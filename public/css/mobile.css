@@ -2,7 +2,7 @@ html{
 	height: 100%;
 }
 body{
-	background: url("../images/snow.gif") center center fixed;*/
+	background: url("../images/background/1.jpeg") center center fixed;*/
 	background-size: 100%;
 	background-repeat: no-repeat;
 	-webkit-background-size : cover;
@@ -133,13 +133,13 @@ ul,li{
 	float: left;
 	/* margin: 5px; */
 	/* margin-top: 10px; */
-	font-size:50px;
+	font-size:300%;
 	margin:0;
 	padding-left: 5px;
 
 }
 div#topbar{
-	height: 100px;
+	height: 7%;
 	vertical-align: middle;
 	text-align: center;
 }
@@ -148,45 +148,7 @@ div#topbar *{
 	display: inline-block;
 	color: white;
 }
-/*
-#gsearch{
-	height: 80%;
-	display: inline;
-	margin: 4px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 60%;
-	text-align: center;
-}
-#gsearch form{
-	height: inherit;
-	display: block;
-	width: 100%;
-	margin: 0 auto;
-}
-#gsearch input{
-	height: 60%;
-	font-size: 14pt;
-	text-align: center;
-	border-radius: 20px;
-	margin: 4px;
-	border: 0px;
-	width: 70%;
-	color: #454545;
-}
 
-#gsearch input:focus{
-	width: 100%;
-	outline: medium none;
-	transition-delay: 0s;
-	transition-duration: 0.4s;
-	transition-property: all;
-	transition-timing-function: ease;
-}
-#gsearch button{
-	display: none;
-}
-*/
 #gsearch{
 	display: inline;
 	margin: 4px;
@@ -202,6 +164,7 @@ div#topbar *{
 	display: block;
 	width: 100%;
 	margin: 0 auto;
+	padding-top: 5px;
 }
 #gsearch input{
 	font-size: 14pt;
@@ -236,6 +199,43 @@ div#topbar *{
 	font-size: 11pt;
 	float: right;
 }
+#setting{
+	background: none;
+	border: 0;
+}
+#setting img{
+	padding-top: 5px;
+	width:40px;
+}
+#setting_li{
+	position : absolute;
+	top:8%;
+	right: 1%;
+	font-size: 10pt;
+	float: right;
+	color:white;
+	background-color:  rgba(0, 0, 0, 0.4);
+}
+#setting_li li{
+	padding: 5px;
+
+}
+#setting_li form{
+	font-size: 10pt;
+
+}
+.logout{
+	background-color: rgba(0,0,0,0);
+	padding: 5px;
+	border: 0px;
+	font-size: 150%;
+	width: 100%;
+	/* 버튼 커서 모양 속성 추가 */
+	cursor: pointer;
+	color:white;
+	border-top: 1px solid white;
+}
+/*
 #info form p{
 	font-size: 11pt;
 }
@@ -251,14 +251,46 @@ button.logout{
 	background-color: rgba(0,0,0,0);
 	padding: 0px;
 	border: 0px;
-	/* 버튼 커서 모양 속성 추가 */
+	font-size: 150%;
+	padding-top: 15px;
+	*//* 버튼 커서 모양 속성 추가 *//*
 	cursor: pointer;
-}/*
+}*/
+/*
 #logout{
 	margin-top: 2px;
 	width: 35px;
 	height: 35px;
 }*/
+
+.center{
+	position: absolute;
+	z-index: 10;
+	width: 50%;
+	left: 25%;
+	top: 25%;
+	text-align: center;
+	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.clock{
+	/* 시계 속성 생략
+	margin-top: 10px;*/
+	/* 속성 추가 */
+	text-align: center;
+	font-size: 100px;
+	font-weight: lighter;
+	color: white;
+	z-index: 10;
+}
+/* 인사말 속성 추가 */
+.greeting{
+	text-align: center;
+	font-size: 30px;
+	font-weight: lighter;
+	color: white;
+
+	z-index: 10;
+}
 
 #appbutton{
 	border: none;

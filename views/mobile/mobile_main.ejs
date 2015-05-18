@@ -20,6 +20,9 @@
               
                 <ul>
                     <li><a href ="/memo">MEMO</a></li>
+                    <li><a href ="">TO DO LIST</a></li>
+                    <li><a href ="">CALENDAR</a></li>
+                    <li><a href ="">CLOUD</a></li>
                 </ul>
             </div>
 
@@ -37,9 +40,27 @@
                             </form>
                         </div>
                         <div id="info">
+                            <!--<form action = "/logout" method="post">
+                                <button  class="save logout" type = "submit">LOGOUT</button>
+                            </form>-->
+                            <button id="setting" ng-click="show_setting_li=!show_setting_li"><img src = "/images/settings.png" /></button>
+                        </div>
+                    </div>
+                    <ul id="setting_li" ng-show="show_setting_li">
+                        <li>USER INFO</li>
+                        <li>
                             <form action = "/logout" method="post">
                                 <button  class="save logout" type = "submit">LOGOUT</button>
                             </form>
+                        </li>
+                    </ul>
+                    <div class="center">
+                        <div class="clock" >
+                            <span my-current-time="format"></span>
+                            <div>{{propiedadPrueba}}</div>
+                        </div>
+                        <div class="greeting">
+                            Hello, <%= UserName %>!
                         </div>
                     </div>
                     
