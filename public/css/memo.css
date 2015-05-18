@@ -40,7 +40,7 @@ video {
 }
 ul,li{
     list-style-type:none;
-    font-size:11pt;
+    font-size:14pt;
     padding:0;
     background: none;
     text-align: center;
@@ -266,6 +266,7 @@ div#topbar *{
 }
 #memo_top span{
     margin-left:20%;
+    font-size: 14pt;
 }
 #memo_top button{
     float:right;
