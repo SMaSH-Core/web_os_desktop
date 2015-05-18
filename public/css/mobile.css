@@ -30,6 +30,7 @@ body{
 #main{
 	height: 100%;
 	width: 95%;
+	margin-left: 2.5%;
 }
 
 /*Side bar*/
@@ -130,13 +131,13 @@ ul,li{
 }
 #sidebutton{
 	/* height: 40%; */
-	/* width: 40%; */
+	width: 45px;
 	float: left;
 	/* margin: 5px; */
 	/* margin-top: 10px; */
 	font-size:300%;
 	margin:0;
-	padding-left: 5px;
+	/*padding-left: 5px;*/
 
 }
 div#topbar{
@@ -205,8 +206,9 @@ div#topbar *{
 	border: 0;
 }
 #setting img{
-	padding-top: 5px;
-	width:40px;
+	padding-top: 15px;
+	width:35px;
+	
 }
 #setting_li{
 	position : absolute;
