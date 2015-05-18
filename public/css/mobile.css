@@ -8,7 +8,6 @@ body{
 	-webkit-background-size : cover;
 	-moz-background-size: cover;
 	background-size: cover;
-
 	font-family: Verdana, Tahoma, "sans-serif";
 	margin: 0px;
 	height : 100%;
@@ -300,7 +299,7 @@ button.logout{
 #appbutton{
 	border: none;
 	position: absolute;
-	bottom:5%;
+	bottom:5px;
 	width: 16%;
 	left: 42%;
 

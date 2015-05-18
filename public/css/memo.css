@@ -1,6 +1,6 @@
 html{
     height: 100%;
-    background: url("../images/snow.gif") center center fixed;
+    background: url("../images/background/1.jpeg") center center fixed;
     background-size: 100%;
     background-repeat: no-repeat;
     -webkit-background-size : cover;
@@ -40,7 +40,7 @@ video {
 }
 ul,li{
     list-style-type:none;
-    font-size:150%;
+    font-size:11pt;
     padding:0;
     background: none;
     text-align: center;
@@ -108,51 +108,62 @@ ul,li{
     height: 100%; 
 }
 #sidebutton{
-    height: 40%;
+    /* height: 40%; */
+    width: 45px;
     float: left;
-    margin: 5px;
-    margin-top: 10px;
+    /* margin: 5px; */
+    /* margin-top: 10px; */
+    font-size:300%;
+    margin:0;
+    /*padding-left: 5px;*/
 
 }
 div#topbar{
-    height: 100px;
+    height: 7%;
     vertical-align: middle;
     text-align: center;
+    margin-right: 10px;
 }
 
 div#topbar *{
     display: inline-block;
     color: white;
 }
+
 #gsearch{
-    height: 80%;
     display: inline;
     margin: 4px;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    /* 크기 생략 
+    width: 40%;*/
     text-align: center;
+    /* 크기 키움 */
+    width: 50%;
 }
 #gsearch form{
-    height: inherit;
     display: block;
     width: 100%;
     margin: 0 auto;
+    padding-top: 5px;
 }
 #gsearch input{
-    height: 60%;
     font-size: 14pt;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 0px;
     margin: 4px;
     border: 0px;
-    width: 70%;
-    color: #454545;
+    border-bottom: 1px solid white;
+    background: none;
+    background: url("../images/search.png") left center no-repeat ;
+    background-size: 20px 20px;
+    width: 60%;
+    color: #FFFFFF;
 }
-
 #gsearch input:focus{
-    width: 100%;
+    width: 80%;
     outline: medium none;
+    border-bottom: 1px solid white;
     transition-delay: 0s;
     transition-duration: 0.4s;
     transition-property: all;
@@ -165,27 +176,47 @@ div#topbar *{
     float: right;
 }
 #info{
-    width: 12%;
+    width: 10%;
     font-size: 11pt;
     float: right;
 }
-#info form p{
-    font-size: 11pt;
+#setting{
+    background: none;
+    border: 0;
+}
+#setting img{
+    padding-top: 15px;
+    width:35px;
+
+}
+#setting_li{
+    position : absolute;
+    top:8%;
+    right: 1%;
+    float: right;
+    color:white;
+    background-color:  rgba(0, 0, 0, 0.4);
+}
+#setting_li li{
+    padding: 5px;
 }
 
+#setting_li form{
+    font-size: 10pt;
 
-button.logout{
+}
+
+.logout{
     background-color: rgba(0,0,0,0);
-    padding: 0px;
+    padding: 5px;
     border: 0px;
-}
-#logout{
-    margin-top: 10%;
+    font-size: 11pt;
     width: 100%;
-    float: right;
-    max-width: 60px;
+    /* 버튼 커서 모양 속성 추가 */
+    cursor: pointer;
+    color:white;
+    border-top: 1px solid white;
 }
-
 /*memo*/
 /*
 .accordion__container {
@@ -210,12 +241,57 @@ button.logout{
     white-space:normal;
     word-break:break-all;
 }*/
+#memo{
+    position: absolute;
+    top:10%;
+    height: 85%;
+    width: 90%;
+    left: 4%;
+    border:2px solid;
+    border-radius: 1em;
+    background-color:rgba(245, 245, 220, 0.54);
+}
+#memo_top{
+    width: 100%;
+    height:25px;
+    text-align: center;
+    overflow: hidden;
+    vertical-align: middle;
+    border: 1px solid;
+    border-bottom: 3px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+#memo_top span{
+    margin-left:20%;
+}
+#memo_top button{
+    float:right;
+    width: 10%;
+    font-size: 15pt;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    padding: 0;
+    padding-right: 1%;
+
+}
+.save{
+    display: none;
+}
+#memo ul{
+    margin: 0;
+}
+#memo ul li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .memo_sec{
-    position:fixed;
-    top:20%;
-    left:20%;
-    height:30%;
-    width: 60%;
+    position:absolute;
+    top:40px;
+    height:93%;
+    width: 100%;
     
 }
 .memo_title{
@@ -228,22 +304,20 @@ button.logout{
 
     background-color:rgba(255, 249, 131, 0.99);
     display: inline-block;
-}
-
-#memo_end{
-    width: 96%;
-    height: 10%;
-    text-align: right;
-    padding: 2%;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
 }
 
 .memo_txt{
-    top: 10%;
     border: 0;
     width: 96%;
-    height: 80%;
+    height: 96%;
     padding:2%;
-    font-size: 150%;
+    font-size: 12pt;
     background:none;
-    height:90%;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
 }

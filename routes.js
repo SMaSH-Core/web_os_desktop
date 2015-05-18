@@ -28,6 +28,33 @@ module.exports = function (app, passport,module){
         });
     });
 
+    app.get('/calendar',function (req, res)
+    {
+        
+        res.render('mobile/calendar',{
+            UserID : req.user.email,
+            UserName : req.user.name,
+        });
+    });
+
+    app.get('/todo',function (req, res)
+    {
+        
+        res.render('mobile/todo',{
+            UserID : req.user.email,
+            UserName : req.user.name,
+        });
+    });
+
+    app.get('/cloud',function (req, res)
+    {
+        
+        res.render('mobile/cloud',{
+            UserID : req.user.email,
+            UserName : req.user.name,
+        });
+    });
+
     app.get('/main',module.isLoggedIn,function (req, res){
     	var wid = req.user.app.widget;
         var sessionApp = req.user.app.link;
