@@ -10,24 +10,9 @@ window.onload =function (){
 // cloud part
     var popup_Btn = document.getElementById("CLOUD");
     popup_Btn.onclick = cloud_popup;
-  
-
 
 // iframe part
     var max = false;
-    var size_Btns = document.getElementsByClassName("sizeCtrl");
-    for(var i=0; i<size_Btns.length; i++){
-        size_Btns[i].onclick = function() {
-            console.log(this);
-            max = sizeControler(max, this.parentNode.parentNode);
-        };    
-    }
-    var iframe_close_Btns = document.getElementsByClassName("iframeClose");
-    for(var i=0; i<iframe_close_Btns.length;i++){
-        iframe_close_Btns[i].onclick = function(){
-            this.parentNode.parentNode.remove();
-        }
-    }
     var count=0;
     var iframe_Btns = document.getElementsByClassName("true");
     for(var i=0; i<iframe_Btns.length; i++){

@@ -1,6 +1,4 @@
 html{ height: 100%; }
-#main{ height : 100%; }
-#home{ height: 100%; }
 
 body{
 	background: url("../images/background/1.jpeg") center center fixed;
@@ -15,279 +13,14 @@ body{
 	margin: 0px;
 	height : 100%;
 }
+
 #real{ 
 	height: 100%;
 	/* 배경화면 색상 생략
 	background-color: rgba(255,255,255,0.5);*/
 }
 
-p{
-	font-size: 20px;
-	text-align: center;
-	margin-top: 10%;
-}
-/* 버튼 배경색상 생략
-button{
-	background-color: rgba(255,255,255,0.73);
-}*/
-
-#dock{
-	/* 독바의 크기와 배경색상 생략
-	width: 100%;
-	height: 60px;
-	background-color: rgba(0,0,0,0.8);*/
-	bottom: 0%;
-	left: 0%;
-	position: fixed;
-	vertical-align: middle;
-	/* 독바의 크기 재설정 */
-	width: 25%;
-	height: auto;
-	margin-left: 1%;
-	margin-bottom: 1%;
-}
-#ddock{
-	height: 100%;
-}
-.subdock{
-	display:inline;
-	height : 100%;
-	float : left; 
-}
-/* 왼쪽과 가운데 독바 관련 속성 생략
-#leftdock, #rightdock{
-	width: 43%;
-}
-#leftdock{ padding-right: 2%;}*/
-#rightdock{ 
-	padding-left: 2%;
-	/* 오른쪽 독바 관련 속성 추가 */
-	width: 43%;
-}
-#rightdock img{
-	padding-left: 5px;
-}
-/* 왼쪽과 가운데 독바 관련 속성 생략
-#centerdock{
-	width: 10%;
-	text-align: center;
-}
-#rightdock img, #leftdock img{
-	padding-left: 5px;
-}*/
-
-#dock img{
-	/* 오른쪽 독바 이미지(파비콘) 크기 생략
-	width : 50px;
-	height: 50px;*/
-	margin-top: 5px;
-	margin-left: 10px;
-	/* 크기 재설정 */
-	width: 10%;
-	height: 10%;
-
-}
-
-#apps{
-	width: 100%;
-	height: 100%;
-	min-width: 70px;
-	max-width: 84px;
-	/* 앱서랍 버튼의 배경색상 생략
-	background-color: rgba(255, 255, 255, 0.35);*/
-	border: none;
-	/* 앱서랍 버튼의 폰트 크기 생략
-	font-size: 13pt;*/
-	/* 앱서랍 버튼 속성 추가 */
-	color: white;
-	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	text-align: center;
-	display: inline;
-	margin-left: 3%;
-	cursor: pointer;
-}
-/* 앱서랍 버튼 hover속성 생략
-#apps:hover{
-	opacity: 0.7;
-}*/
-#dock #panel a{
-	opacity: 1;
-}
-
-#dock #panel img{
-	/* 파비콘 크기 생략
-	width: 50px;
-	height: 50px;*/
-	margin-top: 10px;
-	margin-left: 10px;
-	/* 크기 재설정 */
-	width: 30px;
-	height: 30px;
-	cursor: pointer;
-}
-
-#modifyurl{
-	/* addurl 버튼(+) 정렬(?) 생략
-	float :right;*/
-	width: 100%;
-	right: 5;
-}
-/* 로그아웃 버튼 옆 사용자 이름 속성 생략
-p.logout{
-	float: left;
-	margin-top: 10px;
-}*/
-
-button.logout{
-	background-color: rgba(0,0,0,0);
-	padding: 0px;
-	border: 0px;
-	/* 버튼 커서 모양 속성 추가 */
-	cursor: pointer;
-}
-#logout{
-	margin-top: 2px;
-	width: 35px;
-	height: 35px;
-}
-#trash {
-	position: absolute;
-	right: 0px;
-	bottom: 5px;
-	/* 폰트 속성 추가 */
-	color: white;
-	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-/* 현재 이미지 대신 글씨로 대체하였으므로 생략
-#trash img{
-	width: 50px;
-	height : 50px;
-}*/
-
-#panel{
-	text-align: center;
-	background-color: rgba(0,0,0,0.6);
-	position:relative;
-	min-height: 180px;
-	min-width: 300px;
-	margin-top: 0px;
-	/* 패널의 모서리 반경(?) 크기 생략 
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;*/
-	/* 크기 재설정 및 추가 */
-	border-bottom-left-radius: 5%;
-	border-bottom-right-radius: 5%;
-	border-radius: 3%;
-}
-/* 왼쪽 독바 관련 속성 생략
-#leftdocklist li{
-	display: inline;
-}
-#leftdocklist {
-	margin-right: 10px;
-	margin-top : 0%;
-	margin-left : 0%;
-	margin-bottom : 0%;
-	padding-left: 0%;
-	float:right;
-}*/
-#rightdocklist li{
-	display: inline;
-}
-#rightdocklist {
-	margin : 0%;
-	padding-left: 0%;
-}
-#panel ul{
-	margin: 0%;
-	padding-left: 0%;
-	/* 리스트의 구분점 생략 */
-	list-style-type: none;
-}
-#panel ul li{
-	display: inline-block;
-}
-#panelul li a img{
-	padding: 0px;
-	border-radius: 10px;
-}
-#addurl{
-	/* url 추가 버튼의 배경색상 생략
-	background-color: rgba(0,0,0,0);*/
-	border: none;
-	/* 속성 추가 */
-	color: gray;
-	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	cursor: pointer;
-	padding: 3%;
-	float: right;
-}
-#dock li a img{ 
-	padding: 0px;
-	border-radius: 10px;
-}
-/* 현재 이미지 대신 글자를 사용하므로 생략
-#addurl img{
-	width: 30px;
-	height : 30px;
-}*/
-
-.widget_m{
-	display: inline-block;
-	margin: 5px;
-	padding: 5px;
-	border: 1px rgba(192, 190, 190, 0.78);
-	background-color: rgba(192, 190, 190, 0.78);
-}
-.w_memo{ 
-	display: inline-block;
-	position: absolute;
-	background: rgba(255, 255, 255, 0.4);
-	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
-	z-index: 0;
-}
-.w_memo:hover{
-	outline-color: rgb(202, 139, 70);
-	outline-style: double;
-}
-.w_memo textarea{
-	background-color: rgba(0,0,0,0);
-	border: 0;
-	font-size: 13pt;
-	}
-.end{
-	height: 22px;
-}
-
-.delmemo{
-	display: none;
-	float: right;
-	width: 15px;
-}
-
-#calendar{
-	background-color: white;
-}
-.widget_c{
-	position: absolute;
-	top:5px;
-	left:25%;
-	background-color: white;
-	width: 800px;
-	height: 622px;
-	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
-}
-#c_end{
-	height: 22px;
-	width: 800px;
-	background-color: white;
-}
-#cal_end{
-	margin: 5px;
-	float: right;
-	font-size: 20px;
-	color: rgba(25, 20, 20, 0.30)
-}
+/* real > top bar */
 div#topbar{
 	height: 40px;
 	/* 탑바의 배경색상 생략
@@ -302,76 +35,11 @@ div#topbar *{
 	color: white;
 	font-size: 12pt;
 }
-/* 가운데 시계 및 인사말 div 속성 추가 */
-.center{
-	z-index: -10;
-	width: auto;
-	margin-top: 10%;
-	text-align: center;
-	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.clock{
-	/* 시계 속성 생략
-	margin-top: 10px;*/
-	/* 속성 추가 */
-	z-index: -10;
-	position: relative;
-	text-align: center;
-	font-size: 160px;
-	font-weight: lighter;
-	color: white;
-}
-/* 인사말 속성 추가 */
-.greeting{
-	text-align: center;
-	font-size: 54px;
-	font-weight: lighter;
-	color: white;
-	z-index: -10;
-}
-#info{
-	width: auto;
-	float: right;
-}
-#info form button{
-	height: 41px;
-}
-/* 탑바의 시계 생략
-#topbar .clock{
-	float: right;
-}*/
-#setting{
-	margin-top: 2px;
-	width: 57px;
-	height: 35px;
-	/*background-image: url("/images/setting.png");*/
-}
 #topbar form{
 	float: right;
 }
-#wid_set{
-	margin: 0px;
-	padding-left: 0px;
-	width: 30%;
-	float: left;
-	cursor: pointer;
-}
 
-#wid_set ul{
-	margin: 0px;
-	padding: 0px;
-}
-#wid_set li{
-	margin: 0px;
-	padding: 10px 15px;
-}
-#addwid{
-	position: relative;
-}
-
-#wid_set li:hover{
-	background-color: rgba(0, 0, 0, 0.3);
-}
+/* top bar > google search */
 #gsearch{
 	display: inline;
 	margin: 4px;
@@ -413,23 +81,26 @@ div#topbar *{
 #gsearch button{
 	display: none;
 }
-#apps img{
-	margin: 0px;
+/* top bar > info */
+#info{
+	width: auto;
+	float: right;
+}
+#info form button{
+	height: 41px;
+}
+button.logout{
+	background-color: rgba(0,0,0,0);
+	padding: 0px;
+	border: 0px;
+	cursor: pointer;
+}
+#logout{
 	margin-top: 2px;
-	/* 크기 생략
-	width: 45px;
-	height: 45px;*/
-	opacity: 0.6;
-	/* 크기 재설정 */
-	width: 30%;
-	height: 30%;
+	width: 35px;
+	height: 35px;
 }
-.zi{
-	z-index:1;
-}
-
-/*social css */
-
+/* top bar > social */
 #social_set{
 	margin: 0px;
 	padding-left: 0px;
@@ -448,6 +119,278 @@ div#topbar *{
 .social_hide{
 	display: none;
 }
+/* top bar > social > guest book */
+p{
+	font-size: 20px;
+	text-align: center;
+	margin-top: 10%;
+}
+
+/* real > widget */
+#wid_set{
+	width: 8%;
+	margin: 0px;
+	padding-left: 0px;
+	float: left;
+	cursor: pointer;
+}
+#wid_set ul{
+	margin: 0px;
+	padding: 0px;
+}
+#wid_set li{
+	margin: 0px;
+	padding: 10px 15px;
+}
+#wid_set li:hover{
+	background-color: rgba(0, 0, 0, 0.3);
+}
+#wid_set img {
+	width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* real > main */
+#main{ height : 100%; }
+
+/* main > friend */
 #friend_div{
 	width: 500px;
+}
+
+/* main > home */
+#home{ height: 100%; }
+
+/* main > z-index */
+.zi{
+	z-index:1;
+}
+
+/* main > memo, guest book */
+.widget_m{
+	display: inline-block;
+	margin: 5px;
+	padding: 5px;
+	border: 1px rgba(192, 190, 190, 0.78);
+	background-color: rgba(192, 190, 190, 0.78);
+}
+.w_memo{ 
+	display: inline-block;
+	position: absolute;
+	background: rgba(255, 255, 255, 0.4);
+	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
+	z-index: 0;
+}
+.w_memo:hover{
+	outline-color: rgb(202, 139, 70);
+	outline-style: double;
+}
+.w_memo textarea{
+	background-color: rgba(0,0,0,0);
+	border: 0;
+	font-size: 13pt;
+	}
+.end{
+	height: 22px;
+}
+
+.delmemo{
+	display: none;
+	float: right;
+	width: 15px;
+}
+
+/* main > calendar */
+#calendar{
+	background-color: white;
+}
+.widget_c{
+	position: absolute;
+	top:5px;
+	left:25%;
+	background-color: white;
+	width: 800px;
+	height: 622px;
+	box-shadow: 5px 5px 5px rgba(100,100,100,0.5);
+}
+#c_end{
+	height: 22px;
+	width: 800px;
+	background-color: white;
+}
+#cal_end{
+	margin: 5px;
+	float: right;
+	font-size: 20px;
+	color: rgba(25, 20, 20, 0.30)
+}
+
+/* main > clock, greeting */
+.center{
+	z-index: -10;
+	width: auto;
+	margin-top: 10%;
+	text-align: center;
+	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.clock{
+	z-index: -10;
+	position: relative;
+	text-align: center;
+	font-size: 160px;
+	font-weight: lighter;
+	color: white;
+}
+.greeting{
+	text-align: center;
+	font-size: 54px;
+	font-weight: lighter;
+	color: white;
+	z-index: -10;
+}
+
+/* main > dock bar */
+#dock{
+	bottom: 0%;
+	left: 0%;
+	position: fixed;
+	vertical-align: middle;
+	width: 25%;
+	height: auto;
+	margin-left: 1%;
+	margin-bottom: 1%;
+}
+#dock li a img{ 
+	padding: 0px;
+	border-radius: 10px;
+}
+#dock img{
+	margin-top: 5px;
+	margin-left: 10px;
+	width: 10%;
+	height: 10%;
+
+}
+#ddock{
+	height: 100%;
+}
+.subdock{
+	display:inline;
+	height : 100%;
+	float : left; 
+}
+#rightdock{ 
+	padding-left: 2%;
+	width: 43%;
+}
+#rightdock img{
+	padding-left: 5px;
+}
+#rightdocklist li{
+	display: inline;
+}
+#rightdocklist {
+	margin : 0%;
+	padding-left: 0%;
+}
+
+
+/* main > dock bar > panel */
+#panel{
+	text-align: center;
+	background-color: rgba(0,0,0,0.6);
+	position:relative;
+	min-height: 180px;
+	min-width: 300px;
+	margin-top: 0px;
+	border-bottom-left-radius: 5%;
+	border-bottom-right-radius: 5%;
+	border-radius: 3%;
+}
+#dock #panel a{
+	opacity: 1;
+}
+#dock #panel img{
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+#panel ul{
+	margin: 0%;
+	padding-left: 0%;
+	/* 리스트의 구분점 생략 */
+	list-style-type: none;
+}
+#panel ul li{
+	display: inline-block;
+}
+
+/* main > dock bar > panel > modify */
+#modifyurl{
+	width: 100%;
+	right: 5;
+}
+#addurl{
+	border: none;
+	color: gray;
+	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	cursor: pointer;
+	padding: 3%;
+	float: right;
+}
+
+/* main > dock bar > panel > trash */
+#trash {
+	position: absolute;
+	right: 0px;
+	bottom: 5px;
+	color: white;
+	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* main > dock bar > panel > panelul */
+#panelul li a img{
+	padding: 0px;
+	border-radius: 10px;
+}
+
+/* main > dock bar > apps */
+#apps{
+	width: 100%;
+	height: 100%;
+	min-width: 70px;
+	max-width: 84px;
+	border: none;
+	color: white;
+	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: center;
+	display: inline;
+	margin-left: 3%;
+	cursor: pointer;
+}
+#apps img{
+	margin: 0px;
+	margin-top: 2px;
+	/* 크기 생략
+	width: 45px;
+	height: 45px;*/
+	opacity: 0.6;
+	/* 크기 재설정 */
+	width: 30%;
+	height: 30%;
+}
+#addwid{
+	position: relative;
+}
+
+
+#setting{
+	margin-top: 2px;
+	width: 57px;
+	height: 35px;
+	/*background-image: url("/images/setting.png");*/
 }

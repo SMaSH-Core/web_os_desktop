@@ -20,14 +20,6 @@
     <div id="real">
         <!-- MAIN CONTENT -->
         <div id = "topbar">
-            <ul id="wid_set">
-                <li class="addmemo" >MEMO</li>
-                <li ng-click="show_todo=!show_todo">ToDoList</li>
-                <li ng-click="show_calendar=!show_calendar" class="calendar">CALENDAR</li>
-                <li id = "CLOUD" >CLOUD</li>
-
-
-            </ul>
             <div id="gsearch">
                 <form method="get" action="http://www.google.com/search" target="_blank">
                     <input type="text" name="q" size="30" placeholder="">
@@ -45,28 +37,33 @@
                 <li id = "guestbook_list" ng-click="show_gbook = !show_gbook">MyGuest</li>
             </ul>
         </div>
+        <ul id="wid_set">
+            <li class="addmemo" ><img src="/images/memo.svg" />MEMO</li>
+            <li ng-click="show_todo=!show_todo"><img src="/images/todo.png">ToDoList</li>
+            <li ng-click="show_calendar=!show_calendar" class="calendar"><img src="/images/calendar.svg" />CALENDAR</li>
+            <li id = "CLOUD" ><img src="/images/cloud.svg">CLOUD</li>
+        </ul>
         <div id="main">
             <div id = "friend_div" ng-show="show_friend">
                 <table>          
-                            <thead>
-                                 <tr>
-                                    <th width="20px">이름(ID)</th>
-                                    <th width="40px">message</th>
-                                    <th width="20px">방문</th>
-                                </tr>
-                            </thead>
-                            <tbody id= "friend_tbody">
-                                 <% 
-                                  for(var i = 0; i < friends.length; i++){ %>
-                                    <tr class = "friends">
-                                        <td><%- friends[i].name %>(<%- friends[i].id %>)</th>
-                                        <td class="messageTo" width="40px">message</th>
-                                        <td><a href ="visit?ID=<%- friends[i].id %>">방문</a></th>
-                                    </tr>
-                               <%   }  %>
-                              
-                            </tbody>
-                    </table>
+                    <thead>
+                         <tr>
+                            <th width="20px">이름(ID)</th>
+                            <th width="40px">message</th>
+                            <th width="20px">방문</th>
+                        </tr>
+                    </thead>
+                    <tbody id= "friend_tbody">
+                         <% 
+                          for(var i = 0; i < friends.length; i++){ %>
+                            <tr class = "friends">
+                                <td><%- friends[i].name %>(<%- friends[i].id %>)</th>
+                                <td class="messageTo" width="40px">message</th>
+                                <td><a href ="visit?ID=<%- friends[i].id %>">방문</a></th>
+                            </tr>
+                       <%   }  %>
+                    </tbody>
+                </table>
 
                <input id = "input_friend" type = "text"><button id ="btn_searchFriend">검색</button>
                <div>
@@ -100,7 +97,6 @@
                     <div id="todo_li" ng-draggable ng-show="show_todo" zi>
                         <span id="todo_end" ng-click="$parent.show_todo=false">X</span>
                         <div class="container">
-
                             <div class="content" >
                                 <h1>To Do List</h1>
                                 <div class="row">
@@ -136,12 +132,9 @@
                                       <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span> <span class="category-{{taskItem.category}}">{{taskItem.category}}</span> <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong> 
                                     </li>
                                 </ul>
-                                
                             </div>
                         </div>
                     </div>
-
-                    
                 </div>                    
 
                 <!-- 달력 -->
@@ -150,22 +143,20 @@
                         <span id="cal_end" ng-click="$parent.show_calendar=false">X</span>
                     </div>
                     <div data="events" dhx-scheduler style="height:600px; width:800px;"   >
-                            <div class="dhx_cal_prev_button"></div>
-                            <div class="dhx_cal_next_button">&nbsp;</div>
-                            <div class="dhx_cal_today_button"></div>
-                            <div class="dhx_cal_date"></div>
-                            <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
-                            <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
-                            <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>    
+                        <div class="dhx_cal_prev_button"></div>
+                        <div class="dhx_cal_next_button">&nbsp;</div>
+                        <div class="dhx_cal_today_button"></div>
+                        <div class="dhx_cal_date"></div>
+                        <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+                        <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+                        <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>    
 
-                            <div dhx-template="event_bar_text">
-                                {{event.text | uppercase}}
-                            </div>
+                        <div dhx-template="event_bar_text">
+                            {{event.text | uppercase}}
+                        </div>
                     </div>
                 </div>
 
-                
-                
                 <!-- 바탕화면의 가운데 시계와 인사말 -->
                 <div class="center">
                     <div class="clock" >
@@ -176,7 +167,6 @@
                         Hello, <%= UserName %>!
                     </div>
                 </div>
-
             </div>
 
             <div id = "dock" ng-controller = "DragDropCtrl">
