@@ -6,7 +6,7 @@
         <% include ../template/d_main_head.ejs %>
     </head>
     <script>
-     $(function() {
+    $(function() {
         var maxz = $('.zi:last').css("zIndex");
         $(".zi").on("click",function(){
                 maxz++;
@@ -14,7 +14,16 @@
             }
         );
     });
+    $(function() {
+        var mmaxz = $('.mzi:last').css("zIndex");
+        $(".mzi").on("click",function(){
+                mmaxz++;
+              $(this).css('z-index',mmaxz);           
+            }
+        );
+    });
     </script>
+
     <body ng-app="app" ng-controller = "Ctrl">
        <!-- <% include ../template/desktop/background_video.ejs %> -->
     <div id="real">
@@ -29,9 +38,9 @@
 
             </ul>
             <div id="gsearch">
-                <form method="get" action="http://www.google.com/search" target="_blank">
-                    <input type="text" name="q" size="30" placeholder="">
-                    <button type = "submit" >search</button>
+                <form method="get" action="http://www.google.com/search" id = "form1" name = "form1" target="_blank">
+                    <input type="text" id = "search" name="q" size="30" placeholder="" ng-enter>
+                    <button type = "submit" ng-keypress>search</button>
                 </form>
             </div>
             <ul id="social_set">
@@ -80,8 +89,13 @@
                 <!-- 메모 -->
                <% 
                   for(var i = 0; i < widget.length; i++){ %>
+<<<<<<< HEAD
                     <div ng-draggable class="widget_m w_memo zi" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>;" ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div>
                         <textarea rows="8" cols="25" class = "_memo"><%- widget[i].memo %></textarea>
+=======
+                    <div ng-draggable class="widget_m w_memo mzi" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>; z-index: <%-5000+i%>;"  ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div> 
+                        <textarea rows="8" cols="25"><%- widget[i].memo %></textarea>
+>>>>>>> origin/dev_loc
                     </div>
                 <%   }  %>
                
@@ -96,8 +110,8 @@
                 <%   }  %>
                 <!--방명록 끝-->
                 <!-- 투두리스트 -->
-                <div id="todolist"ng-controller="taskController">
-                    <div id="todo_li" ng-draggable ng-show="show_todo" zi>
+                <div id="todolist" ng-controller="taskController" class="zi">
+                    <div id="todo_li" ng-draggable ng-show="show_todo" >
                         <span id="todo_end" ng-click="$parent.show_todo=false">X</span>
                         <div class="container">
 
@@ -141,7 +155,7 @@
                 </div>                    
 
                 <!-- 달력 -->
-                <div ng-controller="MainSchedulerCtrl" ng-draggable class="widget_c zi" ng-show="show_calendar" >
+                <div ng-controller="MainSchedulerCtrl" ng-draggable class="widget_c zi" ng-show="show_calendar" style="z-index=6000">
                     <div id="c_end">
                         <span id="cal_end" ng-click="$parent.show_calendar=false">X</span>
                     </div>

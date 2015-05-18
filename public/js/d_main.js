@@ -6,7 +6,7 @@
 var app = angular.module("app", []);
  
 function Ctrl($scope, $http){
-
+	
 	//the panel that is app bucket is closed first
 	$scope.param = {};
 	$scope.slideapps = false;
@@ -109,31 +109,37 @@ app.directive('ngEnter', function ($compile) {
             if(event.which === 13) {
                 scope.$apply(function (){
                     scope.$eval(attrs.ngEnter);
-                    
-                    if(scope.slideurl == true){
-						var addurl2 = document.getElementById("slurl").value;
-						if(addurl2 != "" && addurl2 != null){
-							if(addurl2.search("http://") == -1){
+                    if(attrs.id == "slurl"){
+	                    if(scope.slideurl == true){
+							var addurl2 = document.getElementById("slurl").value;
+							if(addurl2 != "" && addurl2 != null){
+								if(addurl2.search("http://") == -1){
+									//alert(addurl2);
+									addurl2 = "http://" + addurl2;
+								}
 								//alert(addurl2);
-								addurl2 = "http://" + addurl2;
+								var imgurl = 'http://www.google.com/s2/favicons?domain='+addurl2;
+								angular.element(document.getElementById('panelul')).append($compile("<li><a class='false' href ='"+addurl2+"' target = '_blank' id = "+addurl2+" ><img src = "+imgurl+" id = "+addurl2+" class = 'tosave' draggable/></a></li>")(scope));
+								scope.slideurl = false;
+							}else{
+								alert("잘못 입력함");
+								scope.slideurl = false;
 							}
-							//alert(addurl2);
-							var imgurl = 'http://www.google.com/s2/favicons?domain='+addurl2;
-							angular.element(document.getElementById('panelul')).append($compile("<li><a class='false' href ='"+addurl2+"' target = '_blank' id = "+addurl2+" ><img src = "+imgurl+" id = "+addurl2+" class = 'tosave' draggable/></a></li>")(scope));
-							scope.slideurl = false;
-						}else{
-							alert("잘못 입력함");
-							scope.slideurl = false;
 						}
+						//scope.urlbtn = true;
+						//scope.slideurl = false;
+						else{
+							scope.slideurl = true;
+						}
+						document.getElementById("slurl").value = "";
+						//scope.urlbtn = true;
+						//scope.$apply();
 					}
-					//scope.urlbtn = true;
-					//scope.slideurl = false;
-					else{
-						scope.slideurl = true;
+					else if(attrs.id == "search"){
+						document.getElementById("form1").submit();
+						document.getElementById("form1").reset();
+						//document.getElementById("search").value = "";
 					}
-					document.getElementById("slurl").value = "";
-					//scope.urlbtn = true;
-					//scope.$apply();
                 });
  			
                 event.preventDefault();
@@ -375,7 +381,7 @@ app.directive('ngDraggable', function($document, $window){
       cursor: 'pointer',
       top: startY + 'px',
       left: startX + 'px',
-      position: 'relative'
+      position: 'absolute'
       
     });
 
@@ -447,7 +453,7 @@ app.directive('widgetM', function(){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable class="widget_m w_memo"><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25" class ="_memo"></textarea></div>'
+        template: '<div ng-draggable class="widget_m w_memo mzi" style="z-index:5000"><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
     };
 })
 
