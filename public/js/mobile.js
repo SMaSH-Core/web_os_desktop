@@ -40,7 +40,7 @@ app.directive('adddd',function($compile){
 				var imgurl = 'http://www.google.com/s2/favicons?domain='+value;
 				angular.element(document.getElementById('add_btn')).remove();
 				angular.element(document.getElementById('apps')).append($compile("<a  href ='"+value+"' target = '_blank' id = "+imgurl+" ><img src = "+imgurl+" id = "+imgurl+" class = 'tosave' draggable/></a>")(scope));
-				angular.element(document.getElementById('apps')).append($compile("<button class = 'addurl' id = 'hello'><img src = '/images/addurl.png' class = 'addurll'/></button>")(scope));
+				angular.element(document.getElementById('apps')).append($compile("<button class = 'addurl' id = 'add_btn'><img src = '/images/addurl.png' class = 'addurll'/></button>")(scope));
 				scope.hideurl = true;
 			}
 			else{
