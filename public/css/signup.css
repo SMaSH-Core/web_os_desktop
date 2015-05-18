@@ -1,11 +1,12 @@
 body{
 	font-family: Verdana, Tahoma, "sans-serif";
-	background-color: #262626;
+	background: url("../images/background/1.jpeg") center center fixed;
+	background-size: 100%;
 	color: #434343;
 }
 body #main{
 	padding: 50px 30px;
-	background-color: white;
+	background-color: rgba(255,255,255,0.4);
 	border-radius: 20px;
 	margin-left: auto;
 	margin-right: auto;
@@ -13,6 +14,22 @@ body #main{
 	margin-top: 20px;
 	text-align: center;
 }
+
+body:before{
+  content: '';
+  position: absolute;
+  top: 0; left:0; right:0; bottom:0;
+  background: inherit;
+  width: 110%;
+  height: 110%;
+  z-index:-1;
+  filter: blur(6px); 
+  -webkit-filter: blur(6px); 
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  filter: url(#blur);
+}
+
 #main button {
 	background-color: rgba(92,216,133,0.66);
 	padding: 0px;
@@ -232,7 +249,7 @@ p#confirm{
 	}
 	body #main{
 		padding: 50px 30px;
-		background-color: white;
+		background-color: rgba(255,255,255,0.4);
 		border-radius: 20px;
 		margin-left: auto;
 		margin-right: auto;
