@@ -20,8 +20,8 @@
                 <ul >
                     <li><a href ="/mmain">HOME</a></li>
                     <li><a href ="/todo">TO DO LIST</a></li>
-                    <li><a href ="/calendar">CALENDAR</a></li>
-                    <li><a href ="/cloud">CLOUD</a></li>
+                 <!--   <li><a href ="/calendar">CALENDAR</a></li>-->
+                <!--    <li><a href ="/cloud">CLOUD</a></li>-->
                 </ul>
             </div>
 
@@ -42,10 +42,10 @@
                         <div id="memo_top">
                             <span>Memo</span>
                             <button class="list" ng-click="memo=false">=</button>
-                            <button class="add" ng-show="addbutton" ng-click="addbutton=false;savebutton=true">+</button>
+                            <button class="add" ng-show="addbutton" ng-click="addbutton=false;savebutton=true;">+</button>
                             <button class="save" ng-show="savebutton" ng-click="addbutton=true;savebutton=false">+</button>
                         </div>
-                        <ul id="memo_list" ng-class="mcount=<%=widget.length%>">
+                        <ul id="memo_list" ">
                             <%
                                 for(var i = 0; i < widget.length; i++){
                                     var title="";
