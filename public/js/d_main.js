@@ -538,10 +538,7 @@ app.directive('save',function(){
 			var left = [];
 			var top = [];
 			var memoOBJ = $$("._memo");
-	
 			var memoDiv = $$(".w_memo");
-			console.log(memoOBJ);
-			alert(memoOBJ);
 			for(var i = 0; i <memoOBJ.length; i ++)
 			{
 				memo.push(memoOBJ[i].value);
