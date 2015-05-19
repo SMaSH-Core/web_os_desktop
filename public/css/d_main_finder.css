@@ -113,6 +113,7 @@ input#googleDrive_tab:checked ~ .tab_contents #googleDrive {
 	height: 90%;
 	width: 76%;
 	padding: 2%;
+	background-color: white;
 }
 
 .cloud_content {
