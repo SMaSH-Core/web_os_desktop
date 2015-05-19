@@ -533,7 +533,8 @@ app.directive('delmemo', function(){
 app.directive('save',function(){
 	var link=function(scope, element, attrs){
 		
-		var save = function(e){          
+		var save = function(e){
+			alert('니나노');
         	var memo = [];
 			var left = [];
 			var top = [];

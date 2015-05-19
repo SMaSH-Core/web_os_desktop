@@ -1,8 +1,10 @@
 
 function showFriendList(){
 	var visitTo = $$(".visitTo");
-}
+	var BtnsearchFriend = document.getElementById("btn_searchFriend");
+	BtnsearchFriend.onclick = searchFriend;
 
+}
 
 
 function messageToFriend(){
