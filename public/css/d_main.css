@@ -453,10 +453,14 @@ div#topbar *{
 	float: right;
 	width: 500px;
 }
+#friendList {
+	border-bottom: 1px dotted white;
+	text-align: center;
+}
 #friendList *{ width: 100%; }
-#friendList #nm{ width: 55%; }
-#friendList #msg{ width: 30%; }
-#friendList #inv{ width: 10%; }
+#friendList .nm{ width: 55%; }
+#friendList .msg{ width: 30%; }
+#friendList .inv{ width: 10%; }
 
 #input_friend{
 	font-size: 14pt;
@@ -468,4 +472,14 @@ div#topbar *{
 	background: none;
 	width: 40%;
 	color: #FFFFFF;
+}
+
+.fsearch{
+	float: right;
+}
+.fsearch input{
+	width: 70%;
+}
+.fsearch button{
+	width: 30%;
 }
