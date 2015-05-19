@@ -69,6 +69,7 @@ function searchNewFriend(newfriend){
 	    td_id.className="nm";
 	    td_add.className="msg";
 	    td_visit.className="inv";
+	    tr.className="newf";
 	    tr.appendChild(td_id);
 	    tr.appendChild(td_add);
 	    tr.appendChild(td_visit);

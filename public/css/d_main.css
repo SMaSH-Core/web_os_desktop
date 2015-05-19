@@ -483,3 +483,6 @@ div#topbar *{
 .fsearch button{
 	width: 30%;
 }
+.newf{
+	border-top: 1px dotted white;
+}
