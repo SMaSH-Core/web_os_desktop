@@ -20,6 +20,9 @@
               
                 <ul>
                     <li><a href ="/memo">MEMO</a></li>
+                    <li><a href ="/todo">TO DO LIST</a></li>
+                   <!-- <li><a href ="/calendar">CALENDAR</a></li>-->
+                   <!-- <li><a href ="/cloud">CLOUD</a></li>-->
                 </ul>
             </div>
 
@@ -28,17 +31,36 @@
 
                 <div id = "real">
                     <div id = "topbar">
-                        <img ng-click="toggleMenu()" id = "sidebutton" src="/images/button.png"/>
+                        <!--<img ng-click="toggleMenu()" id = "sidebutton" src="/images/button.png"/>-->
+                        <p ng-click="toggleMenu()" id = "sidebutton">≡</p>
                         <div id="gsearch">
                             <form method="get" action="http://www.google.com/search" target="_blank">
-                                <input type="text" name="q" size="30" placeholder="google search">
+                                <input type="text" name="q" size="30" >
                                 <button type = "submit" >search</button>
                             </form>
                         </div>
                         <div id="info">
+                            <!--<form action = "/logout" method="post">
+                                <button  class="save logout" type = "submit">LOGOUT</button>
+                            </form>-->
+                            <button id="setting" ng-click="show_setting_li=!show_setting_li"><img src = "/images/Settings.png" /></button>
+                        </div>
+                    </div>
+                    <ul id="setting_li" ng-show="show_setting_li">
+                        <li id="user_info">USER INFO</li>
+                        <li>
                             <form action = "/logout" method="post">
-                                <button ng-click="save()" class="logout" type = "submit"><img id = "logout" src = "/images/quit.png" /></button>
+                                <button  class="save logout" type = "submit">LOGOUT</button>
                             </form>
+                        </li>
+                    </ul>
+                    <div class="center">
+                        <div class="clock" >
+                            <span my-current-time="format"></span>
+                            <div>{{propiedadPrueba}}</div>
+                        </div>
+                        <div class="greeting">
+                            Hello, <%= UserName %>!
                         </div>
                     </div>
                     

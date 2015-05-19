@@ -7,4 +7,3 @@ app.controller("AppController", function($scope){
 	$scope.showmenu=($scope.showmenu) ? false : true;
 	}
 });
-
