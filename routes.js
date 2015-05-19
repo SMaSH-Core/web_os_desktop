@@ -78,6 +78,7 @@ module.exports = function (app, passport,module){
                         userapp : sessionApp,
                         widget : wid,
                         friends : req.user.friends,
+                        guestbook : guestbook,
                         local_folder : info 
                     });
                 }
@@ -165,11 +166,10 @@ module.exports = function (app, passport,module){
     });
 
     app.post('/app',module.saveApp);
+
     app.post('/widget',module.saveWidget);
 
-    app.post('/savetodo',module.saveTodo,function (req, res){
-        res.send();
-    });
+    app.post('/savetodo',module.saveTodo);
 
     app.post("/retrievetodo",module.retrievetodo);
 

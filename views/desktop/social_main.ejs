@@ -34,9 +34,31 @@
                 </form>
             </div>
             <ul id="social_set">
-                <li id = "friend_list" >FriendList</li>
+                <li id = "friend_list" ng-click="show_friend = !show_friend" >FriendList</li>
                 <li id class = "leaveGuest">GuestBook</li>
             </ul>
+             <div id = "friend_div" ng-show="show_friend">
+                <table id="friendList">          
+                    <thead>
+                         <tr>
+                            <th id="nm">이름(ID)</th>
+                            <th id="msg">message</th>
+                            <th id="inv">방문</th>
+                        </tr>
+                    </thead>
+                    <tbody id= "friend_tbody">
+                         <% 
+                          for(var i = 0; i < friends.length; i++){ %>
+                            <tr class = "friends">
+                                <td><%- friends[i].name %>(<%- friends[i].id %>)</th>
+                                <td class="messageTo" width="40px">message</th>
+                                <td><a href ="visit?ID=<%- friends[i].id %>">방문</a></th>
+                            </tr>
+                       <%   }  %>
+                      
+                    </tbody>
+                </table>
+            </div>
             <div id="info">
 
                 <form action = "/main" method="get">
