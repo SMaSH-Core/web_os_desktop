@@ -7,6 +7,7 @@
         <script src="http://code.angularjs.org/1.2.0rc1/angular-route.min.js"></script>
         <script src="http://code.angularjs.org/1.2.0rc1/angular-touch.min.js"></script>
         <script src="/js/sidebar.js" type="text/javascript"></script>
+        <script type="text/javascript"></script>
     </head>
     <body ng-swipe-left="showmenu=false" ng-swipe-right="showmenu=true">
       <!--  <video autoplay loop>
@@ -51,7 +52,7 @@
                         </li>
                     </ul>
                     
-                    <div id="memo">
+                    <div id="memo" ng-controller="memoctrl">
                         <div id="memo_top">
                             <span>Memo</span><button class="list" ng-click="<%for(var i=0;i<widget.length;i++){%>memo<%=i%>=false<%}%>">=</button><button id="add">+</button><button class="save">+</button>
                         </div>

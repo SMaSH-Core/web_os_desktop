@@ -8,3 +8,6 @@ app.controller("AppController", function($scope){
 	}
 });
 
+app.controller("memoctrl", function($scope)){
+	
+}
