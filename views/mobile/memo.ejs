@@ -40,9 +40,12 @@
                     
                     <div id="memo" >
                         <div id="memo_top">
-                            <span>Memo</span><button class="list" ng-click="memo=false">=</button><button id="add">+</button><button class="save">+</button>
+                            <span>Memo</span>
+                            <button class="list" ng-click="memo=false">=</button>
+                            <button class="add" ng-show="addbutton" ng-click="addbutton=false;savebutton=true">+</button>
+                            <button class="save" ng-class="mcount=mcount+1"ng-show="savebutton" ng-click="addbutton=true;savebutton=false">+</button>
                         </div>
-                        <ul id="memo_list">
+                        <ul id="memo_list" ng-class="mcount=<%=widget.length%>">
                             <%
                                 for(var i = 0; i < widget.length; i++){
                                     var title="";
