@@ -776,3 +776,8 @@ div.dhx_modal_cover{
 .dhx_cal_prev_button{top:8px!important;}
 .dhx_mini_calendar 
 .dhx_cal_next_button{top:8px!important;}
+
+.dhx_section_time select{
+	position: relative;
+	width: auto;
+}
