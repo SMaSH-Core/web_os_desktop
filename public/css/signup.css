@@ -1,5 +1,5 @@
 body{
-	font-family: Verdana, Tahoma, "sans-serif";
+	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background: url("../images/background/1.jpeg") center center fixed;
 	background-size: 100%;
 	color: #434343;
@@ -47,7 +47,6 @@ body:before{
 header h1 {
 	margin-top: 10px;
 	font-size: 25pt;
-	color: green;
 }
 form{
 	margin-top: 50px;
@@ -118,7 +117,6 @@ p#confirm{
 	header h1 {
 		margin-top: 5%;
 		font-size: 600%;
-		color: purple;
 	}
 	form{
 		margin-top: 50px;
@@ -199,7 +197,6 @@ p#confirm{
 		margin-top: 10px;
 		font-size: 25pt;
 		*/
-		color: red;
 
 		margin-top: 3%;
 		font-size: 400%;
@@ -274,7 +271,6 @@ p#confirm{
 	header h1 {
 		margin-top: 10px;
 		font-size: 25pt;
-		color: blue;
 	}
 	form{
 		margin-top: 50px;
@@ -332,7 +328,6 @@ p#confirm{
 	header h1 {
 		margin-top: 1%;
 		font-size: 200%;
-		color: blue;
 	}
 	form{
 		margin-top: 10%;
