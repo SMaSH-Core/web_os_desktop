@@ -351,3 +351,6 @@ button {
   outline: none;
   padding: 0 100px;
 }
+#dueDate{
+  width: 92%;
+}
