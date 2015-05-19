@@ -452,3 +452,6 @@ div#topbar *{
 	display: none;
 	width: 500px;
 }
+#who {
+	display: none;
+}

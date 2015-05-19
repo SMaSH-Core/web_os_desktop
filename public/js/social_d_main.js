@@ -447,7 +447,7 @@ app.directive('widgetM', function(){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable class="widget_m w_memo"><button id = "memocomple" class="leave">LEAVE</button><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
+        template: '<div ng-draggable class="widget_m w_memo"><button class="leave">LEAVE</button><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
     };
 })
 
@@ -481,24 +481,20 @@ app.directive('leave', function($compile){
             var currentTime = getTimeStamp();
             var left = this.parentNode.getStyle("left");
 			var top = this.parentNode.getStyle("top");
+			var who = document.getElementById("who").innerHTML;
+			var h2 = document.createElement('h2');
+			var p = document.createElement('p');
+			h2.innerHTML = who;
+			p.innerHTML = currentTime;
+			t.parentNode.insertBefore(p,t.parentNode.children[0]);
+			t.parentNode.insertBefore(h2,t.parentNode.children[0]);
 
-
-			new Ajax.Request("/leaveguestbook",{
-                    method: "post",
-                    parameters: {'email': targetId, 'contents': contents, 'time': currentTime, 'left': left,'top': top },
-                    onSuccess : function(response){
-                    	var h2 = document.createElement('h2');
-			        	var p = document.createElement('p');
-						h2.innerHTML = response.responseJSON.who;
-						p.innerHTML = response.responseJSON.time;
-						t.parentNode.insertBefore(p,t.parentNode.children[0]);
-						t.parentNode.insertBefore(h2,t.parentNode.children[0]);
-                    }
-                });
+			var socket = io.connect();
+			console.log("guest user");
+			socket.emit('leaveGuestbook', targetId, contents, currentTime, left, top, who);
         };
         element.on('click', clickleave);
     };
-        
     return {
         restrict: 'C',
         link: linkFn

@@ -83,12 +83,10 @@
                 <% include ../template/d_main_cloud %>
 
                 <!-- 메모 -->
-               <% 
+                <% 
                   for(var i = 0; i < widget.length; i++){ %>
-
                     <div ng-draggable class="widget_m w_memo mzi" style="position: absolute; left: <%- widget[i].left %>; top:  <%- widget[i].top %>; z-index: <%-5000+i%>;"  ><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div> 
                         <textarea rows="8" cols="25"><%- widget[i].memo %></textarea>
-
                     </div>
                 <%   }  %>
                

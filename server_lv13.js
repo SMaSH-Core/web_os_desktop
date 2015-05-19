@@ -66,9 +66,15 @@ require('./routes.js')(app,passport,module);
 //For Auth Using passport API -function that is process of auth
 	
 
-http.createServer(app).listen(9081);			//new버젼
+var server = http.createServer(app).listen(9081);			//new버젼
 //https.createServer(options, app).listen(PORT);	//new
 //app.listen(PORT);  기존버		
 console.log('HTTP '+9081+ ' is opened');
 console.log('HTTPs '+PORT+ ' is opened');
 
+server.listen(9081, function() {
+  console.log("Server listening on port 9081.");
+});
+
+var chatServer = require('./module.js');
+chatServer.listen(server);
