@@ -485,5 +485,10 @@ div#topbar *{
 	width: 30%;
 }
 .newf{
-	border-top: 1px dotted white;
+	width: 100%;
+	background: rgba(255,255,255,0.4);
 }
+.newf .nm{ width: 55%; text-align: center; }
+.newf .msg{ width: 30%; text-align: center; }
+.newf .inv{ width: 10%; text-align: center; }
+#newFriend p{width: 100%}

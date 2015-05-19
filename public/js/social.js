@@ -30,25 +30,27 @@ function searchFriend(){
                     	}
                     }
                 });
-	BtnsearchFriend.style.display = "block";
+	BtnsearchFriend.style.display = "inline";
 }
 
 function searchNewFriend(newfriend){
 	removeChildList("newFriend");
+
+
 	if(newfriend == null){
-		var  Divnewfriend = document.getElementById("friend_tbody");	
+		var  Divnewfriend = document.getElementById("newFriend");	
 		var p = document.createElement("p");
 		p.innerHTML = "검색된 결과가 없습니다.";
 		Divnewfriend.appendChild(p);
 	}
 	else if(newfriend.email == 'unavailable'){
-		var  Divnewfriend = document.getElementById("friend_tbody");	
+		var  Divnewfriend = document.getElementById("newFriend");	
 		var p = document.createElement("p");
 		p.innerHTML = "입력하신 결과는 본인입니다";
 		Divnewfriend.appendChild(p);
 	}
 	else{	
-		var  Divnewfriend = document.getElementById("friend_tbody");
+		var  Divnewfriend = document.getElementById("newFriend");
 	    var tr = document.createElement("tr");
 	    var td_id = document.createElement("td"); 
 	    var td_visit = document.createElement("td");
@@ -81,8 +83,10 @@ function searchNewFriend(newfriend){
 }
 
 function addFriend(){
+	console.log(this);
+	console.log(this.parentNode);
     var idname = this.parentNode.children[0].innerHTML;
-    var href = this.parentNode.children[1].children[0].href;
+    var href = this.parentNode.children[2].children[0].href;
 	var  Divnewfriend = document.getElementById("friend_tbody");
 	var existFlag = 0;
 	var id = href.split("?ID=");
@@ -129,6 +133,9 @@ function addFriend(){
 	 	td_message.innerHTML = "message";
 	 	td_message.className ="messageTo";
 	 	td_message.onclick =messageToFriend;
+	 	td_idname.className="nm";
+	    td_message.className="msg";
+	    td_visit.className="inv";
 
 
 	    tr.appendChild(td_idname);
