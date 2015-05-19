@@ -39,22 +39,9 @@
                                 <button type = "submit" >search</button>
                             </form>
                         </div>
-                        <div id="info">
-                            <!--<form action = "/logout" method="post">
-                                <button  class="save logout" type = "submit">LOGOUT</button>
-                            </form>-->
-                            <button id="setting" ng-click="show_setting_li=!show_setting_li"><img src = "/images/Settings.png" /></button>
-                        </div>
+                        
                     </div>
-                    <ul id="setting_li" ng-show="show_setting_li">
-                        <li id="user_info">USER INFO</li>
-                        <li>
-                            <form action = "/logout" method="post">
-                                <button  class="save logout" type = "submit">LOGOUT</button>
-                            </form>
-                        </li>
-                    </ul>
-
+                    
                     <div ng-controller="MainSchedulerCtrl">
                         <div data="events" dhx-scheduler style="height:600px; width:800px;"   >
                                 <div class="dhx_cal_prev_button"></div>

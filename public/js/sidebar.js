@@ -7,10 +7,3 @@ app.controller("AppController", function($scope){
 	$scope.showmenu=($scope.showmenu) ? false : true;
 	}
 });
-
-app.controller("memoctrl", function($scope){
-	$scope.memo = [];
-	$scope.showList = function(){
-		$scope.memo=false;
-	}
-});

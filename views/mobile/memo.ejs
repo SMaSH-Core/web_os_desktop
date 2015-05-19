@@ -36,25 +36,11 @@
                                 <button type = "submit" >search</button>
                             </form>
                         </div>
-                        <div id="info">
-                            <!--<form action = "/logout" method="post">
-                                <button  class="save logout" type = "submit">LOGOUT</button>
-                            </form>-->
-                            <button id="setting" ng-click="show_setting_li=!show_setting_li"><img src = "/images/Settings.png" /></button>
-                        </div>
                     </div>
-                    <ul id="setting_li" ng-show="show_setting_li">
-                        <li id="user_info">USER INFO</li>
-                        <li>
-                            <form action = "/logout" method="post">
-                                <button  class="save logout" type = "submit">LOGOUT</button>
-                            </form>
-                        </li>
-                    </ul>
                     
-                    <div id="memo" ng-controller="memoctrl">
+                    <div id="memo" >
                         <div id="memo_top">
-                            <span>Memo</span><button class="list" ng-click="showList()">=</button><button id="add">+</button><button class="save">+</button>
+                            <span>Memo</span><button class="list" ng-click="memo=false">=</button><button id="add">+</button><button class="save">+</button>
                         </div>
                         <ul id="memo_list">
                             <%
