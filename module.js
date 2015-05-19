@@ -113,13 +113,15 @@ exports.retrieveFriend = function (req,res,next)
                     {
                         db.friendList.findOne({'email': id }, function(err,info) {
                                 db.guestbookModel.find({email: id , who: req.user.email},function(err,guestbook){
+                                    console.log(guestbook);
                                     res.render('desktop/social_main.ejs',{
                                         UserID : id,
                                         UserName : userinfo.name,
                                         userapp : appdata.link,
                                         friends : info.Friend,
                                         guestbook :guestbook,
-                                        widget : []
+                                        widget : [],
+                                        who : req.user.email
                                 });                   
                             }); 
                         });
@@ -188,31 +190,33 @@ exports.addFriend = function (req,res,next)
         });
 
 }
-
-exports.leaveGuestBook = function (req,res,next)
-{
-   var guestbook = req.body;
-   guestbook.who = req.user.email;
- 
-    var guestBook = new db.guestbookModel({
-                        email: guestbook.email,
-                        contents: guestbook.contents,
-                        time: guestbook.time,
-                        left: guestbook.left,
-                        top: guestbook.top,
-                        who: guestbook.who
-
-                    });
-    guestBook.save(function (err,silence){
-        if(err)
-        console.log("leaveGuestBook in module.js Err : "+err);
-        else
-        res.send(guestbook);
+exports.listen = function(server){
+    var socketio = require('socket.io');
+    var io = socketio.listen(server);
+    console.log("listen");
+    io.sockets.on('connection', function (socket){
+        //socket.join(who);
+        socket.join('test');
+        socket.on('leaveGuestbook', function (email, contents, time, left, top, who){            
+            //socket.join(who);
+            socket.join('test');
+            var guestBook = new db.guestbookModel({
+                email: email,
+                contents: contents,
+                time: time,
+                left: left,
+                top: top,
+                who: who
+            });
+            guestBook.save(function (err,silence){
+                if(err)
+                    console.log("leaveGuestBook in module.js Err : "+err);
+                else
+                    socket.broadcast.to('test').emit('showGuestbook2', guestBook.email, guestBook.contents, guestBook.time, guestBook.left, guestBook.top, guestBook.who);
+            });
+        });
     });
-   
-
 }
-
 
 exports.dirTree = function(filename) 
 {

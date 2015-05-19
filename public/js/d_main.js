@@ -4,9 +4,48 @@
  *
 */
 var app = angular.module("app", []);
- 
-function Ctrl($scope, $http){
+
+var socket = io.connect();
+socket.on('showGuestbook2', function (email, contents, time, left, top, who){
+	console.log("**************** "+socket.id+" show guest book ***************");
+	var div1 = document.createElement("div");
+	div1.className = "widget_m w_memo mzi";
+	div1.setAttribute("style","position: absolute; left: "+left+"; top: "+top+";");
+
+	var h2 = document.createElement("h2");
+	var _who = document.createTextNode(who);
+
+	var p = document.createElement("p");
+	var _p = document.createTextNode(time);
+
+	var div2 = document.createElement("div");
+	div2.className = "end";
+
+	var img = document.createElement("img");
+	img.className = "delmemo";
+	img.src = "/images/wid_del.png";
+
+	var textarea = document.createElement("textarea");
+	textarea.rows = "8";
+	textarea.cols = "25";
+	textarea.readonly = "readonly";
+	var _textarea = document.createTextNode(contents);
+
+	h2.appendChild(_who);
+	div1.appendChild(h2);
+	p.appendChild(_p);
+	div1.appendChild(p);
+	div1.appendChild(div2);
+	div1.appendChild(img);
+	textarea.appendChild(_textarea);
+	div1.appendChild(textarea);
 	
+	document.getElementById('home').insertBefore(div1, document.getElementById('todolist'));
+	
+	console.log("receiver");
+});
+
+function Ctrl($scope, $http){
 	//the panel that is app bucket is closed first
 	$scope.param = {};
 	$scope.slideapps = false;
@@ -727,3 +766,4 @@ app.directive('zi', function(){
         link: linkFn
     };
 });*/
+

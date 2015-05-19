@@ -19,10 +19,12 @@
        <!-- <% include ../template/desktop/background_video.ejs %> -->
     <div id="real">
         <!-- MAIN CONTENT -->
+        <p id = "who" display="none"><%- who %></p>
+    
         <div id = "topbar">
             <ul id="wid_set">
                 <div id = "indicateFriend">
-                    <p><%= UserName %>(<%= UserID %>)의 PIVOT</p>
+                    <p display= "none"><%= UserName %>(<%= UserID %>)의 PIVOT</p>
                 </div>
             </ul>
             <div id="gsearch">

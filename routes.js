@@ -153,7 +153,7 @@ module.exports = function (app, passport,module){
     
     app.post('/addfriend',module.addFriend);
 
-    app.post('/leaveguestbook',module.leaveGuestBook);
+    //app.post('/leaveguestbook',module.leaveGuestBook);
     
    
     app.get('*', function (req, res) {
