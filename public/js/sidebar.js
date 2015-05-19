@@ -7,13 +7,11 @@ app.controller("AppController", function($scope){
 	$scope.showmenu=($scope.showmenu) ? false : true;
 	}
 	$scope.memo=[];
-	$scope.mcount;
+	$scope.mcount=0;
 	$scope.addbutton=true;
 	$scope.savebutton=false;
 	$scope.increment = function() {
-
-	    $scope.mcount=$scope.mcount+1;
-	    alert($scope.mcount);
+	    $scope.mcount+=1;
   	};
 });
 
@@ -28,10 +26,9 @@ app.directive('add', function($compile){
 
     var linkFn = function(scope, element, attrs){        
         var addDiv = function(e){
-             alert($scope.mcount);
         	 angular.element(document.getElementById('memo')).append($compile('<div-memo></div-memo>')(scope));  
 			$scope.memo[$scope.mcount]=true;
-			$scope.increment();
+			$compile($scope.increment());
             scope.$apply();
         };
         element.on('click', addDiv);
@@ -45,7 +42,8 @@ app.directive('add', function($compile){
 app.directive('liMemo',function(){
 	return {
         restrict: 'E',
-       /* template: '<li class="memo_title" ng-click="memo['+$scope.mcount+']=!memo['+$scope.mcount+'];">'+angular.element(document.getElementById('memo['+$scope.mcount+']')).html()+'</li>'*/
+
+       /* template: '<li class="memo_title" ng-click="memo['+$scope.mcount+']=!memo['+$scope.mcount+'];">'+angular.element(document.getElementById('memo['+$scope.mcount+']')).get(0)+'</li>'*/
        template: '<li class="memo_title" ng-click="memo['+$scope.mcount+']=!memo['+$scope.mcount+'];"></li>'
     };
 })
