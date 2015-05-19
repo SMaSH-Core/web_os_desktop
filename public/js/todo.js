@@ -7,7 +7,10 @@ app.controller('taskController', function($scope) {
     $scope.taskItem = (localStorage.getItem('taskItems')!==null) ? 
     JSON.parse($scope.saved) : [ {description: "Why not add a task?", date: $scope.today, complete: false}];
     localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+<<<<<<< HEAD
 
+=======
+>>>>>>> 759cf87a11e554c0b39c45fa9565ec0f87375277
     $scope.newTask = null;
     $scope.newTaskDate = null;
     $scope.categories = [
@@ -18,7 +21,7 @@ app.controller('taskController', function($scope) {
         {name: 'Other'}
     ];
     $scope.newTaskCategory = $scope.categories;
-    new Ajax.Request('/retrievetodo', {
+    /*new Ajax.Request('/retrievetodo', {
             method: "post",
             onSuccess: function(response) {
                 var newfriend = response.responseJSON;
@@ -29,7 +32,7 @@ app.controller('taskController', function($scope) {
                 //$scope.newTask= ht;
                 localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
             }
-        });
+        });*/
     $scope.addNew = function () {
         if ($scope.newTaskDate == null || $scope.newTaskDate == '') {
             $scope.taskItem.push({
@@ -51,10 +54,10 @@ app.controller('taskController', function($scope) {
         $scope.newTaskCategory = $scope.categories;
         localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
         console.log($scope.taskItem);
-        new Ajax.Request('/savetodo', {
+       /* new Ajax.Request('/savetodo', {
             method: "post",
             parameters: {'todolist': JSON.stringify($scope.taskItem)}
-        });
+        });*/
     };
     $scope.deleteTask = function () {
         var completedTask = $scope.taskItem;
