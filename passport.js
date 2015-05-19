@@ -250,7 +250,6 @@ module.exports = function(passport){
 		callbackURL :'/auth/kakao/callback'
 		},
 		function(accessToken, refreshToken, profile, done){
-			console.log(profile);
 			var id = profile.id;
 	        var name = profile.username;
 	        var dt = new Date();
@@ -352,7 +351,6 @@ module.exports = function(passport){
 	    callbackURL: '/auth/google/callback'
 	  },
 	    function(accessToken, refreshToken, profile, done) {
-	    	console.log(profile);
 	        var id = profile.emails[0].value;
 	        var name = profile.displayName;
 	        var dt = new Date();

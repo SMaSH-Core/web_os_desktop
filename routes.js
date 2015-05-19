@@ -96,8 +96,8 @@ module.exports = function (app, passport,module){
                 else{
                     console.log("it is mobile ");
                     res.render('mobile/mobile_main',{
-                        UserID : 'hyejin@a.a',
-                        UserName : 'hyejin',
+                        UserID : req.user.email,
+                        UserName : req.user.name,
                         userapp : sessionApp,
                         widget : wid});
                     }
@@ -164,15 +164,8 @@ module.exports = function (app, passport,module){
     	res.redirect('/');	
     });
 
-    app.post('/app',module.saveApp,function (req, res){
-        console.log('=========app===========');
-        console.log('/app');
-        console.log(req.body);
-    });
-    app.post('/widget',module.saveWidget,function (req, res){
-         console.log('/widget'); 
-         console.log(req.body);
-    });
+    app.post('/app',module.saveApp);
+    app.post('/widget',module.saveWidget);
 
     app.post('/savetodo',module.saveTodo,function (req, res){
         res.send();

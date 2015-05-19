@@ -493,7 +493,7 @@ app.directive('widgetM', function(){
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div ng-draggable class="widget_m w_memo mzi" style="z-index:5000"><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25"></textarea></div>'
+        template: '<div ng-draggable class="widget_m w_memo mzi" style="z-index:5000"><div class="end"><img class="delmemo"src="/images/wid_del.png"/></div><textarea rows="8" cols="25" class = "_memo"></textarea></div>'
     };
 })
 
@@ -534,13 +534,14 @@ app.directive('save',function(){
 	var link=function(scope, element, attrs){
 		
 		var save = function(e){
-			alert('니나노');
         	var memo = [];
 			var left = [];
 			var top = [];
 			var memoOBJ = $$("._memo");
 	
 			var memoDiv = $$(".w_memo");
+			console.log(memoOBJ);
+			alert(memoOBJ);
 			for(var i = 0; i <memoOBJ.length; i ++)
 			{
 				memo.push(memoOBJ[i].value);
