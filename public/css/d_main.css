@@ -470,12 +470,13 @@ div#topbar *{
 	border: 0px;
 	border-bottom: 1px solid white;
 	background: none;
-	width: 40%;
+	width: 68%;
 	color: #FFFFFF;
 }
 
 .fsearch{
 	float: right;
+	width: 100%;
 }
 .fsearch input{
 	width: 70%;
