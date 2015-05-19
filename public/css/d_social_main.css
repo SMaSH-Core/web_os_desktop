@@ -93,6 +93,7 @@ button{
 	height: 100%;
 	min-width: 70px;
 	max-width: 84px;
+	padding: 10px 15px;
 	/* 앱서랍 버튼의 배경색상 생략
 	background-color: rgba(255, 255, 255, 0.35);*/
 	border: none;
@@ -103,7 +104,6 @@ button{
 	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-align: center;
 	display: inline;
-	margin-left: 3%;
 	cursor: pointer;
 }
 /* 앱서랍 버튼 hover속성 생략
@@ -326,11 +326,10 @@ div#topbar *{
 	font-size: 54px;
 	font-weight: lighter;
 	color: white;
-	z-index: -10;
+	z-index: 10;
 }
 #info{
-	width: 25%;
-	font-size: 11pt;
+	width: auto;
 	float: right;
 }
 #info form p{
@@ -433,7 +432,7 @@ div#topbar *{
 #social_set{
 	margin: 0px;
 	padding-left: 0px;
-	width: 30%;
+	width: auto;
 	float: right;
 	cursor: pointer;
 }
@@ -449,9 +448,50 @@ div#topbar *{
 	display: none;
 }
 #friend_div{
-	display: none;
+	z-index: 14;
+	display: inline-block;
+	float: right;
 	width: 500px;
 }
 #who {
 	display: none;
 }
+#friendList {
+	border-bottom: 1px dotted white;
+	text-align: center;
+}
+#friendList *{ width: 100%; }
+#friendList .nm{ width: 55%; }
+#friendList .msg{ width: 30%; }
+#friendList .inv{ width: 10%; }
+
+#input_friend{
+	font-size: 14pt;
+	text-align: center;
+	border-radius: 0px;
+	margin: 4px;
+	border: 0px;
+	border-bottom: 1px solid white;
+	background: none;
+	width: 68%;
+	color: #FFFFFF;
+}
+
+.fsearch{
+	float: right;
+	width: 100%;
+}
+.fsearch input{
+	width: 70%;
+}
+.fsearch button{
+	width: 30%;
+}
+.newf{
+	width: 100%;
+	background: rgba(255,255,255,0.4);
+}
+.newf .nm{ width: 55%; text-align: center; }
+.newf .msg{ width: 30%; text-align: center; }
+.newf .inv{ width: 10%; text-align: center; }
+#newFriend p{width: 100%}
