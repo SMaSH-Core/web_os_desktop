@@ -13,14 +13,14 @@ app.controller("AppController", function($scope){
 	$scope.increment = function() {
 
 	    $scope.mcount=$scope.mcount+1;
-	    
+	    alert($scope.mcount);
   	};
 });
 
 app.directive('divMemo',function(){
 	return {
         restrict: 'E',
-        template: '<div class="memo_sec" ng-show="memo['+$scope.mcount+']"><div class="memo" ><textarea class="memo_txt" rows="10" cols="20"></textarea></div></div> '
+        template: '<div class="memo_sec" ng-show="memo['+$scope.mcount+']"><div class="memo" ><textarea class="memo_txt" rows="10" cols="20" id="memo['+$scope.mcount+']"></textarea></div></div> '
     };
 })
 
@@ -28,6 +28,7 @@ app.directive('add', function($compile){
 
     var linkFn = function(scope, element, attrs){        
         var addDiv = function(e){
+             alert($scope.mcount);
         	 angular.element(document.getElementById('memo')).append($compile('<div-memo></div-memo>')(scope));  
 			$scope.memo[$scope.mcount]=true;
 			$scope.increment();
@@ -44,7 +45,8 @@ app.directive('add', function($compile){
 app.directive('liMemo',function(){
 	return {
         restrict: 'E',
-        template: '<li class="memo_title" ng-click="memo['+$scope.mcount+']=!memo['+$scope.mcount+'];"></li>'
+       /* template: '<li class="memo_title" ng-click="memo['+$scope.mcount+']=!memo['+$scope.mcount+'];">'+angular.element(document.getElementById('memo['+$scope.mcount+']')).html()+'</li>'*/
+       template: '<li class="memo_title" ng-click="memo['+$scope.mcount+']=!memo['+$scope.mcount+'];"></li>'
     };
 })
 
