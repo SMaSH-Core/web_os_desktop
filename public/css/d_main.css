@@ -458,3 +458,15 @@ div#topbar *{
 #friendList #nm{ width: 55%; }
 #friendList #msg{ width: 30%; }
 #friendList #inv{ width: 10%; }
+
+#input_friend{
+	font-size: 14pt;
+	text-align: center;
+	border-radius: 0px;
+	margin: 4px;
+	border: 0px;
+	border-bottom: 1px solid white;
+	background: none;
+	width: 40%;
+	color: #FFFFFF;
+}
