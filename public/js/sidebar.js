@@ -11,6 +11,6 @@ app.controller("AppController", function($scope){
 app.controller("memoctrl", function($scope){
 	$scope.memo = [];
 	$scope.showList = function(){
-		$scope.memo.fill(false);
+		$scope.memo=false;
 	}
 });
