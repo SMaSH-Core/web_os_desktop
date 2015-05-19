@@ -1,7 +1,6 @@
-<html ng-controller="AppController">
+<html ng-app="TaskManager"ng-controller="AppController">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link href="/css/mobile.css" rel="stylesheet" type="text/css">
         <link href="/css/todo.css" rel="stylesheet" type="text/css">
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
         <script src="http://code.angularjs.org/1.2.0rc1/angular-route.min.js"></script>
@@ -17,10 +16,10 @@
         <div style="height:100%;">
             <div id="menuleft" ng-class="{hide:!showmenu,slide:showmenu}">
               
-                <ul>
-                    <li><a href ="/mmain">HOME</a></li>
-                    <li><a href ="/memo">MEMO</a></li>
-                    <li><a href ="/calendar">CALENDAR</a></li>
+                <ul id="menu_lists">
+                    <li class="menu_li"><a href ="/mmain">HOME</a></li>
+                    <li class="menu_li"><a href ="/memo">MEMO</a></li>
+                    <li class="menu_li"><a href ="/calendar">CALENDAR</a></li>
                  <!--   <li><a href ="/cloud">CLOUD</a></li>-->
                 </ul>
             </div>
@@ -36,12 +35,7 @@
                                 <button type = "submit" >search</button>
                             </form>
                         </div>
-                        <div id="info">
-                            <!--<form action = "/logout" method="post">
-                                <button  class="save logout" type = "submit">LOGOUT</button>
-                            </form>-->
-                            <button id="setting" ng-click="show_setting_li=!show_setting_li"><img src = "/images/Settings.png" /></button>
-                        </div>
+                        
                     </div>
                     <ul id="setting_li" ng-show="show_setting_li">
                         <li id="user_info">USER INFO</li>
@@ -51,7 +45,7 @@
                             </form>
                         </li>
                     </ul>
-                    <div ng-app="TaskManager" style="margin-top:150px;">
+                    <div>
                         <div class="container">
                             <div class="content" ng-controller="taskController">
                                 <h1>ToDo List</h1>

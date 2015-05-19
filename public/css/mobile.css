@@ -43,7 +43,10 @@ body{
 }
 
 ul,li{
- 
+    list-style-type:none;
+    font-size: 11pt;
+    padding:0;
+    text-align: center;
 }
 #menuleft{
     left:-50%;
@@ -54,11 +57,7 @@ ul,li{
     z-index:1000;
     border-right:1px solid #000;
     background-color: rgba(255, 255, 255, 0.75);
-    display:block;
-       list-style-type:none;
-    font-size: 11pt;
-    padding:0;
-    text-align: center;
+    display:block
 }
 
 
