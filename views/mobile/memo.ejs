@@ -54,7 +54,7 @@
                     
                     <div id="memo" ng-controller="memoctrl">
                         <div id="memo_top">
-                            <span>Memo</span><button class="list" ng-click="<%for(var i=0;i<widget.length;i++){%>memo<%=i%>=false<%}%>">=</button><button id="add">+</button><button class="save">+</button>
+                            <span>Memo</span><button class="list" ng-click="showList()">=</button><button id="add">+</button><button class="save">+</button>
                         </div>
                         <ul id="memo_list">
                             <%
@@ -70,14 +70,14 @@
                                     }
                                     %>
 
-                                    <li class="memo_title" ng-click="memo<%=i%>=!memo<%=i%>;memo=true"><%- title %></li>
+                                    <li class="memo_title" ng-click="memo[<%- i %>]=!memo[<%- i %>];"><%- title %></li>
                                     
                                 <%}
                             %>
                         </ul>
                         <%
                         for(var i = 0; i < widget.length; i++){%>
-                            <div class="memo_sec" ng-show="memo<%=i%>&&memo">
+                            <div class="memo_sec" ng-show="memo[<%- i %>]">
                                 <div class="memo" >
                                     <textarea class="memo_txt" rows="10" cols="20"><%-widget[i].memo%></textarea>
                                 </div>
