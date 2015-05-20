@@ -96,7 +96,7 @@ app.directive("myCurrentTime", function(dateFilter){
         var format;
         
         scope.$watch(attrs.myCurrentTime, function(value) {
-            format = 'MMMddyyyy';
+            format = 'MMM dd EEE';
             updateTime();
         });
         
