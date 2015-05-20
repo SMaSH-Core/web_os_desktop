@@ -7,7 +7,7 @@
         <script src="http://code.angularjs.org/1.2.0rc1/angular-route.min.js"></script>
         <script src="http://code.angularjs.org/1.2.0rc1/angular-touch.min.js"></script>
         <script src="/js/sidebar.js" type="text/javascript"></script>
-        <script type="text/javascript"></script>
+        
     </head>
     <body ng-swipe-left="showmenu=false" ng-swipe-right="showmenu=true">
       <!--  <video autoplay loop>
@@ -38,14 +38,14 @@
                         </div>
                     </div>
                     
-                    <div id="memo" >
+                    <div id="memos" >
                         <div id="memo_top">
                             <span>Memo</span>
-                            <button class="list" ng-click="memo=false">=</button>
-                            <button class="add" ng-show="addbutton" ng-click="addbutton=false;savebutton=true;">+</button>
-                            <button class="save" ng-show="savebutton" ng-click="addbutton=true;savebutton=false">+</button>
+                            <button class="list" >=</button>
+                            <button class="add" >+</button>
+                            <!--<button class="save" ng-show="savebutton" ng-click="addbutton=true;savebutton=false">+</button>-->
                         </div>
-                        <ul id="memo_list" ">
+                        <!--<ul id="memo_list" >
                             <%
                                 for(var i = 0; i < widget.length; i++){
                                     var title="";
@@ -73,10 +73,41 @@
                             </div>  
                         
                         <%}%>
-                    </div>
+                        <div class="accordion__container" ng-controller="Ctrl">
+                            <div class="accordion__tab" >
+                            <% 
+                            for(var i = 0; i < widget.length; i++){
+                                var title="";
+                                if (widget[i].memo.length<=10)
+                                    title=widget[i].memo;
+                                else{
+                                    for (var j=0; j<10;j++){
+                                        title= title + widget[i].memo[j];
+                                    }
+                                    title = title + "...";
+                                }%>
+                            
+                                <div class="accordion__tab-title" ng-show="show_tab=!isOpenTab('tab <%=i%>')"  ng-click="openTab('tab <%=i%>')"><%- title %></div>
+                            <%}%>
+                                 <%for(var i = 0; i < widget.length; i++){%>
+                                <div class="accordion__tab-content" ng-show="show_con[<%=i%>]=isOpenTab('tab <%=i%>')"><textarea class="memo_txt" rows="10" cols="20"><%- widget[i].memo %></textarea></div>
+                                 <%}%>
+                            </div>
+                           
+                        </div>-->
+                         
+                            
+                        <%for(var i = 0; i < widget.length; i++){%>
+                            <div class="memo_title" >
+                                <textarea class="memo_txt" rows="10" cols="20"><%- widget[i].memo %></textarea>
+                            </div>
+                        <%}%>
+                           
+                           
+
     
+                    </div>
                 </div>
-                
             </div>
 
        </div>

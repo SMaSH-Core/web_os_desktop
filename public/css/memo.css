@@ -218,30 +218,34 @@ div#topbar *{
     border-top: 1px solid white;
 }
 /*memo*/
-/*
+
 .accordion__container {
-    font-size: 150%;
+    font-size: 20pt;
     padding: 2%;  
 }
 .accordion__tab {
-    font-size: 150%;
+    font-size: 20pt;
     background: #aaa;
     border-bottom: 1px solid white;
 }
 .accordion__tab-title {
-    font-size: 150%;
+    font-size: 20pt;
     background: #888;
     padding: 2%;
     cursor: pointer;
 }
 .accordion__tab-content {
-    font-size: 150%;
-    background: #999;
-    padding: 5%;
-    white-space:normal;
-    word-break:break-all;
-}*/
-#memo{
+  background: white;
+  padding: 5%;
+  white-space: normal;
+  word-break: break-all;
+  z-index: 2000;
+  position: absolute;
+  width: 86%;
+  height: 85%;
+  top:45px;
+}
+#memos{
     position: absolute;
     top:10%;
     height: 85%;
@@ -319,9 +323,33 @@ div#topbar *{
     border: 0;
     width: 96%;
     height: 96%;
-    padding:2%;
     font-size: 12pt;
     background:none;
     border-bottom-right-radius: 1em;
     border-bottom-left-radius: 1em;
+}
+.memo_title{
+    width: 96%;
+    height:3%;
+    padding:2%;
+    font-size: 12pt;
+    border: 0;
+    background:none;
+    border-bottom: 1px solid white;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    z-index:20;
+
+}
+.memo_click{
+    width: 96%;
+    height:96%;
+    padding:2%;
+    font-size: 12pt;
+    border: 0;
+    background:none;
+    border-bottom: 1px solid white;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    z-index:22;
 }
