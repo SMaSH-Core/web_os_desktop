@@ -18,10 +18,9 @@ module.exports = function (app, passport,module){
     });
     app.get('/memo',function (req, res)
     {
-        
         //var wid = req.user.app.widget; //혜진님 이것은 DB에 저장되어있던 메모를 가져오는거고
         //아래건 임시 메모 넘기
-        var wid = [ { "top" : "158px", "left" : "177px", "memo" : "혜진님!" }, { "top" : "154px", "left" : "485px", "memo" : "고생많아!" }, { "top" : "24px", "left" : "779px", "memo" : "열심히해요!\r\n\r\n혜진님 이뻐" } ]
+        var wid = req.user.app.widget;
         res.render('mobile/memo',{
             UserID : req.user.email,
             UserName : req.user.name,
@@ -114,8 +113,8 @@ module.exports = function (app, passport,module){
         var info = dirTree(currentpath);
 
         res.render('mobile/mobile_main',{
-                UserID : 'hyejin@a.a',
-                UserName : 'hyejin',
+                UserID : req.user.email,
+                UserName : req.user.name,
                 userapp : sessionApp,
                 widget : wid});
         
