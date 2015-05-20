@@ -306,7 +306,7 @@ div#topbar *{
 /* 가운데 시계 및 인사말 div 속성 추가 */
 .center{
 	position: absolute;
-	z-index: 10;
+	z-index: -10;
 	width: 30%;
 	left: 35%;
 	top: 25%;
@@ -321,7 +321,7 @@ div#topbar *{
 	font-size: 160px;
 	font-weight: lighter;
 	color: white;
-	z-index: 10;
+	z-index: -10;
 }
 /* 인사말 속성 추가 */
 .greeting{
@@ -329,7 +329,7 @@ div#topbar *{
 	font-size: 54px;
 	font-weight: lighter;
 	color: white;
-	z-index: 10;
+	z-index: -10;
 }
 #info{
 	width: auto;
@@ -492,3 +492,5 @@ div#topbar *{
 .newf .msg{ width: 30%; text-align: center; }
 .newf .inv{ width: 10%; text-align: center; }
 #newFriend p{width: 100%}
+#friend_div { z-index: 20;}
+#friend_div *{ z-index: 20;}
